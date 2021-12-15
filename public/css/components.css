@@ -1,0 +1,53 @@
+body {
+    margin: 0;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+     height: 100px;
+     background-color: rgb(0, 140, 255);
+     color: white;
+ }
+ .searchForm {
+     display: flex;
+     align-items: center;
+     width: 40%;
+     margin: 0 auto;
+ }
+ .search {
+     width: 80%;
+     display: flex;
+     align-content: center;
+     margin: 0 auto;
+ }
+ .searchWord{
+     width: 100%;
+     border-radius: 10px;
+ }
+ .submit {
+     padding: 2px 8px;
+     border-radius: 5px;
+     margin-left: 30px;
+     box-shadow: 2px 2px rgb(2, 46, 82);
+
+ }
+ .menuList {
+     width: auto;
+     display: flex;
+     align-items: center;
+     margin-right: 30px;
+ }
+ul{
+    display: flex;
+    float: right;
+    width: auto;
+    list-style: none;
+ }
+ .icon {
+     margin: 0 20px;
+ }
+ li {
+     margin: 0 10px;
+ }

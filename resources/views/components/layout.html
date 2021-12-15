@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>MylaravelApp</title>
+        <link rel="stylesheet" href="/Users/satoukouhei/Desktop/MyLaravelApp/public/css/components.css">
+        <script src="https://kit.fontawesome.com/19d6cf92e4.js" crossorigin="anonymous"></script>
+        <!-- {{ url('css/top.css') }} -->
+
+    </head>
+    <body>
+        <header>
+           <div class="searchForm">
+               <div>logo</div>
+               <form action="" method="" class="search">
+                   <input type="text" placeholder="ここに入力" class="searchWord">
+                   <input type="submit" value="検索" class="submit">
+               </form>
+           </div>
+           <div class="menuList">
+               <ul>
+                   <li class="icon">
+                    <i class="fas fa-shopping-cart fa-2x"></i>
+                   </li>
+                   <li class="icon">
+                       <i class="fas fa-bars fa-2x"></i>
+                   </li>
+               </ul>
+           </div>
+        </header>
+        {{ $slot }}
+    </body>
+</html>
