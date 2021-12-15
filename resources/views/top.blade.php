@@ -7,7 +7,7 @@
 </head>
 <body>
     <main>
-        
+        <h1>topページです</h1>
         <div class="searchForm">
             <div>logo</div>
             <form action="" method="" class="search">
