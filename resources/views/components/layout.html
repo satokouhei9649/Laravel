@@ -18,7 +18,7 @@
                </form>
            </div>
            <div class="menuList">
-               <ul>
+               <ul class="list">
                    <li class="icon">
                     <i class="fas fa-shopping-cart fa-2x"></i>
                    </li>
@@ -26,8 +26,22 @@
                        <i class="fas fa-bars fa-2x"></i>
                    </li>
                </ul>
-           </div>
+            </div>
+
         </header>
+        <!-- メニューmodal -->
+        <div id="modal" class="modal">
+            <ul>
+                <li>新規登録・ログイン</li>
+                <li>新規登録</li>
+                <li>ログイン</li>
+                <li>お買い物</li>
+                <li>ジャンルで探す</li>
+                <li>値段で探す</li>
+            </ul>
+        </div>
+
         {{ $slot }}
+        <script src="public/js/top.js"></script>
     </body>
 </html>

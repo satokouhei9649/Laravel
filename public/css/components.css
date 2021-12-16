@@ -39,7 +39,7 @@ header {
      align-items: center;
      margin-right: 30px;
  }
-ul{
+.list{
     display: flex;
     float: right;
     width: auto;
@@ -51,3 +51,39 @@ ul{
  li {
      margin: 0 10px;
  }
+
+
+
+
+
+
+
+ #modal {
+     background-color: rgba(251, 251, 251, 0.979);
+     width: 25%;
+     z-index: 2;
+     position: fixed;
+     top: 0px;
+     right: 400px;
+     border:1px solid rgba(0, 0, 0, 0.303);
+     transition: transform .3s ease;
+ }
+ #modal > ul  {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+ }
+ #modal > ul >li {
+     display: block;
+     margin: 20px auto;
+     padding: 6px 8px;
+     font-size: 20px;
+     list-style: none;
+     border-bottom:1px solid rgba(0, 0, 0, 0.303);
+ }
+#modal.modal {
+    transform: translate(-300px 0);
+}
+
+
+
