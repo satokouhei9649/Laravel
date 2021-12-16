@@ -81,7 +81,7 @@ header {
      list-style: none;
      border-bottom:1px solid rgba(0, 0, 0, 0.303);
  }
-#modal.modal {
+.modal {
     transform: translate(-300px 0);
 }
 
