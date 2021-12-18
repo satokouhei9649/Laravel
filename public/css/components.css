@@ -1,7 +1,9 @@
 body {
     margin: 0;
 }
-
+a {
+    text-decoration: none;
+}
 
 header {
     display: flex;
@@ -63,9 +65,6 @@ header {
      border:1px solid rgba(0, 0, 0, 0.303);
  }
  #modal > p,h3 {
-     position: relative;
-     top: 0px;
-     right: 0%;
      text-align: center;
      margin: 20px auto;
      padding: 6px 8px;
@@ -81,12 +80,14 @@ header {
  }
 #modal.hidden {
     display:block;
-    right: 0%;
-   animation: modal .3s;
+   animation: modal .4s;
 }
 @keyframes modal {
     0% {
         right: -100%;
+    }
+    50% {
+        right: -50%;
     }
     100% {
         right: 0%;

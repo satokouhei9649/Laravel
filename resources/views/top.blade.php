@@ -25,6 +25,7 @@
                     <li>No posts yet!</li>
                 @endforelse
             </ul>
+            
         </div>
     </main>
     <footer style="text-align: center">
