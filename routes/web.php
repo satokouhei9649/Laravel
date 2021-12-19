@@ -12,10 +12,16 @@ use App\Http\Controllers\PostController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+// root
 Route::get('/', [PostController::class, 'top'])
     ->name('posts.top');
 
 Route::get('/posts/{post}', [PostController::class, 'show'])
     ->name('posts.show')
     ->where('post', '[0-9]+');
+    // login
+// Route::get('/login', [PostController::class, 'login'])
+//     ->name('users.login');
+// // signup
+// Route::get('/signup', [PostController::class, 'signup'])
+//     ->name('users.signup');

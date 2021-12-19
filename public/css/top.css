@@ -1,14 +1,52 @@
 main {
-    margin: 0 auto;
+    margin: 100px auto 0;
     text-align: center;
 }
 ul {
     list-style: none;
 }
+.foodmenu {
+    display: flex;
+    justify-content: center;
+    margin: 80px auto;
+}
+.foodIcon {
+    color: white;
+    border-radius: 10px;
+    display: inline-block;
+    width: 8%;
+    padding: 10px;
+    height: 80%;
+    cursor: pointer;
+}
 
+.tab1 {
+    background: rgb(238, 53, 53);
+    margin: 0;
+}
+.tab2 {
+    background: rgb(34, 86, 230);
+}
+.tab3 {
+    background: rgb(14, 204, 14);
 
+}
+.tab4 {
+    background: rgb(250, 233, 3);
 
+}
+.tab5 {
+    background: orange
 
+}
+.tab6 {
+    background: pink;
+
+}
+.tab7 {
+    background: rgb(185, 26, 185);
+
+}
 
 
 

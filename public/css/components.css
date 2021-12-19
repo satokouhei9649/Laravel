@@ -7,10 +7,14 @@ a {
 
 header {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
      height: 100px;
      background-color: rgb(0, 140, 255);
      color: white;
+     position: fixed;
+     top: 0;
+     left: 0;
+     right: 0;
  }
  .searchForm {
      display: flex;
@@ -24,6 +28,10 @@ header {
      align-content: center;
      margin: 0 auto;
  }
+ .searchForm1{
+     width: 40%;
+    margin-left: 30%;
+ }
  .searchWord{
      width: 100%;
      border-radius: 10px;
@@ -32,14 +40,13 @@ header {
      padding: 2px 8px;
      border-radius: 5px;
      margin-left: 30px;
-     box-shadow: 2px 2px rgb(2, 46, 82);
-
+     box-shadow: 2px 2px rgb(2, 77, 138);
+    border:1px solid rgb(2, 77, 138);
  }
  .menuList {
      width: auto;
      display: flex;
      align-items: center;
-     margin-right: 30px;
  }
 .list{
     display: flex;
@@ -50,19 +57,18 @@ header {
  .icon {
      margin: 0 20px;
  }
- li {
-     margin: 0 10px;
- }
+
 /* modalのcss */
  #modal {
      display: none;
      background-color: rgba(251, 251, 251, 0.979);
      width: 25%;
-     z-index: 2;
+     z-index: 99;
      position: fixed;
      top: 0px;
      right: 0px;
      border:1px solid rgba(0, 0, 0, 0.303);
+     opacity: 0.9999999999;
  }
  #modal > p,h3 {
      text-align: center;
