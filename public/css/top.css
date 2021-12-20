@@ -2,22 +2,39 @@ main {
     margin: 100px auto 0;
     text-align: center;
 }
-ul {
-    list-style: none;
-}
+
 .foodmenu {
     display: flex;
     justify-content: center;
-    margin: 80px auto;
+    width: 70%;
+    margin: 10px auto 0;
+    padding:12px 60px 0;
+    list-style: none;
+    height: auto;
 }
-.foodIcon {
+.foodmenu li a {
     color: white;
-    border-radius: 10px;
     display: inline-block;
-    width: 8%;
-    padding: 10px;
-    height: 80%;
+    width: 100%;
+    border-radius: 10px;
+    height: 70px;
     cursor: pointer;
+}
+.foodmenu li {
+    display: inline-block;
+    width: 50%;
+    border-radius: 10px;
+    height: 100%;
+}
+.content.active {
+    display: block;
+    height: auto;
+    border:2px solid gray;
+    width: 70%;
+    margin: 0 auto;
+}
+.content {
+    display: none;
 }
 
 .tab1 {
