@@ -16,14 +16,13 @@ main {
     color: white;
     display: inline-block;
     width: 100%;
-    border-radius: 10px;
+    border-radius: 10px 10px 0 0;
     height: 70px;
     cursor: pointer;
 }
 .foodmenu li {
     display: inline-block;
     width: 50%;
-    border-radius: 10px;
     height: 100%;
 }
 .content.active {
@@ -32,6 +31,7 @@ main {
     border:2px solid gray;
     width: 70%;
     margin: 0 auto;
+    box-sizing: border-box;
 }
 .content {
     display: none;
@@ -65,7 +65,16 @@ main {
 
 }
 
-
+footer {
+    text-align: center;
+    background-color: rgb(61, 61, 61);
+    color: white;
+    height: auto;
+    margin-top: 100px;
+}
+footer p {
+    margin: 0;
+}
 
 .backlink {
     color: cyan;

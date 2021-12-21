@@ -14,6 +14,18 @@
                 </form>
             </div>
 
+
+
+
+
+
+
+
+
+
+
+            
+
                 <ul class="foodmenu">
                     <li><a href="#" class="foodIcon tab1" data-id="meat"><img src="{{ asset('img/steak.png')}}" ></a></li>
                     <li><a href="#" class="foodIcon tab2" data-id="fish"><i class="fas fa-fish fa-4x"></i></a></li>
@@ -23,29 +35,57 @@
                     <li><a href="#" class="foodIcon tab6" data-id="drink"><i class="fas fa-wine-bottle fa-4x"></i></a></li>
                     <li><a href="#" class="foodIcon tab7" data-id="others"><i class="fas fa-bread-slice fa-4x"></i></a></li>
                 </ul>
-                <section class="content active" id="meat" style="border: 10px solid red">
-                    肉
+
+                <section class="content active" id="meat" style="border: 20px solid rgb(238, 53, 53)">
+                    <h1>肉</h1>
+                    <ul>
+                        <li></li>
+                    </ul>
                 </section>
-                <section class="content" id="fish">
-                    魚
+                <section class="content" id="fish" style="border: 20px solid rgb(34, 86, 230)">
+                    <h1>魚</h1>
+                    <ul>
+                        <li></li>
+                    </ul>
                 </section>
-                <section class="content" id="veg">
-                    野菜
+                <section class="content" id="veg" style="border: 20px solid rgb(14, 204, 14)">
+                    <h1>野菜</h1>
+                    <ul>
+                        <li></li>
+                    </ul>
                 </section>
-                <section class="content" id="egg">
-                    卵
+                <section class="content" id="egg" style="border: 20px solid rgb(250, 233, 3)">
+                   <h1> 卵</h1>
+                    <ul>
+                        <li></li>
+                    </ul>
                 </section>
-                <section class="content" id='fruit'>
-                    果物
+                <section class="content" id='fruit' style="border: 20px solid orange">
+                   <h1>果物</h1>
+                    <ul>
+                        <li></li>
+                    </ul>
                 </section>
-                <section class="content" id="drink">
-                    飲み物
+                <section class="content" id="drink" style="border: 20px solid pink">
+                    <h1>飲み物</h1>
+                    <ul>
+                        <li></li>
+                    </ul>
                 </section>
-                <section class="content" id="others">
-                    その他
+                <section class="content" id="others" style="border: 20px solid rgb(185, 26, 185)">
+                    <h1>その他</h1>
+                    <ul>
+                        <li></li>
+                    </ul>
                 </section>
+
+
+
+
+
+
         </main>
-        <footer style="text-align: center">
+        <footer>
             <p>お問合わせ</p>
             <p>新規登録 / ログイン</p>
             <p></p>
