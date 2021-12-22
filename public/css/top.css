@@ -1,15 +1,49 @@
 main {
     margin: 100px auto 0;
     text-align: center;
+    z-index: 1;
+}
+ul {
+    list-style: none;
+    margin: 0 auto;
+    width: 80%;
+    padding: 0;
+    height: 30%;
+    display: flex;
+    z-index: 0;
 }
 
+.screen {
+    min-width: 100%;
+    height: 100%;
+    outline:1px solid gray;
+    display: none;
+}
+.sp {
+    position: relative;
+    display: block;
+}
+
+section {
+    width: 80%;
+    margin: 0 auto;
+}
+#prev,#next {
+    position: absolute;
+    top: 55%;
+}
+#prev {
+    left: 20%;
+}
+#next {
+    right: 20%;
+}
 .foodmenu {
     display: flex;
     justify-content: center;
     width: 70%;
     margin: 10px auto 0;
     padding:12px 60px 0;
-    list-style: none;
     height: auto;
 }
 .foodmenu li a {
