@@ -14,18 +14,23 @@
                 </form>
             </div>
 
-        <section>
             <h2>オススメ商品 ・ セール</h2>
-            <ul>
-                <li class="screen sp">オススメ</li>
-                <li class="screen">セールス</li>
-                <li class="screen">オスメめ</li>
-                <li class="screen">セール</li>
-            </ul>
-            <button id="prev">&laquo;</button>
-            <button id="next">&raquo;</button>
-        </section>
-
+            <section>
+                <ul class="sellAd">
+                    <li class="screen sp">オススメ</li>
+                    <li class="screen">セールス</li>
+                    <li class="screen">オスメめ</li>
+                    <li class="screen">セール</li>
+                </ul>
+                <button id="prev">&laquo;</button>
+                <button id="next">&raquo;</button>
+                <nav class="nav1">
+                    {{-- <button class="current screenBtn"></button>
+                    <button class="screenBtn"></button>
+                    <button class="screenBtn"></button>
+                    <button class="screenBtn"></button> --}}
+                </nav>
+            </section>
 
         <ul class="foodmenu">
             <li><a href="#" class="foodIcon tab1" data-id="meat"><img src="{{ asset('img/steak.png')}}" ></a></li>
