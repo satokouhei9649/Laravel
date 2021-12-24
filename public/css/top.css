@@ -34,7 +34,7 @@ ul {
     overflow: hidden;
 }
 
-#prev,#next {
+.prev,.next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -43,14 +43,14 @@ ul {
     padding: 10px;
     cursor: pointer;
 }
-#prev:hover,
-#next:hover {
+.prev:hover,
+.next:hover {
     opacity: 0.8;
 }
-#prev {
+.prev {
     left: 0;
 }
-#next {
+.next {
     right: 0;
 }
 .hidden {

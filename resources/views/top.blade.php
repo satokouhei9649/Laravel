@@ -22,13 +22,9 @@
                     <li class="screen">オスメめ</li>
                     <li class="screen">セール</li>
                 </ul>
-                <button id="prev">&laquo;</button>
-                <button id="next">&raquo;</button>
+                <button class="prev">&laquo;</button>
+                <button class="next">&raquo;</button>
                 <nav class="nav1">
-                    {{-- <button class="current screenBtn"></button>
-                    <button class="screenBtn"></button>
-                    <button class="screenBtn"></button>
-                    <button class="screenBtn"></button> --}}
                 </nav>
             </section>
 
@@ -85,15 +81,20 @@
             </ul>
         </section>
 
-        <section>
+
             <h2>新着順</h2>
-            <ul>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
-        </section>
+            <section>
+                <ul class="sellAd">
+                    <li class="screen sp">オススメ</li>
+                    <li class="screen">セールス</li>
+                    <li class="screen">オスメめ</li>
+                    <li class="screen">セール</li>
+                </ul>
+                <button class="prev">&laquo;</button>
+                <button class="next">&raquo;</button>
+                <nav class="nav1">
+                </nav>
+            </section>
         </main>
 
         <footer>
