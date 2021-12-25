@@ -15,19 +15,35 @@
             </div>
 
             <h2>オススメ商品 ・ セール</h2>
-            <section>
-                <ul class="sellAd">
-                    <li class="screen sp">オススメ</li>
-                    <li class="screen">セールス</li>
-                    <li class="screen">オスメめ</li>
-                    <li class="screen">セール</li>
-                </ul>
-                <button class="prev">&laquo;</button>
-                <button class="next">&raquo;</button>
-                <nav class="nav1">
-                </nav>
-            </section>
+            <div class="container">
+                <section>
+                    <ul class="sellAd">
+                        <li class="screen sp">オススメ</li>
+                        <li class="screen">セールス</li>
+                        <li class="screen">オスメめ</li>
+                        <li class="screen">セール</li>
+                    </ul>
+                    <button class="prev">&laquo;</button>
+                    <button class="next">&raquo;</button>
+                <nav class="nav1"></nav>
+                </section>
+                <section>
+                    <ul class="sellAd">
+                        <li class="screen sp">オススメ</li>
+                        <li class="screen">セールス</li>
+                        <li class="screen">オスメめ</li>
+                        <li class="screen">セール</li>
+                    </ul>
+                    <button class="prev">&laquo;</button>
+                    <button class="next">&raquo;</button>
+                    <nav class="nav1">
+                    </nav>
+                </section>
+            </div>
 
+
+
+            <h2 class="Food">ジャンルで探す</h2>
         <ul class="foodmenu">
             <li><a href="#" class="foodIcon tab1" data-id="meat"><img src="{{ asset('img/steak.png')}}" ></a></li>
             <li><a href="#" class="foodIcon tab2" data-id="fish"><i class="fas fa-fish fa-4x"></i></a></li>
@@ -82,19 +98,6 @@
         </section>
 
 
-            <h2>新着順</h2>
-            <section>
-                <ul class="sellAd">
-                    <li class="screen sp">オススメ</li>
-                    <li class="screen">セールス</li>
-                    <li class="screen">オスメめ</li>
-                    <li class="screen">セール</li>
-                </ul>
-                <button class="prev">&laquo;</button>
-                <button class="next">&raquo;</button>
-                <nav class="nav1">
-                </nav>
-            </section>
         </main>
 
         <footer>

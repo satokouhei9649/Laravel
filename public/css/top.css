@@ -3,13 +3,19 @@ main {
     text-align: center;
     z-index: 1;
 }
+.container {
+    display: flex;
+    justify-content: space-between;
+    height: 30%;
+}
 
 section {
-    width: 30%;
+    width: 25%;
     margin: 0 auto;
     padding: 0;
     overflow: hidden;
     position: relative;
+    height: 100%;
 }
 
 ul {
@@ -17,7 +23,7 @@ ul {
     margin: 0 auto;
     padding: 0;
     width: 100%;
-    height: 30%;
+    height: 80%;
     display: flex;
     transition: transform .3s;
 }
@@ -56,8 +62,6 @@ ul {
 .hidden {
     display: none;
 }
-
-
 .screenBtn {
     background: rgb(202, 202, 202) ;
     border: none;
@@ -72,10 +76,14 @@ nav .current {
 }
 
 
+
+#Food {
+ font-family: cursive;
+}
 .foodmenu {
     display: flex;
     justify-content: center;
-    width: 70%;
+    width: 50%;
     margin: 10px auto 0;
     padding:12px 60px 0;
     height: auto;
@@ -95,9 +103,9 @@ nav .current {
 }
 .content.active {
     display: block;
-    height: auto;
+    height: 50%;
     border:2px solid gray;
-    width: 70%;
+    width: 50%;
     margin: 0 auto;
     box-sizing: border-box;
 }
