@@ -38,8 +38,6 @@
     const screens = Ad.children;
     const dots = [];
     let count = 0;
-
-
     // 矢印の表示
     function btnStaus() {
         prevBtn.classList.remove('hidden');
