@@ -49,7 +49,7 @@
             nextBtn.classList.add('hidden');
         }
     }
-
+// スライド
     function moveScreen() {
         const screenWidth = screens[0].getBoundingClientRect().width;
         Ad.style.transform = `translateX(${-1 * screenWidth * count}px)`;
@@ -69,6 +69,7 @@
         }
         dots[0].classList.add('current');
     }
+    
     function dotsStatus() {
         dots.forEach( dot => {
             dot.classList.remove('current');

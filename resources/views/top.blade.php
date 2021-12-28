@@ -14,32 +14,24 @@
                 </form>
             </div>
 
-            <h2>オススメ商品 ・ セール</h2>
-            <div class="container">
-                <section>
-                    <ul class="sellAd">
-                        <li class="screen sp">オススメ</li>
-                        <li class="screen">セールス</li>
-                        <li class="screen">オスメめ</li>
-                        <li class="screen">セール</li>
-                    </ul>
-                    <button class="prev">&laquo;</button>
-                    <button class="next">&raquo;</button>
+            <section>
+                <ul class="sellAd">
+                    <li class="screen sp">クーポン</li>
+                    <li class="screen">送料￥</li>
+                    <li class="screen">オスメメ</li>
+                    <li class="screen">セール</li>
+                </ul>
+                <button class="prev">&laquo;</button>
+                <button class="next">&raquo;</button>
                 <nav class="nav1"></nav>
-                </section>
-                <section>
-                    <ul class="sellAd">
-                        <li class="screen sp">オススメ</li>
-                        <li class="screen">セールス</li>
-                        <li class="screen">オスメめ</li>
-                        <li class="screen">セール</li>
-                    </ul>
-                    <button class="prev">&laquo;</button>
-                    <button class="next">&raquo;</button>
-                    <nav class="nav1">
-                    </nav>
-                </section>
-            </div>
+            </section>
+            <h2>オススメ商品 ・ セール</h2>
+
+                <ul class="recommends">
+                    <li class="recommend">オススメ</li>
+                    <li class="recommend">セールス</li>
+                    <li class="recommend">オスメめ</li>
+                </ul>
 
 
 
@@ -57,7 +49,7 @@
         <section class="content active" id="meat" style="border: 20px solid rgb(238, 53, 53)">
             <h1>肉</h1>
             <ul>
-                <li></li>
+                <li>牛肉</li>
             </ul>
         </section>
         <section class="content" id="fish" style="border: 20px solid rgb(34, 86, 230)">
