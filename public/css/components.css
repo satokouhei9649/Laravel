@@ -64,13 +64,15 @@ header {
 /* modalのcss */
  #modal {
      display: none;
-     background-color: rgba(251, 251, 251, 0.979);
+     background-color: rgba(255, 255, 255, 0.986);
      width: 25%;
      z-index: 99;
      position: fixed;
-     top: 0px;
+     top: 0;
+     right: 0;
      border:1px solid rgba(0, 0, 0, 0.303);
      opacity: 0.9999999999;
+     animation: modal2 .4s;
  }
  #modal > p,h3 {
      text-align: center;
@@ -88,9 +90,9 @@ header {
  }
 #modal.hidden {
     display:block;
-   animation: modal .4s;
+   animation: modal1 .4s;
 }
-@keyframes modal {
+@keyframes modal1{
     0% {
         right: -100%;
     }
@@ -99,6 +101,18 @@ header {
     }
     100% {
         right: 0%;
+    }
+
+}
+@keyframes modal2 {
+    0% {
+        right: 0%;
+    }
+    50% {
+        right: -50%;
+    }
+    100% {
+        right: -100%;
     }
 
 }

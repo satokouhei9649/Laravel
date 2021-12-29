@@ -14,7 +14,7 @@
                 </form>
             </div>
 
-            <section>
+            <section class="Add">
                 <ul class="sellAd">
                     <li class="screen sp">クーポン</li>
                     <li class="screen">送料￥</li>
