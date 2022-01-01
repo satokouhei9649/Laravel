@@ -14,7 +14,7 @@
                 </form>
             </div>
 
-            <section class="Add">
+            <section class="Ad">
                 <ul class="sellAd">
                     <li class="screen sp">クーポン</li>
                     <li class="screen">送料￥</li>
@@ -28,7 +28,10 @@
             <h2>オススメ商品 ・ セール</h2>
 
                 <ul class="recommends">
-                    <li class="recommend">オススメ</li>
+                    <li class="recommend"><div class="rank">1</div>オススメ</li>
+                    <li class="recommend"><div class="rank">2</div>オススメ</li>
+                    <li class="recommend"><div class="rank">3</div>オススメ</li>
+                    <li class="recommend"><div class="rank">4</div>オススメ</li>
                     <li class="recommend">セールス</li>
                     <li class="recommend">オスメめ</li>
                 </ul>
