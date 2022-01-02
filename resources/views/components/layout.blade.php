@@ -42,6 +42,13 @@
                 <p><a href=".Food">ジャンルで探す</a></p>
                 <p><a>値段で探す</a></p>
         </section>
+
+
+        {{-- 新規登録 --}}
+        <div class="signup">
+            <input type="text" class=".name">
+            <textarea class="callNum"></textarea>
+        </div>
               {{ $slot }}
         <script src="{{ url('js/top.js')}}"></script>
     </body>

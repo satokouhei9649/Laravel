@@ -73,7 +73,7 @@ nav .current {
 .recommends {
     height: 60%;
     margin: 10px;
-    overflow-x: auto;
+    overflow: scroll;
     white-space: nowrap;
 }
 .recommend {
@@ -90,7 +90,6 @@ nav .current {
     color: white;
     background-color: gold;
     font-size: 24px;
-
 }
 
 #Food {

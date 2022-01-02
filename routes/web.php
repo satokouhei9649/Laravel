@@ -23,5 +23,5 @@ Route::get('/posts/{post}', [PostController::class, 'show'])
 // Route::get('/login', [PostController::class, 'login'])
 //     ->name('users.login');
 // // signup
-// Route::get('/signup', [PostController::class, 'signup'])
-//     ->name('users.signup');
+Route::post('/signup', [PostController::class, 'signup'])
+    ->name('posts.signup');
