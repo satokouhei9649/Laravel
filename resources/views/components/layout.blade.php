@@ -10,46 +10,47 @@
     <body>
         {{-- header --}}
         <header>
-           <div class="searchForm searchForm1">
-               <form action="" method="" class="search topSearch">
-                   <input type="text" placeholder="ここに入力" class="searchWord">
-                   <input type="submit" value="検索" class="submit">
-               </form>
-           </div>
-           <div class="menuList">
-               <ul class="list">
-                   <li class="icon">
-                    <i class="fas fa-shopping-cart fa-2x"></i>
-                   </li>
-                   <li class="icon">
-                       <i class="fas fa-bars fa-2x" id="menu"></i>
-                   </li>
-               </ul>
+            <div class="searchForm searchForm1">
+                <form action="" method="" class="search topSearch">
+                    <input type="text" placeholder="ここに入力" class="searchWord">
+                    <input type="submit" value="検索" class="submit">
+                </form>
+            </div>
+            <div class="menuList">
+                <ul class="list">
+                    <li class="icon">
+                        <i class="fas fa-shopping-cart fa-2x"></i>
+                    </li>
+                    <li class="icon">
+                        <i class="fas fa-bars fa-2x" id="menu"></i>
+                    </li>
+                </ul>
             </div>
         </header>
 
         <!-- メニューmodal -->
         <section id="modal">
             <div id="close">✖️</div>
-                <h3>新規登録・ログイン</h3>
-                <p><a href=
-                    {{-- " {{route('posts.signup') }}" --}}
-                    >新規登録</a></p>
+            <h3>新規登録・ログイン</h3>
+            <p><a href=
+                {{-- " {{route('posts.signup') }}" --}}
+                >新規登録</a></p>
                 <p><a href=
                     {{-- "{{route('posts.login') }}" --}}
                     >ログイン</a></p>
-                <h3>お買い物</h3>
-                <p><a href=".Food">ジャンルで探す</a></p>
-                <p><a>値段で探す</a></p>
-        </section>
+                    <h3>お買い物</h3>
+                    <p><a href=".Food">ジャンルで探す</a></p>
+                    <p><a>値段で探す</a></p>
+                </section>
 
 
-        {{-- 新規登録 --}}
-        <div class="signup">
-            <input type="text" class=".name">
-            <textarea class="callNum"></textarea>
-        </div>
-              {{ $slot }}
-        <script src="{{ url('js/top.js')}}"></script>
-    </body>
-</html>
+                <div class="backGround"></div>
+                {{-- 新規登録 --}}
+                <div class="signup">
+                    <input type="text" class="name">
+                    <input type="text" class="name">
+                </div>
+                {{ $slot }}
+                <script src="{{ url('js/top.js')}}"></script>
+            </body>
+            </html>

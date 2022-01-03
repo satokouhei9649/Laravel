@@ -104,21 +104,32 @@ header {
 
 }
  .signup {
-     width: 50%;
-     height: 30%;
+     width: 25%;
+     height: 60%;
      z-index: 15;
      background-color: gold;
      position: fixed;
      top: 30%;
-     left: 25%;
-     /* right:; */
+     left: 35%;
+     display: none;
+ }
+ .name {
+     display: block;
+     width: 50%;
+     margin: 0 auto;
+     text-align: center;
  }
  .name {
      z-index: 15;
  }
- .callNum {
-     z-index: 15;
- }
-
+.backGround {
+    background: gray;
+    opacity: 0.8;
+    position: fixed;
+    width: 100%;
+    z-index: 13;
+    height: 100%;
+    display: none;
+}
 
 
