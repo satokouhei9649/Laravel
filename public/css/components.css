@@ -104,32 +104,56 @@ header {
 
 }
  .signup {
-     width: 25%;
-     height: 60%;
+     width: 40%;
+     height: 95%;
      z-index: 15;
-     background-color: gold;
+     background-color: white;
      position: fixed;
-     top: 30%;
-     left: 35%;
-     display: none;
- }
- .name {
-     display: block;
-     width: 50%;
-     margin: 0 auto;
+     top: 1%;
+     left: 30%;
      text-align: center;
+     /* display: none; */
  }
- .name {
+ .signup > input {
+     display: block;
+     width: 60%;
+     margin: 5% auto;
      z-index: 15;
  }
 .backGround {
     background: gray;
     opacity: 0.8;
     position: fixed;
+    top: 0;
     width: 100%;
-    z-index: 13;
+    z-index: 14;
     height: 100%;
-    display: none;
+    /* display: none; */
+}
+.signup > h2 {
+    border-bottom: 1px solid rgba(128, 128, 128, 0.671);
+    margin-bottom: 0;
+    font-size: 24px;
+}
+.signup > p {
+    font-size: 18px;
+    margin-bottom: 0;
+}
+.signup > button {
+    width: 50%;
+    color: white;
+    border-radius: 10px;
+    margin: 10px;
+}
+.signBtn {
+    background-color: rgb(50, 151, 233);
+    border: 1px solid rgb(50, 151, 233);
+    box-shadow: 4px 4px rgb(34, 102, 158);
+}
+.loginBtn {
+    background-color: springgreen;
+    border: 1px solid springgreen;
+    box-shadow: 4px 4px rgb(0, 129, 65);
 }
 
 
