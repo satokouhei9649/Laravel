@@ -32,9 +32,7 @@
         <section id="modal">
             <div id="close">✖️</div>
             <h3>新規登録・ログイン</h3>
-            <p><a href=
-                {{-- " {{route('posts.signup') }}" --}}
-                >新規登録</a></p>
+            <p><a id="signupFormBtn">新規登録</a></p>
                 <p><a href=
                     {{-- "{{route('posts.login') }}" --}}
                     >ログイン</a></p>
@@ -44,20 +42,21 @@
                 </section>
 
 
-                <div class="backGround"></div>
+                <div class="backGround hide"></div>
                 {{-- 新規登録 --}}
-                <div class="signup">
+                <div class="signup hide">
+                    <a href=# id="Back">✖️</a>
                     <h2>新規登録</h2>
-                    <p>名前</p>
-                    <input type="text" class="name">
-                    <p>メールアドレス</p>
-                    <input type="text" class="email">
-                    <p>メールアドレス</p>
-                    <input type="text" class="email">
-                    <p>メールアドレス</p>
-                    <input type="text" class="email">
-                    <button class="signBtn">新規登録</button>
-                    <button class="loginBtn">ログイン画面</button>
+                        <p>名前</p>
+                        <input type="text" class="name">
+                        <p>メールアドレス</p>
+                        <input type="text" class="email">
+                        <p>メールアドレス</p>
+                        <input type="text" class="email">
+                        <p>メールアドレス</p>
+                        <input type="text" class="email">
+                        <button class="signBtn">新規登録</button>
+                        <button class="loginBtn">ログイン画面</button>
                 </div>
                 {{ $slot }}
                 <script src="{{ url('js/top.js')}}"></script>

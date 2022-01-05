@@ -11,7 +11,28 @@
     })
     close.addEventListener('click', () => {
         modal.classList.remove('hidden');
-    })
+    });
+    // 新規登録
+    const backBtn = document.getElementById('Back');
+    const signupFormBtn = document.getElementById('signupFormBtn');
+    const signup = document.querySelector('.signup');
+    const backGround = document.querySelector('.backGround');
+
+    signupFormBtn.addEventListener('click', e => {
+        e.preventDefault();
+
+        signup.classList.remove('hide');
+        backGround.classList.remove('hide');
+    });
+    backBtn.addEventListener('click', () => {
+        signup.classList.add('hide');
+        backGround.classList.add('hide');
+    });
+    backGround.addEventListener('click',() => {
+        signup.classList.add('hide');
+        backGround.classList.add('hide');
+    });
+
     // タブメニュー
     menuIcons.forEach(clickedIcon => {
         clickedIcon.addEventListener('click', e => {
@@ -69,7 +90,7 @@
         }
         dots[0].classList.add('current');
     }
-    
+
     function dotsStatus() {
         dots.forEach( dot => {
             dot.classList.remove('current');
