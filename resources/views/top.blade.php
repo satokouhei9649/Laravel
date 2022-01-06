@@ -25,18 +25,23 @@
                 <button class="next">&raquo;</button>
                 <nav class="nav1"></nav>
             </section>
-            <h2>オススメ商品 ・ セール</h2>
-
+            <h2>オススメ商品 ・ 売れ筋</h2>
                 <ul class="recommends">
                     <li class="recommend"><div class="rank">1</div>オススメ</li>
                     <li class="recommend"><div class="rank">2</div>オススメ</li>
                     <li class="recommend"><div class="rank">3</div>オススメ</li>
                     <li class="recommend"><div class="rank">4</div>オススメ</li>
                     <li class="recommend">セールス</li>
-                    <li class="recommend">オスメめ</li>
                 </ul>
 
-
+                <h2>セール</h2>
+                <ul class="recommends">
+                    <li class="recommend"><div class="rank">1</div>オススメ</li>
+                    <li class="recommend"><div class="rank">2</div>オススメ</li>
+                    <li class="recommend"><div class="rank">3</div>オススメ</li>
+                    <li class="recommend"><div class="rank">4</div>オススメ</li>
+                    <li class="recommend">セールス</li>
+                </ul>
 
             <h2 class="Food">ジャンルで探す</h2>
         <ul class="foodmenu">
@@ -51,46 +56,63 @@
 
         <section class="content active" id="meat" style="border: 20px solid rgb(238, 53, 53)">
             <h1>肉</h1>
-            <ul>
+            <ul class="foodUl">
                 <li>牛肉</li>
+                <li>豚肉</li>
+                {{-- <img src="{{ asset('img/testbird.png')}}" style="width: 10%"> --}}
+                <li>鳥肉</li>
             </ul>
         </section>
         <section class="content" id="fish" style="border: 20px solid rgb(34, 86, 230)">
-            <h1>魚</h1>
-            <ul>
-                <li></li>
+            <h1>魚介類</h1>
+            <ul class="foodUl">
+                <li>魚</li>
+                <li>貝</li>
+                <li>海藻</li>
             </ul>
         </section>
         <section class="content" id="veg" style="border: 20px solid rgb(14, 204, 14)">
             <h1>野菜</h1>
-            <ul>
+            <ul class="foodUl">
                 <li></li>
+                <li>根菜類</li>
+                <li>芋類</li>
+                <li>果物</li>
             </ul>
         </section>
         <section class="content" id="egg" style="border: 20px solid rgb(250, 233, 3)">
             <h1> 卵</h1>
-            <ul>
+            <ul class="foodUl">
+                <li>鶏卵</li>
                 <li></li>
             </ul>
         </section>
         <section class="content" id='fruit' style="border: 20px solid orange">
-            <h1>果物</h1>
-            <ul>
-                <li></li>
+            <h1>乳製品</h1>
+            <ul class="foodUl">
+                <li>チーズ</li>
+                <li>ヨーグルト</li>
+                <li>ヨーグルト</li>
             </ul>
         </section>
         <section class="content" id="drink" style="border: 20px solid pink">
             <h1>飲み物</h1>
-            <ul>
-                <li></li>
+            <ul class="foodUl">
+                <li>お酒</li>
+                <li>ジュース</li>
+                <li>お茶・紅茶</li>
+                <li>コーヒー</li>
             </ul>
         </section>
         <section class="content" id="others" style="border: 20px solid rgb(185, 26, 185)">
             <h1>その他</h1>
-            <ul>
+            <ul class="foodUl">
+                <li>お菓子・和菓子</li>
+                <li>冷凍食品</li>
                 <li></li>
             </ul>
         </section>
+
 
 
         </main>

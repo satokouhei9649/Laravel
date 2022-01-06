@@ -68,8 +68,8 @@ header {
      width: 25%;
      z-index: 10;
      position: fixed;
-     top: 0;
-     right: 0;
+     top: 0%;
+     right: 0%;
      border:1px solid rgba(0, 0, 0, 0.303);
      opacity: 0.9999999999;
  }
@@ -87,9 +87,13 @@ header {
      cursor: pointer;
      font-size: 30px;
  }
+ #modal.open {
+     display: block;
+     animation: modal1 .4s;
+ }
 #modal.hidden {
-    display:block;
-   animation: modal1 .4s;
+    display: block;
+    animation: modal2 2s forwards;
 }
 @keyframes modal1{
     0% {
@@ -103,6 +107,45 @@ header {
     }
 
 }
+@keyframes modal2{
+    from {
+        right: 0%;
+    }
+    to {
+        right: -100%;
+    }
+
+}
+/* 買い物カゴ */
+.cartBox {
+    /* display: none; */
+}
+.cartBox.open {
+    position: fixed;
+    top: 10%;
+    width: 30%;
+    height: 10%;
+    margin: 0 auto;
+    background-color: black;
+    animation: move1 3s .3s forwards;
+    z-index: 10;
+}
+@keyframes move1 {
+    from {
+
+    }
+    to {
+
+    }
+
+}
+.cart.open{
+    display: block;
+    position: fixed;
+    top:20%;
+    left: 50%;
+    z-index: 10;
+}
 /* 新規登録のmodal */
  .signup {
      width: 40%;
@@ -110,15 +153,17 @@ header {
      z-index: 15;
      background-color: white;
      position: fixed;
-     top: 1%;
+     top: -100%;
      left: 30%;
      opacity: 1;
      text-align: center;
-     animation: signup1 3s;
+
+ }
+ .signup.open {
+    animation: signup1 3s forwards;
  }
 
 .signup.hide {
-    /* display: none; */
    animation: signup2 1s forwards;
 }
  @keyframes signup1 {
@@ -152,9 +197,15 @@ header {
     opacity: 0.8;
     position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     width: 100%;
     z-index: 14;
     height: 100%;
+    display: none;
+}
+.backGround.open {
+    display: block;
 }
 .backGround.hide {
     display: none;

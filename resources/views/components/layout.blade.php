@@ -19,7 +19,7 @@
             <div class="menuList">
                 <ul class="list">
                     <li class="icon">
-                        <i class="fas fa-shopping-cart fa-2x"></i>
+                        <i class="fas fa-shopping-cart fa-2x " id="shoppingCart"></i>
                     </li>
                     <li class="icon">
                         <i class="fas fa-bars fa-2x" id="menu"></i>
@@ -41,19 +41,26 @@
                     <p><a>値段で探す</a></p>
                 </section>
 
+                {{-- お買い物カゴ --}}
+                <div class="cartBox"><div>
+                <div class="cart">
+                    <p>お買い物カゴにある商品</p>
+                    <input type="submit" value="お支払いへ">
+                    <button>戻る</button>
+                </div>
 
-                <div class="backGround hide"></div>
+                <div class="backGround"></div>
                 {{-- 新規登録 --}}
-                <div class="signup hide">
+                <div class="signup">
                     <a href=# id="Back">✖️</a>
                     <h2>新規登録</h2>
                         <p>名前</p>
                         <input type="text" class="name">
                         <p>メールアドレス</p>
                         <input type="text" class="email">
-                        <p>メールアドレス</p>
+                        <p>住所</p>
                         <input type="text" class="email">
-                        <p>メールアドレス</p>
+                        <p>電話番号</p>
                         <input type="text" class="email">
                         <button class="signBtn">新規登録</button>
                         <button class="loginBtn">ログイン画面</button>

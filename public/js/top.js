@@ -7,31 +7,48 @@
     const menuContents = document.querySelectorAll('.content');
     // モーダル
     menu.addEventListener('click',() =>{
-        modal.classList.add('hidden');
+        modal.classList.remove('hidden');
+        modal.classList.add('open');
     })
     close.addEventListener('click', () => {
-        modal.classList.remove('hidden');
+        modal.classList.remove('open');
+        modal.classList.add('hidden');
+    });
+    // ショッピングカート
+    const cartLogo = document.getElementById('shoppingCart');
+    const cartBox = document.querySelector('.cartBox');
+    const cart = document.querySelector('.cart');
+    const backGround = document.querySelector('.backGround');
+
+    cartLogo.addEventListener('click', () => {
+        // cart.classList.add('open');
+        backGround.classList.add('open');
+        // cartBox.classList.add('open');
     });
     // 新規登録
     const backBtn = document.getElementById('Back');
     const signupFormBtn = document.getElementById('signupFormBtn');
     const signup = document.querySelector('.signup');
-    const backGround = document.querySelector('.backGround');
+
 
     signupFormBtn.addEventListener('click', e => {
         e.preventDefault();
-
-        signup.classList.remove('hide');
-        backGround.classList.remove('hide');
+        signup.classList.add('open');
+        backGround.classList.add('open');
     });
     backBtn.addEventListener('click', () => {
-        signup.classList.add('hide');
-        backGround.classList.add('hide');
+        AnimationClose(signup,backGround);
     });
-    backGround.addEventListener('click',() => {
-        signup.classList.add('hide');
-        backGround.classList.add('hide');
-    });
+    // backGround.addEventListener('click',() => {
+    //     AnimationClass(signup,backGround);
+    // });
+
+    function AnimationClose(A1,A2) {
+        A1.classList.remove('open');
+        A2.classList.remove('open');
+        A1.classList.add('hide');
+        A2.classList.add('hide');
+    }
 
     // タブメニュー
     menuIcons.forEach(clickedIcon => {
