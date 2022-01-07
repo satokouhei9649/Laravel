@@ -1,7 +1,7 @@
 main {
     margin: 100px auto 0;
     text-align: center;
-    z-index: 0;
+    z-index: 1;
 }
 h2 {
     margin: 50px;

@@ -42,10 +42,24 @@
                 </section>
 
                 {{-- お買い物カゴ --}}
-                <div class="cartBox"><div>
+                <div class="cartBox"></div>
                 <div class="cart">
-                    <p>お買い物カゴにある商品</p>
-                    <input type="submit" value="お支払いへ">
+                    <h2>お買い物カゴにある商品<a href=# id="shopBack">✖️</a></h2>
+                    <ul>
+                        <li class="shoppingList"></li>
+                        <li class="shoppingList"></li>
+                        <li class="shoppingList"></li>
+                        <li class="shoppingList"></li>
+                        <li class="shoppingList"></li>
+                        <li class="shoppingList"></li>
+                        <li class="shoppingList"></li>
+                        <li class="shoppingList"></li>
+                        <li class="shoppingList"></li>
+                        <li class="shoppingList"></li>
+                        <li class="shoppingList"></li>
+                        <li class="shoppingList"></li>
+                    </ul>
+                    <input type="submit" value="お支払いへ" class="buyBtn">
                     <button>戻る</button>
                 </div>
 
