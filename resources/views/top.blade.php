@@ -32,6 +32,12 @@
                     <li class="recommend"><div class="rank">3</div>オススメ</li>
                     <li class="recommend"><div class="rank">4</div>オススメ</li>
                     <li class="recommend">セールス</li>
+                    <li class="recommend">セールス</li>
+                    <li class="recommend">セールス</li>
+                    <li class="recommend">セールス</li>
+                    <li class="recommend">セールス</li>
+                    <li class="recommend">セールス</li>
+                    <li class="recommend">セールス</li>
                 </ul>
 
                 <h2>セール</h2>

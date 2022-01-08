@@ -21,6 +21,7 @@
     cartLogo.addEventListener('click', e => {
         e.preventDefault();
         AnimationOpen(backGround,cart,cartBox);
+
         for (let i = 0; i < shoppingList.length; i++) {
             let Delay = shoppingList.length * .8;
             Delay -= i * .5;
@@ -31,7 +32,6 @@
     });
     shopBack.addEventListener('click', () => {
         AnimationClose(backGround,cart,cartBox);
-
         for (let i = 0; i < shoppingList.length; i ++) {
             shoppingList[i].classList.remove('active');
         }

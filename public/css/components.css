@@ -139,7 +139,7 @@ header {
 
 }
 .cart {
-    /* display: none; */
+    display: none;
     position: fixed;
     top:5%;
     left: 30%;
@@ -205,9 +205,11 @@ header {
 @keyframes outMove {
     from {
         opacity: 1;
+        display: block;
     }
     to {
         opacity: 0;
+        pointer-events: none;
     }
 }
 .shoppingList {
