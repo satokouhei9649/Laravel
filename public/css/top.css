@@ -2,12 +2,13 @@ main {
     margin: 100px auto 0;
     text-align: center;
     z-index: 1;
+    background-color: rgb(253, 253, 241);
 }
 h2 {
     margin: 50px;
 }
 
-.sellAd,.recommends {
+.sellAd,.recommends,.Sells {
     list-style: none;
     margin: 0 auto;
     padding: 0;
@@ -70,18 +71,10 @@ h2 {
 nav .current {
     background: black ;
 }
-.recommends {
+.recommends,.Sells {
     height: 60%;
     margin: 10px;
     overflow: auto;
-
-}
-.recommend {
-    border: 1px solid rgba(128, 128, 128, 0.212);
-    width: 100%;
-    min-width: 20%;
-    height: 90%;
-    margin: 20px;
 }
 .rank {
     min-width: 20%;
@@ -90,6 +83,48 @@ nav .current {
     color: white;
     background-color: gold;
     font-size: 24px;
+}
+.recommend,.sell {
+    position: relative;
+    border: 1px solid rgba(128, 128, 128, 0.212);
+    width: 100%;
+    min-width: 20%;
+    height: 90%;
+    margin: 20px;
+    opacity: 0;
+}
+.recommend.active {
+    left: -100%;
+    animation: ScrollIn 4s forwards;
+}
+.sell.active {
+    opacity: 0;
+    top: 100%;
+    animation: sellIn 3s forwards;
+}
+@keyframes ScrollIn {
+    from {
+     left: -100%;
+     opacity: 0;
+    }
+    to {
+        left: 0%;
+        opacity: 1;
+    }
+}
+@keyframes sellIn{
+    0% {
+        opacity: 0;
+        top: 100%;
+    }
+    60% {
+        opacity: 0,6;
+        top: -5%;
+    }
+    100% {
+        opacity: 1;
+        top: 0;
+    }
 }
 
 #Food {

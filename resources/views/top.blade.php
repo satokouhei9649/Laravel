@@ -41,12 +41,16 @@
                 </ul>
 
                 <h2>セール</h2>
-                <ul class="recommends">
-                    <li class="recommend"><div class="rank">1</div>オススメ</li>
-                    <li class="recommend"><div class="rank">2</div>オススメ</li>
-                    <li class="recommend"><div class="rank">3</div>オススメ</li>
-                    <li class="recommend"><div class="rank">4</div>オススメ</li>
-                    <li class="recommend">セールス</li>
+                <ul class="Sells">
+                    <li class="sell"><div class="rank">1</div>オススメ</li>
+                    <li class="sell"><div class="rank">2</div>オススメ</li>
+                    <li class="sell"><div class="rank">3</div>オススメ</li>
+                    <li class="sell"><div class="rank">4</div>オススメ</li>
+                    <li class="sell">セールス</li>
+                    <li class="sell">セールス</li>
+                    <li class="sell">セールス</li>
+                    <li class="sell">セールス</li>
+                    <li class="sell">セールス</li>
                 </ul>
 
             <h2 class="Food">ジャンルで探す</h2>
