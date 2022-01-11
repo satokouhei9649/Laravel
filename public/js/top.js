@@ -161,48 +161,50 @@ const range = {
 };
 const targets1 = document.querySelectorAll('.recommend');
 const recommends = Array.from(targets1);
-const observer1= new IntersectionObserver(check1, range);
+const observer= new IntersectionObserver(check, range);
 recommends.forEach(recommend => {
-    observer1.observe(recommend);
+    observer.observe(recommend);
 })
 const targets2 = document.querySelectorAll('.sell');
 const Sells = Array.from(targets2);
-const observer2= new IntersectionObserver(check2, range);
+const observer2= new IntersectionObserver(check, range);
 Sells.forEach(sell => {
     observer2.observe(sell);
 });
 
 // オススメ
-function check1(D) {
-    console.log(D[0]);
+function check(D,obs) {
+    console.log(D);
     if (!D[0].isIntersecting) {
         return;
+    } else {
+        for(let i = 0; i < D.length; i++) {
+            // 持ち時間
+            let delay = D.length  * .05 + .3;
+            // 間隔
+            delay -= i * .3;
+            D[i].target.style.animationDelay = `${delay}s`;
+            D[i].target.classList.add('active');
+            obs.unobserve(D[i].target);
+        }
     }
-    recommends.forEach((recommend,index) => {
-        console.log(recommend);
-    // 持ち時間
-    let delay = recommends.length  * .05 + .3;
-    // 間隔
-    delay -= index * .3;
-    recommend.style.animationDelay = `${delay}s`;
-    recommend.classList.add('active');
-    });
 }
-function check2(D) {
-    console.log(D[0]);
-    if (!D[0].isIntersecting) {
-        return;
-    }
-    Sells.forEach((sell,index) => {
-        // 持ち時間
-        let delay = Sells.length * .0 +.3;
-        // 間隔
-        delay -= index * .5;
-        sell.style.animationDelay = `${delay}s`;
-        sell.classList.add('active');
-        })
-}
-// console.log(Sells);
+// function check2(D ,obs) {
+//     console.log(D);
+//     if (!D[0].isIntersecting) {
+//         return;
+//     }
+//     Sells.forEach((sell,index) => {
+//         // 持ち時間
+//         let delay = Sells.length * .0 +.3;
+//         // 間隔
+//         delay -= index * .5;
+//         sell.style.animationDelay = `${delay}s`;
+//         sell.classList.add('active');
+//         obs.unobserve(D[0].target);
+//         })
+// }
+
 
 
 
