@@ -18,7 +18,6 @@
     const backGround = document.querySelector('.backGround');
     const shopBack = document.getElementById('shopBack');
     const shoppingList = Array.from(document.querySelectorAll('.shoppingList'));
-    console.log(shoppingList);
     cartLogo.addEventListener('click', e => {
         e.preventDefault();
         AnimationOpen(backGround,cart,cartBox);
@@ -134,7 +133,6 @@
         });
         dots[count].classList.add('current');
     }
-
     btnStaus();
     setDots();
     nextBtn.addEventListener('click', () => {
@@ -143,7 +141,6 @@
         btnStaus();
         moveScreen();
     });
-
     prevBtn.addEventListener('click', () => {
         count--;
         dotsStatus();
@@ -155,57 +152,42 @@
     moveScreen();
 });
 
-const range = {
-    threshold: 0.8,
-    rootMargin: '0px 0px -10%'
-};
-const targets1 = document.querySelectorAll('.recommend');
-const recommends = Array.from(targets1);
-const observer= new IntersectionObserver(check, range);
-recommends.forEach(recommend => {
-    observer.observe(recommend);
-})
-const targets2 = document.querySelectorAll('.sell');
-const Sells = Array.from(targets2);
-const observer2= new IntersectionObserver(check, range);
-Sells.forEach(sell => {
-    observer2.observe(sell);
-});
-
-// オススメ
-function check(D,obs) {
-    console.log(D);
-    if (!D[0].isIntersecting) {
-        return;
-    } else {
-        for(let i = 0; i < D.length; i++) {
-            // 持ち時間
-            let delay = D.length  * .05 + .3;
-            // 間隔
-            delay -= i * .3;
-            D[i].target.style.animationDelay = `${delay}s`;
-            D[i].target.classList.add('active');
-            obs.unobserve(D[i].target);
+const recommends= document.querySelectorAll('.recommend');
+const Sells = document.querySelectorAll('.sell');
+// Intersection Observer API
+const Observer = function() {
+    const option = {
+        threshold: 0.8,
+        rootMargin: '0px 0px -10%'
+    };
+    for(let i=0; i < arguments.length; i++) {
+        const observer = new IntersectionObserver(check, option);
+        arguments[i].forEach(argument =>{
+            observer.observe(argument);
+        });
+        const array = arguments[i]
+        function check(D,obs) {
+            if (!D[0].isIntersecting) {
+                return;
+            }
+            AnimationDelay(array);
+            obs.unobserve(D[0].target);
         }
     }
 }
-// function check2(D ,obs) {
-//     console.log(D);
-//     if (!D[0].isIntersecting) {
-//         return;
-//     }
-//     Sells.forEach((sell,index) => {
-//         // 持ち時間
-//         let delay = Sells.length * .0 +.3;
-//         // 間隔
-//         delay -= index * .5;
-//         sell.style.animationDelay = `${delay}s`;
-//         sell.classList.add('active');
-//         obs.unobserve(D[0].target);
-//         })
-// }
+Observer(recommends,Sells);
 
-
+const AnimationDelay = function(Array){
+        Array.forEach((el,index) => {
+            // 持ち時間
+            let delay =  Array.length * .0 +.3;
+            // 間隔
+            delay -= index * .5;
+            el.style.animationDelay = `${delay}s`;
+            el.classList.add('active');
+        });
+       }
 
 
 }
+

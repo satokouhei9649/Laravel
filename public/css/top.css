@@ -100,7 +100,7 @@ nav .current {
 .sell.active {
     opacity: 0;
     top: 100%;
-    animation: sellIn 3s forwards;
+    animation: sellIn 4s forwards;
 }
 @keyframes ScrollIn {
     from {
@@ -119,7 +119,7 @@ nav .current {
     }
     60% {
         opacity: 0,6;
-        top: -5%;
+        top: -3%;
     }
     100% {
         opacity: 1;

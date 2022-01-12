@@ -44,15 +44,10 @@ header {
      box-shadow: 2px 2px rgb(2, 77, 138);
     border:1px solid rgb(2, 77, 138);
  }
- .menuList {
-     width: 20%;
-     display: flex;
-     align-items: center;
- }
 .list{
     display: flex;
     justify-content: right;
-    width: 100%;
+    width: 15%;
     list-style: none;
  }
  .icon {

@@ -7,7 +7,7 @@
         <script src="https://kit.fontawesome.com/19d6cf92e4.js" crossorigin="anonymous"></script>
     </head>
 
-    <body>
+<body>
         {{-- header --}}
         <header>
             <div class="searchForm searchForm1">
@@ -16,7 +16,6 @@
                     <input type="submit" value="検索" class="submit">
                 </form>
             </div>
-            <div class="menuList">
                 <ul class="list">
                     <li class="icon">
                         <i class="fas fa-shopping-cart fa-2x " id="shoppingCart"></i>
@@ -25,7 +24,6 @@
                         <i class="fas fa-bars fa-2x" id="menu"></i>
                     </li>
                 </ul>
-            </div>
         </header>
 
         <!-- メニューmodal -->
