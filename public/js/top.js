@@ -21,7 +21,6 @@
     cartLogo.addEventListener('click', e => {
         e.preventDefault();
         AnimationOpen(backGround,cart,cartBox);
-
         for (let i = 0; i < shoppingList.length; i++) {
             let delay = shoppingList.length * .8;
             delay -= i * .5;
@@ -41,8 +40,6 @@
     const backBtn = document.getElementById('Back');
     const signupFormBtn = document.getElementById('signupFormBtn');
     const signup = document.querySelector('.signup');
-
-
     signupFormBtn.addEventListener('click', e => {
         e.preventDefault();
         AnimationOpen(signup,backGround);
@@ -69,18 +66,13 @@
     // タブメニュー
     const menuIcons = document.querySelectorAll('.foodmenu li a');
     const menuContents = document.querySelectorAll('.content');
-
     menuIcons.forEach(clickedIcon => {
         clickedIcon.addEventListener('click', e => {
             e.preventDefault();
-
-
             menuIcons.forEach(icon => {
                 icon.classList.remove('active');
             });
-
             clickedIcon.classList.add('active');
-
             menuContents.forEach(content => {
                 content.classList.remove('active');
             });
@@ -157,7 +149,7 @@ const Sells = document.querySelectorAll('.sell');
 // Intersection Observer API
 const Observer = function() {
     const option = {
-        threshold: 0.8,
+        threshold: 0.6,
         rootMargin: '0px 0px -10%'
     };
     for(let i=0; i < arguments.length; i++) {

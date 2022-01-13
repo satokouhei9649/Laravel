@@ -5,8 +5,7 @@
     <link rel="stylesheet" href="{{ url('css/top.css') }}">
 </head>
     <x-layout>
-        <main>
-            <h1>topページです</h1>
+            <div style="width: 100% height: auto">topページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページです</div>
             <div class="searchForm">
                 <form action="" method="" class="search">
                     <input type="text" placeholder="ここに入力" class="searchWord">
@@ -122,16 +121,19 @@
                 <li></li>
             </ul>
         </section>
-
-
-
-        </main>
-
         <footer>
-            <p>お問合わせ</p>
-            <p>新規登録 / ログイン</p>
-            <p></p>
-            <p></p>
+            <h2 id="sns">公式SNS</h2>
+            <ul>
+                <a class="my-twitter"><i class="fab fa-twitter fa-2x"></i></a>
+                <a class="my-facebook"><i class="fab fa-facebook-f fa-2x"></i></a>
+                <a class="my-instagram"><i class="fab fa-instagram fa-2x"></i></a>
+            </ul>
+         <h2 id="help">Help & Guide</h2>
+            <li><i class="fas fa-phone-alt fa-fw"></i> お問合わせ</li>
+            <li><i class="fas fa-user fa-fw"></i> 新規登録 / ログイン</li>
+            <li><i class="fas fa-hand-paper fa-fw"></i> ご利用方法</li>
+            <li><i class="fas fa-box fa-fw"></i> 商品について</li>
+            <li><i class="fas fa-truck-moving fa-fw"></i> 配送情報</li>
         </footer>
     </x-layout>
 
