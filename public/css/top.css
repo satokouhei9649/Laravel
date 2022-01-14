@@ -163,13 +163,18 @@ nav .current {
 }
 .content > ul > li {
     width: 50%;
+    height: 80%;
     border: 1px solid gray;
     margin: 20px auto;
     padding: 3%;
     border-radius: 10px;
 }
 .foodUl {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
     white-space: normal;
+    margin:  0 auto;
     padding: 0;
 }
 .tab1 {
@@ -210,19 +215,22 @@ footer > ul{
     justify-content: right;
 }
 footer > ul > a {
-    background-color: rgb(0, 174, 255);
+    background-color: limegreen;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 50px;
     height: 50px;
-    margin: 10px;
+    margin: 8px;
     border-radius: 50%;
 }
-.my-facebook {
+.twitter {
+    background-color: rgb(0, 174, 255);
+}
+.facebook {
     background-color: #4565a2;
 }
-.my-instagram {
+.instagram {
     background-color: #d93175;
 }
 footer > li,footer > h2 {
@@ -233,8 +241,15 @@ footer > li,footer > h2 {
     width: 30%;
     line-height: 50px;
 }
+footer > h2 {
+    width: 20%;
+}
 #sns {
-margin-left: auto;
+    text-align: center;
+    margin-left: auto;
+}
+.myline {
+    border-radius: 50%;
 }
 
 

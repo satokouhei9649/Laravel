@@ -5,6 +5,7 @@
         <title>MylaravelApp</title>
         <link rel="stylesheet" href="{{ url('css/components.css')}}">
         <script src="https://kit.fontawesome.com/19d6cf92e4.js" crossorigin="anonymous"></script>
+        <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
     </head>
 
 <body>
