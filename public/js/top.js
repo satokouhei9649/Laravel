@@ -13,6 +13,7 @@
     });
     // ショッピングカート
     const cartLogo = document.getElementById('shoppingCart');
+    console.log(cartLogo);
     const cartBox = document.querySelector('.cartBox');
     const cart = document.querySelector('.cart');
     const backGround = document.querySelector('.backGround');
@@ -87,7 +88,19 @@
     const screens = Ad.children;
     const dots = [];
     let count = 0;
-    // 矢印の表示
+    nextBtn.addEventListener('click', () => {
+        count++;
+        dotsStatus();
+        btnStaus();
+        moveScreen();
+    });
+    prevBtn.addEventListener('click', () => {
+        count--;
+        dotsStatus();
+        btnStaus();
+        moveScreen();
+    });
+
     function btnStaus() {
         prevBtn.classList.remove('hidden');
         nextBtn.classList.remove('hidden');
@@ -127,19 +140,6 @@
     }
     btnStaus();
     setDots();
-    nextBtn.addEventListener('click', () => {
-        count++;
-        dotsStatus();
-        btnStaus();
-        moveScreen();
-    });
-    prevBtn.addEventListener('click', () => {
-        count--;
-        dotsStatus();
-        btnStaus();
-        moveScreen();
-    });
-
     window.addEventListener('resize', () => {
     moveScreen();
 });
