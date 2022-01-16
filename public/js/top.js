@@ -13,7 +13,6 @@
     });
     // ショッピングカート
     const cartLogo = document.getElementById('shoppingCart');
-    console.log(cartLogo);
     const cartBox = document.querySelector('.cartBox');
     const cart = document.querySelector('.cart');
     const backGround = document.querySelector('.backGround');
@@ -22,13 +21,7 @@
     cartLogo.addEventListener('click', e => {
         e.preventDefault();
         AnimationOpen(backGround,cart,cartBox);
-        for (let i = 0; i < shoppingList.length; i++) {
-            let delay = shoppingList.length * .8;
-            delay -= i * .5;
-            console.log(delay);
-            shoppingList[i].style.animationDelay = `${delay}s`;
-            shoppingList[i].classList.add('active');
-        }
+        AnimationMove(shoppingList);
     });
     shopBack.addEventListener('click', () => {
         AnimationClose(backGround,cart,cartBox);
@@ -62,25 +55,40 @@
             arguments[i].classList.add('hidden');
         }
     }
+    const AnimationMove = function(Array){
+        Array.forEach((el,index) => {
+            // 持ち時間
+            let delay =  Array.length * .0 +.3;
+            // 間隔
+            delay -= index * .5;
+            el.style.animationDelay = `${delay}s`;
+            el.classList.add('active');
+        });
+    }
+    const AddClassActive = function() {
+
+    }
 
 
     // タブメニュー
-    const menuIcons = document.querySelectorAll('.foodmenu li a');
+    const menuIcons = document.querySelectorAll('.foodIcon');
     const menuContents = document.querySelectorAll('.content');
-    menuIcons.forEach(clickedIcon => {
-        clickedIcon.addEventListener('click', e => {
+   const CreateTab = function(Array1,Array2) {
+    Array1.forEach(el => {
+        el.addEventListener('click', e => {
             e.preventDefault();
-            menuIcons.forEach(icon => {
+            Array1.forEach(icon => {
                 icon.classList.remove('active');
             });
-            clickedIcon.classList.add('active');
-            menuContents.forEach(content => {
-                content.classList.remove('active');
+            el.classList.add('active');
+            Array2.forEach(el => {
+                el.classList.remove('active');
             });
-            document.getElementById(clickedIcon.dataset.id).classList.add('active');
+            document.getElementById(el.dataset.id).classList.add('active');
         });
     });
-
+   }
+  CreateTab(menuIcons,menuContents);
     // カルーセル
     const nextBtn = document.querySelector('.next');
     const prevBtn = document.querySelector('.prev');
@@ -92,15 +100,15 @@
         count++;
         dotsStatus();
         btnStaus();
-        moveScreen();
+        moveScreen(screens,Ad);
     });
     prevBtn.addEventListener('click', () => {
         count--;
         dotsStatus();
         btnStaus();
-        moveScreen();
+        moveScreen(screens,Ad);
     });
-
+    // 矢印の表示
     function btnStaus() {
         prevBtn.classList.remove('hidden');
         nextBtn.classList.remove('hidden');
@@ -112,11 +120,10 @@
         }
     }
 // スライド
-    function moveScreen() {
-        const screenWidth = screens[0].getBoundingClientRect().width;
-        Ad.style.transform = `translateX(${-1 * screenWidth * count}px)`;
+    function moveScreen(Array1,Array2) {
+        const Width = Array1[0].getBoundingClientRect().width;
+        Array2.style.transform = `translateX(${-1 * Width * count}px)`;
     }
-
     function setDots() {
         for (let i = 0; i < screens.length; i++) {
             const button = document.createElement('button');
@@ -124,7 +131,7 @@
                 count = i;
                 dotsStatus();
                 btnStaus();
-                moveScreen();
+                moveScreen(screens,Ad);
             });
             dots.push(button);
             document.querySelector('nav').appendChild(button).classList.add('screenBtn');
@@ -141,13 +148,13 @@
     btnStaus();
     setDots();
     window.addEventListener('resize', () => {
-    moveScreen();
-});
+    moveScreen(screens,Ad);
+    });
 
-const recommends= document.querySelectorAll('.recommend');
-const Sells = document.querySelectorAll('.sell');
-// Intersection Observer API
-const Observer = function() {
+    const recommends= document.querySelectorAll('.recommend');
+    const Sells = document.querySelectorAll('.sell');
+    // Intersection Observer API
+    const Observer = function() {
     const option = {
         threshold: 0.6,
         rootMargin: '0px 0px -10%'
@@ -162,23 +169,14 @@ const Observer = function() {
             if (!D[0].isIntersecting) {
                 return;
             }
-            AnimationDelay(array);
+            AnimationMove(array);
             obs.unobserve(D[0].target);
         }
     }
-}
-Observer(recommends,Sells);
+    }
+    Observer(recommends,Sells);
 
-const AnimationDelay = function(Array){
-        Array.forEach((el,index) => {
-            // 持ち時間
-            let delay =  Array.length * .0 +.3;
-            // 間隔
-            delay -= index * .5;
-            el.style.animationDelay = `${delay}s`;
-            el.classList.add('active');
-        });
-       }
+
 
 
 }

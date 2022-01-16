@@ -12,10 +12,10 @@
                     <input type="submit" value="検索" class="submit">
                 </form>
             </div>
-
+            <section id="test"></section>
             <section class="Ad">
                 <ul class="sellAd">
-                    <li class="screen sp">クーポン</li>
+                    <a  href="/" class="screen"><li>クーポン</li></a>
                     <li class="screen">送料￥</li>
                     <li class="screen">オスメメ</li>
                     <li class="screen">セール</li>
@@ -124,10 +124,10 @@
         <footer>
             <h2 id="sns">公式SNS</h2>
             <ul>
-                <a href="/"><i class="fab fa-line fa-3x myline" data-fa-transform="grow-2" data-fa-mask="fas fa-circle fa-xs" style="border-radius: 50%;"></i></a>
-                <a href="/" class="twitter"><i class="fab fa-twitter fa-2x"></i></a>
-                <a href="/" class="facebook"><i class="fab fa-facebook-f fa-2x"></i></a>
-                <a href="/" class="instagram"><i class="fab fa-instagram fa-2x"></i></a>
+                <a href="/" class="FooterIcon"><i class="fab fa-line fa-3x myline" data-fa-transform="grow-2" data-fa-mask="fas fa-circle fa-xs" style="border-radius: 50%;"></i></a>
+                <a href="/" class="twitter FooterIcon"><i class="fab fa-twitter fa-2x"></i></a>
+                <a href="/" class="facebook FooterIcon"><i class="fab fa-facebook-f fa-2x"></i></a>
+                <a href="/" class="instagram FooterIcon"><i class="fab fa-instagram fa-2x"></i></a>
             </ul>
          <h2 id="help">Help & Guide</h2>
             <li><i class="fas fa-phone-alt fa-fw"></i> お問合わせ</li>

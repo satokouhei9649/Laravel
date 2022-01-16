@@ -219,7 +219,7 @@ header {
     top: -100%;
 }
 .shoppingList.active {
-    animation: fadeInTop 1s forwards;
+    animation: fadeInTop 5s forwards;
 }
 @keyframes fadeInTop {
     from {
