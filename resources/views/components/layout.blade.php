@@ -4,10 +4,10 @@
         <meta charset="utf-8">
         <title>MylaravelApp</title>
         <link rel="stylesheet" href="{{ url('css/components.css')}}">
-        <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
     </head>
 
 <body>
+
         {{-- header --}}
         <header>
             <div class="searchForm searchForm1">
@@ -78,6 +78,12 @@
                         <button class="loginBtn">ログイン画面</button>
                 </div>
                 {{ $slot }}
+
+                <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+                <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+                <script src="{{ url('js/React.js')}}"></script>
                 <script src="{{ url('js/top.js')}}"></script>
-            </body>
-            </html>
+                <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
+
+    </body>
+</html>
