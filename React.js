@@ -1,4 +1,5 @@
 'use strict';
+// const e = React.createElement;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -15,12 +16,17 @@ var LikeButton = function (_React$Component) {
     _classCallCheck(this, LikeButton);
 
     return _possibleConstructorReturn(this, (LikeButton.__proto__ || Object.getPrototypeOf(LikeButton)).call(this, props));
+    // this.state = { liked: false };
   }
 
   _createClass(LikeButton, [{
     key: 'render',
     value: function render() {
-      return;
+      return React.createElement(
+        'button',
+        null,
+        'like'
+      );
     }
   }]);
 

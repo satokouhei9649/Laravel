@@ -7,7 +7,7 @@
     </head>
 
 <body>
-
+    <div class="container"></div>
         {{-- header --}}
         <header>
             <div class="searchForm searchForm1">
