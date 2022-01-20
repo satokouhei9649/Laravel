@@ -3,11 +3,7 @@ body {
     text-align: center;
     background-color: rgb(253, 253, 241);
 }
-.container {
-    background-color: gray;
-    width: 100px;
-    height: 100px;
-}
+
 h2 {
     margin: 50px;
 }

@@ -8,24 +8,6 @@
 
 <body>
     <div class="container"></div>
-        {{-- header --}}
-        <header>
-            <div class="searchForm searchForm1">
-                <form action="" method="" class="search topSearch">
-                    <input type="text" placeholder="ここに入力" class="searchWord">
-                    <input type="submit" value="検索" class="submit">
-                </form>
-            </div>
-                <ul class="list">
-                    <li class="icon">
-                        <span id="shoppingCart"><i class="fas fa-shopping-cart fa-2x "></i></span>
-                    </li>
-                    <li class="icon">
-                        <span id="menu"><i class="fas fa-bars fa-2x" ></i></span>
-                    </li>
-                </ul>
-        </header>
-
         <!-- メニューmodal -->
         <section id="modal">
             <div id="close">✖️</div>
