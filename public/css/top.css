@@ -250,7 +250,8 @@ footer > h2 {
     margin-left: auto;
 }
 .myline {
-    background-color: limegreen
+    background-color: limegreen;
+    border-radius: 50%;
 }
 
 

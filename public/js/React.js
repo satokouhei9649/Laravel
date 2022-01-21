@@ -30,8 +30,7 @@ var Index = function (_React$Component) {
                 React.createElement(BacKGround, { "class": "background" }),
                 React.createElement(BacKGround, { "class": "cartbox" }),
                 React.createElement(SingUP, null),
-                React.createElement(Main, null),
-                React.createElement(Footer, null)
+                React.createElement(Main, null)
             );
         }
     }]);
@@ -483,7 +482,7 @@ function Footer() {
             React.createElement(
                 "a",
                 { href: "/", className: "FooterIcon" },
-                React.createElement("i", { className: "fab fa-line fa-3x myline", "data-fa-transform": "grow-2", "data-fa-mask": "fas fa-circle fa-xs", style: "border-radius: 50%;" })
+                React.createElement("i", { className: "fab fa-line fa-3x myline", "data-fa-transform": "grow-2", "data-fa-mask": "fas fa-circle fa-xs" })
             ),
             React.createElement(
                 "a",
@@ -548,7 +547,8 @@ function Main() {
         React.createElement(Recommend, { h2: "\u30AA\u30B9\u30B9\u30E1\u5546\u54C1 \u30FB \u58F2\u308C\u7B4B", "class": "recommend" }),
         React.createElement(Recommend, { h2: "\u30BB\u30FC\u30EB", "class": "sell" }),
         React.createElement(FoodMenu, null),
-        React.createElement(FoodSection, null)
+        React.createElement(FoodSection, null),
+        React.createElement(Footer, null)
     );
 }
 var domContainer = document.querySelector('.container');

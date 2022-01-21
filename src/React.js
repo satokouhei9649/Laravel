@@ -15,7 +15,6 @@ class Index extends React.Component {
             <BacKGround class="cartbox"/>
             <SingUP />
             <Main />
-            <Footer />
         </div>
     );
   }
@@ -193,7 +192,7 @@ function Footer() {
     <footer>
         <h2 id="sns">公式SNS</h2>
         <ul>
-            <a href="/" className="FooterIcon"><i className="fab fa-line fa-3x myline" data-fa-transform="grow-2" data-fa-mask="fas fa-circle fa-xs" style="border-radius: 50%;"></i></a>
+            <a href="/" className="FooterIcon"><i className="fab fa-line fa-3x myline" data-fa-transform="grow-2" data-fa-mask="fas fa-circle fa-xs" ></i></a>
             <a href="/" className="twitter FooterIcon"><i className="fab fa-twitter fa-2x"></i></a>
             <a href="/" className="facebook FooterIcon"><i className="fab fa-facebook-f fa-2x"></i></a>
             <a href="/" className="instagram FooterIcon"><i className="fab fa-instagram fa-2x"></i></a>
@@ -217,6 +216,7 @@ function Main() {
     <Recommend h2="セール" class="sell"/>
     <FoodMenu />
     <FoodSection />
+    <Footer />
 </div>
     );
 }
