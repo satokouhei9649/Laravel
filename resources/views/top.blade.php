@@ -1,18 +1,30 @@
 
-<head>
-    <meta charset="utf-8">
-    <title>MylaravelApp</title>
-    <link rel="stylesheet" href="{{ url('css/top.css') }}">
-</head>
-<x-layout>
-    <div style="width: 100% height: auto">topページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページです</div>
-    <div class="searchForm">
+<<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>MylaravelApp</title>
+        <link rel="stylesheet" href="{{ url('css/components.css')}}">
+        <link rel="stylesheet" href="{{ url('css/top.css')}}">
+    </head>
+
+<body>
+    <div class="container"></div>
+                <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+                <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+                <script src="{{ url('js/React.js')}}"></script>
+                <script src="{{ url('js/top.js')}}"></script>
+                <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
+    </body>
+</html>
+{{-- topページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページです</div> --}}
+    {{-- <div class="searchForm">
         <form action="" method="" class="search">
             <input type="text" placeholder="ここに入力" class="searchWord">
             <input type="submit" value="検索" class="submit">
         </form>
     </div>
-    <div id="like_button_container"></div>
+    <section id="test"></section>
     <section class="Ad">
         <ul class="sellAd">
             <a  href="/" class="screen"><li>クーポン</li></a>
@@ -63,13 +75,13 @@
         <li><a href="#" class="foodIcon tab7" data-id="others"><i class="fas fa-bread-slice fa-4x"></i></a></li>
     </ul>
 
-    <section class="content active" id="meat" style="border: 20px solid rgb(255, 103, 103)">
+    {{-- <section class="content active" id="meat" style="border: 20px solid rgb(255, 103, 103)">
         <h1>肉</h1>
         <ul class="foodUl">
             <li>牛肉</li>
-            <li>豚肉</li>
+            <li>豚肉</li> --}}
             {{-- <img src="{{ asset('img/testbird.png')}}" style="width: 10%"> --}}
-            <li>鳥肉</li>
+            {{-- <li>鳥肉</li>
         </ul>
     </section>
     <section class="content" id="fish" style="border: 20px solid rgb(48, 103, 255)">
@@ -137,4 +149,4 @@
         <li><i class="fas fa-truck-moving fa-fw"></i> 配送情報</li>
     </footer>
 </x-layout>
-
+ --}}

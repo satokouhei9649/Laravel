@@ -68,7 +68,7 @@ a:visited{
 nav .current {
     background: black ;
 }
-.recommends,.Sells {
+.recommends,.sells {
     height: 60%;
     margin: 10px;
     overflow: auto;
