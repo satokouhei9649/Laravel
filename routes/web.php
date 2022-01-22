@@ -16,9 +16,9 @@ use App\Http\Controllers\PostController;
 Route::get('/', [PostController::class, 'top'])
     ->name('posts.top');
 
-Route::get('/posts/{post}', [PostController::class, 'show'])
-    ->name('posts.show')
-    ->where('post', '[0-9]+');
+Route::get('/test', [PostController::class, 'test'])
+    ->name('posts.test');
+    // ->where('post', '[0-9]+');
     // login
 // Route::get('/login', [PostController::class, 'login'])
 //     ->name('users.login');

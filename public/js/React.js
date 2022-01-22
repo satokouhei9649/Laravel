@@ -1,5 +1,6 @@
 'use strict';
 // const { functionsIn } = require("lodash");
+// import {AnimationMove} from "public/js/top.js";
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -30,40 +31,80 @@ var Index = function (_React$Component) {
                 React.createElement(BacKGround, { "class": "background" }),
                 React.createElement(BacKGround, { "class": "cartbox" }),
                 React.createElement(SingUP, null),
-                React.createElement(Main, null)
+                React.createElement(Main, null),
+                React.createElement(Footer, null)
             );
         }
     }]);
 
     return Index;
 }(React.Component);
+// ヘッダー
+
 
 function Header() {
     return React.createElement(
         "header",
         null,
-        React.createElement(SearchForm, { route: "{{route('posts.login') }}", method: "post", "class": "search topSearch searchForm searchForm1" }),
-        React.createElement(ListUl, null)
+        React.createElement(SearchForm, { route: "/test", "class": "search topSearch searchForm searchForm1" }),
+        React.createElement(MenuList, null)
     );
 }
-function SearchForm(props) {
-    return (
-        // <form action="" method="" className="">
-        React.createElement(
-            "form",
-            { action: props.route, method: props.method, className: props.class },
-            React.createElement(Input, { type: "text", text: "\u3053\u3053\u306B\u5165\u529B", className: "searchWord" }),
-            React.createElement(Input, { type: "submit", value: "\u691C\u7D22", className: "submit" })
-        )
-    );
-}
+// 検索
+
+var SearchForm = function (_React$Component2) {
+    _inherits(SearchForm, _React$Component2);
+
+    function SearchForm(props) {
+        _classCallCheck(this, SearchForm);
+
+        var _this2 = _possibleConstructorReturn(this, (SearchForm.__proto__ || Object.getPrototypeOf(SearchForm)).call(this, props));
+
+        var csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
+        _this2.state = {
+            route: props.route,
+            csrf_token: csrf_token,
+            class: props.class
+        };
+        return _this2;
+    }
+
+    _createClass(SearchForm, [{
+        key: "render",
+        value: function render() {
+            return React.createElement(
+                "form",
+                { action: this.state.route, method: "post", className: this.state.class },
+                React.createElement(Input, { type: "text", text: "\u3053\u3053\u306B\u5165\u529B", className: "searchWord" }),
+                React.createElement(Input, { type: "hidden", name: "token", value: this.state.csrf_token }),
+                React.createElement(Input, { type: "submit", value: "\u691C\u7D22", className: "submit" })
+            );
+        }
+    }]);
+
+    return SearchForm;
+}(React.Component);
+
 function Input(props) {
-    return React.createElement("input", { type: props.type, placeholder: props.text, className: props.className, value: props.value });
+    return React.createElement("input", { type: props.type,
+        placeholder: props.text,
+        name: props.name,
+        className: props.className,
+        value: props.value });
 }
-function ListUl(props) {
+function MenuList(props) {
     return React.createElement(
         "ul",
         { className: "list" },
+        React.createElement(
+            "li",
+            { className: "icon" },
+            React.createElement(
+                "span",
+                { id: "user" },
+                React.createElement("i", { className: "fas fa-user fa-2x" })
+            )
+        ),
         React.createElement(
             "li",
             { className: "icon" },
@@ -84,6 +125,7 @@ function ListUl(props) {
         )
     );
 }
+// モーダル
 function Modal(props) {
     return React.createElement(
         "section",
@@ -141,6 +183,7 @@ function Modal(props) {
         )
     );
 }
+// 買い物
 function ShoppingCart(props) {
     return React.createElement(
         "div",
@@ -171,6 +214,7 @@ function ShoppingCart(props) {
         )
     );
 }
+// 背景
 function BacKGround(props) {
     return React.createElement(
         "div",
@@ -178,6 +222,7 @@ function BacKGround(props) {
         props.text
     );
 }
+// 新規登録
 function SingUP(props) {
     return React.createElement(
         "div",
@@ -228,6 +273,7 @@ function SingUP(props) {
         )
     );
 }
+// 広告
 function Ad(props) {
     return React.createElement(
         "section",
@@ -273,6 +319,7 @@ function Ad(props) {
         React.createElement("nav", { className: "nav1" })
     );
 }
+// オススメ
 function Recommend(props) {
     return React.createElement(
         "span",
@@ -363,6 +410,7 @@ function Recommend(props) {
         )
     );
 }
+// タブ
 function FoodMenu(props) {
     return React.createElement(
         "div",
@@ -467,6 +515,7 @@ function FoodSection() {
         foodsection
     );
 }
+// footer
 function Footer() {
     return React.createElement(
         "footer",
@@ -542,13 +591,12 @@ function Main() {
         "div",
         null,
         React.createElement(BacKGround, { text: "top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059" }),
-        React.createElement(SearchForm, { route: "#", method: "#", "class": "search" }),
+        React.createElement(SearchForm, { route: "#", "class": "search" }),
         React.createElement(Ad, null),
         React.createElement(Recommend, { h2: "\u30AA\u30B9\u30B9\u30E1\u5546\u54C1 \u30FB \u58F2\u308C\u7B4B", "class": "recommend" }),
         React.createElement(Recommend, { h2: "\u30BB\u30FC\u30EB", "class": "sell" }),
         React.createElement(FoodMenu, null),
-        React.createElement(FoodSection, null),
-        React.createElement(Footer, null)
+        React.createElement(FoodSection, null)
     );
 }
 var domContainer = document.querySelector('.container');

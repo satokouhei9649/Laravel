@@ -10,7 +10,7 @@ h2 {
 a:visited{
     color: black;
 }
-.sellAd,.recommends,.Sells {
+.sellAd,.recommends,.sells {
     list-style: none;
     margin: 0 auto;
     padding: 0;
@@ -69,9 +69,9 @@ nav .current {
     background: black ;
 }
 .recommends,.sells {
-    height: 60%;
+    height: 300px;
     margin: 10px;
-    overflow: auto;
+    overflow-x: auto;
 }
 .rank {
     min-width: 20%;
@@ -150,7 +150,7 @@ nav .current {
 }
 .content.active {
     display: block;
-    height: 80%;
+    height: 500px;
     width: 50%;
     margin: 0 auto 30px;
     box-sizing: border-box;
@@ -160,7 +160,7 @@ nav .current {
 }
 .foodUl> li {
     width: 50%;
-    height: 80%;
+    height: 50%;
     border: 1px solid gray;
     margin: 20px auto;
     padding: 3%;
@@ -169,10 +169,11 @@ nav .current {
 .foodUl {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 40px;
+    gap: 20px;
     white-space: normal;
     margin:  0 auto;
     padding: 0;
+    height: 50%;
 }
 .tab1 {
     background: rgb(255, 103, 103);

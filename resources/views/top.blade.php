@@ -1,8 +1,8 @@
-
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
     <head>
         <meta charset="UTF-8">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>MylaravelApp</title>
         <link rel="stylesheet" href="{{ url('css/components.css')}}">
         <link rel="stylesheet" href="{{ url('css/top.css')}}">

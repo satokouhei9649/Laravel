@@ -24,7 +24,7 @@ header {
      margin: 0 auto;
  }
  .search {
-     width: 80%;
+     width: 40%;
      display: flex;
      align-content: center;
      margin: 0 auto;
@@ -112,7 +112,7 @@ header {
 
 }
 /* 買い物カゴ */
-.cartBox.open {
+.cartbox.open {
     z-index: 14;
     position: fixed;
     top: 20%;
@@ -281,7 +281,7 @@ header {
      margin: 5% auto;
      z-index: 15;
  }
-.backGround {
+.background {
     background: gray;
     opacity: 0.8;
     position: fixed;
@@ -293,7 +293,7 @@ header {
     height: 100%;
     display: none;
 }
-.backGround.open {
+.background.open {
     display: block;
 }
 .signup > h2 {

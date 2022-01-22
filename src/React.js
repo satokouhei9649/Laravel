@@ -1,5 +1,6 @@
 'use strict';
 // const { functionsIn } = require("lodash");
+// import {AnimationMove} from "public/js/top.js";
 class Index extends React.Component {
   constructor(props) {
     super(props);
@@ -15,36 +16,58 @@ class Index extends React.Component {
             <BacKGround class="cartbox"/>
             <SingUP />
             <Main />
+            <Footer />
         </div>
     );
   }
 }
-
+// ヘッダー
 function Header() {
     return(
         <header>
-            <SearchForm route="{{route('posts.login') }}" method="post" class="search topSearch searchForm searchForm1"/>
-            <ListUl />
+            <SearchForm route="/test" class="search topSearch searchForm searchForm1"/>
+            <MenuList />
         </header>
     );
 }
-function SearchForm(props) {
-    return(
-            // <form action="" method="" className="">
-            <form action={props.route} method={props.method} className={props.class}>
-                <Input type="text" text="ここに入力" className="searchWord"/>
-                <Input type="submit" value="検索" className="submit"/>
-            </form>
-    );
+// 検索
+class SearchForm extends React.Component {
+    constructor(props){
+        super(props);
+        let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
+        this.state = {
+            route: props.route,
+            csrf_token: csrf_token,
+            class: props.class,
+        }
+    }
+        render(){
+            return(
+              <form action={this.state.route} method="post" className={this.state.class}>
+                  <Input type="text" text="ここに入力" className="searchWord"/>
+                  <Input type="hidden" name="token" value={ this.state.csrf_token }/>
+                  <Input type="submit" value="検索" className="submit"/>
+              </form>
+            );
+        }
 }
+
+
 function Input(props) {
     return(
-        <input type={props.type} placeholder={props.text} className={props.className} value={props.value}></input>
+        <input type={props.type}
+        placeholder={props.text}
+        name={props.name}
+        className={props.className}
+        value={props.value} />
     );
 }
-function ListUl(props) {
+function MenuList(props) {
     return(
          <ul className="list">
+            <li className="icon">
+                <span id="user"><i className="fas fa-user fa-2x"></i></span>
+            </li>
             <li className="icon">
                 <span id="shoppingCart"><i className="fas fa-shopping-cart fa-2x "></i></span>
             </li>
@@ -55,6 +78,7 @@ function ListUl(props) {
     );
 
 }
+// モーダル
 function Modal(props) {
     return(
         <section id="modal">
@@ -68,6 +92,7 @@ function Modal(props) {
         </section>
     );
 }
+// 買い物
 function ShoppingCart(props) {
     return(
     <div className="cart">
@@ -84,11 +109,13 @@ function ShoppingCart(props) {
 
     );
 }
+// 背景
 function BacKGround(props) {
     return(
         <div className={props.class}>{props.text}</div>
     );
 }
+// 新規登録
 function SingUP(props) {
     return(
     <div className="signup">
@@ -107,6 +134,7 @@ function SingUP(props) {
     </div>
     );
 }
+// 広告
 function Ad(props) {
     return(
     <section className="Ad">
@@ -122,6 +150,7 @@ function Ad(props) {
     </section>
     );
 }
+// オススメ
 function Recommend(props) {
     return(
         <span>
@@ -142,6 +171,7 @@ function Recommend(props) {
         </span>
     );
 }
+// タブ
 function FoodMenu(props) {
     return(
         <div>
@@ -187,6 +217,7 @@ function FoodSection() {
         </div>
     );
 }
+// footer
 function Footer() {
     return(
     <footer>
@@ -210,13 +241,12 @@ function Main() {
     return(
 <div>
     <BacKGround  text="topページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページです" />
-    <SearchForm route="#" method="#" class="search" />
+    <SearchForm route="#" class="search" />
     <Ad />
     <Recommend h2="オススメ商品 ・ 売れ筋" class="recommend"/>
     <Recommend h2="セール" class="sell"/>
     <FoodMenu />
     <FoodSection />
-    <Footer />
 </div>
     );
 }

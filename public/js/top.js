@@ -13,9 +13,9 @@
     });
     // ショッピングカート
     const cartLogo = document.getElementById('shoppingCart');
-    const cartBox = document.querySelector('.cartBox');
+    const cartBox = document.querySelector('.cartbox');
     const cart = document.querySelector('.cart');
-    const backGround = document.querySelector('.backGround');
+    const backGround = document.querySelector('.background');
     const shopBack = document.getElementById('shopBack');
     const shoppingList = Array.from(document.querySelectorAll('.shoppingList'));
     cartLogo.addEventListener('click', e => {
@@ -55,7 +55,7 @@
             arguments[i].classList.add('hidden');
         }
     }
-    const AnimationMove = function(Array){
+     const AnimationMove = function(Array){
         Array.forEach((el,index) => {
             // 持ち時間
             let delay =  Array.length * .0 +.3;
@@ -65,9 +65,7 @@
             el.classList.add('active');
         });
     }
-    const AddClassActive = function() {
 
-    }
 
 
     // タブメニュー
@@ -175,7 +173,6 @@
     }
     }
     Observer(recommends,Sells);
-
 
 
 

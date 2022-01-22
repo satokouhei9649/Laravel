@@ -12,13 +12,12 @@ class PostController extends Controller
         return view('top')
         ->with(['posts' => $posts]);
     }
-    public function show(Post $post)
+    public function test()
     {
-        return view('posts.show')
-            ->with(['post' => $post]);
+        return view('posts.test');
     }
     public function signup()
     {
-    
+
     }
 }
