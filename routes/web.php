@@ -16,7 +16,7 @@ use App\Http\Controllers\PostController;
 Route::get('/', [PostController::class, 'top'])
     ->name('posts.top');
 
-Route::get('/test', [PostController::class, 'test'])
+Route::get('posts/test', [PostController::class, 'test'])
     ->name('posts.test');
     // ->where('post', '[0-9]+');
     // login

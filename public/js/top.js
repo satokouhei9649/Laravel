@@ -30,17 +30,31 @@
         }
     });
 
-    // 新規登録
+    // 新規登録・ログイン
+    const ToLogin = document.querySelector('.loginBtn');
+    const LoginForm = document.querySelector('.LoginForm');
+    const UserIcon = document.getElementById('user');
     const backBtn = document.getElementById('Back');
+    const LoginBackBtn = document.querySelector('.Back');
     const signupFormBtn = document.getElementById('signupFormBtn');
     const signup = document.querySelector('.signup');
-    signupFormBtn.addEventListener('click', e => {
-        e.preventDefault();
-        AnimationOpen(signup,backGround);
+    const SignUps = [UserIcon,signupFormBtn];
+    SignUps.forEach(El => {
+        El.addEventListener('click', e => {
+            e.preventDefault();
+            AnimationOpen(signup,backGround);
+        })
+    })
+    ToLogin.addEventListener('click',() => {
+        AnimationOpen(LoginForm);
+        AnimationClose(signup);
     });
-
     backBtn.addEventListener('click', () => {
         AnimationClose(signup,backGround);
+    });
+    LoginBackBtn.addEventListener('click', () => {
+        AnimationClose(LoginForm);
+        AnimationOpen(signup);
     });
 
     const AnimationOpen = function() {

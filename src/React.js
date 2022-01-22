@@ -1,11 +1,10 @@
 'use strict';
 // const { functionsIn } = require("lodash");
-// import {AnimationMove} from "public/js/top.js";
+let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
 class Index extends React.Component {
   constructor(props) {
     super(props);
   }
-
   render() {
     return (
         <div>
@@ -15,6 +14,7 @@ class Index extends React.Component {
             <BacKGround class="background"/>
             <BacKGround class="cartbox"/>
             <SingUP />
+            <LoginForm />
             <Main />
             <Footer />
         </div>
@@ -25,7 +25,7 @@ class Index extends React.Component {
 function Header() {
     return(
         <header>
-            <SearchForm route="/test" class="search topSearch searchForm searchForm1"/>
+            <SearchForm route="posts/test" class="search topSearch searchForm searchForm1"/>
             <MenuList />
         </header>
     );
@@ -34,7 +34,6 @@ function Header() {
 class SearchForm extends React.Component {
     constructor(props){
         super(props);
-        let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
         this.state = {
             route: props.route,
             csrf_token: csrf_token,
@@ -43,7 +42,7 @@ class SearchForm extends React.Component {
     }
         render(){
             return(
-              <form action={this.state.route} method="post" className={this.state.class}>
+              <form action={this.state.route} method="#" className={this.state.class}>
                   <Input type="text" text="ここに入力" className="searchWord"/>
                   <Input type="hidden" name="token" value={ this.state.csrf_token }/>
                   <Input type="submit" value="検索" className="submit"/>
@@ -62,6 +61,7 @@ function Input(props) {
         value={props.value} />
     );
 }
+// メニュー
 function MenuList(props) {
     return(
          <ul className="list">
@@ -97,6 +97,7 @@ function ShoppingCart(props) {
     return(
     <div className="cart">
         <h2>お買い物カゴにある商品<a href="#" id="shopBack">✖️</a></h2>
+        <form action="/total" method="get">
         <ul>
             <li className="shoppingList"></li>
             <li className="shoppingList"></li>
@@ -104,9 +105,10 @@ function ShoppingCart(props) {
             <li className="shoppingList"></li>
         </ul>
         <Input type="submit" value="お支払いへ" className="buyBtn" />
+        <Input type="hidden" name="token" value={csrf_token}/>
+        </form>
         <button>戻る</button>
     </div>
-
     );
 }
 // 背景
@@ -121,16 +123,33 @@ function SingUP(props) {
     <div className="signup">
         <a href="#" id="Back">✖️</a>
         <h2>新規登録</h2>
+        <form action="/user/signup" method="post" id="signup">
             <p>名前</p>
-            <Input type="text" class="name"/>
+            <Input type="text" name="name"/>
+            <p>メールアドレス</p>
+            <Input type="text" name="email"/>
+            <p>パスワード</p>
+            <Input type="text" name="password"/>
+            <p>電話番号</p>
+            <Input type="text" name="call"/>
+            <Input className="signBtn" type="submit" value="新規登録"/>
+        </form>
+            <button className="loginBtn">ログイン画面</button>
+    </div>
+    );
+}
+function LoginForm() {
+    return(
+    <div className="LoginForm">
+        <a href="#" className="Back">✖️</a>
+        <h2>ログイン</h2>
+        <form route="/user/login" method="post" id="LoginForm">
             <p>メールアドレス</p>
             <Input type="text" class="email"/>
-            <p>住所</p>
-            <Input type="text" class="email"/>
-            <p>電話番号</p>
-            <Input type="text" class="email"/>
-            <button className="signBtn">新規登録</button>
-            <button className="loginBtn">ログイン画面</button>
+            <p>パスワード</p>
+            <Input type="text" class="password"/>
+            <Input type="submit" value="ログイン" className="loginBtn"/>
+        </form>
     </div>
     );
 }
@@ -189,6 +208,7 @@ function FoodMenu(props) {
 
     );
 }
+// カテゴリー検索
 function FoodSection() {
     const titles = [
         {class: "active", id: "meat", bordercolor: "20px solid rgb(255, 103, 103)", h1:"お肉"},
@@ -237,6 +257,7 @@ function Footer() {
     </footer>
     );
 }
+// Top画面
 function Main() {
     return(
 <div>
