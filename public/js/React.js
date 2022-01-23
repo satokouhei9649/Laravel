@@ -156,7 +156,7 @@ function Modal(props) {
             null,
             React.createElement(
                 'a',
-                { href: '#' },
+                { id: 'ToLogin' },
                 '\u30ED\u30B0\u30A4\u30F3'
             )
         ),

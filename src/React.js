@@ -85,7 +85,7 @@ function Modal(props) {
             <div id="close">✖️</div>
             <h3>新規登録・ログイン</h3>
             <p><a id="signupFormBtn">新規登録</a></p>
-            <p><a href="#">ログイン</a></p>
+            <p><a id="ToLogin">ログイン</a></p>
             <h3>お買い物</h3>
             <p><a href=".Food">ジャンルで探す</a></p>
             <p><a>値段で探す</a></p>

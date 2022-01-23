@@ -31,7 +31,9 @@
     });
 
     // 新規登録・ログイン
-    const ToLogin = document.querySelector('.loginBtn');
+    const ToLogin1 = document.getElementById('LoginBtn');
+    const ToLogin2 = document.querySelector('.loginBtn');
+    const LoginFormLinks = [ToLogin1,ToLogin2];
     const LoginForm = document.querySelector('.LoginForm');
     const UserIcon = document.getElementById('user');
     const backBtn = document.getElementById('Back');
@@ -45,10 +47,12 @@
             AnimationOpen(signup,backGround);
         })
     })
-    ToLogin.addEventListener('click',() => {
-        AnimationOpen(LoginForm);
-        AnimationClose(signup);
-    });
+    LoginFormLinks.forEach(El => {
+        El.addEventListener('click', e => {
+            e.preventDefault();
+            AnimationOpen(signup,backGround);
+        })
+    })
     backBtn.addEventListener('click', () => {
         AnimationClose(signup,backGround);
     });
