@@ -1,10 +1,26 @@
 'use strict';
 // const { functionsIn } = require("lodash");
 let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
+const Users = [{userName: "root",userPassword: "root",userEmail: "root",isLogin: false}];
 class Index extends React.Component {
   constructor(props) {
     super(props);
-  }
+    this.state = {
+        userName:'',
+        userPassword: '',
+        userEmail: '',
+        isLogin: false
+    }
+this.AddInfo = this.AddInfo.bind(this);
+}
+    AddInfo(e) {
+        console.log(e);
+        this.setState({
+            userName:  e.target.value,
+            userPassword:  e.target.value,
+            useremail:  e.target.value
+    })
+}
   render() {
     return (
         <div>
@@ -13,7 +29,11 @@ class Index extends React.Component {
             <ShoppingCart />
             <BacKGround class="background"/>
             <BacKGround class="cartbox"/>
-            <SingUP />
+            <SingUP
+            userName={this.state.userName}
+            userEmail={this.state.userEmail}
+            userPassword={this.state.userPassword}
+            AddInfo={this.AddInfo}/>
             <LoginForm />
             <Main />
             <Footer />
@@ -21,6 +41,41 @@ class Index extends React.Component {
     );
   }
 }
+// 新規登録
+function SingUP(props) {
+    return(
+    <div className="signup">
+        <a href="#" id="Back">✖️</a>
+        <h2>新規登録</h2>
+        <form id="signup" >
+            <p>名前</p>
+            <Input type="text" name="name" value={props.userName} onChange={props.AddInfo}/>
+            <p>メールアドレス</p>
+            <Input type="text" name="email" value={props.userEmail} onChange={props.AddInfo}/>
+            <p>パスワード</p>
+            <Input type="text" name="password" value={props.userPassword} onChange={props.AddInfo}/>
+            <Input className="signBtn" type="submit" value="新規登録"/>
+        </form>
+            <button className="loginBtn">ログイン画面</button>
+    </div>
+    );
+}
+
+function LoginForm () {
+        return(
+            <div className="LoginForm">
+                <a href="#" className="Back">✖️</a>
+                <h2>ログイン</h2>
+                <form route="/user/login" method="post" id="LoginForm">
+                    <p>メールアドレス</p>
+                    <Input type="text" class="email"/>
+                    <p>パスワード</p>
+                    <Input type="text" class="password"/>
+                    <Input type="submit" value="ログイン" className="loginBtn"/>
+                </form>
+            </div>
+        );
+    }
 // ヘッダー
 function Header() {
     return(
@@ -31,27 +86,16 @@ function Header() {
     );
 }
 // 検索
-class SearchForm extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            route: props.route,
-            csrf_token: csrf_token,
-            class: props.class,
-        }
-    }
-        render(){
+function SearchForm (props) {
             return(
-              <form action={this.state.route} method="#" className={this.state.class}>
+              <form action={props.route} method="#" className={props.class}>
                   <Input type="text" text="ここに入力" className="searchWord"/>
-                  <Input type="hidden" name="token" value={ this.state.csrf_token }/>
+                  <Input type="hidden" name="token" value={ csrf_token }/>
                   <Input type="submit" value="検索" className="submit"/>
               </form>
             );
-        }
+
 }
-
-
 function Input(props) {
     return(
         <input type={props.type}
@@ -117,42 +161,7 @@ function BacKGround(props) {
         <div className={props.class}>{props.text}</div>
     );
 }
-// 新規登録
-function SingUP(props) {
-    return(
-    <div className="signup">
-        <a href="#" id="Back">✖️</a>
-        <h2>新規登録</h2>
-        <form action="/user/signup" method="post" id="signup">
-            <p>名前</p>
-            <Input type="text" name="name"/>
-            <p>メールアドレス</p>
-            <Input type="text" name="email"/>
-            <p>パスワード</p>
-            <Input type="text" name="password"/>
-            <p>電話番号</p>
-            <Input type="text" name="call"/>
-            <Input className="signBtn" type="submit" value="新規登録"/>
-        </form>
-            <button className="loginBtn">ログイン画面</button>
-    </div>
-    );
-}
-function LoginForm() {
-    return(
-    <div className="LoginForm">
-        <a href="#" className="Back">✖️</a>
-        <h2>ログイン</h2>
-        <form route="/user/login" method="post" id="LoginForm">
-            <p>メールアドレス</p>
-            <Input type="text" class="email"/>
-            <p>パスワード</p>
-            <Input type="text" class="password"/>
-            <Input type="submit" value="ログイン" className="loginBtn"/>
-        </form>
-    </div>
-    );
-}
+
 // 広告
 function Ad(props) {
     return(

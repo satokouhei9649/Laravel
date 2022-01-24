@@ -10,6 +10,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
+var Users = [{ userName: "root", userPassword: "root", userEmail: "root", isLogin: false }];
 
 var Index = function (_React$Component) {
     _inherits(Index, _React$Component);
@@ -17,10 +18,29 @@ var Index = function (_React$Component) {
     function Index(props) {
         _classCallCheck(this, Index);
 
-        return _possibleConstructorReturn(this, (Index.__proto__ || Object.getPrototypeOf(Index)).call(this, props));
+        var _this = _possibleConstructorReturn(this, (Index.__proto__ || Object.getPrototypeOf(Index)).call(this, props));
+
+        _this.state = {
+            userName: '',
+            userPassword: '',
+            userEmail: '',
+            isLogin: false
+        };
+        _this.AddInfo = _this.AddInfo.bind(_this);
+        return _this;
     }
 
     _createClass(Index, [{
+        key: 'AddInfo',
+        value: function AddInfo(e) {
+            console.log(e);
+            this.setState({
+                userName: e.target.value,
+                userPassword: e.target.value,
+                useremail: e.target.value
+            });
+        }
+    }, {
         key: 'render',
         value: function render() {
             return React.createElement(
@@ -31,7 +51,11 @@ var Index = function (_React$Component) {
                 React.createElement(ShoppingCart, null),
                 React.createElement(BacKGround, { 'class': 'background' }),
                 React.createElement(BacKGround, { 'class': 'cartbox' }),
-                React.createElement(SingUP, null),
+                React.createElement(SingUP, {
+                    userName: this.state.userName,
+                    userEmail: this.state.userEmail,
+                    userPassword: this.state.userPassword,
+                    AddInfo: this.AddInfo }),
                 React.createElement(LoginForm, null),
                 React.createElement(Main, null),
                 React.createElement(Footer, null)
@@ -41,9 +65,88 @@ var Index = function (_React$Component) {
 
     return Index;
 }(React.Component);
+// 新規登録
+
+
+function SingUP(props) {
+    return React.createElement(
+        'div',
+        { className: 'signup' },
+        React.createElement(
+            'a',
+            { href: '#', id: 'Back' },
+            '\u2716\uFE0F'
+        ),
+        React.createElement(
+            'h2',
+            null,
+            '\u65B0\u898F\u767B\u9332'
+        ),
+        React.createElement(
+            'form',
+            { id: 'signup' },
+            React.createElement(
+                'p',
+                null,
+                '\u540D\u524D'
+            ),
+            React.createElement(Input, { type: 'text', name: 'name', value: props.userName, onChange: props.AddInfo }),
+            React.createElement(
+                'p',
+                null,
+                '\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9'
+            ),
+            React.createElement(Input, { type: 'text', name: 'email', value: props.userEmail, onChange: props.AddInfo }),
+            React.createElement(
+                'p',
+                null,
+                '\u30D1\u30B9\u30EF\u30FC\u30C9'
+            ),
+            React.createElement(Input, { type: 'text', name: 'password', value: props.userPassword, onChange: props.AddInfo }),
+            React.createElement(Input, { className: 'signBtn', type: 'submit', value: '\u65B0\u898F\u767B\u9332' })
+        ),
+        React.createElement(
+            'button',
+            { className: 'loginBtn' },
+            '\u30ED\u30B0\u30A4\u30F3\u753B\u9762'
+        )
+    );
+}
+
+function LoginForm() {
+    return React.createElement(
+        'div',
+        { className: 'LoginForm' },
+        React.createElement(
+            'a',
+            { href: '#', className: 'Back' },
+            '\u2716\uFE0F'
+        ),
+        React.createElement(
+            'h2',
+            null,
+            '\u30ED\u30B0\u30A4\u30F3'
+        ),
+        React.createElement(
+            'form',
+            { route: '/user/login', method: 'post', id: 'LoginForm' },
+            React.createElement(
+                'p',
+                null,
+                '\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9'
+            ),
+            React.createElement(Input, { type: 'text', 'class': 'email' }),
+            React.createElement(
+                'p',
+                null,
+                '\u30D1\u30B9\u30EF\u30FC\u30C9'
+            ),
+            React.createElement(Input, { type: 'text', 'class': 'password' }),
+            React.createElement(Input, { type: 'submit', value: '\u30ED\u30B0\u30A4\u30F3', className: 'loginBtn' })
+        )
+    );
+}
 // ヘッダー
-
-
 function Header() {
     return React.createElement(
         'header',
@@ -53,39 +156,15 @@ function Header() {
     );
 }
 // 検索
-
-var SearchForm = function (_React$Component2) {
-    _inherits(SearchForm, _React$Component2);
-
-    function SearchForm(props) {
-        _classCallCheck(this, SearchForm);
-
-        var _this2 = _possibleConstructorReturn(this, (SearchForm.__proto__ || Object.getPrototypeOf(SearchForm)).call(this, props));
-
-        _this2.state = {
-            route: props.route,
-            csrf_token: csrf_token,
-            class: props.class
-        };
-        return _this2;
-    }
-
-    _createClass(SearchForm, [{
-        key: 'render',
-        value: function render() {
-            return React.createElement(
-                'form',
-                { action: this.state.route, method: '#', className: this.state.class },
-                React.createElement(Input, { type: 'text', text: '\u3053\u3053\u306B\u5165\u529B', className: 'searchWord' }),
-                React.createElement(Input, { type: 'hidden', name: 'token', value: this.state.csrf_token }),
-                React.createElement(Input, { type: 'submit', value: '\u691C\u7D22', className: 'submit' })
-            );
-        }
-    }]);
-
-    return SearchForm;
-}(React.Component);
-
+function SearchForm(props) {
+    return React.createElement(
+        'form',
+        { action: props.route, method: '#', className: props.class },
+        React.createElement(Input, { type: 'text', text: '\u3053\u3053\u306B\u5165\u529B', className: 'searchWord' }),
+        React.createElement(Input, { type: 'hidden', name: 'token', value: csrf_token }),
+        React.createElement(Input, { type: 'submit', value: '\u691C\u7D22', className: 'submit' })
+    );
+}
 function Input(props) {
     return React.createElement('input', { type: props.type,
         placeholder: props.text,
@@ -229,90 +308,7 @@ function BacKGround(props) {
         props.text
     );
 }
-// 新規登録
-function SingUP(props) {
-    return React.createElement(
-        'div',
-        { className: 'signup' },
-        React.createElement(
-            'a',
-            { href: '#', id: 'Back' },
-            '\u2716\uFE0F'
-        ),
-        React.createElement(
-            'h2',
-            null,
-            '\u65B0\u898F\u767B\u9332'
-        ),
-        React.createElement(
-            'form',
-            { action: '/user/signup', method: 'post', id: 'signup' },
-            React.createElement(
-                'p',
-                null,
-                '\u540D\u524D'
-            ),
-            React.createElement(Input, { type: 'text', name: 'name' }),
-            React.createElement(
-                'p',
-                null,
-                '\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9'
-            ),
-            React.createElement(Input, { type: 'text', name: 'email' }),
-            React.createElement(
-                'p',
-                null,
-                '\u30D1\u30B9\u30EF\u30FC\u30C9'
-            ),
-            React.createElement(Input, { type: 'text', name: 'password' }),
-            React.createElement(
-                'p',
-                null,
-                '\u96FB\u8A71\u756A\u53F7'
-            ),
-            React.createElement(Input, { type: 'text', name: 'call' }),
-            React.createElement(Input, { className: 'signBtn', type: 'submit', value: '\u65B0\u898F\u767B\u9332' })
-        ),
-        React.createElement(
-            'button',
-            { className: 'loginBtn' },
-            '\u30ED\u30B0\u30A4\u30F3\u753B\u9762'
-        )
-    );
-}
-function LoginForm() {
-    return React.createElement(
-        'div',
-        { className: 'LoginForm' },
-        React.createElement(
-            'a',
-            { href: '#', className: 'Back' },
-            '\u2716\uFE0F'
-        ),
-        React.createElement(
-            'h2',
-            null,
-            '\u30ED\u30B0\u30A4\u30F3'
-        ),
-        React.createElement(
-            'form',
-            { route: '/user/login', method: 'post', id: 'LoginForm' },
-            React.createElement(
-                'p',
-                null,
-                '\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9'
-            ),
-            React.createElement(Input, { type: 'text', 'class': 'email' }),
-            React.createElement(
-                'p',
-                null,
-                '\u30D1\u30B9\u30EF\u30FC\u30C9'
-            ),
-            React.createElement(Input, { type: 'text', 'class': 'password' }),
-            React.createElement(Input, { type: 'submit', value: '\u30ED\u30B0\u30A4\u30F3', className: 'loginBtn' })
-        )
-    );
-}
+
 // 広告
 function Ad(props) {
     return React.createElement(

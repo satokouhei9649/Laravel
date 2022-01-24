@@ -31,16 +31,17 @@
     });
 
     // 新規登録・ログイン
-    const ToLogin1 = document.getElementById('LoginBtn');
+    const LoginForm = document.querySelector('.LoginForm');
+    const ToLogin1 = document.getElementById('ToLogin');
     const ToLogin2 = document.querySelector('.loginBtn');
     const LoginFormLinks = [ToLogin1,ToLogin2];
-    const LoginForm = document.querySelector('.LoginForm');
-    const UserIcon = document.getElementById('user');
-    const backBtn = document.getElementById('Back');
     const LoginBackBtn = document.querySelector('.Back');
-    const signupFormBtn = document.getElementById('signupFormBtn');
+
     const signup = document.querySelector('.signup');
+    const signupFormBtn = document.getElementById('signupFormBtn');
+    const UserIcon = document.getElementById('user');
     const SignUps = [UserIcon,signupFormBtn];
+    const backBtn = document.getElementById('Back');
     SignUps.forEach(El => {
         El.addEventListener('click', e => {
             e.preventDefault();
@@ -49,16 +50,15 @@
     })
     LoginFormLinks.forEach(El => {
         El.addEventListener('click', e => {
-            e.preventDefault();
-            AnimationOpen(signup,backGround);
+            AnimationOpen(LoginForm,backGround);
+            AnimationClose(signup);
         })
     })
     backBtn.addEventListener('click', () => {
         AnimationClose(signup,backGround);
     });
     LoginBackBtn.addEventListener('click', () => {
-        AnimationClose(LoginForm);
-        AnimationOpen(signup);
+        AnimationClose(LoginForm,backGround);
     });
 
     const AnimationOpen = function() {
