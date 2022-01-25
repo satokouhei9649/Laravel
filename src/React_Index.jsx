@@ -1,6 +1,6 @@
 'use strict';
 // const { functionsIn } = require("lodash");
-import {BrowserRouter, Route} from 'react-router-dom'
+import SignUP from '/SignUp.js'
 let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
 const Users = [{userName: "root",userPassword: "root",userEmail: "root",isLogin: false}];
 class Index extends React.Component {
@@ -43,7 +43,7 @@ this.AddInfo = this.AddInfo.bind(this);
   }
 }
 // 新規登録
-function SingUP(props) {
+const SingUP  = (props) => {
     return(
     <div className="signup">
         <a href="#" id="Back">✖️</a>
