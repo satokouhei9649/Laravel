@@ -1,5 +1,6 @@
 'use strict';
 // const { functionsIn } = require("lodash");
+// import SignUP from '/SignUp.js'
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -9,7 +10,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-import { BrowserRouter, Route } from 'react-router-dom';
 var csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
 var Users = [{ userName: "root", userPassword: "root", userEmail: "root", isLogin: false }];
 
@@ -69,7 +69,7 @@ var Index = function (_React$Component) {
 // 新規登録
 
 
-function SingUP(props) {
+var SingUP = function SingUP(props) {
     return React.createElement(
         'div',
         { className: 'signup' },
@@ -112,7 +112,7 @@ function SingUP(props) {
             '\u30ED\u30B0\u30A4\u30F3\u753B\u9762'
         )
     );
-}
+};
 
 function LoginForm() {
     return React.createElement(
