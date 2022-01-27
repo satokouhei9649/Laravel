@@ -102,13 +102,13 @@ function MenuList(props) {
     return(
          <ul className="list">
             <li className="icon">
-                <i id="user"className="fas fa-user fa-2x"></i>
+                <span id="user"><i className="fas fa-user fa-2x"></i></span>
             </li>
             <li className="icon">
-                <i  id="shoppingCart" className="fas fa-shopping-cart fa-2x "></i>
+                 <span id="shoppingCart"><i className="fas fa-shopping-cart fa-2x "></i></span>
             </li>
             <li className="icon">
-                <i id="menu" className="fas fa-bars fa-2x"></i>
+                <span id="menu"><i className="fas fa-bars fa-2x"></i></span>
             </li>
         </ul>
     );

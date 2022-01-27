@@ -168,17 +168,29 @@ function MenuList(props) {
         React.createElement(
             'li',
             { className: 'icon' },
-            React.createElement('i', { id: 'user', className: 'fas fa-user fa-2x' })
+            React.createElement(
+                'span',
+                { id: 'user' },
+                React.createElement('i', { className: 'fas fa-user fa-2x' })
+            )
         ),
         React.createElement(
             'li',
             { className: 'icon' },
-            React.createElement('i', { id: 'shoppingCart', className: 'fas fa-shopping-cart fa-2x ' })
+            React.createElement(
+                'span',
+                { id: 'shoppingCart' },
+                React.createElement('i', { className: 'fas fa-shopping-cart fa-2x ' })
+            )
         ),
         React.createElement(
             'li',
             { className: 'icon' },
-            React.createElement('i', { id: 'menu', className: 'fas fa-bars fa-2x' })
+            React.createElement(
+                'span',
+                { id: 'menu' },
+                React.createElement('i', { className: 'fas fa-bars fa-2x' })
+            )
         )
     );
 }
@@ -619,7 +631,7 @@ ReactDOM.render(React.createElement(Index, null), domContainer);
 'use strict';
 
 {
-
+    const modal = document.getElementById('modal');
     const menu = document.getElementById('menu');
     const close = document.getElementById('close');
     // モーダル

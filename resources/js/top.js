@@ -1,7 +1,7 @@
 'use strict';
 
 {
-
+    const modal = document.getElementById('modal');
     const menu = document.getElementById('menu');
     const close = document.getElementById('close');
     // モーダル
