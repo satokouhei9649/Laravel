@@ -1,6 +1,7 @@
 'use strict';
 // const { functionsIn } = require("lodash");
-import {BrowserRouter, Route} from 'react-router-dom'
+// import {BrowserRouter, Route} from 'react-router-dom'
+// import SignUp from './SignUp.js'
 let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
 const Users = [{userName: "root",userPassword: "root",userEmail: "root",isLogin: false}];
 class Index extends React.Component {
@@ -12,16 +13,9 @@ class Index extends React.Component {
         userEmail: '',
         isLogin: false
     }
-this.AddInfo = this.AddInfo.bind(this);
-}
-    AddInfo(e) {
-        console.log(e);
-        this.setState({
-            userName:  e.target.value,
-            userPassword:  e.target.value,
-            useremail:  e.target.value
-    })
-}
+    }
+
+
   render() {
     return (
         <div>
@@ -30,11 +24,7 @@ this.AddInfo = this.AddInfo.bind(this);
             <ShoppingCart />
             <BacKGround class="background"/>
             <BacKGround class="cartbox"/>
-            <SingUP
-            userName={this.state.userName}
-            userEmail={this.state.userEmail}
-            userPassword={this.state.userPassword}
-            AddInfo={this.AddInfo}/>
+            <SingUP/>
             <LoginForm />
             <Main />
             <Footer />
@@ -50,11 +40,11 @@ function SingUP(props) {
         <h2>新規登録</h2>
         <form id="signup" >
             <p>名前</p>
-            <Input type="text" name="name" value={props.userName} onChange={props.AddInfo}/>
+            <Input type="text" name="name" value={props.userName} />
             <p>メールアドレス</p>
-            <Input type="text" name="email" value={props.userEmail} onChange={props.AddInfo}/>
+            <Input type="text" name="email" value={props.userEmail} />
             <p>パスワード</p>
-            <Input type="text" name="password" value={props.userPassword} onChange={props.AddInfo}/>
+            <Input type="text" name="password" value={props.userPassword} />
             <Input className="signBtn" type="submit" value="新規登録"/>
         </form>
             <button className="loginBtn">ログイン画面</button>
@@ -107,6 +97,7 @@ function Input(props) {
     );
 }
 // メニュー
+const modal = document.getElementById('modal');
 function MenuList(props) {
     return(
          <ul className="list">
@@ -117,12 +108,13 @@ function MenuList(props) {
                 <i  id="shoppingCart" className="fas fa-shopping-cart fa-2x "></i>
             </li>
             <li className="icon">
-                <i id="menu"className="fas fa-bars fa-2x" ></i>
+                <i id="menu" className="fas fa-bars fa-2x"></i>
             </li>
         </ul>
     );
 
 }
+
 // モーダル
 function Modal(props) {
     return(

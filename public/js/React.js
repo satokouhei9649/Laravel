@@ -1,27 +1,19 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
-/******/ 	// The require scope
-/******/ 	var __webpack_require__ = {};
-/******/ 	
-/************************************************************************/
-/******/ 	/* webpack/runtime/make namespace object */
-/******/ 	(() => {
-/******/ 		// define __esModule on exports
-/******/ 		__webpack_require__.r = (exports) => {
-/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 			}
-/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/************************************************************************/
-var __webpack_exports__ = {};
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./resources/js/React.js":
 /*!*******************************!*\
   !*** ./resources/js/React.js ***!
   \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _top__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./top */ "./resources/js/top.js");
+/* harmony import */ var _top__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_top__WEBPACK_IMPORTED_MODULE_0__);
  // const { functionsIn } = require("lodash");
+// import {BrowserRouter, Route} from 'react-router-dom'
+// import SignUp from './SignUp.js'
 
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
@@ -96,33 +88,17 @@ var Index = function (_React$Component) {
       userEmail: '',
       isLogin: false
     };
-    _this.AddInfo = _this.AddInfo.bind(_this);
     return _this;
   }
 
   _createClass(Index, [{
-    key: 'AddInfo',
-    value: function AddInfo(e) {
-      console.log(e);
-      this.setState({
-        userName: e.target.value,
-        userPassword: e.target.value,
-        useremail: e.target.value
-      });
-    }
-  }, {
     key: 'render',
     value: function render() {
       return React.createElement('div', null, React.createElement(Header, null), React.createElement(Modal, null), React.createElement(ShoppingCart, null), React.createElement(BacKGround, {
         'class': 'background'
       }), React.createElement(BacKGround, {
         'class': 'cartbox'
-      }), React.createElement(SingUP, {
-        userName: this.state.userName,
-        userEmail: this.state.userEmail,
-        userPassword: this.state.userPassword,
-        AddInfo: this.AddInfo
-      }), React.createElement(LoginForm, null), React.createElement(Main, null), React.createElement(Footer, null));
+      }), React.createElement(SingUP, null), React.createElement(LoginForm, null), React.createElement(Main, null), React.createElement(Footer, null));
     }
   }]);
 
@@ -226,27 +202,26 @@ function Input(props) {
 
 
 function MenuList(props) {
+  var modal = document.getElementById('modal');
   return React.createElement('ul', {
     className: 'list'
   }, React.createElement('li', {
     className: 'icon'
-  }, React.createElement('span', {
-    id: 'user'
   }, React.createElement('i', {
+    id: 'user',
     className: 'fas fa-user fa-2x'
-  }))), React.createElement('li', {
+  })), React.createElement('li', {
     className: 'icon'
-  }, React.createElement('span', {
-    id: 'shoppingCart'
   }, React.createElement('i', {
+    id: 'shoppingCart',
     className: 'fas fa-shopping-cart fa-2x '
-  }))), React.createElement('li', {
+  })), React.createElement('li', {
     className: 'icon'
-  }, React.createElement('span', {
-    id: 'menu'
   }, React.createElement('i', {
-    className: 'fas fa-bars fa-2x'
-  }))));
+    id: 'menu',
+    className: 'fas fa-bars fa-2x',
+    onClick: (0,_top__WEBPACK_IMPORTED_MODULE_0__.AnimationOpen)(modal)
+  })));
 } // モーダル
 
 
@@ -518,5 +493,408 @@ function Main() {
 
 var domContainer = document.querySelector('.container');
 ReactDOM.render(React.createElement(Index, null), domContainer);
+
+/***/ }),
+
+/***/ "./resources/js/top.js":
+/*!*****************************!*\
+  !*** ./resources/js/top.js ***!
+  \*****************************/
+/***/ (() => {
+
+
+
+{
+  // 矢印の表示
+  var btnStaus = function btnStaus() {
+    prevBtn.classList.remove('hidden');
+    nextBtn.classList.remove('hidden');
+
+    if (count == 0) {
+      prevBtn.classList.add('hidden');
+    }
+
+    if (count == screens.length - 1) {
+      nextBtn.classList.add('hidden');
+    }
+  }; // スライド
+
+
+  var moveScreen = function moveScreen(Array1, Array2) {
+    var Width = Array1[0].getBoundingClientRect().width;
+    Array2.style.transform = "translateX(".concat(-1 * Width * count, "px)");
+  };
+
+  var setDots = function setDots() {
+    var _loop = function _loop(i) {
+      var button = document.createElement('button');
+      button.addEventListener('click', function () {
+        count = i;
+        dotsStatus();
+        btnStaus();
+        moveScreen(screens, Ad);
+      });
+      dots.push(button);
+      document.querySelector('nav').appendChild(button).classList.add('screenBtn');
+    };
+
+    for (var i = 0; i < screens.length; i++) {
+      _loop(i);
+    }
+
+    dots[0].classList.add('current');
+  };
+
+  var dotsStatus = function dotsStatus() {
+    dots.forEach(function (dot) {
+      dot.classList.remove('current');
+    });
+    dots[count].classList.add('current');
+  };
+
+  var menu = document.getElementById('menu');
+  var close = document.getElementById('close'); // モーダル
+
+  menu.addEventListener('click', function () {
+    AnimationOpen(modal);
+  });
+  close.addEventListener('click', function () {
+    AnimationClose(modal);
+  }); // ショッピングカート
+
+  var cartLogo = document.getElementById('shoppingCart');
+  var cartBox = document.querySelector('.cartbox');
+  var cart = document.querySelector('.cart');
+  var backGround = document.querySelector('.background');
+  var shopBack = document.getElementById('shopBack');
+  var shoppingList = Array.from(document.querySelectorAll('.shoppingList'));
+  cartLogo.addEventListener('click', function (e) {
+    e.preventDefault();
+    AnimationOpen(backGround, cart, cartBox);
+    AnimationMove(shoppingList);
+  });
+  shopBack.addEventListener('click', function () {
+    AnimationClose(backGround, cart, cartBox);
+
+    for (var i = 0; i < shoppingList.length; i++) {
+      shoppingList[i].classList.remove('active');
+    }
+  }); // 新規登録・ログイン
+
+  var LoginForm = document.querySelector('.LoginForm');
+  var ToLogin1 = document.getElementById('ToLogin');
+  var ToLogin2 = document.querySelector('.loginBtn');
+  var LoginFormLinks = [ToLogin1, ToLogin2];
+  var LoginBackBtn = document.querySelector('.Back');
+  var signup = document.querySelector('.signup');
+  var signupFormBtn = document.getElementById('signupFormBtn');
+  var UserIcon = document.getElementById('user');
+  var SignUps = [UserIcon, signupFormBtn];
+  var backBtn = document.getElementById('Back');
+  SignUps.forEach(function (El) {
+    El.addEventListener('click', function (e) {
+      e.preventDefault();
+      AnimationOpen(signup, backGround);
+    });
+  });
+  LoginFormLinks.forEach(function (El) {
+    El.addEventListener('click', function (e) {
+      AnimationOpen(LoginForm, backGround);
+      AnimationClose(signup);
+    });
+  });
+  backBtn.addEventListener('click', function () {
+    AnimationClose(signup, backGround);
+  });
+  LoginBackBtn.addEventListener('click', function () {
+    AnimationClose(LoginForm, backGround);
+  });
+
+  var AnimationOpen = function AnimationOpen() {
+    for (var i = 0; i < arguments.length; i++) {
+      arguments[i].classList.remove('hidden');
+      arguments[i].classList.add('open');
+    }
+  };
+
+  var AnimationClose = function AnimationClose() {
+    for (var i = 0; i < arguments.length; i++) {
+      arguments[i].classList.remove('open');
+      arguments[i].classList.add('hidden');
+    }
+  };
+
+  var AnimationMove = function AnimationMove(Array) {
+    Array.forEach(function (el, index) {
+      // 持ち時間
+      var delay = Array.length * .0 + .3; // 間隔
+
+      delay -= index * .5;
+      el.style.animationDelay = "".concat(delay, "s");
+      el.classList.add('active');
+    });
+  }; // タブメニュー
+
+
+  var menuIcons = document.querySelectorAll('.foodIcon');
+  var menuContents = document.querySelectorAll('.content');
+
+  var CreateTab = function CreateTab(Array1, Array2) {
+    Array1.forEach(function (el) {
+      el.addEventListener('click', function (e) {
+        e.preventDefault();
+        Array1.forEach(function (icon) {
+          icon.classList.remove('active');
+        });
+        el.classList.add('active');
+        Array2.forEach(function (el) {
+          el.classList.remove('active');
+        });
+        document.getElementById(el.dataset.id).classList.add('active');
+      });
+    });
+  };
+
+  CreateTab(menuIcons, menuContents); // カルーセル
+
+  var nextBtn = document.querySelector('.next');
+  var prevBtn = document.querySelector('.prev');
+  var Ad = document.querySelector('.sellAd');
+  var screens = Ad.children;
+  var dots = [];
+  var count = 0;
+  nextBtn.addEventListener('click', function () {
+    count++;
+    dotsStatus();
+    btnStaus();
+    moveScreen(screens, Ad);
+  });
+  prevBtn.addEventListener('click', function () {
+    count--;
+    dotsStatus();
+    btnStaus();
+    moveScreen(screens, Ad);
+  });
+  btnStaus();
+  setDots();
+  window.addEventListener('resize', function () {
+    moveScreen(screens, Ad);
+  });
+  var recommends = document.querySelectorAll('.recommend');
+  var Sells = document.querySelectorAll('.sell'); // Intersection Observer API
+
+  var Observer = function Observer() {
+    var _arguments = arguments;
+    var option = {
+      threshold: 0.6,
+      rootMargin: '0px 0px -10%'
+    };
+
+    var _loop2 = function _loop2(i) {
+      var observer = new IntersectionObserver(check, option);
+
+      _arguments[i].forEach(function (argument) {
+        observer.observe(argument);
+      });
+
+      var array = _arguments[i];
+
+      function check(D, obs) {
+        if (!D[0].isIntersecting) {
+          return;
+        }
+
+        AnimationMove(array);
+        obs.unobserve(D[0].target);
+      }
+    };
+
+    for (var i = 0; i < arguments.length; i++) {
+      _loop2(i);
+    }
+  };
+
+  Observer(recommends, Sells);
+}
+
+/***/ }),
+
+/***/ "./resources/css/app.css":
+/*!*******************************!*\
+  !*** ./resources/css/app.css ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/chunk loaded */
+/******/ 	(() => {
+/******/ 		var deferred = [];
+/******/ 		__webpack_require__.O = (result, chunkIds, fn, priority) => {
+/******/ 			if(chunkIds) {
+/******/ 				priority = priority || 0;
+/******/ 				for(var i = deferred.length; i > 0 && deferred[i - 1][2] > priority; i--) deferred[i] = deferred[i - 1];
+/******/ 				deferred[i] = [chunkIds, fn, priority];
+/******/ 				return;
+/******/ 			}
+/******/ 			var notFulfilled = Infinity;
+/******/ 			for (var i = 0; i < deferred.length; i++) {
+/******/ 				var [chunkIds, fn, priority] = deferred[i];
+/******/ 				var fulfilled = true;
+/******/ 				for (var j = 0; j < chunkIds.length; j++) {
+/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
+/******/ 						chunkIds.splice(j--, 1);
+/******/ 					} else {
+/******/ 						fulfilled = false;
+/******/ 						if(priority < notFulfilled) notFulfilled = priority;
+/******/ 					}
+/******/ 				}
+/******/ 				if(fulfilled) {
+/******/ 					deferred.splice(i--, 1)
+/******/ 					var r = fn();
+/******/ 					if (r !== undefined) result = r;
+/******/ 				}
+/******/ 			}
+/******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/jsonp chunk loading */
+/******/ 	(() => {
+/******/ 		// no baseURI
+/******/ 		
+/******/ 		// object to store loaded and loading chunks
+/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
+/******/ 		var installedChunks = {
+/******/ 			"/js/React": 0,
+/******/ 			"css/app": 0
+/******/ 		};
+/******/ 		
+/******/ 		// no chunk on demand loading
+/******/ 		
+/******/ 		// no prefetching
+/******/ 		
+/******/ 		// no preloaded
+/******/ 		
+/******/ 		// no HMR
+/******/ 		
+/******/ 		// no HMR manifest
+/******/ 		
+/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
+/******/ 		
+/******/ 		// install a JSONP callback for chunk loading
+/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
+/******/ 			var [chunkIds, moreModules, runtime] = data;
+/******/ 			// add "moreModules" to the modules object,
+/******/ 			// then flag all "chunkIds" as loaded and fire callback
+/******/ 			var moduleId, chunkId, i = 0;
+/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
+/******/ 				for(moduleId in moreModules) {
+/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
+/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
+/******/ 					}
+/******/ 				}
+/******/ 				if(runtime) var result = runtime(__webpack_require__);
+/******/ 			}
+/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
+/******/ 			for(;i < chunkIds.length; i++) {
+/******/ 				chunkId = chunkIds[i];
+/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 					installedChunks[chunkId][0]();
+/******/ 				}
+/******/ 				installedChunks[chunkId] = 0;
+/******/ 			}
+/******/ 			return __webpack_require__.O(result);
+/******/ 		}
+/******/ 		
+/******/ 		var chunkLoadingGlobal = self["webpackChunkmylaravelapp"] = self["webpackChunkmylaravelapp"] || [];
+/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
+/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
+/******/ 	__webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/js/React.js")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/css/app.css")))
+/******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
+/******/ 	
 /******/ })()
 ;
