@@ -25,3 +25,7 @@ Route::get('posts/test', [PostController::class, 'test'])
 // // signup
 Route::post('/signup', [PostController::class, 'signup'])
     ->name('posts.signup');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
