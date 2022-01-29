@@ -13,21 +13,21 @@ use App\Http\Controllers\PostController;
 |
 */
 // root
-Route::get('{any}', function () {
-    return view('app');
-}) ->where('any', '.*');
-// Route::get('/', [PostController::class, 'top'])
-//     ->name('posts.top');
+// Route::get('{any}', function () {
+//     return view('app');
+// })->where('any','.*');
+Route::get('/', [PostController::class, 'top'])
+    ->name('posts.top');
 
-// Route::get('posts/test', [PostController::class, 'test'])
-//     ->name('posts.test');
-//     // login
-// Route::get('/login', [PostController::class, 'login'])
-//     ->name('users.login');
-// // signup
-// Route::post('/signup', [PostController::class, 'signup'])
-//     ->name('posts.signup');
+Route::get('posts/test', [PostController::class, 'test'])
+    ->name('posts.test');
+    // login
+Route::get('/login', [PostController::class, 'login'])
+    ->name('users.login');
+// signup
+Route::post('/signup', [PostController::class, 'signup'])
+    ->name('posts.signup');
 
-// Auth::routes();
+Auth::routes();
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
