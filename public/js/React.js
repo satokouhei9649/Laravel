@@ -2,6 +2,626 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/React.jsx":
+/*!***********************!*\
+  !*** ./src/React.jsx ***!
+  \***********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Index": () => (/* binding */ Index),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+{
+  /* <TESt></TESt> */
+}
+
+
+
+
+var csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
+var Users = [{
+  userName: "root",
+  userPassword: "root",
+  userEmail: "root",
+  isLogin: false
+}];
+var Index = /*#__PURE__*/function (_React$Component) {
+  _inherits(Index, _React$Component);
+
+  var _super = _createSuper(Index);
+
+  function Index(props) {
+    _classCallCheck(this, Index);
+
+    return _super.call(this, props);
+  }
+
+  _createClass(Index, [{
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Header, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Modal, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(ShoppingCart, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(BacKGround, {
+          "class": "background"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(BacKGround, {
+          "class": "cartbox"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(SingUP, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(LoginForm, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Main, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Footer, {})]
+      });
+    }
+  }]);
+
+  return Index;
+}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Index); // 新規登録
+
+function SingUP(props) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    className: "signup",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+      href: "#",
+      id: "Back",
+      children: "\u2716\uFE0F"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
+      children: "\u65B0\u898F\u767B\u9332"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("form", {
+      id: "signup",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+        children: "\u540D\u524D"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Input, {
+        type: "text",
+        name: "name",
+        value: props.userName
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+        children: "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Input, {
+        type: "text",
+        name: "email",
+        value: props.userEmail
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+        children: "\u30D1\u30B9\u30EF\u30FC\u30C9"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Input, {
+        type: "text",
+        name: "password",
+        value: props.userPassword
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Input, {
+        className: "signBtn",
+        type: "submit",
+        value: "\u65B0\u898F\u767B\u9332"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+      className: "loginBtn",
+      children: "\u30ED\u30B0\u30A4\u30F3\u753B\u9762"
+    })]
+  });
+}
+
+function LoginForm() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    className: "LoginForm",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+      href: "#",
+      className: "Back",
+      children: "\u2716\uFE0F"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
+      children: "\u30ED\u30B0\u30A4\u30F3"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("form", {
+      route: "/user/login",
+      method: "post",
+      id: "LoginForm",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+        children: "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Input, {
+        type: "text",
+        "class": "email"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+        children: "\u30D1\u30B9\u30EF\u30FC\u30C9"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Input, {
+        type: "text",
+        "class": "password"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Input, {
+        type: "submit",
+        value: "\u30ED\u30B0\u30A4\u30F3",
+        className: "loginBtn"
+      })]
+    })]
+  });
+} // ヘッダー
+
+
+function Header() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("header", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(SearchForm, {
+      route: "posts/test",
+      "class": "search topSearch searchForm searchForm1"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(MenuList, {})]
+  });
+} // 検索
+
+
+function SearchForm(props) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("form", {
+    action: props.route,
+    method: "#",
+    className: props["class"],
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Input, {
+      type: "text",
+      text: "\u3053\u3053\u306B\u5165\u529B",
+      className: "searchWord"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Input, {
+      type: "hidden",
+      name: "token",
+      value: csrf_token
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Input, {
+      type: "submit",
+      value: "\u691C\u7D22",
+      className: "submit"
+    })]
+  });
+}
+
+function Input(props) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+    type: props.type,
+    placeholder: props.text,
+    name: props.name,
+    className: props.className,
+    value: props.value
+  });
+} // メニュー
+
+
+var modal = document.getElementById('modal');
+
+function MenuList(props) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("ul", {
+    className: "list",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+      className: "icon",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+        id: "user",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+          className: "fas fa-user fa-2x"
+        })
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+      className: "icon",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+        id: "shoppingCart",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+          className: "fas fa-shopping-cart fa-2x "
+        })
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+      className: "icon",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+        id: "menu",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+          className: "fas fa-bars fa-2x"
+        })
+      })
+    })]
+  });
+} // モーダル
+
+
+function Modal(props) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("section", {
+    id: "modal",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      id: "close",
+      children: "\u2716\uFE0F"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
+      children: "\u65B0\u898F\u767B\u9332\u30FB\u30ED\u30B0\u30A4\u30F3"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+        id: "signupFormBtn",
+        children: "\u65B0\u898F\u767B\u9332"
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+        id: "ToLogin",
+        children: "\u30ED\u30B0\u30A4\u30F3"
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
+      children: "\u304A\u8CB7\u3044\u7269"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+        href: ".Food",
+        children: "\u30B8\u30E3\u30F3\u30EB\u3067\u63A2\u3059"
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+        children: "\u5024\u6BB5\u3067\u63A2\u3059"
+      })
+    })]
+  });
+} // 買い物
+
+
+function ShoppingCart(props) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    className: "cart",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("h2", {
+      children: ["\u304A\u8CB7\u3044\u7269\u30AB\u30B4\u306B\u3042\u308B\u5546\u54C1", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+        href: "#",
+        id: "shopBack",
+        children: "\u2716\uFE0F"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("form", {
+      action: "/total",
+      method: "get",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("ul", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+          className: "shoppingList"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+          className: "shoppingList"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+          className: "shoppingList"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+          className: "shoppingList"
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Input, {
+        type: "submit",
+        value: "\u304A\u652F\u6255\u3044\u3078",
+        className: "buyBtn"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Input, {
+        type: "hidden",
+        name: "token",
+        value: csrf_token
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+      children: "\u623B\u308B"
+    })]
+  });
+} // 背景
+
+
+function BacKGround(props) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    className: props["class"],
+    children: props.text
+  });
+} // 広告
+
+
+function Ad(props) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("section", {
+    className: "Ad",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("ul", {
+      className: "sellAd",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+        href: "/",
+        className: "screen",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+          children: "\u30AF\u30FC\u30DD\u30F3"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+        className: "screen",
+        children: "\u9001\u6599\uFFE5"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+        className: "screen",
+        children: "\u30AA\u30B9\u30E1\u30E1"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+        className: "screen",
+        children: "\u30BB\u30FC\u30EB"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+      className: "prev",
+      children: "\xAB"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+      className: "next",
+      children: "\xBB"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("nav", {
+      className: "nav1"
+    })]
+  });
+} // オススメ
+
+
+function Recommend(props) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
+      children: props.h2
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("ul", {
+      className: props["class"] + "s",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
+        className: props["class"],
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+          className: "rank",
+          children: "1"
+        }), "\u30AA\u30B9\u30B9\u30E1"]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
+        className: props["class"],
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+          className: "rank",
+          children: "2"
+        }), "\u30AA\u30B9\u30B9\u30E1"]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
+        className: props["class"],
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+          className: "rank",
+          children: "3"
+        }), "\u30AA\u30B9\u30B9\u30E1"]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
+        className: props["class"],
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+          className: "rank",
+          children: "4"
+        }), "\u30AA\u30B9\u30B9\u30E1"]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+        className: props["class"],
+        children: "\u30BB\u30FC\u30EB\u30B9"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+        className: props["class"],
+        children: "\u30BB\u30FC\u30EB\u30B9"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+        className: props["class"],
+        children: "\u30BB\u30FC\u30EB\u30B9"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+        className: props["class"],
+        children: "\u30BB\u30FC\u30EB\u30B9"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+        className: props["class"],
+        children: "\u30BB\u30FC\u30EB\u30B9"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+        className: props["class"],
+        children: "\u30BB\u30FC\u30EB\u30B9"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+        className: props["class"],
+        children: "\u30BB\u30FC\u30EB\u30B9"
+      })]
+    })]
+  });
+} // タブ
+
+
+function FoodMenu(props) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
+      className: "Food",
+      children: "\u30B8\u30E3\u30F3\u30EB\u3067\u63A2\u3059"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("ul", {
+      className: "foodmenu",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+          href: "#",
+          className: "foodIcon tab1",
+          "data-id": "meat",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+            src: "/img/steak.png"
+          })
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+          href: "#",
+          className: "foodIcon tab2",
+          "data-id": "fish",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+            className: "fas fa-fish fa-4x"
+          })
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+          href: "#",
+          className: "foodIcon tab3",
+          "data-id": "veg",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+            className: "fas fa-carrot fa-4x"
+          })
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+          href: "#",
+          className: "foodIcon tab4",
+          "data-id": "egg",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+            className: "fas fa-egg fa-4x"
+          })
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+          href: "#",
+          className: "foodIcon tab5",
+          "data-id": "milk",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+            className: "fas fa-apple-alt fa-4x"
+          })
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+          href: "#",
+          className: "foodIcon tab6",
+          "data-id": "drink",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+            className: "fas fa-wine-bottle fa-4x"
+          })
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+          href: "#",
+          className: "foodIcon tab7",
+          "data-id": "others",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+            className: "fas fa-bread-slice fa-4x"
+          })
+        })
+      })]
+    })]
+  });
+} // カテゴリー検索
+
+
+function FoodSection() {
+  var titles = [{
+    "class": "active",
+    id: "meat",
+    bordercolor: "20px solid rgb(255, 103, 103)",
+    h1: "お肉"
+  }, {
+    id: "fish",
+    bordercolor: "20px solid rgb(48, 103, 255)",
+    h1: "魚介類"
+  }, {
+    id: "veg",
+    bordercolor: "20px solid rgb(95, 200, 95)",
+    h1: "野菜"
+  }, {
+    id: "egg",
+    bordercolor: "20px solid rgb(255, 245, 103)",
+    h1: "卵"
+  }, {
+    id: "milk",
+    bordercolor: "20px solid rgb(255, 202, 103)",
+    h1: "乳製品"
+  }, {
+    id: "drink",
+    bordercolor: "20px solid rgb(228, 103, 103)",
+    h1: "飲み物"
+  }, {
+    id: "others",
+    bordercolor: "20px solid rgb(255, 98, 255)",
+    h1: "その他"
+  }];
+  var foodsection = titles.map(function (props) {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("section", {
+      className: "content " + props["class"],
+      id: props.id,
+      style: {
+        border: props.bordercolor
+      },
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
+        children: props.h1
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("ul", {
+        className: "foodUl",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {})]
+      })]
+    }, props.id);
+  });
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    children: foodsection
+  });
+} // footer
+
+
+function Footer() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("footer", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
+      id: "sns",
+      children: "\u516C\u5F0FSNS"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("ul", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+        href: "/",
+        className: "FooterIcon",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+          className: "fab fa-line fa-3x myline",
+          "data-fa-transform": "grow-2",
+          "data-fa-mask": "fas fa-circle fa-xs"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+        href: "/",
+        className: "twitter FooterIcon",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+          className: "fab fa-twitter fa-2x"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+        href: "/",
+        className: "facebook FooterIcon",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+          className: "fab fa-facebook-f fa-2x"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+        href: "/",
+        className: "instagram FooterIcon",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+          className: "fab fa-instagram fa-2x"
+        })
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
+      id: "help",
+      children: "Help & Guide"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+        className: "fas fa-phone-alt fa-fw"
+      }), " \u304A\u554F\u5408\u308F\u305B"]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+        className: "fas fa-user fa-fw"
+      }), " \u65B0\u898F\u767B\u9332 / \u30ED\u30B0\u30A4\u30F3"]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+        className: "fas fa-hand-paper fa-fw"
+      }), " \u3054\u5229\u7528\u65B9\u6CD5"]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+        className: "fas fa-box fa-fw"
+      }), " \u5546\u54C1\u306B\u3064\u3044\u3066"]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+        className: "fas fa-truck-moving fa-fw"
+      }), " \u914D\u9001\u60C5\u5831"]
+    })]
+  });
+} // Top画面
+
+
+function Main() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(BacKGround, {
+      text: "top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(SearchForm, {
+      route: "#",
+      "class": "search"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Ad, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Recommend, {
+      h2: "\u30AA\u30B9\u30B9\u30E1\u5546\u54C1 \u30FB \u58F2\u308C\u7B4B",
+      "class": "recommend"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Recommend, {
+      h2: "\u30BB\u30FC\u30EB",
+      "class": "sell"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(FoodMenu, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(FoodSection, {})]
+  });
+} // const domContainer = document.querySelector('.container');
+// ReactDOM.render(<Index />, domContainer);
+
+/***/ }),
+
+/***/ "./resources/sass/app.scss":
+/*!*********************************!*\
+  !*** ./resources/sass/app.scss ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./node_modules/object-assign/index.js":
 /*!*********************************************!*\
   !*** ./node_modules/object-assign/index.js ***!
@@ -31085,7 +31705,42 @@ if (false) {} else {
 /******/ 		return module.exports;
 /******/ 	}
 /******/ 	
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
+/******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/chunk loaded */
+/******/ 	(() => {
+/******/ 		var deferred = [];
+/******/ 		__webpack_require__.O = (result, chunkIds, fn, priority) => {
+/******/ 			if(chunkIds) {
+/******/ 				priority = priority || 0;
+/******/ 				for(var i = deferred.length; i > 0 && deferred[i - 1][2] > priority; i--) deferred[i] = deferred[i - 1];
+/******/ 				deferred[i] = [chunkIds, fn, priority];
+/******/ 				return;
+/******/ 			}
+/******/ 			var notFulfilled = Infinity;
+/******/ 			for (var i = 0; i < deferred.length; i++) {
+/******/ 				var [chunkIds, fn, priority] = deferred[i];
+/******/ 				var fulfilled = true;
+/******/ 				for (var j = 0; j < chunkIds.length; j++) {
+/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
+/******/ 						chunkIds.splice(j--, 1);
+/******/ 					} else {
+/******/ 						fulfilled = false;
+/******/ 						if(priority < notFulfilled) notFulfilled = priority;
+/******/ 					}
+/******/ 				}
+/******/ 				if(fulfilled) {
+/******/ 					deferred.splice(i--, 1)
+/******/ 					var r = fn();
+/******/ 					if (r !== undefined) result = r;
+/******/ 				}
+/******/ 			}
+/******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -31114,53 +31769,68 @@ if (false) {} else {
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/jsonp chunk loading */
+/******/ 	(() => {
+/******/ 		// no baseURI
+/******/ 		
+/******/ 		// object to store loaded and loading chunks
+/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
+/******/ 		var installedChunks = {
+/******/ 			"/js/React": 0,
+/******/ 			"css/app": 0
+/******/ 		};
+/******/ 		
+/******/ 		// no chunk on demand loading
+/******/ 		
+/******/ 		// no prefetching
+/******/ 		
+/******/ 		// no preloaded
+/******/ 		
+/******/ 		// no HMR
+/******/ 		
+/******/ 		// no HMR manifest
+/******/ 		
+/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
+/******/ 		
+/******/ 		// install a JSONP callback for chunk loading
+/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
+/******/ 			var [chunkIds, moreModules, runtime] = data;
+/******/ 			// add "moreModules" to the modules object,
+/******/ 			// then flag all "chunkIds" as loaded and fire callback
+/******/ 			var moduleId, chunkId, i = 0;
+/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
+/******/ 				for(moduleId in moreModules) {
+/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
+/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
+/******/ 					}
+/******/ 				}
+/******/ 				if(runtime) var result = runtime(__webpack_require__);
+/******/ 			}
+/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
+/******/ 			for(;i < chunkIds.length; i++) {
+/******/ 				chunkId = chunkIds[i];
+/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 					installedChunks[chunkId][0]();
+/******/ 				}
+/******/ 				installedChunks[chunkId] = 0;
+/******/ 			}
+/******/ 			return __webpack_require__.O(result);
+/******/ 		}
+/******/ 		
+/******/ 		var chunkLoadingGlobal = self["webpackChunkmylaravelapp"] = self["webpackChunkmylaravelapp"] || [];
+/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
+/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
+/******/ 	})();
+/******/ 	
 /************************************************************************/
-var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
-(() => {
-/*!********************************************!*\
-  !*** ./resources/js/components/Example.js ***!
-  \********************************************/
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
-
-
-function Example() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-    className: "container",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-      className: "row justify-content-center",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "col-md-8",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "card",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-            className: "card-header",
-            children: "Example Component"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-            className: "card-body",
-            children: "I'm an example component!"
-          })]
-        })
-      })
-    })
-  });
-}
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Example);
-
-if (document.getElementById('app')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Example, {}), document.getElementById('app'));
-}
-})();
-
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
+/******/ 	__webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./src/React.jsx")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/sass/app.scss")))
+/******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
+/******/ 	
 /******/ })()
 ;
