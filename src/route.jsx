@@ -5,14 +5,15 @@ import {
     Route,
     Routes,
   } from 'react-router-dom';
-import Example from './components/Example';
+import Example from '../resources/js/components/Example';
 
   function App() {
     return (
         <div>
             <Routes>
              //ここに、pathと対応するコンポーネントを書いていく
-                <Route path='/example' exact component={Example} />
+                {/* <Route path='/' exact component={Example} /> */}
+                <Route path='/example' element={<Example />} />
             </Routes>
         </div>
     );
