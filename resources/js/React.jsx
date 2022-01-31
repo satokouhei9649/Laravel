@@ -32,7 +32,7 @@
         return(
         <section className="Ad">
             <ul className="sellAd">
-                <a  href="/" className="screen"><li>クーポン</li></a>
+                <a  href="/shopping" className="screen"><li>クーポン</li></a>
                 <li className="screen">送料￥</li>
                 <li className="screen">オスメメ</li>
                 <li className="screen">セール</li>

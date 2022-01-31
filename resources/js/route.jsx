@@ -6,16 +6,15 @@ import {
     Routes,
   } from 'react-router-dom';
 import Example from './components/Example';
-// 元のjsxファイル
-import Index from './React.jsx'
+import Index from './React.jsx';
+import {Shopping} from './Shopping.jsx';
   function App() {
     return (
         <div>
-             {/* //ここに、pathと対応するコンポーネントを書いていく */}
             <Routes>
                 <Route path='/example' element={<Example />} />
                 <Route path='/' element={<Index />} />
-                {/* <Route path='/shopping' element={<Bill />} /> */}
+                <Route path='/shopping' element={<Shopping />} />
             </Routes>
         </div>
     );

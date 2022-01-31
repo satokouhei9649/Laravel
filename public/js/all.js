@@ -81,8 +81,7 @@ var Index = /*#__PURE__*/function (_React$Component) {
 
   return Index;
 }(react__WEBPACK_IMPORTED_MODULE_0__.Component);
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Index); // ヘッダー
-// 広告
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Index); // 広告
 
 function Ad(props) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("section", {
@@ -90,7 +89,7 @@ function Ad(props) {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("ul", {
       className: "sellAd",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
-        href: "/",
+        href: "/shopping",
         className: "screen",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
           children: "\u30AF\u30FC\u30DD\u30F3"
