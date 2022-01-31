@@ -11,9 +11,6 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/React.jsx','public/js/React.js').react()
-    .js('resources/js/components/Example.js','public/js/example.js').react()
-    .js('resources/js/route.jsx','public/js/route.js').react()
-    .scripts(['public/js/React.js','public/js/top.js' ],'public/js/All.js')
-    .scripts(['public/js/example.js','public/js/route.js','public/js/React.js','public/js/top.js'],'public/js/test.js')
+mix .js('resources/js/route.jsx','public/js/route.js').react()
+    .scripts(['public/js/route.js','public/js/top.js'],'public/js/test.js')
     .sass('resources/sass/app.scss', 'public/css');
