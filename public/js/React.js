@@ -15,8 +15,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var _components_Header_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Header.jsx */ "./resources/js/components/Header.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _components_Footer_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Footer.jsx */ "./resources/js/components/Footer.jsx");
+/* harmony import */ var _components_Signup_Login_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Signup_Login.jsx */ "./resources/js/components/Signup_Login.jsx");
+/* harmony import */ var _components_Header_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/Header.jsx */ "./resources/js/components/Header.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -44,6 +46,8 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
+
 var csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
 var Users = [{
   userName: "root",
@@ -65,123 +69,49 @@ var Index = /*#__PURE__*/function (_React$Component) {
   _createClass(Index, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_2__.Header, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_2__.Modal, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_2__.ShoppingCart, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_2__.BacKGround, {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_4__.Header, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_4__.Modal, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_4__.ShoppingCart, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_4__.BacKGround, {
           "class": "background"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_2__.BacKGround, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_4__.BacKGround, {
           "class": "cartbox"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(SingUP, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(LoginForm, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Main, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Footer, {})]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Signup_Login_jsx__WEBPACK_IMPORTED_MODULE_3__.SingUP, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Signup_Login_jsx__WEBPACK_IMPORTED_MODULE_3__.LoginForm, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(Main, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Footer_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {})]
       });
     }
   }]);
 
   return Index;
 }(react__WEBPACK_IMPORTED_MODULE_0__.Component);
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Index); // 新規登録
-
-function SingUP(props) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-    className: "signup",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
-      href: "#",
-      id: "Back",
-      children: "\u2716\uFE0F"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h2", {
-      children: "\u65B0\u898F\u767B\u9332"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
-      id: "signup",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
-        children: "\u540D\u524D"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_2__.Input, {
-        type: "text",
-        name: "name",
-        value: props.userName
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
-        children: "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_2__.Input, {
-        type: "text",
-        name: "email",
-        value: props.userEmail
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
-        children: "\u30D1\u30B9\u30EF\u30FC\u30C9"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_2__.Input, {
-        type: "text",
-        name: "password",
-        value: props.userPassword
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_2__.Input, {
-        className: "signBtn",
-        type: "submit",
-        value: "\u65B0\u898F\u767B\u9332"
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-      className: "loginBtn",
-      children: "\u30ED\u30B0\u30A4\u30F3\u753B\u9762"
-    })]
-  });
-}
-
-function LoginForm() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-    className: "LoginForm",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
-      href: "#",
-      className: "Back",
-      children: "\u2716\uFE0F"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h2", {
-      children: "\u30ED\u30B0\u30A4\u30F3"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
-      route: "/user/login",
-      method: "post",
-      id: "LoginForm",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
-        children: "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_2__.Input, {
-        type: "text",
-        "class": "email"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
-        children: "\u30D1\u30B9\u30EF\u30FC\u30C9"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_2__.Input, {
-        type: "text",
-        "class": "password"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_2__.Input, {
-        type: "submit",
-        value: "\u30ED\u30B0\u30A4\u30F3",
-        className: "loginBtn"
-      })]
-    })]
-  });
-} // ヘッダー
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Index); // ヘッダー
 // 広告
 
-
 function Ad(props) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("section", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("section", {
     className: "Ad",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("ul", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("ul", {
       className: "sellAd",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
         href: "/",
         className: "screen",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
           children: "\u30AF\u30FC\u30DD\u30F3"
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
         className: "screen",
         children: "\u9001\u6599\uFFE5"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
         className: "screen",
         children: "\u30AA\u30B9\u30E1\u30E1"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
         className: "screen",
         children: "\u30BB\u30FC\u30EB"
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
       className: "prev",
       children: "\xAB"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
       className: "next",
       children: "\xBB"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("nav", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("nav", {
       className: "nav1"
     })]
   });
@@ -189,54 +119,54 @@ function Ad(props) {
 
 
 function Recommend(props) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h2", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("span", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h2", {
       children: props.h2
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("ul", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("ul", {
       className: props["class"] + "s",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("li", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("li", {
         className: props["class"],
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
           className: "rank",
           children: "1"
         }), "\u30AA\u30B9\u30B9\u30E1"]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("li", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("li", {
         className: props["class"],
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
           className: "rank",
           children: "2"
         }), "\u30AA\u30B9\u30B9\u30E1"]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("li", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("li", {
         className: props["class"],
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
           className: "rank",
           children: "3"
         }), "\u30AA\u30B9\u30B9\u30E1"]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("li", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("li", {
         className: props["class"],
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
           className: "rank",
           children: "4"
         }), "\u30AA\u30B9\u30B9\u30E1"]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
         className: props["class"],
         children: "\u30BB\u30FC\u30EB\u30B9"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
         className: props["class"],
         children: "\u30BB\u30FC\u30EB\u30B9"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
         className: props["class"],
         children: "\u30BB\u30FC\u30EB\u30B9"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
         className: props["class"],
         children: "\u30BB\u30FC\u30EB\u30B9"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
         className: props["class"],
         children: "\u30BB\u30FC\u30EB\u30B9"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
         className: props["class"],
         children: "\u30BB\u30FC\u30EB\u30B9"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
         className: props["class"],
         children: "\u30BB\u30FC\u30EB\u30B9"
       })]
@@ -246,72 +176,72 @@ function Recommend(props) {
 
 
 function FoodMenu(props) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h2", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h2", {
       className: "Food",
       children: "\u30B8\u30E3\u30F3\u30EB\u3067\u63A2\u3059"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("ul", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("ul", {
       className: "foodmenu",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
           href: "#",
           className: "foodIcon tab1",
           "data-id": "meat",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
             src: "/img/steak.png"
           })
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
           href: "#",
           className: "foodIcon tab2",
           "data-id": "fish",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("i", {
             className: "fas fa-fish fa-4x"
           })
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
           href: "#",
           className: "foodIcon tab3",
           "data-id": "veg",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("i", {
             className: "fas fa-carrot fa-4x"
           })
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
           href: "#",
           className: "foodIcon tab4",
           "data-id": "egg",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("i", {
             className: "fas fa-egg fa-4x"
           })
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
           href: "#",
           className: "foodIcon tab5",
           "data-id": "milk",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("i", {
             className: "fas fa-apple-alt fa-4x"
           })
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
           href: "#",
           className: "foodIcon tab6",
           "data-id": "drink",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("i", {
             className: "fas fa-wine-bottle fa-4x"
           })
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
           href: "#",
           className: "foodIcon tab7",
           "data-id": "others",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("i", {
             className: "fas fa-bread-slice fa-4x"
           })
         })
@@ -353,104 +283,119 @@ function FoodSection() {
     h1: "その他"
   }];
   var foodsection = titles.map(function (props) {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("section", {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("section", {
       className: "content " + props["class"],
       id: props.id,
       style: {
         border: props.bordercolor
       },
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h1", {
         children: props.h1
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("ul", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("ul", {
         className: "foodUl",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {})]
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {})]
       })]
     }, props.id);
   });
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
     children: foodsection
-  });
-} // footer
-
-
-function Footer() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("footer", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h2", {
-      id: "sns",
-      children: "\u516C\u5F0FSNS"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("ul", {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
-        href: "/",
-        className: "FooterIcon",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
-          className: "fab fa-line fa-3x myline",
-          "data-fa-transform": "grow-2",
-          "data-fa-mask": "fas fa-circle fa-xs"
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
-        href: "/",
-        className: "twitter FooterIcon",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
-          className: "fab fa-twitter fa-2x"
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
-        href: "/",
-        className: "facebook FooterIcon",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
-          className: "fab fa-facebook-f fa-2x"
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
-        href: "/",
-        className: "instagram FooterIcon",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
-          className: "fab fa-instagram fa-2x"
-        })
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h2", {
-      id: "help",
-      children: "Help & Guide"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("li", {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
-        className: "fas fa-phone-alt fa-fw"
-      }), " \u304A\u554F\u5408\u308F\u305B"]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("li", {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
-        className: "fas fa-user fa-fw"
-      }), " \u65B0\u898F\u767B\u9332 / \u30ED\u30B0\u30A4\u30F3"]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("li", {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
-        className: "fas fa-hand-paper fa-fw"
-      }), " \u3054\u5229\u7528\u65B9\u6CD5"]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("li", {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
-        className: "fas fa-box fa-fw"
-      }), " \u5546\u54C1\u306B\u3064\u3044\u3066"]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("li", {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
-        className: "fas fa-truck-moving fa-fw"
-      }), " \u914D\u9001\u60C5\u5831"]
-    })]
   });
 } // Top画面
 
 
 function Main() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_2__.BacKGround, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_4__.BacKGround, {
       text: "top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059top\u30DA\u30FC\u30B8\u3067\u3059"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_2__.SearchForm, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_4__.SearchForm, {
       route: "#",
       "class": "search"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Ad, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Recommend, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(Ad, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(Recommend, {
       h2: "\u30AA\u30B9\u30B9\u30E1\u5546\u54C1 \u30FB \u58F2\u308C\u7B4B",
       "class": "recommend"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Recommend, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(Recommend, {
       h2: "\u30BB\u30FC\u30EB",
       "class": "sell"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(FoodMenu, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(FoodSection, {})]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(FoodMenu, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(FoodSection, {})]
   });
 } // const domContainer = document.querySelector('.container');
 // ReactDOM.render(<Index />, domContainer);
+
+/***/ }),
+
+/***/ "./resources/js/components/Footer.jsx":
+/*!********************************************!*\
+  !*** ./resources/js/components/Footer.jsx ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Footer)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+// footer
+function Footer() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("footer", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h2", {
+      id: "sns",
+      children: "\u516C\u5F0FSNS"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("ul", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("a", {
+        href: "/",
+        className: "FooterIcon",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("i", {
+          className: "fab fa-line fa-3x myline",
+          "data-fa-transform": "grow-2",
+          "data-fa-mask": "fas fa-circle fa-xs"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("a", {
+        href: "/",
+        className: "twitter FooterIcon",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("i", {
+          className: "fab fa-twitter fa-2x"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("a", {
+        href: "/",
+        className: "facebook FooterIcon",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("i", {
+          className: "fab fa-facebook-f fa-2x"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("a", {
+        href: "/",
+        className: "instagram FooterIcon",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("i", {
+          className: "fab fa-instagram fa-2x"
+        })
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h2", {
+      id: "help",
+      children: "Help & Guide"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("li", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("i", {
+        className: "fas fa-phone-alt fa-fw"
+      }), " \u304A\u554F\u5408\u308F\u305B"]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("li", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("i", {
+        className: "fas fa-user fa-fw"
+      }), " \u65B0\u898F\u767B\u9332 / \u30ED\u30B0\u30A4\u30F3"]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("li", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("i", {
+        className: "fas fa-hand-paper fa-fw"
+      }), " \u3054\u5229\u7528\u65B9\u6CD5"]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("li", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("i", {
+        className: "fas fa-box fa-fw"
+      }), " \u5546\u54C1\u306B\u3064\u3044\u3066"]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("li", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("i", {
+        className: "fas fa-truck-moving fa-fw"
+      }), " \u914D\u9001\u60C5\u5831"]
+    })]
+  });
+}
 
 /***/ }),
 
@@ -618,6 +563,97 @@ function BacKGround(props) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
     className: props["class"],
     children: props.text
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/components/Signup_Login.jsx":
+/*!**************************************************!*\
+  !*** ./resources/js/components/Signup_Login.jsx ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "SingUP": () => (/* binding */ SingUP),
+/* harmony export */   "LoginForm": () => (/* binding */ LoginForm)
+/* harmony export */ });
+/* harmony import */ var _Header_jsx__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Header.jsx */ "./resources/js/components/Header.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+ // 新規登録
+
+
+
+function SingUP(props) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+    className: "signup",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+      href: "#",
+      id: "Back",
+      children: "\u2716\uFE0F"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
+      children: "\u65B0\u898F\u767B\u9332"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("form", {
+      id: "signup",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+        children: "\u540D\u524D"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_Header_jsx__WEBPACK_IMPORTED_MODULE_0__.Input, {
+        type: "text",
+        name: "name",
+        value: props.userName
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+        children: "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_Header_jsx__WEBPACK_IMPORTED_MODULE_0__.Input, {
+        type: "text",
+        name: "email",
+        value: props.userEmail
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+        children: "\u30D1\u30B9\u30EF\u30FC\u30C9"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_Header_jsx__WEBPACK_IMPORTED_MODULE_0__.Input, {
+        type: "text",
+        name: "password",
+        value: props.userPassword
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_Header_jsx__WEBPACK_IMPORTED_MODULE_0__.Input, {
+        className: "signBtn",
+        type: "submit",
+        value: "\u65B0\u898F\u767B\u9332"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+      className: "loginBtn",
+      children: "\u30ED\u30B0\u30A4\u30F3\u753B\u9762"
+    })]
+  });
+}
+function LoginForm() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+    className: "LoginForm",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+      href: "#",
+      className: "Back",
+      children: "\u2716\uFE0F"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
+      children: "\u30ED\u30B0\u30A4\u30F3"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("form", {
+      route: "/user/login",
+      method: "post",
+      id: "LoginForm",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+        children: "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_Header_jsx__WEBPACK_IMPORTED_MODULE_0__.Input, {
+        type: "text",
+        "class": "email"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+        children: "\u30D1\u30B9\u30EF\u30FC\u30C9"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_Header_jsx__WEBPACK_IMPORTED_MODULE_0__.Input, {
+        type: "text",
+        "class": "password"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_Header_jsx__WEBPACK_IMPORTED_MODULE_0__.Input, {
+        type: "submit",
+        value: "\u30ED\u30B0\u30A4\u30F3",
+        className: "loginBtn"
+      })]
+    })]
   });
 }
 

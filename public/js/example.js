@@ -31155,9 +31155,7 @@ function Example() {
   });
 }
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Example); // if (document.getElementById('app')) {
-//     ReactDOM.render(<Example />, document.getElementById('app'));
-// }
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Example);
 })();
 
 /******/ })()

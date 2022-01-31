@@ -1,6 +1,8 @@
 
     import React from 'react';
     import ReactDOM from 'react-dom';
+    import Footer from './components/Footer.jsx';
+    import {SingUP,LoginForm} from './components/Signup_Login.jsx';
     import {BacKGround,ShoppingCart,Modal, SearchForm,Header,Input} from './components/Header.jsx';
     let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
     const Users = [{userName: "root",userPassword: "root",userEmail: "root",isLogin: false}];
@@ -25,43 +27,6 @@
       }
     }
     export default Index;
-    // 新規登録
-    function SingUP(props) {
-        return(
-        <div className="signup">
-            <a href="#" id="Back">✖️</a>
-            <h2>新規登録</h2>
-            <form id="signup" >
-                <p>名前</p>
-                <Input type="text" name="name" value={props.userName} />
-                <p>メールアドレス</p>
-                <Input type="text" name="email" value={props.userEmail} />
-                <p>パスワード</p>
-                <Input type="text" name="password" value={props.userPassword} />
-                <Input className="signBtn" type="submit" value="新規登録"/>
-            </form>
-                <button className="loginBtn">ログイン画面</button>
-        </div>
-        );
-    }
-
-    function LoginForm () {
-            return(
-                <div className="LoginForm">
-                    <a href="#" className="Back">✖️</a>
-                    <h2>ログイン</h2>
-                    <form route="/user/login" method="post" id="LoginForm">
-                        <p>メールアドレス</p>
-                        <Input type="text" class="email"/>
-                        <p>パスワード</p>
-                        <Input type="text" class="password"/>
-                        <Input type="submit" value="ログイン" className="loginBtn"/>
-                    </form>
-                </div>
-            );
-        }
-    // ヘッダー
-
     // 広告
     function Ad(props) {
         return(
@@ -146,26 +111,7 @@
             </div>
         );
     }
-    // footer
-    function Footer() {
-        return(
-        <footer>
-            <h2 id="sns">公式SNS</h2>
-            <ul>
-                <a href="/" className="FooterIcon"><i className="fab fa-line fa-3x myline" data-fa-transform="grow-2" data-fa-mask="fas fa-circle fa-xs" ></i></a>
-                <a href="/" className="twitter FooterIcon"><i className="fab fa-twitter fa-2x"></i></a>
-                <a href="/" className="facebook FooterIcon"><i className="fab fa-facebook-f fa-2x"></i></a>
-                <a href="/" className="instagram FooterIcon"><i className="fab fa-instagram fa-2x"></i></a>
-            </ul>
-            <h2 id="help">Help & Guide</h2>
-            <li><i className="fas fa-phone-alt fa-fw"></i> お問合わせ</li>
-            <li><i className="fas fa-user fa-fw"></i> 新規登録 / ログイン</li>
-            <li><i className="fas fa-hand-paper fa-fw"></i> ご利用方法</li>
-            <li><i className="fas fa-box fa-fw"></i> 商品について</li>
-            <li><i className="fas fa-truck-moving fa-fw"></i> 配送情報</li>
-        </footer>
-        );
-    }
+
     // Top画面
     function Main() {
         return(

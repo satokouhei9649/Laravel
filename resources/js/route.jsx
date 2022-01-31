@@ -15,6 +15,7 @@ import Index from './React.jsx'
             <Routes>
                 <Route path='/example' element={<Example />} />
                 <Route path='/' element={<Index />} />
+                {/* <Route path='/shopping' element={<Bill />} /> */}
             </Routes>
         </div>
     );
