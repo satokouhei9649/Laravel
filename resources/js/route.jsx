@@ -5,14 +5,14 @@ import {
     Route,
     Routes,
   } from 'react-router-dom';
-import Example from '../resources/js/components/Example';
-import Index from '../public/js/React.js';
+import Example from './components/Example';
+// 元のjsxファイル
+import Index from './React.jsx'
   function App() {
     return (
         <div>
+             {/* //ここに、pathと対応するコンポーネントを書いていく */}
             <Routes>
-             //ここに、pathと対応するコンポーネントを書いていく
-                {/* <Route path='/' exact component={Example} /> */}
                 <Route path='/example' element={<Example />} />
                 <Route path='/' element={<Index />} />
             </Routes>
