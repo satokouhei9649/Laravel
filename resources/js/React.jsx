@@ -1,5 +1,6 @@
 
-    import React from 'react';
+    import React, { useState, useEffect } from 'react';
+    import axios from 'axios';
     import ReactDOM from 'react-dom';
     import Footer from './components/Footer.jsx';
     import {SingUP,LoginForm} from './components/Signup_Login.jsx';
@@ -45,6 +46,21 @@
     }
     // オススメ
     function Recommend(props) {
+        const [posts, setPosts] = useState([]);
+        useEffect(() => {
+            getPostsData();
+        },[])
+        const getPostsData = () => {
+            axios
+                .get('/api/posts')
+                .then(response => {
+                    setPosts(response.data);
+                })
+                .catch(() => {
+                    console.log('通信に失敗しました');
+                });
+        }
+        console.log(posts);
         return(
             <span>
                 <h2>{props.h2}</h2>
@@ -53,8 +69,6 @@
                     <li className={props.class}><span className="rank">2</span>オススメ</li>
                     <li className={props.class}><span className="rank">3</span>オススメ</li>
                     <li className={props.class}><span className="rank">4</span>オススメ</li>
-                    <li className={props.class}>セールス</li>
-                    <li className={props.class}>セールス</li>
                     <li className={props.class}>セールス</li>
                     <li className={props.class}>セールス</li>
                     <li className={props.class}>セールス</li>
@@ -85,7 +99,7 @@
     // カテゴリー検索
     function FoodSection() {
         const titles = [
-            {class: "active", id: "meat", bordercolor: "20px solid rgb(255, 103, 103)", h1:"お肉"},
+            {class: "active", id: "meat", bordercolor: "20px solid rgb(255, 103, 103)", h1:"お肉",lists:["豚肉","牛肉","鶏肉"]},
             {id: "fish", bordercolor: "20px solid rgb(48, 103, 255)", h1:"魚介類"},
             {id: "veg", bordercolor: "20px solid rgb(95, 200, 95)", h1:"野菜"},
             {id: "egg", bordercolor: "20px solid rgb(255, 245, 103)", h1:"卵"},
@@ -98,9 +112,9 @@
             <section className={"content "+ props.class} id={props.id} style={{border:props.bordercolor}} key={props.id}>
             <h1>{props.h1}</h1>
                 <ul className="foodUl">
-                    <li></li>
-                    <li></li>
-                    <li></li>
+                    <li>{props.lists}</li>
+                    <li>{props.lists}</li>
+                    <li>{props.lists}</li>
                 </ul>
             </section>
          );
@@ -126,8 +140,6 @@
     </div>
         );
     }
-    // const domContainer = document.querySelector('.container');
-    // ReactDOM.render(<Index />, domContainer);
 
 
 

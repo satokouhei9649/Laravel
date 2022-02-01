@@ -6,18 +6,17 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 class PostController extends Controller
 {
-    public function top()
-    {
-        $posts = Post::all();
-        return view('top')
-        ->with(['posts' => $posts]);
-    }
+    // public function index()
+    // {
+    //     $posts = Post::all();
+    //     return response()->json($posts, 200);
+    // }
     public function test()
     {
         return view('posts.test');
     }
-    public function signup()
-    {
-
+    public function userCreate(Request $request) {
     }
+
+
 }
