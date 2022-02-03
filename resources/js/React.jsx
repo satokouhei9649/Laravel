@@ -46,21 +46,6 @@
     }
     // オススメ
     function Recommend(props) {
-        const [posts, setPosts] = useState([]);
-        useEffect(() => {
-            getPostsData();
-        },[])
-        const getPostsData = () => {
-            axios
-                .get('/api/posts')
-                .then(response => {
-                    setPosts(response.data);
-                })
-                .catch(() => {
-                    console.log('通信に失敗しました');
-                });
-        }
-        console.log(posts);
         return(
             <span>
                 <h2>{props.h2}</h2>
