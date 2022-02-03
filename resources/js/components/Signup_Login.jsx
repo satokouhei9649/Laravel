@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 // 新規登録
  export function SingUP(props) {
-    const [posts, setPosts] = useState([]);
+    const [Users, setPosts] = useState([]);
     //フォームの入力値を管理するステートの定義
-    const [formData, setFormData] = useState({title:'', body:''});
+    const [formData, setFormData] = useState({userName:'', userEmail:'',userPassword:''});
     console.log(formData);
     useEffect(() => {
         getPostsData();
@@ -28,22 +28,23 @@ import axios from 'axios';
         setFormData(data);
     }
     // createmethodに送信
-    const createPost = async() => {
+    const createUser = async() => {
         //空を拒否
         if(formData == ''){
             return;
         }
         //入力値を投げる
         await axios
-            .post('/api/post/create', {
-                title: formData.title,
-                body: formData.body
+            .post('/api/user/create', {
+                userName: formData.userName,
+                userEmail: formData.userEmail,
+                userPassword: formData.userPassword
             })
             .then((res) => {
                 console.log(res);
-                const tempPosts = posts
-                tempPosts.push(res.data);
-                setPosts(tempPosts)
+                const tempUsers = Users
+                tempUsers.push(res.data);
+                setPosts(tempUsers)
                 setFormData('');
             })
             .catch(error => {
@@ -57,10 +58,12 @@ import axios from 'axios';
         <h2>新規登録</h2>
         <form id="signup" >
             <p>名前</p>
-            <input type="text" name="title" value={formData.title} onChange={inputChange}/>
+            <input type="text" name="userName" value={formData.userName} onChange={inputChange}/>
             <p>メールアドレス</p>
-            <input type="text" name="body" value={formData.body} onChange={inputChange} />
-            <input className="signBtn" href="#" type="submit" value="新規登録" onClick={createPost}/>
+            <input type="text" name="userEmail" value={formData.userEmail} onChange={inputChange} />
+            <p>パスワード</p>
+            <input type="text" name='userPassword' value={formData.userPassword} onChange={inputChange} />
+            <input className="signBtn" href="#" type="submit" value="新規登録" onClick={createUser}/>
         </form>
             <button className="loginBtn">ログイン画面</button>
     </div>

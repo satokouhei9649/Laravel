@@ -3633,13 +3633,14 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 function SingUP(props) {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
       _useState2 = _slicedToArray(_useState, 2),
-      posts = _useState2[0],
+      Users = _useState2[0],
       setPosts = _useState2[1]; //フォームの入力値を管理するステートの定義
 
 
   var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({
-    title: '',
-    body: ''
+    userName: '',
+    userEmail: '',
+    userPassword: ''
   }),
       _useState4 = _slicedToArray(_useState3, 2),
       formData = _useState4[0],
@@ -3668,7 +3669,7 @@ function SingUP(props) {
   }; // createmethodに送信
 
 
-  var createPost = /*#__PURE__*/function () {
+  var createUser = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
         while (1) {
@@ -3683,14 +3684,15 @@ function SingUP(props) {
 
             case 2:
               _context.next = 4;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default().post('/api/post/create', {
-                title: formData.title,
-                body: formData.body
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().post('/api/user/create', {
+                userName: formData.userName,
+                userEmail: formData.userEmail,
+                userPassword: formData.userPassword
               }).then(function (res) {
                 console.log(res);
-                var tempPosts = posts;
-                tempPosts.push(res.data);
-                setPosts(tempPosts);
+                var tempUsers = Users;
+                tempUsers.push(res.data);
+                setPosts(tempUsers);
                 setFormData('');
               })["catch"](function (error) {
                 console.log(error);
@@ -3704,7 +3706,7 @@ function SingUP(props) {
       }, _callee);
     }));
 
-    return function createPost() {
+    return function createUser() {
       return _ref.apply(this, arguments);
     };
   }();
@@ -3723,22 +3725,29 @@ function SingUP(props) {
         children: "\u540D\u524D"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
         type: "text",
-        name: "title",
-        value: formData.title,
+        name: "userName",
+        value: formData.userName,
         onChange: inputChange
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
         children: "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
         type: "text",
-        name: "body",
-        value: formData.body,
+        name: "userEmail",
+        value: formData.userEmail,
+        onChange: inputChange
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+        children: "\u30D1\u30B9\u30EF\u30FC\u30C9"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+        type: "text",
+        name: "userPassword",
+        value: formData.userPassword,
         onChange: inputChange
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
         className: "signBtn",
         href: "#",
         type: "submit",
         value: "\u65B0\u898F\u767B\u9332",
-        onClick: createPost
+        onClick: createUser
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
       className: "loginBtn",

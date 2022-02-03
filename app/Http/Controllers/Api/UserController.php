@@ -11,4 +11,12 @@ class UserController extends Controller
         $users = User::all();
         return response()->json($users, 200);
     }
+    public function create(Request $request) {
+        $user = new User;
+        $user->userName = $request->userName;
+        $user->userEmail = $request->userEmail;
+        $user->userPassword = $request->userPassword;
+        $user->save();
+        return response()->json($user, 200);
+    }
 }
