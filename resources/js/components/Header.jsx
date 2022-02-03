@@ -11,22 +11,14 @@ let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
  export function SearchForm (props) {
             return(
               <form action={props.route} method="#" className={props.class}>
-                  <Input type="text" text="ここに入力" className="searchWord"/>
-                  <Input type="hidden" name="token" value={ csrf_token }/>
-                  <Input type="submit" value="検索" className="submit"/>
+                  <input type="text" placeholder="ここに入力" className="searchWord"/>
+                  <input type="hidden" name="token" value={ csrf_token }/>
+                  <input type="submit" value="検索" className="submit"/>
               </form>
             );
 
 }
- export function Input(props) {
-    return(
-        <input type={props.type}
-        placeholder={props.text}
-        name={props.name}
-        className={props.className}
-        value={props.value} />
-    );
-}
+
 // メニュー
 function MenuList(props) {
     return(
@@ -71,8 +63,8 @@ export function Modal(props) {
             <li className="shoppingList"></li>
             <li className="shoppingList"></li>
         </ul>
-        <Input type="submit" value="お支払いへ" className="buyBtn" />
-        <Input type="hidden" name="token" value={csrf_token}/>
+        <input type="submit" value="お支払いへ" className="buyBtn" />
+        <input type="hidden" name="token" value={csrf_token}/>
         </form>
         <button>戻る</button>
     </div>

@@ -1,11 +1,10 @@
-import {Input} from './Header.jsx';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 // 新規登録
  export function SingUP(props) {
     const [posts, setPosts] = useState([]);
     //フォームの入力値を管理するステートの定義
-    const [formData, setFormData] = useState({name:'', content:''});
+    const [formData, setFormData] = useState({title:'', body:''});
     console.log(formData);
     useEffect(() => {
         getPostsData();
@@ -15,6 +14,7 @@ import axios from 'axios';
             .get('/api/posts')
             .then(response => {
                 setPosts(response.data);
+                console.log(response.data);
             })
             .catch(() => {
                 console.log('通信に失敗しました');
@@ -26,7 +26,29 @@ import axios from 'axios';
         formData[key] = value;
         let data = Object.assign({}, formData);
         setFormData(data);
-        console.log(formData.name);
+    }
+    // createmethodに送信
+    const createPost = async() => {
+        //空を拒否
+        if(formData == ''){
+            return;
+        }
+        //入力値を投げる
+        await axios
+            .post('/api/post/create', {
+                title: formData.title,
+                body: formData.body
+            })
+            .then((res) => {
+                console.log(res);
+                const tempPosts = posts
+                tempPosts.push(res.data);
+                setPosts(tempPosts)
+                setFormData('');
+            })
+            .catch(error => {
+                console.log(error);
+            });
     }
 
     return(
@@ -35,12 +57,10 @@ import axios from 'axios';
         <h2>新規登録</h2>
         <form id="signup" >
             <p>名前</p>
-            <Input type="text" name="name" value={formData.name} onChange={inputChange}/>
+            <input type="text" name="title" value={formData.title} onChange={inputChange}/>
             <p>メールアドレス</p>
-            <Input type="text" name="content" value={formData.content} onChange={inputChange} />
-            <p>パスワード</p>
-            <Input type="text" name="password" value={props.userPassword} />
-            <Input className="signBtn" type="submit" value="新規登録"/>
+            <input type="text" name="body" value={formData.body} onChange={inputChange} />
+            <input className="signBtn" href="#" type="submit" value="新規登録" onClick={createPost}/>
         </form>
             <button className="loginBtn">ログイン画面</button>
     </div>
@@ -54,10 +74,10 @@ export function LoginForm () {
                 <h2>ログイン</h2>
                 <form route="/user/login" method="post" id="LoginForm">
                     <p>メールアドレス</p>
-                    <Input type="text" class="email"/>
+                    <input type="text" className="email"/>
                     <p>パスワード</p>
-                    <Input type="text" class="password"/>
-                    <Input type="submit" value="ログイン" className="loginBtn"/>
+                    <input type="text" className="password"/>
+                    <input type="submit" value="ログイン" className="loginBtn"/>
                 </form>
             </div>
         );

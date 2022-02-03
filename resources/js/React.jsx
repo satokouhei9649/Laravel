@@ -4,7 +4,7 @@
     import ReactDOM from 'react-dom';
     import Footer from './components/Footer.jsx';
     import {SingUP,LoginForm} from './components/Signup_Login.jsx';
-    import {BacKGround,ShoppingCart,Modal, SearchForm,Header,Input} from './components/Header.jsx';
+    import {BacKGround,ShoppingCart,Modal, SearchForm,Header} from './components/Header.jsx';
     let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
     const Users = [{userName: "root",userPassword: "root",userEmail: "root",isLogin: false}];
      export class Index extends React.Component {
