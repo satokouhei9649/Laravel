@@ -5,6 +5,7 @@
     import Footer from './components/Footer.jsx';
     import {SingUP,LoginForm} from './components/Signup_Login.jsx';
     import {BacKGround,ShoppingCart,Modal, SearchForm,Header} from './components/Header.jsx';
+import { NodeProps } from 'postcss';
     let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
     const Users = [{userName: "root",userPassword: "root",userEmail: "root",isLogin: false}];
      export class Index extends React.Component {
@@ -84,24 +85,26 @@
     // カテゴリー検索
     function FoodSection() {
         const titles = [
-            {class: "active", id: "meat", bordercolor: "20px solid rgb(255, 103, 103)", h1:"お肉",meat:["豚肉","牛肉","鶏肉"]},
-            {id: "fish", bordercolor: "20px solid rgb(48, 103, 255)", h1:"魚介類"},
-            {id: "veg", bordercolor: "20px solid rgb(95, 200, 95)", h1:"野菜"},
-            {id: "egg", bordercolor: "20px solid rgb(255, 245, 103)", h1:"卵"},
-            {id: "milk", bordercolor: "20px solid rgb(255, 202, 103)", h1:"乳製品"},
-            {id: "drink", bordercolor: "20px solid rgb(228, 103, 103)", h1:"飲み物"},
-            {id: "others", bordercolor: "20px solid rgb(255, 98, 255)", h1:"その他"},
+            {class: "active", id: "meat", bordercolor: "20px solid rgb(255, 103, 103)", h1:"お肉",lists:["豚肉","牛肉","鶏肉","鹿肉"]},
+            {id: "fish", bordercolor: "20px solid rgb(48, 103, 255)", h1:"魚介類",lists:["青魚","貝類","鶏肉"]},
+            {id: "veg", bordercolor: "20px solid rgb(95, 200, 95)", h1:"野菜",lists:["根野菜","葉物","大豆食品"]},
+            {id: "egg", bordercolor: "20px solid rgb(255, 245, 103)", h1:"卵",lists:["鶏卵","魚卵",]},
+            {id: "milk", bordercolor: "20px solid rgb(255, 202, 103)", h1:"乳製品",lists:["チーズ・ヨーグルト","鶏肉"]},
+            {id: "drink", bordercolor: "20px solid rgb(228, 103, 103)", h1:"飲み物",lists:["酒","ジュース","お茶"]},
+            {id: "others", bordercolor: "20px solid rgb(255, 98, 255)", h1:"その他",lists:["お菓子","調味料",""]},
         ];
-        console.log(titles.id);
-        // const Lists = titles[titles.id].map(list =>{
-        //   return( <li key={list}>{list}</li>);
-        // });
-         const foodsection = titles.map(props =>{
+         const foodsection = titles.map((props,index) =>{
+             console.log(props.lists[0]);
+           const Lists = props.lists.map(list => {
+                 return (
+                     <li key={list}>{list}</li>
+                 );
+             })
         return(
-            <section className={"content "+ props.class} id={props.id} style={{border:props.bordercolor}} key={props.id}>
+            <section className={"content "+ props.class} id={props.id} style={{border:props.bordercolor}} key={index}>
             <h1>{props.h1}</h1>
                 <ul className="foodUl">
-                    {/* {Lists} */}
+                    {Lists}
                 </ul>
             </section>
          );

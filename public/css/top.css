@@ -130,10 +130,13 @@ nav .current {
 .foodmenu {
     display: flex;
     justify-content: center;
-    width: 50%;
+    width: 60%;
     margin: 10px auto 0;
-    padding:12px 60px 0;
     height: auto;
+    padding: 0;
+}
+.foodmenu li {
+    width: 80px;
 }
 .foodmenu li a {
     color: white;
@@ -151,7 +154,7 @@ nav .current {
 .content.active {
     display: block;
     height: 500px;
-    width: 50%;
+    width: 60%;
     margin: 0 auto 30px;
     box-sizing: border-box;
 }
@@ -167,13 +170,9 @@ nav .current {
     border-radius: 10px;
 }
 .foodUl {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
     white-space: normal;
     margin:  0 auto;
     padding: 0;
-    height: 50%;
 }
 .tab1 {
     background: rgb(255, 103, 103);
