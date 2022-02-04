@@ -84,7 +84,7 @@
     // カテゴリー検索
     function FoodSection() {
         const titles = [
-            {class: "active", id: "meat", bordercolor: "20px solid rgb(255, 103, 103)", h1:"お肉",lists:["豚肉","牛肉","鶏肉"]},
+            {class: "active", id: "meat", bordercolor: "20px solid rgb(255, 103, 103)", h1:"お肉",meat:["豚肉","牛肉","鶏肉"]},
             {id: "fish", bordercolor: "20px solid rgb(48, 103, 255)", h1:"魚介類"},
             {id: "veg", bordercolor: "20px solid rgb(95, 200, 95)", h1:"野菜"},
             {id: "egg", bordercolor: "20px solid rgb(255, 245, 103)", h1:"卵"},
@@ -92,14 +92,16 @@
             {id: "drink", bordercolor: "20px solid rgb(228, 103, 103)", h1:"飲み物"},
             {id: "others", bordercolor: "20px solid rgb(255, 98, 255)", h1:"その他"},
         ];
+        console.log(titles.id);
+        // const Lists = titles[titles.id].map(list =>{
+        //   return( <li key={list}>{list}</li>);
+        // });
          const foodsection = titles.map(props =>{
         return(
             <section className={"content "+ props.class} id={props.id} style={{border:props.bordercolor}} key={props.id}>
             <h1>{props.h1}</h1>
                 <ul className="foodUl">
-                    <li>{props.lists}</li>
-                    <li>{props.lists}</li>
-                    <li>{props.lists}</li>
+                    {/* {Lists} */}
                 </ul>
             </section>
          );

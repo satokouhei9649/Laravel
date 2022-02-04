@@ -3183,7 +3183,7 @@ function FoodSection() {
     id: "meat",
     bordercolor: "20px solid rgb(255, 103, 103)",
     h1: "お肉",
-    lists: ["豚肉", "牛肉", "鶏肉"]
+    meat: ["豚肉", "牛肉", "鶏肉"]
   }, {
     id: "fish",
     bordercolor: "20px solid rgb(48, 103, 255)",
@@ -3209,6 +3209,10 @@ function FoodSection() {
     bordercolor: "20px solid rgb(255, 98, 255)",
     h1: "その他"
   }];
+  console.log(titles[titles.id]); // const Lists = titles[titles.id].map(list =>{
+  //   return( <li key={list}>{list}</li>);
+  // });
+
   var foodsection = titles.map(function (props) {
     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("section", {
       className: "content " + props["class"],
@@ -3218,15 +3222,8 @@ function FoodSection() {
       },
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h1", {
         children: props.h1
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("ul", {
-        className: "foodUl",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("li", {
-          children: props.lists
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("li", {
-          children: props.lists
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("li", {
-          children: props.lists
-        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("ul", {
+        className: "foodUl"
       })]
     }, props.id);
   });
@@ -3658,7 +3655,8 @@ function SingUP(props) {
     })["catch"](function () {
       console.log('通信に失敗しました');
     });
-  };
+  }; // 文字入力反映
+
 
   var inputChange = function inputChange(e) {
     var key = e.target.name;
@@ -3666,7 +3664,7 @@ function SingUP(props) {
     formData[key] = value;
     var data = Object.assign({}, formData);
     setFormData(data);
-  }; // createmethodに送信
+  }; // 送信
 
 
   var createUser = /*#__PURE__*/function () {
@@ -3824,7 +3822,7 @@ function App() {
         path: "/",
         element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_React_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {})
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
-        path: "/shopping",
+        path: "/total",
         element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Shopping_jsx__WEBPACK_IMPORTED_MODULE_4__.Shopping, {})
       })]
     })

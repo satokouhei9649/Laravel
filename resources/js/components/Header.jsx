@@ -63,7 +63,7 @@ export function Modal(props) {
             <li className="shoppingList"></li>
             <li className="shoppingList"></li>
         </ul>
-        <input type="submit" value="お支払いへ" className="buyBtn" />
+        <input type="submit" value="お支払いへ" className="buyBtn"/>
         <input type="hidden" name="token" value={csrf_token}/>
         </form>
         <button>戻る</button>

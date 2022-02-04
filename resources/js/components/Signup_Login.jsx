@@ -20,6 +20,7 @@ import axios from 'axios';
                 console.log('通信に失敗しました');
             });
     }
+    // 文字入力反映
     const inputChange = (e) => {
         const key = e.target.name;
         const value = e.target.value;
@@ -27,7 +28,7 @@ import axios from 'axios';
         let data = Object.assign({}, formData);
         setFormData(data);
     }
-    // createmethodに送信
+    // 送信
     const createUser = async() => {
         //空を拒否
         if(formData == ''){

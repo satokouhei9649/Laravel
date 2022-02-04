@@ -14,7 +14,7 @@ import {Shopping} from './Shopping.jsx';
             <Routes>
                 <Route path='/example' element={<Example />} />
                 <Route path='/' element={<Index />} />
-                <Route path='/shopping' element={<Shopping />} />
+                <Route path='/total' element={<Shopping />} />
             </Routes>
         </div>
     );
