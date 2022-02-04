@@ -11,7 +11,8 @@
         </ul>
         <h2 id="help">Help & Guide</h2>
         <li><i className="fas fa-phone-alt fa-fw"></i> お問合わせ</li>
-        <li><i className="fas fa-user fa-fw"></i> 新規登録 / ログイン</li>
+        <li><i className="fas fa-user fa-fw"></i><a className="signupfromFooter">新規登録</a>
+        /<a className="loginfromFooter">ログイン</a></li>
         <li><i className="fas fa-hand-paper fa-fw"></i> ご利用方法</li>
         <li><i className="fas fa-box fa-fw"></i> 商品について</li>
         <li><i className="fas fa-truck-moving fa-fw"></i> 配送情報</li>

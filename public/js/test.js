@@ -3418,7 +3418,13 @@ function Footer() {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("li", {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("i", {
         className: "fas fa-user fa-fw"
-      }), " \u65B0\u898F\u767B\u9332 / \u30ED\u30B0\u30A4\u30F3"]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("a", {
+        className: "signupfromFooter",
+        children: "\u65B0\u898F\u767B\u9332"
+      }), "/", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("a", {
+        className: "loginfromFooter",
+        children: "\u30ED\u30B0\u30A4\u30F3"
+      })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("li", {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("i", {
         className: "fas fa-hand-paper fa-fw"
@@ -43496,13 +43502,15 @@ const Node = _postcss_js__WEBPACK_IMPORTED_MODULE_0__.Node
     const LoginForm = document.querySelector('.LoginForm');
     const ToLogin1 = document.getElementById('ToLogin');
     const ToLogin2 = document.querySelector('.loginBtn');
-    const LoginFormLinks = [ToLogin1,ToLogin2];
+    const ToLgin3 = document.querySelector('.loginfromFooter')
+    const LoginFormLinks = [ToLogin1,ToLogin2,ToLgin3];
     const LoginBackBtn = document.querySelector('.Back');
 
     const signup = document.querySelector('.signup');
     const signupFormBtn = document.getElementById('signupFormBtn');
     const UserIcon = document.getElementById('user');
-    const SignUps = [UserIcon,signupFormBtn];
+    const signupfromFooter = document.querySelector('.signupfromFooter');
+    const SignUps = [UserIcon,signupFormBtn,signupfromFooter];
     const backBtn = document.getElementById('Back');
     SignUps.forEach(El => {
         El.addEventListener('click', e => {

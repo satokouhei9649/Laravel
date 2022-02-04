@@ -33,13 +33,15 @@
     const LoginForm = document.querySelector('.LoginForm');
     const ToLogin1 = document.getElementById('ToLogin');
     const ToLogin2 = document.querySelector('.loginBtn');
-    const LoginFormLinks = [ToLogin1,ToLogin2];
+    const ToLogin3 = document.querySelector('.loginfromFooter')
+    const LoginFormLinks = [ToLogin1,ToLogin2,ToLogin3];
     const LoginBackBtn = document.querySelector('.Back');
 
     const signup = document.querySelector('.signup');
     const signupFormBtn = document.getElementById('signupFormBtn');
     const UserIcon = document.getElementById('user');
-    const SignUps = [UserIcon,signupFormBtn];
+    const signupfromFooter = document.querySelector('.signupfromFooter');
+    const SignUps = [UserIcon,signupFormBtn,signupfromFooter];
     const backBtn = document.getElementById('Back');
     SignUps.forEach(El => {
         El.addEventListener('click', e => {

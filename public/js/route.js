@@ -3418,7 +3418,13 @@ function Footer() {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("li", {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("i", {
         className: "fas fa-user fa-fw"
-      }), " \u65B0\u898F\u767B\u9332 / \u30ED\u30B0\u30A4\u30F3"]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("a", {
+        className: "signupfromFooter",
+        children: "\u65B0\u898F\u767B\u9332"
+      }), "/", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("a", {
+        className: "loginfromFooter",
+        children: "\u30ED\u30B0\u30A4\u30F3"
+      })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("li", {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("i", {
         className: "fas fa-hand-paper fa-fw"

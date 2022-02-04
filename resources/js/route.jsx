@@ -19,7 +19,6 @@ import {Shopping} from './Shopping.jsx';
         </div>
     );
 }
-
   ReactDOM.render((
     <BrowserRouter>
       <App />
