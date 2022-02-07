@@ -14,3 +14,11 @@ const mix = require('laravel-mix');
 mix .js('resources/js/route.jsx','public/js/route.js').react()
     .scripts(['public/js/route.js','public/js/top.js'],'public/js/test.js')
     .sass('resources/sass/app.scss', 'public/css');
+mix.webpackConfig({
+    resolve : {
+        fallback : {
+        "path" : require.resolve("path-browserify"),
+        "fs" :false
+        }
+        }
+});

@@ -5,9 +5,9 @@
     import Footer from './components/Footer.jsx';
     import {SignUP,LoginForm} from './components/Signup_Login.jsx';
     import {BacKGround,ShoppingCart,Modal, SearchForm,Header} from './components/Header.jsx';
-import { NodeProps } from 'postcss';
+    import { NodeProps } from 'postcss';
+import { contains } from 'micromatch';
     let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
-    const Users = [{userName: "root",userPassword: "root",userEmail: "root",isLogin: false}];
      export class Index extends React.Component {
       constructor(props) {
         super(props);
@@ -24,6 +24,7 @@ import { NodeProps } from 'postcss';
                 <LoginForm />
                 <Main />
                 <Footer />
+                <Test />
             </div>
         );
       }
@@ -93,10 +94,14 @@ import { NodeProps } from 'postcss';
             {id: "drink", bordercolor: "20px solid rgb(228, 103, 103)", h1:"飲み物",lists:["酒","ジュース","お茶"]},
             {id: "others", bordercolor: "20px solid rgb(255, 98, 255)", h1:"その他",lists:["お菓子","調味料"]},
         ];
+        function search() {
+
+        }
+
          const foodsection = titles.map((props,index) =>{
            const Lists = props.lists.map(list => {
                  return (
-                     <li key={list}>{list}</li>
+                     <li key={list}onClick={search}>{list}</li>
                  );
              })
         return(
@@ -113,6 +118,34 @@ import { NodeProps } from 'postcss';
                 {foodsection}
             </div>
         );
+    }
+    function Test() {
+        const [formData, setFormData] = useState({name:"豚肉"});
+        console.log(formData.name);
+        // 送信
+    const test = async() => {
+        //入力値を投げる
+        await axios
+            .get('/api/food/category', {
+               name: formData.name
+            })
+            .then((response) => {
+                setFormData(response.data);
+                console.log(response.data);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }
+    return(
+    <div>
+        <h1 onClick={test}>test</h1>
+        <h1>test</h1>
+        <h1>test</h1>
+    </div>
+
+    );
+
     }
 
     // Top画面

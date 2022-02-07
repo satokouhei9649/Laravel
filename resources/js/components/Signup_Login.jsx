@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 // 新規登録
  export function SignUP(props) {
+    //  ステート
     const [Users, setPosts] = useState([]);
     //フォームの入力値を管理するステートの定義
     const [formData, setFormData] = useState({userName:'', userEmail:'',userPassword:''});
@@ -9,6 +10,7 @@ import axios from 'axios';
     useEffect(() => {
         getPostsData();
     },[])
+    // 一覧取得
     const getPostsData = () => {
         axios
             .get('/api/posts')
@@ -19,14 +21,18 @@ import axios from 'axios';
             .catch(() => {
                 console.log('通信に失敗しました');
             });
+            console.log(Users);
     }
     // 文字入力反映
     const inputChange = (e) => {
         const key = e.target.name;
         const value = e.target.value;
         formData[key] = value;
+        // オブジェクトのコピー
+        console.log(formData);
         let data = Object.assign({}, formData);
         setFormData(data);
+        console.log(data);
     }
     // 送信
     const createUser = async() => {
@@ -46,12 +52,14 @@ import axios from 'axios';
                 const tempUsers = Users
                 tempUsers.push(res.data);
                 setPosts(tempUsers)
+                console.log(Users);
                 setFormData('');
             })
             .catch(error => {
                 console.log(error);
             });
     }
+
 
     return(
     <div className="signup">
