@@ -1,5 +1,5 @@
 import {BacKGround,ShoppingCart,Modal, SearchForm,Header,Input} from './components/Header.jsx';
-import {SignUP, LoginForm, SingUP} from './components/Signup_Login.jsx';
+import {SignUP, LoginForm} from './components/Signup_Login.jsx';
 import Footer from './components/Footer.jsx';
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -8,7 +8,7 @@ export function Shopping () {
     return(
         <div>
             <Header />
-            <SingUP/>
+            <SignUP/>
             <LoginForm />
             <ShoppingTotal />
             <Footer />

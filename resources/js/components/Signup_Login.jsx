@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 // 新規登録
- export function SingUP(props) {
+ export function SignUP(props) {
     const [Users, setPosts] = useState([]);
     //フォームの入力値を管理するステートの定義
     const [formData, setFormData] = useState({userName:'', userEmail:'',userPassword:''});

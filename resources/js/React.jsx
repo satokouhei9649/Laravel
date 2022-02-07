@@ -3,7 +3,7 @@
     import axios from 'axios';
     import ReactDOM from 'react-dom';
     import Footer from './components/Footer.jsx';
-    import {SingUP,LoginForm} from './components/Signup_Login.jsx';
+    import {SignUP,LoginForm} from './components/Signup_Login.jsx';
     import {BacKGround,ShoppingCart,Modal, SearchForm,Header} from './components/Header.jsx';
 import { NodeProps } from 'postcss';
     let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
@@ -20,7 +20,7 @@ import { NodeProps } from 'postcss';
                 <ShoppingCart />
                 <BacKGround class="background"/>
                 <BacKGround class="cartbox"/>
-                <SingUP/>
+                <SignUP/>
                 <LoginForm />
                 <Main />
                 <Footer />
@@ -85,16 +85,15 @@ import { NodeProps } from 'postcss';
     // カテゴリー検索
     function FoodSection() {
         const titles = [
-            {class: "active", id: "meat", bordercolor: "20px solid rgb(255, 103, 103)", h1:"お肉",lists:["豚肉","牛肉","鶏肉","鹿肉"]},
-            {id: "fish", bordercolor: "20px solid rgb(48, 103, 255)", h1:"魚介類",lists:["青魚","貝類","鶏肉"]},
+            {class: "active", id: "meat", bordercolor: "20px solid rgb(255, 103, 103)", h1:"お肉",lists:["豚肉","牛肉","鶏肉",]},
+            {id: "fish", bordercolor: "20px solid rgb(48, 103, 255)", h1:"魚介類",lists:["青魚","貝類"]},
             {id: "veg", bordercolor: "20px solid rgb(95, 200, 95)", h1:"野菜",lists:["根野菜","葉物","大豆食品"]},
-            {id: "egg", bordercolor: "20px solid rgb(255, 245, 103)", h1:"卵",lists:["鶏卵","魚卵",]},
-            {id: "milk", bordercolor: "20px solid rgb(255, 202, 103)", h1:"乳製品",lists:["チーズ・ヨーグルト","鶏肉"]},
+            {id: "egg", bordercolor: "20px solid rgb(255, 245, 103)", h1:"卵",lists:["鶏卵","魚卵"]},
+            {id: "milk", bordercolor: "20px solid rgb(255, 202, 103)", h1:"乳製品",lists:["チーズ・ヨーグルト"]},
             {id: "drink", bordercolor: "20px solid rgb(228, 103, 103)", h1:"飲み物",lists:["酒","ジュース","お茶"]},
-            {id: "others", bordercolor: "20px solid rgb(255, 98, 255)", h1:"その他",lists:["お菓子","調味料",""]},
+            {id: "others", bordercolor: "20px solid rgb(255, 98, 255)", h1:"その他",lists:["お菓子","調味料"]},
         ];
          const foodsection = titles.map((props,index) =>{
-             console.log(props.lists[0]);
            const Lists = props.lists.map(list => {
                  return (
                      <li key={list}>{list}</li>

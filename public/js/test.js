@@ -3009,7 +3009,7 @@ var Index = /*#__PURE__*/function (_React$Component) {
           "class": "background"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_5__.BacKGround, {
           "class": "cartbox"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_Signup_Login_jsx__WEBPACK_IMPORTED_MODULE_4__.SingUP, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_Signup_Login_jsx__WEBPACK_IMPORTED_MODULE_4__.LoginForm, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(Main, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_Footer_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {})]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_Signup_Login_jsx__WEBPACK_IMPORTED_MODULE_4__.SignUP, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_Signup_Login_jsx__WEBPACK_IMPORTED_MODULE_4__.LoginForm, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(Main, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_Footer_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {})]
       });
     }
   }]);
@@ -3289,7 +3289,7 @@ __webpack_require__.r(__webpack_exports__);
 
 function Shopping() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_0__.Header, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Signup_Login_jsx__WEBPACK_IMPORTED_MODULE_1__.SingUP, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Signup_Login_jsx__WEBPACK_IMPORTED_MODULE_1__.LoginForm, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(ShoppingTotal, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Footer_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {})]
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_0__.Header, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Signup_Login_jsx__WEBPACK_IMPORTED_MODULE_1__.SignUP, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Signup_Login_jsx__WEBPACK_IMPORTED_MODULE_1__.LoginForm, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(ShoppingTotal, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Footer_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {})]
   });
 }
 
@@ -3612,7 +3612,7 @@ function BacKGround(props) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "SingUP": () => (/* binding */ SingUP),
+/* harmony export */   "SignUP": () => (/* binding */ SignUP),
 /* harmony export */   "LoginForm": () => (/* binding */ LoginForm)
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
@@ -3644,7 +3644,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-function SingUP(props) {
+function SignUP(props) {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
       _useState2 = _slicedToArray(_useState, 2),
       Users = _useState2[0],
@@ -43502,8 +43502,8 @@ const Node = _postcss_js__WEBPACK_IMPORTED_MODULE_0__.Node
     const LoginForm = document.querySelector('.LoginForm');
     const ToLogin1 = document.getElementById('ToLogin');
     const ToLogin2 = document.querySelector('.loginBtn');
-    const ToLgin3 = document.querySelector('.loginfromFooter')
-    const LoginFormLinks = [ToLogin1,ToLogin2,ToLgin3];
+    const ToLogin3 = document.querySelector('.loginfromFooter')
+    const LoginFormLinks = [ToLogin1,ToLogin2,ToLogin3];
     const LoginBackBtn = document.querySelector('.Back');
 
     const signup = document.querySelector('.signup');

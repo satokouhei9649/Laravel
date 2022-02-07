@@ -30,7 +30,7 @@ function MenuList(props) {
                  <span id="shoppingCart"><i className="fas fa-shopping-cart fa-2x "></i></span>
             </li>
             <li className="icon">
-                <span id="menu"><i className="fas fa-bars fa-2x"></i></span>
+                <span id="menu" ><i className="fas fa-bars fa-2x"></i></span>
             </li>
         </ul>
     );
