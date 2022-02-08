@@ -7,6 +7,7 @@
     import {BacKGround,ShoppingCart,Modal, SearchForm,Header} from './components/Header.jsx';
     import { NodeProps } from 'postcss';
 import { contains } from 'micromatch';
+import { name } from 'file-loader';
     let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
      export class Index extends React.Component {
       constructor(props) {
@@ -126,9 +127,7 @@ import { contains } from 'micromatch';
     const test = async() => {
         //入力値を投げる
         await axios
-            .get('/api/food/category', {
-               name: formData.name
-            })
+            .get('/api/food/category')
             .then((response) => {
                 setFormData(response.data);
                 console.log(response.data);

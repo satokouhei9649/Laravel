@@ -16,20 +16,18 @@ import axios from 'axios';
             .get('/api/posts')
             .then(response => {
                 setPosts(response.data);
-                console.log(response.data);
             })
             .catch(() => {
                 console.log('通信に失敗しました');
             });
-            console.log(Users);
-    }
+        }
+        console.log(Users);
     // 文字入力反映
     const inputChange = (e) => {
         const key = e.target.name;
         const value = e.target.value;
         formData[key] = value;
         // オブジェクトのコピー
-        console.log(formData);
         let data = Object.assign({}, formData);
         setFormData(data);
         console.log(data);
@@ -49,10 +47,9 @@ import axios from 'axios';
             })
             .then((res) => {
                 console.log(res);
-                const tempUsers = Users
+                const tempUsers = Users;
                 tempUsers.push(res.data);
-                setPosts(tempUsers)
-                console.log(Users);
+                setPosts(tempUsers);
                 setFormData('');
             })
             .catch(error => {

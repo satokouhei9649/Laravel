@@ -18,7 +18,9 @@ mix.webpackConfig({
     resolve : {
         fallback : {
         "path" : require.resolve("path-browserify"),
-        "fs" :false
+        "fs" :false,
+        "crypto": require.resolve("crypto-browserify"),
+        "stream": require.resolve("stream-browserify"),
         }
         }
 });
