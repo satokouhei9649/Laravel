@@ -4,24 +4,24 @@ import axios from 'axios';
  export function SignUP(props) {
     //  ステート
     const [Users, setPosts] = useState([]);
-    //フォームの入力値を管理するステートの定義
-    const [formData, setFormData] = useState({userName:'', userEmail:'',userPassword:''});
-    console.log(formData);
     useEffect(() => {
         getPostsData();
     },[])
     // 一覧取得
     const getPostsData = () => {
         axios
-            .get('/api/posts')
-            .then(response => {
-                setPosts(response.data);
-            })
-            .catch(() => {
-                console.log('通信に失敗しました');
-            });
-        }
-        console.log(Users);
+        .get('/api/posts')
+        .then(response => {
+            setPosts(response.data);
+            console.log(response.data);
+        })
+        .catch(() => {
+            console.log('通信に失敗しました');
+        });
+    }
+    //フォームの入力値を管理するステートの定義
+    const [formData, setFormData] = useState({userName:'', userEmail:'',userPassword:''});
+    console.log(formData);
     // 文字入力反映
     const inputChange = (e) => {
         const key = e.target.name;
@@ -40,7 +40,7 @@ import axios from 'axios';
         }
         //入力値を投げる
         await axios
-            .post('/api/user/create', {
+            .post('/api/users/create', {
                 userName: formData.userName,
                 userEmail: formData.userEmail,
                 userPassword: formData.userPassword

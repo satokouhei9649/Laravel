@@ -16140,14 +16140,17 @@ function FoodSection() {
 }
 
 function Test() {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({
-    name: "豚肉"
-  }),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
       _useState2 = _slicedToArray(_useState, 2),
-      formData = _useState2[0],
-      setFormData = _useState2[1];
+      TestData = _useState2[0],
+      setTestData = _useState2[1];
 
-  console.log(formData.name); // 送信
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+    test();
+  }, []); // 豚肉
+
+  console.log(TestData.name);
+  console.log(TestData); // 送信
 
   var test = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
@@ -16155,15 +16158,17 @@ function Test() {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              _context.next = 2;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default().get('/api/food/category').then(function (response) {
-                setFormData(response.data);
+              //入力値を投げる
+              axios__WEBPACK_IMPORTED_MODULE_2___default().post('/api/food/category', {
+                name: "豚肉"
+              }).then(function (response) {
+                setTestData(response.data);
                 console.log(response.data);
               })["catch"](function (error) {
                 console.log(error);
               });
 
-            case 2:
+            case 1:
             case "end":
               return _context.stop();
           }
@@ -16177,7 +16182,7 @@ function Test() {
   }();
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h1", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
       onClick: test,
       children: "test"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h1", {
@@ -16594,7 +16599,20 @@ function SignUP(props) {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
       _useState2 = _slicedToArray(_useState, 2),
       Users = _useState2[0],
-      setPosts = _useState2[1]; //フォームの入力値を管理するステートの定義
+      setPosts = _useState2[1];
+
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+    getPostsData();
+  }, []); // 一覧取得
+
+  var getPostsData = function getPostsData() {
+    axios__WEBPACK_IMPORTED_MODULE_2___default().get('/api/posts').then(function (response) {
+      setPosts(response.data);
+      console.log(response.data);
+    })["catch"](function () {
+      console.log('通信に失敗しました');
+    });
+  }; //フォームの入力値を管理するステートの定義
 
 
   var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({
@@ -16606,20 +16624,7 @@ function SignUP(props) {
       formData = _useState4[0],
       setFormData = _useState4[1];
 
-  console.log(formData);
-  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
-    getPostsData();
-  }, []); // 一覧取得
-
-  var getPostsData = function getPostsData() {
-    axios__WEBPACK_IMPORTED_MODULE_2___default().get('/api/posts').then(function (response) {
-      setPosts(response.data);
-    })["catch"](function () {
-      console.log('通信に失敗しました');
-    });
-  };
-
-  console.log(Users); // 文字入力反映
+  console.log(formData); // 文字入力反映
 
   var inputChange = function inputChange(e) {
     var key = e.target.name;
@@ -16647,7 +16652,7 @@ function SignUP(props) {
 
             case 2:
               _context.next = 4;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default().post('/api/user/create', {
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().post('/api/users/create', {
                 userName: formData.userName,
                 userEmail: formData.userEmail,
                 userPassword: formData.userPassword

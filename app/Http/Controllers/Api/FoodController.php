@@ -7,11 +7,10 @@ use Illuminate\Http\Request;
 use App\Models\Food;
 class FoodController extends Controller
 {
- function CategorySearch(Request $request) {
-     dd($request);
+ public function category(Request $request) {
      $keyword_name = $request->name;
      $query = Food::query();
-     $results = $query->where('name','like',$keyword_name)->get();
+     $results = $query->where('name','like' , '%'.$keyword_name.'%')->get();
     return response()->json($results, 200);
  }
 }

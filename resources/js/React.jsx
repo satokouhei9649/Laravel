@@ -121,15 +121,22 @@ import { name } from 'file-loader';
         );
     }
     function Test() {
-        const [formData, setFormData] = useState({name:"豚肉"});
-        console.log(formData.name);
+        const [TestData, setTestData] = useState([]);
+        useEffect(() => {
+            test();
+        },[])
+        // 豚肉
+        console.log(TestData.name);
+        console.log(TestData);
         // 送信
     const test = async() => {
         //入力値を投げる
-        await axios
-            .get('/api/food/category')
-            .then((response) => {
-                setFormData(response.data);
+        axios
+            .post('/api/food/category',{
+                name: "豚肉"
+            })
+            .then(response => {
+                setTestData(response.data);
                 console.log(response.data);
             })
             .catch(error => {
@@ -138,7 +145,7 @@ import { name } from 'file-loader';
     }
     return(
     <div>
-        <h1 onClick={test}>test</h1>
+        <button onClick={test}>test</button>
         <h1>test</h1>
         <h1>test</h1>
     </div>

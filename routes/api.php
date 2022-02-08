@@ -15,8 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 Route::group(['middleware' => 'api'], function () {
  Route::get('posts', 'App\Http\Controllers\Api\PostController@index');
- Route::get('food/categroy', 'App\Http\Controllers\Api\FoodController@CategorySearch');
- Route::post('user/create', 'App\Http\Controllers\Api\UserController@create');
+ Route::post('food/category', 'App\Http\Controllers\Api\FoodController@category');
+ Route::post('users/create', 'App\Http\Controllers\Api\UserController@create');
 });
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     return $request->user();
