@@ -84,7 +84,8 @@ import { name } from 'file-loader';
 
         );
     }
-    // カテゴリー検索
+
+
     function FoodSection() {
         const titles = [
             {class: "active", id: "meat", bordercolor: "20px solid rgb(255, 103, 103)", h1:"お肉",lists:["豚肉","牛肉","鶏肉",]},
@@ -95,40 +96,38 @@ import { name } from 'file-loader';
             {id: "drink", bordercolor: "20px solid rgb(228, 103, 103)", h1:"飲み物",lists:["酒","ジュース","お茶"]},
             {id: "others", bordercolor: "20px solid rgb(255, 98, 255)", h1:"その他",lists:["お菓子","調味料"]},
         ];
-        const [ResultsData, resData] = useState([]);
-        const [RequestData, setData] = useState([]);
-                useEffect(() => {
-                            search();
-                        },[])
-            const search = async(event) => {
-                resData([]);
-                setData([{name: event.target.value}]);
-                //入力値を投げる
-                axios
-                    .post('/api/food/category',{
-                        name: RequestData.name
-                    })
-                    .then(response => {
-                        resData(response.data);
-                        setData('');
-                    })
-                    .catch(error => {
-                        console.log(error);
-                    });
-            }
-            const Results = ResultsData.map(result => {
-                return(
-                    <div key={result.name}>
-                        <h1>{result.name}</h1>
-                        <p>{result.explain}</p>
-                        <p>¥ {result.praice}円</p>
-                    </div>
-                );
-            })
+            // const Results = ResultsData.map(result => {
+            //     return(
+            //         <div key={result.name}>
+            //             <h1>{result.name}</h1>
+            //             <p>{result.explain}</p>
+            //             <p>¥ {result.praice}円</p>
+            //         </div>
+            //     );
+            // })
          const foodsection = titles.map((props,index) =>{
            const Lists = props.lists.map(list => {
+            const [ResultsData, resData] = useState([]);
+            const [RequestData, setData] = useState({name: ''});
+            const search = async() => {
+                RequestData.name = list;
+                let data = Object.assign({}, RequestData);
+                    setData(data);
+                    console.log(RequestData);
+                    //入力値を投げる
+                    axios.post('/api/food/category',{
+                           name: RequestData.name
+                        })
+                        .then(response => {
+                            resData(response.data);
+                            setData('');
+                        })
+                        .catch(error => {
+                            console.log(error);
+                        });
+                }
                  return (
-                     <li key={list}><a onClick={(e) => search(e)}>{list}</a></li>
+                     <li key={list}><a onClick={() => {search(list)}}>{list}</a></li>
                  );
              })
         return(
@@ -143,15 +142,11 @@ import { name } from 'file-loader';
         return(
             <div>
                 {foodsection}
-                {Results}
             </div>
         );
     }
     function Test() {
         const [TestData, setTestData] = useState([]);
-        useEffect(() => {
-            test();
-        },[])
         // 送信
     const test = async() => {
         //入力値を投げる

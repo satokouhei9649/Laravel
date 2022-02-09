@@ -16069,8 +16069,7 @@ function FoodMenu(props) {
       })]
     })]
   });
-} // カテゴリー検索
-
+}
 
 function FoodSection() {
   var titles = [{
@@ -16109,72 +16108,68 @@ function FoodSection() {
     bordercolor: "20px solid rgb(255, 98, 255)",
     h1: "その他",
     lists: ["お菓子", "調味料"]
-  }];
+  }]; // const Results = ResultsData.map(result => {
+  //     return(
+  //         <div key={result.name}>
+  //             <h1>{result.name}</h1>
+  //             <p>{result.explain}</p>
+  //             <p>¥ {result.praice}円</p>
+  //         </div>
+  //     );
+  // })
 
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
-      _useState2 = _slicedToArray(_useState, 2),
-      ResultsData = _useState2[0],
-      resData = _useState2[1];
-
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
-      _useState4 = _slicedToArray(_useState3, 2),
-      RequestData = _useState4[0],
-      setData = _useState4[1];
-
-  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
-    search();
-  }, []);
-
-  var search = /*#__PURE__*/function () {
-    var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(event) {
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              resData([]);
-              setData([{
-                name: event.target.value
-              }]); //入力値を投げる
-
-              axios__WEBPACK_IMPORTED_MODULE_2___default().post('/api/food/category', {
-                name: RequestData.name
-              }).then(function (response) {
-                resData(response.data);
-                setData('');
-              })["catch"](function (error) {
-                console.log(error);
-              });
-
-            case 3:
-            case "end":
-              return _context.stop();
-          }
-        }
-      }, _callee);
-    }));
-
-    return function search(_x) {
-      return _ref.apply(this, arguments);
-    };
-  }();
-
-  var Results = ResultsData.map(function (result) {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h1", {
-        children: result.name
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("p", {
-        children: result.explain
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("p", {
-        children: ["\xA5 ", result.praice, "\u5186"]
-      })]
-    }, result.name);
-  });
   var foodsection = titles.map(function (props, index) {
     var Lists = props.lists.map(function (list) {
+      var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
+          _useState2 = _slicedToArray(_useState, 2),
+          ResultsData = _useState2[0],
+          resData = _useState2[1];
+
+      var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({
+        name: ''
+      }),
+          _useState4 = _slicedToArray(_useState3, 2),
+          RequestData = _useState4[0],
+          setData = _useState4[1];
+
+      var search = /*#__PURE__*/function () {
+        var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+          var data;
+          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+            while (1) {
+              switch (_context.prev = _context.next) {
+                case 0:
+                  RequestData.name = list;
+                  data = Object.assign({}, RequestData);
+                  setData(data);
+                  console.log(RequestData); //入力値を投げる
+
+                  axios__WEBPACK_IMPORTED_MODULE_2___default().post('/api/food/category', {
+                    name: RequestData.name
+                  }).then(function (response) {
+                    resData(response.data);
+                    setData('');
+                  })["catch"](function (error) {
+                    console.log(error);
+                  });
+
+                case 5:
+                case "end":
+                  return _context.stop();
+              }
+            }
+          }, _callee);
+        }));
+
+        return function search() {
+          return _ref.apply(this, arguments);
+        };
+      }();
+
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("li", {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("a", {
-          onClick: function onClick(e) {
-            return search(e);
+          onClick: function onClick() {
+            search(list);
           },
           children: list
         })
@@ -16194,8 +16189,8 @@ function FoodSection() {
       })]
     }, index);
   });
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-    children: [foodsection, Results]
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+    children: foodsection
   });
 }
 
@@ -16203,11 +16198,8 @@ function Test() {
   var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
       _useState6 = _slicedToArray(_useState5, 2),
       TestData = _useState6[0],
-      setTestData = _useState6[1];
+      setTestData = _useState6[1]; // 送信
 
-  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
-    test();
-  }, []); // 送信
 
   var test = /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
