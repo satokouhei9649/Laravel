@@ -95,14 +95,40 @@ import { name } from 'file-loader';
             {id: "drink", bordercolor: "20px solid rgb(228, 103, 103)", h1:"飲み物",lists:["酒","ジュース","お茶"]},
             {id: "others", bordercolor: "20px solid rgb(255, 98, 255)", h1:"その他",lists:["お菓子","調味料"]},
         ];
-        function search() {
-
-        }
-
+        const [ResultsData, resData] = useState([]);
+        const [RequestData, setData] = useState([]);
+                useEffect(() => {
+                            search();
+                        },[])
+            const search = async(event) => {
+                resData([]);
+                setData([{name: event.target.value}]);
+                //入力値を投げる
+                axios
+                    .post('/api/food/category',{
+                        name: RequestData.name
+                    })
+                    .then(response => {
+                        resData(response.data);
+                        setData('');
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    });
+            }
+            const Results = ResultsData.map(result => {
+                return(
+                    <div key={result.name}>
+                        <h1>{result.name}</h1>
+                        <p>{result.explain}</p>
+                        <p>¥ {result.praice}円</p>
+                    </div>
+                );
+            })
          const foodsection = titles.map((props,index) =>{
            const Lists = props.lists.map(list => {
                  return (
-                     <li key={list}onClick={search}>{list}</li>
+                     <li key={list}><a onClick={(e) => search(e)}>{list}</a></li>
                  );
              })
         return(
@@ -117,6 +143,7 @@ import { name } from 'file-loader';
         return(
             <div>
                 {foodsection}
+                {Results}
             </div>
         );
     }
@@ -125,9 +152,6 @@ import { name } from 'file-loader';
         useEffect(() => {
             test();
         },[])
-        // 豚肉
-        console.log(TestData.name);
-        console.log(TestData);
         // 送信
     const test = async() => {
         //入力値を投げる
@@ -137,17 +161,24 @@ import { name } from 'file-loader';
             })
             .then(response => {
                 setTestData(response.data);
-                console.log(response.data);
             })
             .catch(error => {
                 console.log(error);
             });
     }
+    const Results = TestData.map(test => {
+        return(
+            <div key={test.name}>
+                <h1>{test.name}</h1>
+                <p>{test.explain}</p>
+                <p>¥ {test.praice}円</p>
+            </div>
+        );
+    })
     return(
     <div>
         <button onClick={test}>test</button>
-        <h1>test</h1>
-        <h1>test</h1>
+        {Results}
     </div>
 
     );
