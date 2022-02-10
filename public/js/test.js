@@ -16108,23 +16108,15 @@ function FoodSection() {
     bordercolor: "20px solid rgb(255, 98, 255)",
     h1: "その他",
     lists: ["お菓子", "調味料"]
-  }]; // const Results = ResultsData.map(result => {
-  //     return(
-  //         <div key={result.name}>
-  //             <h1>{result.name}</h1>
-  //             <p>{result.explain}</p>
-  //             <p>¥ {result.praice}円</p>
-  //         </div>
-  //     );
-  // })
+  }];
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
+      _useState2 = _slicedToArray(_useState, 2),
+      ResultsData = _useState2[0],
+      resData = _useState2[1];
 
   var foodsection = titles.map(function (props, index) {
     var Lists = props.lists.map(function (list) {
-      var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
-          _useState2 = _slicedToArray(_useState, 2),
-          ResultsData = _useState2[0],
-          resData = _useState2[1];
-
       var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({
         name: ''
       }),
@@ -16141,19 +16133,20 @@ function FoodSection() {
                 case 0:
                   RequestData.name = list;
                   data = Object.assign({}, RequestData);
-                  setData(data);
-                  console.log(RequestData); //入力値を投げる
+                  setData(data); // let Init = Object.assign(ResultsData,[]);
+                  // resData(Init);
+                  //入力値を投げる
 
                   axios__WEBPACK_IMPORTED_MODULE_2___default().post('/api/food/category', {
                     name: RequestData.name
                   }).then(function (response) {
-                    resData(response.data);
-                    setData('');
+                    var results = Object.assign(ResultsData, response.data);
+                    resData(results);
                   })["catch"](function (error) {
                     console.log(error);
                   });
 
-                case 5:
+                case 4:
                 case "end":
                   return _context.stop();
               }
@@ -16189,8 +16182,19 @@ function FoodSection() {
       })]
     }, index);
   });
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
-    children: foodsection
+  var Results = ResultsData.map(function (result) {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h1", {
+        children: result.name
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("p", {
+        children: result.explain
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("p", {
+        children: ["\xA5 ", result.praice, "\u5186"]
+      })]
+    }, result.name);
+  });
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+    children: [foodsection, Results]
   });
 }
 
