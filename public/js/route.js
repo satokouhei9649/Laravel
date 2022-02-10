@@ -15902,7 +15902,7 @@ var Index = /*#__PURE__*/function (_React$Component) {
           "class": "background"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_6__.BacKGround, {
           "class": "cartbox"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_Signup_Login_jsx__WEBPACK_IMPORTED_MODULE_5__.SignUP, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_Signup_Login_jsx__WEBPACK_IMPORTED_MODULE_5__.LoginForm, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(Main, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_Footer_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(Test, {})]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_Signup_Login_jsx__WEBPACK_IMPORTED_MODULE_5__.SignUP, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_Signup_Login_jsx__WEBPACK_IMPORTED_MODULE_5__.LoginForm, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(Main, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_components_Footer_jsx__WEBPACK_IMPORTED_MODULE_4__["default"], {})]
       });
     }
   }]);
@@ -16125,23 +16125,22 @@ function FoodSection() {
           setData = _useState4[1];
 
       var search = /*#__PURE__*/function () {
-        var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(word) {
           var data;
           return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
             while (1) {
               switch (_context.prev = _context.next) {
                 case 0:
-                  RequestData.name = list;
+                  RequestData.name = word;
                   data = Object.assign({}, RequestData);
-                  setData(data); // let Init = Object.assign(ResultsData,[]);
-                  // resData(Init);
-                  //入力値を投げる
+                  setData(data); //入力値を投げる
 
                   axios__WEBPACK_IMPORTED_MODULE_2___default().post('/api/food/category', {
                     name: RequestData.name
                   }).then(function (response) {
                     var results = Object.assign(ResultsData, response.data);
                     resData(results);
+                    console.log(ResultsData);
                   })["catch"](function (error) {
                     console.log(error);
                   });
@@ -16154,7 +16153,7 @@ function FoodSection() {
           }, _callee);
         }));
 
-        return function search() {
+        return function search(_x) {
           return _ref.apply(this, arguments);
         };
       }();
@@ -16196,61 +16195,39 @@ function FoodSection() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
     children: [foodsection, Results]
   });
-}
-
-function Test() {
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
-      _useState6 = _slicedToArray(_useState5, 2),
-      TestData = _useState6[0],
-      setTestData = _useState6[1]; // 送信
-
-
-  var test = /*#__PURE__*/function () {
-    var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
-        while (1) {
-          switch (_context2.prev = _context2.next) {
-            case 0:
-              //入力値を投げる
-              axios__WEBPACK_IMPORTED_MODULE_2___default().post('/api/food/category', {
-                name: "豚肉"
-              }).then(function (response) {
-                setTestData(response.data);
-              })["catch"](function (error) {
-                console.log(error);
-              });
-
-            case 1:
-            case "end":
-              return _context2.stop();
-          }
-        }
-      }, _callee2);
-    }));
-
-    return function test() {
-      return _ref2.apply(this, arguments);
-    };
-  }();
-
-  var Results = TestData.map(function (test) {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h1", {
-        children: test.name
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("p", {
-        children: test.explain
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("p", {
-        children: ["\xA5 ", test.praice, "\u5186"]
-      })]
-    }, test.name);
-  });
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("button", {
-      onClick: test,
-      children: "test"
-    }), Results]
-  });
-} // Top画面
+} // function Test() {
+//     const [TestData, setTestData] = useState([]);
+//     // 送信
+// const test = async() => {
+//     //入力値を投げる
+//     axios
+//         .post('/api/food/category',{
+//             name: "豚肉"
+//         })
+//         .then(response => {
+//             setTestData(response.data);
+//         })
+//         .catch(error => {
+//             console.log(error);
+//         });
+// }
+// const Results = TestData.map(test => {
+//     return(
+//         <div key={test.name}>
+//             <h1>{test.name}</h1>
+//             <p>{test.explain}</p>
+//             <p>¥ {test.praice}円</p>
+//         </div>
+//     );
+// })
+// return(
+// <div>
+//     <button onClick={test}>test</button>
+//     {Results}
+// </div>
+// );
+// }
+// Top画面
 
 
 function Main() {

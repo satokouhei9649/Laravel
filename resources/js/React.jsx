@@ -25,7 +25,6 @@ import { name } from 'file-loader';
                 <LoginForm />
                 <Main />
                 <Footer />
-                <Test />
             </div>
         );
       }
@@ -85,7 +84,6 @@ import { name } from 'file-loader';
         );
     }
 
-
     function FoodSection() {
         const titles = [
             {class: "active", id: "meat", bordercolor: "20px solid rgb(255, 103, 103)", h1:"お肉",lists:["豚肉","牛肉","鶏肉",]},
@@ -100,8 +98,9 @@ import { name } from 'file-loader';
         const foodsection = titles.map((props,index) =>{
             const Lists = props.lists.map(list => {
                 const [RequestData, setData] = useState({name: ''});
-                const search = async() => {
-                    RequestData.name = list;
+
+                const search = async(word) => {
+                    RequestData.name = word;
                     let data = Object.assign({}, RequestData);
                     setData(data);
                     //入力値を投げる
@@ -111,23 +110,24 @@ import { name } from 'file-loader';
                     .then(response => {
                         let results = Object.assign(ResultsData, response.data);
                         resData(results);
+                        console.log(ResultsData);
                     })
                     .catch(error => {
                         console.log(error);
                     });
                 }
-                return (
-                    <li key={list}><a onClick={() => {search(list)}}>{list}</a></li>
+                    return (
+                            <li key={list}><a onClick={() => {search(list)}}>{list}</a></li>
                     );
-                })
+            })
                 return(
-                <section className={"content "+ props.class} id={props.id} style={{border:props.bordercolor}} key={index}>
-                    <h1>{props.h1}</h1>
-                    <ul className="foodUl">
-                     {Lists}
-                    </ul>
-                </section>
-         );
+                    <section className={"content "+ props.class} id={props.id} style={{border:props.bordercolor}} key={index}>
+                        <h1>{props.h1}</h1>
+                        <ul className="foodUl">
+                            {Lists}
+                        </ul>
+                    </section>
+                );
         });
         const Results = ResultsData.map(result => {
             return(
@@ -138,6 +138,7 @@ import { name } from 'file-loader';
                 </div>
             );
         })
+
         return(
             <div>
                 {foodsection}
@@ -145,40 +146,40 @@ import { name } from 'file-loader';
             </div>
         );
     }
-    function Test() {
-        const [TestData, setTestData] = useState([]);
-        // 送信
-    const test = async() => {
-        //入力値を投げる
-        axios
-            .post('/api/food/category',{
-                name: "豚肉"
-            })
-            .then(response => {
-                setTestData(response.data);
-            })
-            .catch(error => {
-                console.log(error);
-            });
-    }
-    const Results = TestData.map(test => {
-        return(
-            <div key={test.name}>
-                <h1>{test.name}</h1>
-                <p>{test.explain}</p>
-                <p>¥ {test.praice}円</p>
-            </div>
-        );
-    })
-    return(
-    <div>
-        <button onClick={test}>test</button>
-        {Results}
-    </div>
+    // function Test() {
+    //     const [TestData, setTestData] = useState([]);
+    //     // 送信
+    // const test = async() => {
+    //     //入力値を投げる
+    //     axios
+    //         .post('/api/food/category',{
+    //             name: "豚肉"
+    //         })
+    //         .then(response => {
+    //             setTestData(response.data);
+    //         })
+    //         .catch(error => {
+    //             console.log(error);
+    //         });
+    // }
+    // const Results = TestData.map(test => {
+    //     return(
+    //         <div key={test.name}>
+    //             <h1>{test.name}</h1>
+    //             <p>{test.explain}</p>
+    //             <p>¥ {test.praice}円</p>
+    //         </div>
+    //     );
+    // })
+    // return(
+    // <div>
+    //     <button onClick={test}>test</button>
+    //     {Results}
+    // </div>
 
-    );
+    // );
 
-    }
+    // }
 
     // Top画面
     function Main() {
