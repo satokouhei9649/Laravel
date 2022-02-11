@@ -95,27 +95,30 @@ import { name } from 'file-loader';
             {id: "others", bordercolor: "20px solid rgb(255, 98, 255)", h1:"その他",lists:["お菓子","調味料"]},
         ];
         const [ResultsData, resData] = useState([]);
+        const [RequestData, setData] = useState({name: ''});
+        let Seresults = [];
+        const search = async(word) => {
+            RequestData.name = word;
+            let data = Object.assign({}, RequestData);
+            setData(data);
+            Seresults = [];
+            //入力値を投げる
+            axios.post('/api/food/category',{
+                name: RequestData.name
+            })
+            .then(response => {
+                let results = Object.assign(ResultsData, response.data);
+                resData(results);
+                console.log(ResultsData);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+        }
+        Seresults.map
         const foodsection = titles.map((props,index) =>{
             const Lists = props.lists.map(list => {
-                const [RequestData, setData] = useState({name: ''});
 
-                const search = async(word) => {
-                    RequestData.name = word;
-                    let data = Object.assign({}, RequestData);
-                    setData(data);
-                    //入力値を投げる
-                    axios.post('/api/food/category',{
-                        name: RequestData.name
-                    })
-                    .then(response => {
-                        let results = Object.assign(ResultsData, response.data);
-                        resData(results);
-                        console.log(ResultsData);
-                    })
-                    .catch(error => {
-                        console.log(error);
-                    });
-                }
                     return (
                             <li key={list}><a onClick={() => {search(list)}}>{list}</a></li>
                     );

@@ -16115,49 +16115,53 @@ function FoodSection() {
       ResultsData = _useState2[0],
       resData = _useState2[1];
 
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({
+    name: ''
+  }),
+      _useState4 = _slicedToArray(_useState3, 2),
+      RequestData = _useState4[0],
+      setData = _useState4[1];
+
+  var Seresults = [];
+
+  var search = /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(word) {
+      var data;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              RequestData.name = word;
+              data = Object.assign({}, RequestData);
+              setData(data);
+              Seresults = []; //入力値を投げる
+
+              axios__WEBPACK_IMPORTED_MODULE_2___default().post('/api/food/category', {
+                name: RequestData.name
+              }).then(function (response) {
+                var results = Object.assign(ResultsData, response.data);
+                resData(results);
+                console.log(ResultsData);
+              })["catch"](function (error) {
+                console.log(error);
+              });
+
+            case 5:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    return function search(_x) {
+      return _ref.apply(this, arguments);
+    };
+  }();
+
+  Seresults.map;
   var foodsection = titles.map(function (props, index) {
     var Lists = props.lists.map(function (list) {
-      var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({
-        name: ''
-      }),
-          _useState4 = _slicedToArray(_useState3, 2),
-          RequestData = _useState4[0],
-          setData = _useState4[1];
-
-      var search = /*#__PURE__*/function () {
-        var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(word) {
-          var data;
-          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
-            while (1) {
-              switch (_context.prev = _context.next) {
-                case 0:
-                  RequestData.name = word;
-                  data = Object.assign({}, RequestData);
-                  setData(data); //入力値を投げる
-
-                  axios__WEBPACK_IMPORTED_MODULE_2___default().post('/api/food/category', {
-                    name: RequestData.name
-                  }).then(function (response) {
-                    var results = Object.assign(ResultsData, response.data);
-                    resData(results);
-                    console.log(ResultsData);
-                  })["catch"](function (error) {
-                    console.log(error);
-                  });
-
-                case 4:
-                case "end":
-                  return _context.stop();
-              }
-            }
-          }, _callee);
-        }));
-
-        return function search(_x) {
-          return _ref.apply(this, arguments);
-        };
-      }();
-
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("li", {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("a", {
           onClick: function onClick() {
