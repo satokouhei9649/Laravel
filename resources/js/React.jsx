@@ -8,6 +8,7 @@
     import { NodeProps } from 'postcss';
 import { contains } from 'micromatch';
 import { name } from 'file-loader';
+import { empty } from 'statuses';
     let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
      export class Index extends React.Component {
       constructor(props) {
@@ -83,7 +84,6 @@ import { name } from 'file-loader';
 
         );
     }
-
     function FoodSection() {
         const titles = [
             {class: "active", id: "meat", bordercolor: "20px solid rgb(255, 103, 103)", h1:"お肉",lists:["豚肉","牛肉","鶏肉",]},
@@ -94,35 +94,48 @@ import { name } from 'file-loader';
             {id: "drink", bordercolor: "20px solid rgb(228, 103, 103)", h1:"飲み物",lists:["酒","ジュース","お茶"]},
             {id: "others", bordercolor: "20px solid rgb(255, 98, 255)", h1:"その他",lists:["お菓子","調味料"]},
         ];
-        const [ResultsData, resData] = useState([]);
         const [RequestData, setData] = useState({name: ''});
-        let Seresults = [];
+        const [ResultsData, resData] = useState([]);
+        useEffect(() => {
+         const Resutls = ResultsData.map(result => {
+                return(
+                    <div key={result.name}>
+                        <h1>{result.name}</h1>
+                        <p>{result.explain}</p>
+                        <p>¥ {result.praice}円</p>
+                    </div>
+                );
+            })
+            console.log(Resutls);
+        },[ResultsData]);
         const search = async(word) => {
             RequestData.name = word;
             let data = Object.assign({}, RequestData);
             setData(data);
-            Seresults = [];
             //入力値を投げる
             axios.post('/api/food/category',{
                 name: RequestData.name
             })
             .then(response => {
-                let results = Object.assign(ResultsData, response.data);
-                resData(results);
+                resData(response.data);
                 console.log(ResultsData);
             })
             .catch(error => {
                 console.log(error);
             });
-        }
-        Seresults.map
+            // 初期化
+            // if (Results) {
+                //     resData('');
+                //     console.log(ResultsData);
+                // }
+            }
+
         const foodsection = titles.map((props,index) =>{
             const Lists = props.lists.map(list => {
-
                     return (
                             <li key={list}><a onClick={() => {search(list)}}>{list}</a></li>
                     );
-            })
+                })
                 return(
                     <section className={"content "+ props.class} id={props.id} style={{border:props.bordercolor}} key={index}>
                         <h1>{props.h1}</h1>
@@ -132,20 +145,9 @@ import { name } from 'file-loader';
                     </section>
                 );
         });
-        const Results = ResultsData.map(result => {
-            return(
-                <div key={result.name}>
-                    <h1>{result.name}</h1>
-                    <p>{result.explain}</p>
-                    <p>¥ {result.praice}円</p>
-                </div>
-            );
-        })
-
         return(
             <div>
                 {foodsection}
-                {Results}
             </div>
         );
     }
