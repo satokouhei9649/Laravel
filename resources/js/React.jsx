@@ -9,6 +9,7 @@
 import { contains } from 'micromatch';
 import { name } from 'file-loader';
 import { empty } from 'statuses';
+import { result } from 'lodash';
     let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
      export class Index extends React.Component {
       constructor(props) {
@@ -94,20 +95,20 @@ import { empty } from 'statuses';
             {id: "drink", bordercolor: "20px solid rgb(228, 103, 103)", h1:"飲み物",lists:["酒","ジュース","お茶"]},
             {id: "others", bordercolor: "20px solid rgb(255, 98, 255)", h1:"その他",lists:["お菓子","調味料"]},
         ];
-        const [RequestData, setData] = useState({name: ''});
         const [ResultsData, resData] = useState([]);
-        useEffect(() => {
-         const Resutls = ResultsData.map(result => {
-                return(
-                    <div key={result.name}>
-                        <h1>{result.name}</h1>
-                        <p>{result.explain}</p>
-                        <p>¥ {result.praice}円</p>
-                    </div>
-                );
-            })
-            console.log(Resutls);
-        },[ResultsData]);
+        const [RequestData, setData] = useState({name: ''});
+        // useEffect(() => {
+        //     const result = ResultsData.map(result => {
+        //         return(
+        //             <div key={result.name}>
+        //                 <h1>{result.name}</h1>
+        //                 <p>{result.explain}</p>
+        //                 <p>¥ {result.praice}円</p>
+        //             </div>
+        //         );
+        //     })
+        //     return result;
+        // },[ResultsData]);
         const search = async(word) => {
             RequestData.name = word;
             let data = Object.assign({}, RequestData);
@@ -123,13 +124,7 @@ import { empty } from 'statuses';
             .catch(error => {
                 console.log(error);
             });
-            // 初期化
-            // if (Results) {
-                //     resData('');
-                //     console.log(ResultsData);
-                // }
             }
-
         const foodsection = titles.map((props,index) =>{
             const Lists = props.lists.map(list => {
                     return (
@@ -148,9 +143,25 @@ import { empty } from 'statuses';
         return(
             <div>
                 {foodsection}
+                {(() => {
+                    if (RequestData == []) {
+                        return;
+                    }
+            const result = ResultsData.map(result => {
+                return(
+                    <div key={result.name}>
+                        <h1>{result.name}</h1>
+                        <p>{result.explain}</p>
+                        <p>¥ {result.praice}円</p>
+                    </div>
+                );
+            })
+            return result;
+        })()}
             </div>
         );
     }
+
     // function Test() {
     //     const [TestData, setTestData] = useState([]);
     //     // 送信
