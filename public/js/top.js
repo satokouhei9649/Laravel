@@ -195,19 +195,8 @@
     }
     }
     Observer(recommends,Sells);
-// カートに入れる
-const ShopListUl = document.getElementById('ShopListUl');
-const GoToCart = document.querySelectorAll('.ResToCart');
-console.log(GoToCart);
-GoToCart.forEach(btn => {
-    btn.addEventListener('click',(e) => {
-        const list = document.createElement('li');
-        list.textContent = e.target.name;
-        list.classList.add('shoppinglist');
-        ShopListUl.appendChild(list);
-    });
-})
 
 
+    
 }
 

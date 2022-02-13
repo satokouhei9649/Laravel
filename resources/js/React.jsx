@@ -1,11 +1,11 @@
 
-    import React, { useState, useEffect } from 'react';
-    import axios from 'axios';
-    import ReactDOM from 'react-dom';
-    import Footer from './components/Footer.jsx';
-    import {SignUP,LoginForm} from './components/Signup_Login.jsx';
-    import {BacKGround,ShoppingCart,Modal, SearchForm,Header} from './components/Header.jsx';
-    import { NodeProps } from 'postcss';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import ReactDOM from 'react-dom';
+import Footer from './components/Footer.jsx';
+import {SignUP,LoginForm} from './components/Signup_Login.jsx';
+import {BacKGround,ShoppingCart,Modal, SearchForm,Header} from './components/Header.jsx';
+import { NodeProps } from 'postcss';
 import { contains } from 'micromatch';
 import { name } from 'file-loader';
 import { empty } from 'statuses';
@@ -86,15 +86,6 @@ import { result } from 'lodash';
         );
     }
     function FoodSection() {
-        const titles = [
-            {class: "active", id: "meat", bordercolor: "20px solid rgb(255, 103, 103)", h1:"お肉",lists:["豚肉","牛肉","鶏肉",]},
-            {id: "fish", bordercolor: "20px solid rgb(48, 103, 255)", h1:"魚介類",lists:["魚","貝"]},
-            {id: "veg", bordercolor: "20px solid rgb(95, 200, 95)", h1:"野菜",lists:["根野菜","葉物","大豆食品"]},
-            {id: "egg", bordercolor: "20px solid rgb(255, 245, 103)", h1:"卵",lists:["鶏卵","魚卵"]},
-            {id: "milk", bordercolor: "20px solid rgb(255, 202, 103)", h1:"乳製品",lists:["チーズ,ヨーグルト"]},
-            {id: "drink", bordercolor: "20px solid rgb(228, 103, 103)", h1:"飲み物",lists:["酒","ジュース","お茶"]},
-            {id: "others", bordercolor: "20px solid rgb(255, 98, 255)", h1:"その他",lists:["お菓子","調味料"]},
-        ];
         const [ResultsData, resData] = useState([]);
         const [RequestData, setData] = useState({name: ''});
         // 検索
@@ -113,16 +104,51 @@ import { result } from 'lodash';
             .catch(error => {
                 console.log(error);
             });
-            }
-            // 買い物カゴへ
-            const GotoCart = (e) => {
-                const ShopListUl = document.getElementById('ShopListUl');
-                const list = document.createElement('li');
-                list.textContent = e.target.name;
-                list.classList.add('shoppingList');
-                ShopListUl.appendChild(list);
-            }
+        }
 
+
+        function DeleteFunction () {
+            const ShopListUl = document.getElementById('ShopListUl');
+            var LiCount = ShopListUl.childElementCount + 1;
+            console.log(LiCount);
+
+    }
+        // 買い物カゴへ
+        const GotoCart = (e) => {
+            const ShopListUl = document.getElementById('ShopListUl');
+            const list = document.createElement('li');
+            const DeleteBtn = document.createElement('button');
+            DeleteBtn.textContent ="[X]";
+            DeleteBtn.classList.add('DeleteBtn');
+            DeleteBtn.setAttribute('name', e.target.name);
+            DeleteBtn.onclick = (() =>{
+                let DeleBtn = document.querySelectorAll('.DeleteBtn');
+                DeleBtn.forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const key = e.target.name;
+                        const li = document.getElementsByName(key);
+                        console.log(li);
+                        btn.remove();
+                        li[0].remove();
+                    });
+            });
+            })();
+            list.textContent = e.target.name;
+            list.classList.add('shoppingList');
+            list.setAttribute('name', e.target.name);
+            ShopListUl.appendChild(list);
+            list.appendChild(DeleteBtn);
+        }
+
+        const titles = [
+            {class: "active", id: "meat", bordercolor: "20px solid rgb(255, 103, 103)", h1:"お肉",lists:["豚肉","牛肉","鶏肉",]},
+            {id: "fish", bordercolor: "20px solid rgb(48, 103, 255)", h1:"魚介類",lists:["魚","貝"]},
+            {id: "veg", bordercolor: "20px solid rgb(95, 200, 95)", h1:"野菜",lists:["根野菜","葉物","大豆食品"]},
+            {id: "egg", bordercolor: "20px solid rgb(255, 245, 103)", h1:"卵",lists:["鶏卵","魚卵"]},
+            {id: "milk", bordercolor: "20px solid rgb(255, 202, 103)", h1:"乳製品",lists:["チーズ,ヨーグルト"]},
+            {id: "drink", bordercolor: "20px solid rgb(228, 103, 103)", h1:"飲み物",lists:["酒","ジュース","お茶"]},
+            {id: "others", bordercolor: "20px solid rgb(255, 98, 255)", h1:"その他",lists:["お菓子","調味料"]},
+        ];
         const foodsection = titles.map((props,index) =>{
             const Lists = props.lists.map(list => {
                     return (
@@ -145,18 +171,18 @@ import { result } from 'lodash';
                     if (RequestData == []) {
                         return;
                     }
-            const result = ResultsData.map(result => {
-                return(
-                    <div id="search" key={result.name}>
-                        <h1>{result.name}</h1>
-                        <p>{result.explain}</p>
-                        <p>¥ {result.praice}円</p>
-                        <button className='ResToCart' name={result.name} onClick={GotoCart}>カートに入れる</button>
-                    </div>
-                );
-            })
-            return result;
-        })()}
+                    const result = ResultsData.map(result => {
+                        return(
+                            <div id="search" key={result.name}>
+                                <h1>{result.name}</h1>
+                                <p>{result.explain}</p>
+                                <p>¥ {result.praice}円</p>
+                                <button className='ResToCart' name={result.name} onClick={GotoCart}>カートに入れる</button>
+                            </div>
+                        );
+                    })
+                    return result;
+                })()}
             </div>
         );
     }

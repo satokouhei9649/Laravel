@@ -1,3 +1,5 @@
+
+import React, { useState, useEffect } from 'react';
 let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
  export function Header() {
     return(
@@ -52,20 +54,23 @@ export function Modal(props) {
     );
 }
 // 買い物カゴ
+        
  export function ShoppingCart(props) {
-    return(
-    <div className="cart">
-        <h2>お買い物カゴにある商品<a href="#" id="shopBack">✖️</a></h2>
-        <form action="/total" method="get">
-        <ul id="ShopListUl">
-        </ul>
-        <input type="submit" value="お支払いへ" className="buyBtn"/>
-        <input type="hidden" name="token" value={csrf_token}/>
-        </form>
-        <button>戻る</button>
-    </div>
-    );
-}
+     return(
+     <div className="cart">
+         <h2>お買い物カゴにある商品<a href="#" id="shopBack">✖️</a></h2>
+         {/* <form action="/total" method="get"> */}
+         <ul id="ShopListUl">
+             {/* <li className="shoppingList">test<button  name = result.name className="DeleteBtn">[X]</button></li> */}
+         </ul>
+         <input type="submit" value="お支払いへ" className="buyBtn"/>
+         <input type="hidden" name="token" value={csrf_token}/>
+         {/* </form> */}
+         <button>戻る</button>
+     </div>
+     );
+    }
+
 // 背景
  export function BacKGround(props) {
     return(
