@@ -88,27 +88,16 @@ import { result } from 'lodash';
     function FoodSection() {
         const titles = [
             {class: "active", id: "meat", bordercolor: "20px solid rgb(255, 103, 103)", h1:"お肉",lists:["豚肉","牛肉","鶏肉",]},
-            {id: "fish", bordercolor: "20px solid rgb(48, 103, 255)", h1:"魚介類",lists:["青魚","貝類"]},
+            {id: "fish", bordercolor: "20px solid rgb(48, 103, 255)", h1:"魚介類",lists:["魚","貝"]},
             {id: "veg", bordercolor: "20px solid rgb(95, 200, 95)", h1:"野菜",lists:["根野菜","葉物","大豆食品"]},
             {id: "egg", bordercolor: "20px solid rgb(255, 245, 103)", h1:"卵",lists:["鶏卵","魚卵"]},
-            {id: "milk", bordercolor: "20px solid rgb(255, 202, 103)", h1:"乳製品",lists:["チーズ・ヨーグルト"]},
+            {id: "milk", bordercolor: "20px solid rgb(255, 202, 103)", h1:"乳製品",lists:["チーズ,ヨーグルト"]},
             {id: "drink", bordercolor: "20px solid rgb(228, 103, 103)", h1:"飲み物",lists:["酒","ジュース","お茶"]},
             {id: "others", bordercolor: "20px solid rgb(255, 98, 255)", h1:"その他",lists:["お菓子","調味料"]},
         ];
         const [ResultsData, resData] = useState([]);
         const [RequestData, setData] = useState({name: ''});
-        // useEffect(() => {
-        //     const result = ResultsData.map(result => {
-        //         return(
-        //             <div key={result.name}>
-        //                 <h1>{result.name}</h1>
-        //                 <p>{result.explain}</p>
-        //                 <p>¥ {result.praice}円</p>
-        //             </div>
-        //         );
-        //     })
-        //     return result;
-        // },[ResultsData]);
+        // 検索
         const search = async(word) => {
             RequestData.name = word;
             let data = Object.assign({}, RequestData);
@@ -125,10 +114,19 @@ import { result } from 'lodash';
                 console.log(error);
             });
             }
+            // 買い物カゴへ
+            const GotoCart = (e) => {
+                const ShopListUl = document.getElementById('ShopListUl');
+                const list = document.createElement('li');
+                list.textContent = e.target.name;
+                list.classList.add('shoppingList');
+                ShopListUl.appendChild(list);
+            }
+
         const foodsection = titles.map((props,index) =>{
             const Lists = props.lists.map(list => {
                     return (
-                            <li key={list}><a onClick={() => {search(list)}}>{list}</a></li>
+                            <li key={list}><a href='#search' onClick={() => {search(list)}}>{list}</a></li>
                     );
                 })
                 return(
@@ -149,10 +147,11 @@ import { result } from 'lodash';
                     }
             const result = ResultsData.map(result => {
                 return(
-                    <div key={result.name}>
+                    <div id="search" key={result.name}>
                         <h1>{result.name}</h1>
                         <p>{result.explain}</p>
                         <p>¥ {result.praice}円</p>
+                        <button className='ResToCart' name={result.name} onClick={GotoCart}>カートに入れる</button>
                     </div>
                 );
             })

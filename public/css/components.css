@@ -215,23 +215,8 @@ header {
     height: 10%;
     margin: 10px auto;
     border-radius: 10px;
-    opacity: 0;
-    top: -100%;
 }
-.shoppingList.active {
-    animation: fadeInTop 5s forwards;
-}
-@keyframes fadeInTop {
-    from {
-        opacity: 0;
-        top: -100%;
-    }
-    to {
-        opacity: 1;
-        top: 0;
-    }
 
-}
 
 .background {
     background: gray;

@@ -57,11 +57,7 @@ export function Modal(props) {
     <div className="cart">
         <h2>お買い物カゴにある商品<a href="#" id="shopBack">✖️</a></h2>
         <form action="/total" method="get">
-        <ul>
-            <li className="shoppingList"></li>
-            <li className="shoppingList"></li>
-            <li className="shoppingList"></li>
-            <li className="shoppingList"></li>
+        <ul id="ShopListUl">
         </ul>
         <input type="submit" value="お支払いへ" className="buyBtn"/>
         <input type="hidden" name="token" value={csrf_token}/>
