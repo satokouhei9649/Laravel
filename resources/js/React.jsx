@@ -121,23 +121,17 @@ import { result } from 'lodash';
             DeleteBtn.textContent ="[X]";
             DeleteBtn.classList.add('DeleteBtn');
             DeleteBtn.setAttribute('name', e.target.name);
-            DeleteBtn.onclick = (() =>{
-                let DeleBtn = document.querySelectorAll('.DeleteBtn');
-                DeleBtn.forEach(btn => {
-                    btn.addEventListener('click', (e) => {
-                        const key = e.target.name;
-                        const li = document.getElementsByName(key);
-                        console.log(li);
-                        btn.remove();
-                        li[0].remove();
-                    });
-            });
-            })();
             list.textContent = e.target.name;
             list.classList.add('shoppingList');
             list.setAttribute('name', e.target.name);
             ShopListUl.appendChild(list);
             list.appendChild(DeleteBtn);
+            DeleteBtn.onclick = (event) =>{
+                const deleBtn = event.target;
+                const TargetLi = deleBtn.parentNode;
+                deleBtn.remove();
+                TargetLi.remove();
+            };
         }
 
         const titles = [
