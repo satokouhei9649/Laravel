@@ -50,19 +50,75 @@ import { result } from 'lodash';
     }
     // オススメ
     function Recommend(props) {
-        return(
-            <span>
+     const [Recommend, setRecommendData] = useState([]);
+        useEffect(() =>{
+            GetData();
+        },[]);
+        useEffect(() =>{
+            const recommends= document.querySelectorAll('.recommend');
+            console.log(recommends);
+            const Sells = document.querySelectorAll('.sell');
+            Observer(recommends,Sells);
+        });
+        const GetData = () => {
+            axios
+            .get('/api/food/recommend')
+            .then(res => {
+                setRecommendData(res.data);
+                console.log(res.data);
+            })
+            .catch(() => {
+                console.log('通信に失敗しました');
+            });
+        }
+         // Intersection Observer API
+            const Observer = function() {
+                const option = {
+                    threshold: 0.6,
+                    rootMargin: '0px 0px -10%'
+                };
+
+                for(let i=0; i < arguments.length; i++) {
+                    const observer = new IntersectionObserver(check, option);
+                    arguments[i].forEach(argument =>{
+                        observer.observe(argument);
+                    });
+                    const array = arguments[i]
+                    function check(D,obs) {
+                        if (!D[0].isIntersecting) {
+                            return;
+                        }
+                        AnimationMove(array);
+                        obs.unobserve(D[0].target);
+                    }
+                }
+            }
+            const AnimationMove = function(Array){
+                Array.forEach((el,index) => {
+                    // 持ち時間
+                    let delay =  Array.length * .0 +.3;
+                    // 間隔
+                    delay -= index * .5;
+                    el.style.animationDelay = `${delay}s`;
+                    el.classList.add('active');
+                });
+            }
+            const RECOMMENDS = Recommend.map((el,index) => {
+                index = index + 1;
+                return(
+                    <li className={props.class} key={el.name}>
+                    {props.class == 'recommend' ? <span className='rank'>{index}</span> : ''}
+                    <h1>{el.name}</h1>
+                    {props.class == 'sell' ? <p>{el.praice * 0.7}</p> : <p>{el.praice}</p>}
+                    </li>
+                );
+            });
+
+            return(
+                <span>
                 <h2>{props.h2}</h2>
                 <ul className={props.class + "s"}>
-                    <li className={props.class}><span className="rank">1</span>オススメ</li>
-                    <li className={props.class}><span className="rank">2</span>オススメ</li>
-                    <li className={props.class}><span className="rank">3</span>オススメ</li>
-                    <li className={props.class}><span className="rank">4</span>オススメ</li>
-                    <li className={props.class}>セールス</li>
-                    <li className={props.class}>セールス</li>
-                    <li className={props.class}>セールス</li>
-                    <li className={props.class}>セールス</li>
-                    <li className={props.class}>セールス</li>
+                    {RECOMMENDS}
                 </ul>
             </span>
         );
@@ -71,7 +127,7 @@ import { result } from 'lodash';
     function FoodMenu(props) {
         return(
             <div>
-                <h2 className="Food">ジャンルで探す</h2>
+                <h2 className="Food">ジャンル・カテゴリーで検索</h2>
                 <ul className="foodmenu">
                     <li><a href="#" className="foodIcon tab1" data-id="meat"><img src="/img/steak.png"/></a></li>
                     <li><a href="#" className="foodIcon tab2" data-id="fish"><i className="fas fa-fish fa-4x"></i></a></li>
@@ -85,10 +141,33 @@ import { result } from 'lodash';
 
         );
     }
+    // 買い物カゴに追加機能
+    const GotoCart = (e) => {
+        const ShopListUl = document.getElementById('ShopListUl');
+        const list = document.createElement('li');
+        const DeleteBtn = document.createElement('button');
+        DeleteBtn.textContent ="[X]";
+        DeleteBtn.classList.add('DeleteBtn');
+        DeleteBtn.setAttribute('name', e.target.name);
+        list.textContent = e.target.name;
+        list.classList.add('shoppingList');
+        list.setAttribute('name', e.target.name);
+        ShopListUl.appendChild(list);
+        list.appendChild(DeleteBtn);
+        // カゴから商品を削除
+        DeleteBtn.onclick = (event) =>{
+            const deleBtn = event.target;
+            const TargetLi = deleBtn.parentNode;
+            deleBtn.remove();
+            TargetLi.remove();
+        };
+    }
+
+
     function FoodSection() {
         const [ResultsData, resData] = useState([]);
         const [RequestData, setData] = useState({name: ''});
-        // 検索
+            // 検索
         const search = async(word) => {
             RequestData.name = word;
             let data = Object.assign({}, RequestData);
@@ -106,33 +185,6 @@ import { result } from 'lodash';
             });
         }
 
-
-        function DeleteFunction () {
-            const ShopListUl = document.getElementById('ShopListUl');
-            var LiCount = ShopListUl.childElementCount + 1;
-            console.log(LiCount);
-
-    }
-        // 買い物カゴへ
-        const GotoCart = (e) => {
-            const ShopListUl = document.getElementById('ShopListUl');
-            const list = document.createElement('li');
-            const DeleteBtn = document.createElement('button');
-            DeleteBtn.textContent ="[X]";
-            DeleteBtn.classList.add('DeleteBtn');
-            DeleteBtn.setAttribute('name', e.target.name);
-            list.textContent = e.target.name;
-            list.classList.add('shoppingList');
-            list.setAttribute('name', e.target.name);
-            ShopListUl.appendChild(list);
-            list.appendChild(DeleteBtn);
-            DeleteBtn.onclick = (event) =>{
-                const deleBtn = event.target;
-                const TargetLi = deleBtn.parentNode;
-                deleBtn.remove();
-                TargetLi.remove();
-            };
-        }
 
         const titles = [
             {class: "active", id: "meat", bordercolor: "20px solid rgb(255, 103, 103)", h1:"お肉",lists:["豚肉","牛肉","鶏肉",]},

@@ -54,15 +54,13 @@ export function Modal(props) {
     );
 }
 // 買い物カゴ
-        
+
  export function ShoppingCart(props) {
      return(
      <div className="cart">
          <h2>お買い物カゴにある商品<a href="#" id="shopBack">✖️</a></h2>
          {/* <form action="/total" method="get"> */}
-         <ul id="ShopListUl">
-             {/* <li className="shoppingList">test<button  name = result.name className="DeleteBtn">[X]</button></li> */}
-         </ul>
+         <ul id="ShopListUl"></ul>
          <input type="submit" value="お支払いへ" className="buyBtn"/>
          <input type="hidden" name="token" value={csrf_token}/>
          {/* </form> */}

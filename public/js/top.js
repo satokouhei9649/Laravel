@@ -1,7 +1,4 @@
 'use strict';
-
-// const { dodgerblue } = require("color-name");
-
 {
     const modal = document.getElementById('modal');
     const menu = document.getElementById('menu');
@@ -23,7 +20,6 @@
     cartLogo.addEventListener('click', e => {
         e.preventDefault();
         AnimationOpen(backGround,cart,cartBox);
-        AnimationMove(shoppingList);
     });
     shopBack.addEventListener('click', () => {
         AnimationClose(backGround,cart,cartBox);
@@ -39,7 +35,6 @@
     const ToLogin3 = document.querySelector('.loginfromFooter')
     const LoginFormLinks = [ToLogin1,ToLogin2,ToLogin3];
     const LoginBackBtn = document.querySelector('.Back');
-
     const signup = document.querySelector('.signup');
     const signupFormBtn = document.getElementById('signupFormBtn');
     const UserIcon = document.getElementById('user');
@@ -77,16 +72,7 @@
             arguments[i].classList.add('hidden');
         }
     }
-     const AnimationMove = function(Array){
-        Array.forEach((el,index) => {
-            // 持ち時間
-            let delay =  Array.length * .0 +.3;
-            // 間隔
-            delay -= index * .5;
-            el.style.animationDelay = `${delay}s`;
-            el.classList.add('active');
-        });
-    }
+
 
 
 
@@ -171,32 +157,12 @@
     moveScreen(screens,Ad);
     });
 
-    const recommends= document.querySelectorAll('.recommend');
-    const Sells = document.querySelectorAll('.sell');
-    // Intersection Observer API
-    const Observer = function() {
-    const option = {
-        threshold: 0.6,
-        rootMargin: '0px 0px -10%'
-    };
-    for(let i=0; i < arguments.length; i++) {
-        const observer = new IntersectionObserver(check, option);
-        arguments[i].forEach(argument =>{
-            observer.observe(argument);
-        });
-        const array = arguments[i]
-        function check(D,obs) {
-            if (!D[0].isIntersecting) {
-                return;
-            }
-            AnimationMove(array);
-            obs.unobserve(D[0].target);
-        }
-    }
-    }
-    Observer(recommends,Sells);
 
 
-    
+
+
+
+
+
 }
 

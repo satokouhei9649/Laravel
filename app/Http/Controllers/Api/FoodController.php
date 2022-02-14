@@ -13,4 +13,8 @@ class FoodController extends Controller
      $results = $query->where('name','like' , '%'.$keyword_name.'%')->get();
     return response()->json($results, 200);
  }
+ public function recommend() {
+     $results = Food::all();
+     return response()->json($results, 200);
+ }
 }
