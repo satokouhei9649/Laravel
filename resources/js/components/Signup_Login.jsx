@@ -19,7 +19,7 @@ import axios from 'axios';
             console.log('通信に失敗しました');
         });
     }
-    //フォームの入力値を管理するステートの定義
+    //フォームの入力値ステート
     const [formData, setFormData] = useState({userName:'', userEmail:'',userPassword:''});
     console.log(formData);
     // 文字入力反映

@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
  export function Header() {
     return(
@@ -11,15 +12,37 @@ let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
 }
 // 検索
  export function SearchForm (props) {
+        const [SearchData, setKeyWord] = useState({keyword:''});
+
+        const inputChange = (e) => {
+            const key = e.target.name;
+            const word = e.target.value;
+            SearchData[key] = word
+            let keyword = Object.assign({},SearchData);
+            setKeyWord(keyword);
+        }
+        const search = async() => {
+            //入力値を投げる
+            axios.post('/api/food/category',{
+                name: SearchData.keyword
+            })
+            .then(response => {
+                setKeyWord(response.data);
+                console.log(SearchData);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+        }
             return(
-              <form action={props.route} method="#" className={props.class}>
-                  <input type="text" placeholder="ここに入力" className="searchWord"/>
+              <form className={props.class}>
+                  <input type="text" name="keyword" value={SearchData.name} onChange={inputChange} placeholder="ここに入力" className="searchWord"/>
                   <input type="hidden" name="token" value={ csrf_token }/>
-                  <input type="submit" value="検索" className="submit"/>
+                  <button className="submit" onClick={search}>検索</button>
               </form>
             );
 
-}
+    }
 
 // メニュー
 function MenuList(props) {
