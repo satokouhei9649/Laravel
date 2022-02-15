@@ -56,10 +56,10 @@ import { result } from 'lodash';
         },[]);
         useEffect(() =>{
             const recommends= document.querySelectorAll('.recommend');
-            console.log(recommends);
             const Sells = document.querySelectorAll('.sell');
             Observer(recommends,Sells);
         });
+        // 取得
         const GetData = () => {
             axios
             .get('/api/food/recommend')
@@ -103,6 +103,7 @@ import { result } from 'lodash';
                     el.classList.add('active');
                 });
             }
+            // 取得したDataをmap
             const RECOMMENDS = Recommend.map((el,index) => {
                 index = index + 1;
                 return(
@@ -110,6 +111,7 @@ import { result } from 'lodash';
                     {props.class == 'recommend' ? <span className='rank'>{index}</span> : ''}
                     <h1>{el.name}</h1>
                     {props.class == 'sell' ? <p>{el.praice * 0.7}</p> : <p>{el.praice}</p>}
+                    <button className='ToCart' name={el.name} onClick={GotoCart}>カートに入れる</button>
                     </li>
                 );
             });
@@ -148,10 +150,8 @@ import { result } from 'lodash';
         const DeleteBtn = document.createElement('button');
         DeleteBtn.textContent ="[X]";
         DeleteBtn.classList.add('DeleteBtn');
-        DeleteBtn.setAttribute('name', e.target.name);
         list.textContent = e.target.name;
         list.classList.add('shoppingList');
-        list.setAttribute('name', e.target.name);
         ShopListUl.appendChild(list);
         list.appendChild(DeleteBtn);
         // カゴから商品を削除
