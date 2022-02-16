@@ -17,6 +17,7 @@ class UserController extends Controller
         $user->userEmail = $request->userEmail;
         $user->userPassword = $request->userPassword;
         $user->save();
-        return response()->json($user, 200);
+        $result = "success!!!";
+        return response()->json($result, 200);
     }
 }

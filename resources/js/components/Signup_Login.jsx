@@ -12,7 +12,7 @@ import axios from 'axios';
         axios
         .get('/api/posts')
         .then(response => {
-            setPosts(response.data);
+        setPosts(response.data);
         })
         .catch(() => {
             console.log('通信に失敗しました');
@@ -43,11 +43,9 @@ import axios from 'axios';
                 userPassword: formData.userPassword
             })
             .then((res) => {
-                console.log(res);
-                const tempUsers = Users;
-                tempUsers.push(res.data);
-                setPosts(tempUsers);
-                setFormData('');
+                console.log(res.data);
+                console.log("good!");
+                setFormData({userName:'', userEmail:'',userPassword:''});
             })
             .catch(error => {
                 console.log(error);

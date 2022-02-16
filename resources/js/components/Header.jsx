@@ -13,7 +13,10 @@ let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
 // 検索
  export function SearchForm (props) {
         const [SearchData, setKeyWord] = useState({keyword:''});
-        const [ResData, SetResData] = useState('');
+        const [ResData, SetResData] = useState([]);
+        useEffect(() => {
+            CreateResSearch()
+        });
         const inputChange = (e) => {
             const key = e.target.name;
             const word = e.target.value;
@@ -22,7 +25,7 @@ let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
             setKeyWord(keyword);
             console.log(SearchData);
         }
-        const keywordsearch = async() => {
+        const Keysearch = async() => {
             //入力値を投げる
             if (SearchData == '') {
                 return;
@@ -31,36 +34,37 @@ let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
                 name: SearchData.keyword
             })
             .then(response => {
+                console.log(response.data);
                 SetResData(response.data);
-                console.log(ResData);
                 setKeyWord({keyword:''});
-                // (() => {
-                //     const InsertTarget = document.getElementById('Search');
-                //     ResData.forEach(el =>{
-                //         const div = document.createElement('div');
-                //         const h1 = document.createElement('h1');
-                //         const explain = document.createElement('p');
-                //         const price = document.createElement('p');
-
-                //         h1.textContent = el.name;
-                //         explain.textContent = el.explain;
-                //         price.textContent ="￥"+ el.praice +"円";
-                //         div.appendChild(h1);
-                //         div.appendChild(explain);
-                //         div.appendChild(price);
-                //         InsertTarget.appendChild(div);
-                //     })
-                // })();
             })
             .catch(error => {
                 console.log(error);
+                return;
             });
         }
+            const CreateResSearch = () => {
+                const InsertTarget = document.getElementById('Search');
+                ResData.forEach(el =>{
+                    const div = document.createElement('div');
+                    const h1 = document.createElement('h1');
+                    const explain = document.createElement('p');
+                    const price = document.createElement('p');
+
+                    h1.textContent = el.name;
+                    explain.textContent = el.explain;
+                    price.textContent ="￥"+ el.praice +"円";
+                    div.appendChild(h1);
+                    div.appendChild(explain);
+                    div.appendChild(price);
+                    InsertTarget.appendChild(div);
+                })
+            }
             return(
               <form className={props.class}>
                   <input type="text" name="keyword" value={SearchData.keyword} onChange={inputChange} placeholder="ここに入力" className="searchWord"/>
                   {/* <input type="hidden" name="token" value={ csrf_token }/> */}
-                  <button className="submit" onClick={()=> {keywordsearch}}>検索</button>
+                  <a className="submit" onClick={() => {Keysearch()}}>検索</a>
               </form>
             );
 

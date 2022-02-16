@@ -166,6 +166,7 @@ import { result } from 'lodash';
 
 
     function FoodSection() {
+
         const [ResultsData, resData] = useState([]);
         const [RequestData, setData] = useState({name: ''});
             // 検索
@@ -198,7 +199,7 @@ import { result } from 'lodash';
         const foodsection = titles.map((props,index) =>{
             const Lists = props.lists.map(list => {
                     return (
-                            <li key={list}><a href='#search' onClick={() => {search(list)}}>{list}</a></li>
+                            <li key={list}><a href='#Search' onClick={() => {search(list)}}>{list}</a></li>
                     );
                 })
                 return(
@@ -275,7 +276,6 @@ import { result } from 'lodash';
         return(
     <div>
         <BacKGround  text="topページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページです" />
-        <SearchForm route="#" class="search" />
         <Ad />
         <Recommend h2="オススメ商品 ・ 売れ筋" class="recommend"/>
         <Recommend h2="セール" class="sell"/>
