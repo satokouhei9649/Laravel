@@ -48,9 +48,42 @@ import { result } from 'lodash';
         </section>
         );
     }
+
+// Intersection Observer API
+    const Observer = function() {
+        const option = {
+            threshold: 0.6,
+            rootMargin: '0px 0px -10%'
+        };
+
+        for(let i=0; i < arguments.length; i++) {
+            const observer = new IntersectionObserver(check, option);
+            arguments[i].forEach(argument =>{
+                observer.observe(argument);
+            });
+            const array = arguments[i]
+            function check(D,obs) {
+                if (!D[0].isIntersecting) {
+                    return;
+                }
+                AnimationMove(array);
+                obs.unobserve(D[0].target);
+            }
+        }
+    }
+    const AnimationMove = function(Array){
+        Array.forEach((el,index) => {
+            // 持ち時間
+            let delay =  Array.length * .0 +.3;
+            // 間隔
+            delay -= index * .5;
+            el.style.animationDelay = `${delay}s`;
+            el.classList.add('active');
+        });
+    }
     // オススメ
     function Recommend(props) {
-     const [Recommend, setRecommendData] = useState([]);
+        const [Recommend, setRecommendData] = useState([]);
         useEffect(() =>{
             GetData();
         },[]);
@@ -65,44 +98,12 @@ import { result } from 'lodash';
             .get('/api/food/recommend')
             .then(res => {
                 setRecommendData(res.data);
-                console.log(res.data);
             })
             .catch(() => {
                 console.log('通信に失敗しました');
             });
         }
-         // Intersection Observer API
-            const Observer = function() {
-                const option = {
-                    threshold: 0.6,
-                    rootMargin: '0px 0px -10%'
-                };
 
-                for(let i=0; i < arguments.length; i++) {
-                    const observer = new IntersectionObserver(check, option);
-                    arguments[i].forEach(argument =>{
-                        observer.observe(argument);
-                    });
-                    const array = arguments[i]
-                    function check(D,obs) {
-                        if (!D[0].isIntersecting) {
-                            return;
-                        }
-                        AnimationMove(array);
-                        obs.unobserve(D[0].target);
-                    }
-                }
-            }
-            const AnimationMove = function(Array){
-                Array.forEach((el,index) => {
-                    // 持ち時間
-                    let delay =  Array.length * .0 +.3;
-                    // 間隔
-                    delay -= index * .5;
-                    el.style.animationDelay = `${delay}s`;
-                    el.classList.add('active');
-                });
-            }
             // 取得したDataをmap
             const RECOMMENDS = Recommend.map((el,index) => {
                 index = index + 1;
@@ -144,7 +145,7 @@ import { result } from 'lodash';
         );
     }
     // 買い物カゴに追加機能
-    const GotoCart = (e) => {
+   export const GotoCart = (e) => {
         const ShopListUl = document.getElementById('ShopListUl');
         const list = document.createElement('li');
         const DeleteBtn = document.createElement('button');
@@ -178,7 +179,6 @@ import { result } from 'lodash';
             })
             .then(response => {
                 resData(response.data);
-                console.log(ResultsData);
             })
             .catch(error => {
                 console.log(error);
@@ -213,22 +213,24 @@ import { result } from 'lodash';
         return(
             <div>
                 {foodsection}
-                {(() => {
-                    if (RequestData == []) {
-                        return;
-                    }
-                    const result = ResultsData.map(result => {
-                        return(
-                            <div id="search" key={result.name}>
-                                <h1>{result.name}</h1>
-                                <p>{result.explain}</p>
-                                <p>¥ {result.praice}円</p>
-                                <button className='ResToCart' name={result.name} onClick={GotoCart}>カートに入れる</button>
-                            </div>
-                        );
-                    })
-                    return result;
-                })()}
+                <div id="Search">
+                    {(() => {
+                        if (RequestData == []) {
+                            return;
+                        }
+                        const result = ResultsData.map(result => {
+                            return(
+                                <div key={result.name}>
+                                    <h1>{result.name}</h1>
+                                    <p>{result.explain}</p>
+                                    <p>¥ {result.praice}円</p>
+                                    <button className='ResToCart' name={result.name} onClick={GotoCart}>カートに入れる</button>
+                                </div>
+                            );
+                        })
+                        return result;
+                    })()}
+                </div>
             </div>
         );
     }

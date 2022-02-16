@@ -13,22 +13,44 @@ let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
 // 検索
  export function SearchForm (props) {
         const [SearchData, setKeyWord] = useState({keyword:''});
-
+        const [ResData, SetResData] = useState('');
         const inputChange = (e) => {
             const key = e.target.name;
             const word = e.target.value;
             SearchData[key] = word
             let keyword = Object.assign({},SearchData);
             setKeyWord(keyword);
+            console.log(SearchData);
         }
-        const search = async() => {
+        const keywordsearch = async() => {
             //入力値を投げる
+            if (SearchData == '') {
+                return;
+            }
             axios.post('/api/food/category',{
                 name: SearchData.keyword
             })
             .then(response => {
-                setKeyWord(response.data);
-                console.log(SearchData);
+                SetResData(response.data);
+                console.log(ResData);
+                setKeyWord({keyword:''});
+                // (() => {
+                //     const InsertTarget = document.getElementById('Search');
+                //     ResData.forEach(el =>{
+                //         const div = document.createElement('div');
+                //         const h1 = document.createElement('h1');
+                //         const explain = document.createElement('p');
+                //         const price = document.createElement('p');
+
+                //         h1.textContent = el.name;
+                //         explain.textContent = el.explain;
+                //         price.textContent ="￥"+ el.praice +"円";
+                //         div.appendChild(h1);
+                //         div.appendChild(explain);
+                //         div.appendChild(price);
+                //         InsertTarget.appendChild(div);
+                //     })
+                // })();
             })
             .catch(error => {
                 console.log(error);
@@ -36,9 +58,9 @@ let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
         }
             return(
               <form className={props.class}>
-                  <input type="text" name="keyword" value={SearchData.name} onChange={inputChange} placeholder="ここに入力" className="searchWord"/>
-                  <input type="hidden" name="token" value={ csrf_token }/>
-                  <button className="submit" onClick={search}>検索</button>
+                  <input type="text" name="keyword" value={SearchData.keyword} onChange={inputChange} placeholder="ここに入力" className="searchWord"/>
+                  {/* <input type="hidden" name="token" value={ csrf_token }/> */}
+                  <button className="submit" onClick={()=> {keywordsearch}}>検索</button>
               </form>
             );
 
@@ -82,11 +104,9 @@ export function Modal(props) {
      return(
      <div className="cart">
          <h2>お買い物カゴにある商品<a href="#" id="shopBack">✖️</a></h2>
-         {/* <form action="/total" method="get"> */}
          <ul id="ShopListUl"></ul>
          <input type="submit" value="お支払いへ" className="buyBtn"/>
          <input type="hidden" name="token" value={csrf_token}/>
-         {/* </form> */}
          <button>戻る</button>
      </div>
      );

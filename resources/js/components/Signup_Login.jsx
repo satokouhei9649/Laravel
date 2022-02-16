@@ -13,7 +13,6 @@ import axios from 'axios';
         .get('/api/posts')
         .then(response => {
             setPosts(response.data);
-            console.log(response.data);
         })
         .catch(() => {
             console.log('通信に失敗しました');
@@ -21,7 +20,6 @@ import axios from 'axios';
     }
     //フォームの入力値ステート
     const [formData, setFormData] = useState({userName:'', userEmail:'',userPassword:''});
-    console.log(formData);
     // 文字入力反映
     const inputChange = (e) => {
         const key = e.target.name;
@@ -30,7 +28,6 @@ import axios from 'axios';
         // オブジェクトのコピー
         let data = Object.assign({}, formData);
         setFormData(data);
-        console.log(data);
     }
     // 送信
     const createUser = async() => {
@@ -56,8 +53,6 @@ import axios from 'axios';
                 console.log(error);
             });
     }
-
-
     return(
     <div className="signup">
         <a href="#" id="Back">✖️</a>
