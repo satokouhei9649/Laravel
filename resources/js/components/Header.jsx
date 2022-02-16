@@ -16,7 +16,7 @@ let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
         const [ResData, SetResData] = useState([]);
         useEffect(() => {
             CreateResSearch()
-        });
+        },[ResData]);
         const inputChange = (e) => {
             const key = e.target.name;
             const word = e.target.value;
@@ -26,6 +26,7 @@ let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
             console.log(SearchData);
         }
         const Keysearch = async() => {
+            SetResData([]);
             //入力値を投げる
             if (SearchData == '') {
                 return;
@@ -33,18 +34,30 @@ let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
             axios.post('/api/food/category',{
                 name: SearchData.keyword
             })
-            .then(response => {
-                console.log(response.data);
-                SetResData(response.data);
-                setKeyWord({keyword:''});
+            .then(res => {
+                console.log(res.data);
+                SetResData(res.data);
+                setKeyWord({keyword: ''});
             })
             .catch(error => {
                 console.log(error);
                 return;
             });
         }
-            const CreateResSearch = () => {
+        const CreateResSearch = () => {
                 const InsertTarget = document.getElementById('Search');
+                const list_Length = InsertTarget.childNodes.length;
+                console.log(ResData);
+                if (ResData == []) {
+                    return;
+                }
+                if (!(list_Length == 0)) {
+                    const Lists = InsertTarget.childNodes;
+                    console.log(Lists);
+                    Lists.forEach(el => {
+                        el.remove();
+                    });
+                }
                 ResData.forEach(el =>{
                     const div = document.createElement('div');
                     const h1 = document.createElement('h1');
@@ -58,7 +71,7 @@ let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
                     div.appendChild(explain);
                     div.appendChild(price);
                     InsertTarget.appendChild(div);
-                })
+                });
             }
             return(
               <form className={props.class}>
