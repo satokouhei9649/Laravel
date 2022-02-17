@@ -1,15 +1,15 @@
 
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 import Footer from './components/Footer.jsx';
 import {SignUP,LoginForm} from './components/Signup_Login.jsx';
-import {BacKGround,ShoppingCart,Modal, SearchForm,Header} from './components/Header.jsx';
-import { NodeProps } from 'postcss';
-import { contains } from 'micromatch';
-import { name } from 'file-loader';
-import { empty } from 'statuses';
-import { result } from 'lodash';
+import {BacKGround,ShoppingCart,Modal,Header} from './components/Header.jsx';
+// import { NodeProps } from 'postcss';
+// import { contains } from 'micromatch';
+// import { name } from 'file-loader';
+// import { empty } from 'statuses';
+// import { result } from 'lodash';
     let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
      export class Index extends React.Component {
       constructor(props) {
@@ -167,10 +167,29 @@ import { result } from 'lodash';
 
     function FoodSection() {
 
-        const [ResultsData, resData] = useState([]);
         const [RequestData, setData] = useState({name: ''});
-            // 検索
+        const [ResultsData, resData] = useState([]);
+        useEffect(() => {
+            const InsertTarget = document.getElementById('Search');
+            const list_Length = InsertTarget.childNodes.length;
+            if (!(list_Length == 0)) {
+                const Lists = InsertTarget.childNodes;
+                console.log(Lists);
+                Lists.forEach(el => {
+                    el.remove();
+                });
+            }
+        },[ResultsData])
+        // 検索
         const search = async(word) => {
+            const InsertTarget = document.getElementById('Search');
+            const list_Length = InsertTarget.childNodes.length;
+            if (!(list_Length == 0)) {
+                const Lists = InsertTarget.childNodes;
+                Lists.forEach(el => {
+                    el.remove();
+                });
+            }
             RequestData.name = word;
             let data = Object.assign({}, RequestData);
             setData(data);
@@ -214,7 +233,7 @@ import { result } from 'lodash';
         return(
             <div>
                 {foodsection}
-                <div id="Search">
+                <div id="Search"></div>
                     {(() => {
                         if (RequestData == []) {
                             return;
@@ -231,7 +250,6 @@ import { result } from 'lodash';
                         })
                         return result;
                     })()}
-                </div>
             </div>
         );
     }

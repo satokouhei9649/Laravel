@@ -12,27 +12,28 @@ let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
 }
 // 検索
  export function SearchForm (props) {
-        const [SearchData, setKeyWord] = useState({keyword:''});
+
+        const [KeyWord, setKeyWord] = useState({keyword:''});
         const [ResData, SetResData] = useState([]);
         useEffect(() => {
-            CreateResSearch()
+            CreateResults()
         },[ResData]);
         const inputChange = (e) => {
             const key = e.target.name;
             const word = e.target.value;
-            SearchData[key] = word
-            let keyword = Object.assign({},SearchData);
+            KeyWord[key] = word
+            let keyword = Object.assign({},KeyWord);
             setKeyWord(keyword);
-            console.log(SearchData);
+            console.log(KeyWord);
         }
         const Keysearch = async() => {
             SetResData([]);
             //入力値を投げる
-            if (SearchData == '') {
+            if (KeyWord == '') {
                 return;
             }
             axios.post('/api/food/category',{
-                name: SearchData.keyword
+                name: KeyWord.keyword
             })
             .then(res => {
                 console.log(res.data);
@@ -44,7 +45,7 @@ let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
                 return;
             });
         }
-        const CreateResSearch = () => {
+        const CreateResults = () => {
                 const InsertTarget = document.getElementById('Search');
                 const list_Length = InsertTarget.childNodes.length;
                 console.log(ResData);
@@ -75,7 +76,7 @@ let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
             }
             return(
               <form className={props.class}>
-                  <input type="text" name="keyword" value={SearchData.keyword} onChange={inputChange} placeholder="ここに入力" className="searchWord"/>
+                  <input type="text" name="keyword" value={KeyWord.keyword} onChange={inputChange} placeholder="ここに入力" className="searchWord"/>
                   {/* <input type="hidden" name="token" value={ csrf_token }/> */}
                   <a className="submit" onClick={() => {Keysearch()}}>検索</a>
               </form>
