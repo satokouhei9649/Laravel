@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import {Reflesh} from '../React';
 let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
  export function Header() {
     return(
@@ -15,51 +16,53 @@ let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
 
         const [KeyWord, setKeyWord] = useState({keyword:''});
         const [ResData, SetResData] = useState([]);
-        useEffect(() => {
-            CreateResults()
-        },[ResData]);
-        const inputChange = (e) => {
-            const key = e.target.name;
-            const word = e.target.value;
-            KeyWord[key] = word
-            let keyword = Object.assign({},KeyWord);
-            setKeyWord(keyword);
-            console.log(KeyWord);
-        }
-        const Keysearch = async() => {
-            SetResData([]);
-            //入力値を投げる
-            if (KeyWord == '') {
-                return;
+
+            useEffect(() => {
+                CreateResults()
+            },[ResData]);
+
+            const inputChange = (e) => {
+                const key = e.target.name;
+                const word = e.target.value;
+                KeyWord[key] = word
+                let keyword = Object.assign({},KeyWord);
+                setKeyWord(keyword);
+                console.log(KeyWord);
             }
-            axios.post('/api/food/category',{
-                name: KeyWord.keyword
-            })
-            .then(res => {
-                console.log(res.data);
-                SetResData(res.data);
-                setKeyWord({keyword: ''});
-            })
-            .catch(error => {
-                console.log(error);
-                return;
-            });
-        }
-        const CreateResults = () => {
-                const InsertTarget = document.getElementById('Search');
-                const list_Length = InsertTarget.childNodes.length;
-                console.log(ResData);
-                if (ResData == []) {
+
+            const Keysearch = async() => {
+                SetResData([]);
+                //入力値を投げる
+                if (KeyWord == '') {
                     return;
                 }
-                if (!(list_Length == 0)) {
-                    const Lists = InsertTarget.childNodes;
-                    console.log(Lists);
-                    Lists.forEach(el => {
+                axios.post('/api/food/category',{
+                    name: KeyWord.keyword
+                })
+                .then(res => {
+                    console.log(res.data);
+                    SetResData(res.data);
+                    setKeyWord({keyword: ''});
+                })
+                .catch(error => {
+                    console.log(error);
+                    return;
+                });
+            }
+            // 検索結果表示
+            const CreateResults = () => {
+                    if (ResData == []) {
+                        return;
+                    }
+                    Reflesh();
+                    const CategoryResults = document.querySelectorAll('.CategorySearchResults');
+                    console.log(CategoryResults);
+                    CategoryResults.forEach(el => {
                         el.remove();
                     });
-                }
+                    // 結果表示
                 ResData.forEach(el =>{
+                    const InsertTarget = document.getElementById('Search');
                     const div = document.createElement('div');
                     const h1 = document.createElement('h1');
                     const explain = document.createElement('p');
@@ -74,15 +77,16 @@ let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
                     InsertTarget.appendChild(div);
                 });
             }
-            return(
-              <form className={props.class}>
+                return(
+                    <form className={props.class}>
                   <input type="text" name="keyword" value={KeyWord.keyword} onChange={inputChange} placeholder="ここに入力" className="searchWord"/>
                   {/* <input type="hidden" name="token" value={ csrf_token }/> */}
                   <a className="submit" onClick={() => {Keysearch()}}>検索</a>
               </form>
             );
+        }
 
-    }
+
 
 // メニュー
 function MenuList(props) {
