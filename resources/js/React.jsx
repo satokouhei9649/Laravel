@@ -229,7 +229,7 @@ import {BacKGround,ShoppingCart,Modal,Header} from './components/Header.jsx';
                         }
                         const result = ResultsData.map(result => {
                             return(
-                                <div className='CategorySearchResilts' key={result.name}>
+                                <div className='SearchResults' key={result.name}>
                                     <h1>{result.name}</h1>
                                     <p>{result.explain}</p>
                                     <p>¥ {result.praice}円</p>

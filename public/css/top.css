@@ -94,7 +94,7 @@ nav .current {
     opacity: 0;
 }
 .recommend > h1,.sell > h1 {
-    margin: 20px 0 130px;
+    margin: 20px 0 80px;
 }
 .recommend.active {
     left: -100%;
@@ -213,7 +213,7 @@ nav .current {
     width: auto;
     padding-top: 150px;
 }
-.CategorySearchResilts {
+.SearchResults {
     margin: 10px auto;
     background-color: white;
     width: 30%;
@@ -221,10 +221,10 @@ nav .current {
     padding: 20px;
     border: 2px solid rgb(238, 241, 243);
 }
-.CategorySearchResilts > h1,.CategorySearchResilts > p {
+.SearchResults > h1,.SearchResults > p {
     border-bottom: 1px solid gray;
 }
-.ResToCart , .ToCart{
+.ResToCart,.ToCart{
     color: white;
     background-color: lightseagreen;
     border: lightseagreen;

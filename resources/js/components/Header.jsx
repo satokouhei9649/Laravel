@@ -73,7 +73,7 @@ let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
                     explain.textContent = el.explain;
                     price.textContent = "￥"+ el.praice +"円";
                     button.textContent = "カートに入れる" ;
-                    div.classList.add('CategorySearchResilts');
+                    div.classList.add('SearchResults');
                     button.classList.add('ResToCart');
                     div.appendChild(h1);
                     div.appendChild(explain);

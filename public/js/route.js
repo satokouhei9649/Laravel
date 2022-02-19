@@ -3392,7 +3392,7 @@ function FoodSection() {
 
       var result = ResultsData.map(function (result) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-          className: "CategorySearchResilts",
+          className: "SearchResults",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h1", {
             children: result.name
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
@@ -3829,7 +3829,7 @@ function SearchForm(props) {
       explain.textContent = el.explain;
       price.textContent = "￥" + el.praice + "円";
       button.textContent = "カートに入れる";
-      div.classList.add('CategorySearchResilts');
+      div.classList.add('SearchResults');
       button.classList.add('ResToCart');
       div.appendChild(h1);
       div.appendChild(explain);
