@@ -67,13 +67,18 @@ let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
                     const h1 = document.createElement('h1');
                     const explain = document.createElement('p');
                     const price = document.createElement('p');
+                    const button = document.createElement('button');
 
                     h1.textContent = el.name;
                     explain.textContent = el.explain;
-                    price.textContent ="￥"+ el.praice +"円";
+                    price.textContent = "￥"+ el.praice +"円";
+                    button.textContent = "カートに入れる" ;
+                    div.classList.add('CategorySearchResilts');
+                    button.classList.add('ResToCart');
                     div.appendChild(h1);
                     div.appendChild(explain);
                     div.appendChild(price);
+                    div.appendChild(button);
                     InsertTarget.appendChild(div);
                 });
             }

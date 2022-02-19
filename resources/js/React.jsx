@@ -27,7 +27,7 @@ import {BacKGround,ShoppingCart,Modal,Header} from './components/Header.jsx';
     }
     export default Index;
 
-    
+
     // 広告
     function Ad(props) {
         return(
@@ -105,9 +105,8 @@ import {BacKGround,ShoppingCart,Modal,Header} from './components/Header.jsx';
                 index = index + 1;
                 return(
                     <li className={props.class} key={el.name}>
-                    {props.class == 'recommend' ? <span className='rank'>{index}</span> : ''}
-                    <h1>{el.name}</h1>
-                    {props.class == 'sell' ? <p>{el.praice * 0.7}</p> : <p>{el.praice}</p>}
+                    <h1> {props.class == 'recommend' ? <span className='rank'>{index}</span> : ''}{el.name}</h1>
+                    {props.class == 'sell' ? <p>{ "¥" + el.praice * 0.7}</p> : <p>{ "¥" + el.praice}</p>}
                     <button className='ToCart' name={el.name} onClick={GotoCart}>カートに入れる</button>
                     </li>
                 );
