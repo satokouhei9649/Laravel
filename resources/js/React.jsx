@@ -26,6 +26,8 @@ import {BacKGround,ShoppingCart,Modal,Header} from './components/Header.jsx';
       }
     }
     export default Index;
+
+    
     // 広告
     function Ad(props) {
         return(

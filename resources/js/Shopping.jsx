@@ -1,19 +1,25 @@
-import {BacKGround,ShoppingCart,Modal, SearchForm,Header,Input} from './components/Header.jsx';
+import {BacKGround,ShoppingCart,Modal, SearchForm,Header,MenuList} from './components/Header.jsx';
 import {SignUP, LoginForm} from './components/Signup_Login.jsx';
 import Footer from './components/Footer.jsx';
 import React from 'react';
-import ReactDOM from 'react-dom';
 
-export function Shopping () {
-    return(
-        <div>
-            <Header />
-            <SignUP/>
-            <LoginForm />
-            <ShoppingTotal />
-            <Footer />
-        </div>
-    );
+export class Shopping extends React.Component{
+    constructor(props) {
+        super(props);
+    }
+    render(){
+        return(
+            <div>
+                <header className='ShoppingHeader'>
+                    <MenuList />
+                    <SignUP/>
+                    <LoginForm />
+                </header>
+                <ShoppingTotal />
+                <Footer />
+            </div>
+        );
+    }
 }
 function ShoppingTotal() {
     return(

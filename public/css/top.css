@@ -202,6 +202,28 @@ nav .current {
 
 }
 
+
+#Search {
+    width: auto;
+    padding-top: 150px;
+}
+.CategorySearchResilts {
+    margin: 10px auto;
+    background-color: white;
+    width: 30%;
+    height: 200px;
+    padding: 20px;
+    border: 2px solid rgb(238, 241, 243);
+}
+.CategorySearchResilts > h1,.CategorySearchResilts > p {
+    border-bottom: 1px solid gray;
+}
+.ResToCart , .ToCart{
+    color: white;
+    background-color: lightseagreen;
+    border: lightseagreen;
+    border-radius: 5px;
+}
 footer {
     padding: 12px 48px;
     background-color: rgb(61, 61, 61);

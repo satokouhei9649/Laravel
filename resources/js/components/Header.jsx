@@ -89,7 +89,7 @@ let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
 
 
 // メニュー
-function MenuList(props) {
+ export function MenuList(props) {
     return(
          <ul className="list">
             <li className="icon">
@@ -125,11 +125,15 @@ export function Modal(props) {
  export function ShoppingCart(props) {
      return(
      <div className="cart">
-         <h2>お買い物カゴにある商品<a href="#" id="shopBack">✖️</a></h2>
-         <ul id="ShopListUl"></ul>
+        <h2>お買い物カゴにある商品<a href="#" id="shopBack">✖️</a></h2>
+        <form action='/total' method='get'>
+         <ul id="ShopListUl">
+             <input type="hidden"value="test" name="test"/>
+         </ul>
          <input type="submit" value="お支払いへ" className="buyBtn"/>
          <input type="hidden" name="token" value={csrf_token}/>
-         <button>戻る</button>
+        </form>
+        <button>戻る</button>
      </div>
      );
     }
