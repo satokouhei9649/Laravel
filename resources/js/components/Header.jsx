@@ -40,7 +40,6 @@ let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
                     name: KeyWord.keyword
                 })
                 .then(res => {
-                    console.log(res.data);
                     SetResData(res.data);
                     setKeyWord({keyword: ''});
                 })
@@ -55,7 +54,7 @@ let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
                         return;
                     }
                     Reflesh();
-                    const CategoryResults = document.querySelectorAll('.CategorySearchResults');
+                    const CategoryResults = document.querySelectorAll('.SearchResults');
                     console.log(CategoryResults);
                     CategoryResults.forEach(el => {
                         el.remove();

@@ -160,13 +160,10 @@ import {BacKGround,ShoppingCart,Modal,Header} from './components/Header.jsx';
     }
    export const Reflesh = () => {
         const InsertTarget = document.getElementById('Search');
-        const list_Length = InsertTarget.childNodes.length;
-        if (!(list_Length == 0)) {
             const Lists = InsertTarget.childNodes;
             Lists.forEach(el => {
                 el.remove();
             });
-        }
     }
 
     function FoodSection() {
@@ -178,7 +175,6 @@ import {BacKGround,ShoppingCart,Modal,Header} from './components/Header.jsx';
         },[ResultsData])
         // 検索
         const search = async(word) => {
-            Reflesh();
             RequestData.name = word;
             let data = Object.assign({}, RequestData);
             setData(data);

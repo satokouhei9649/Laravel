@@ -94,7 +94,7 @@ nav .current {
     opacity: 0;
 }
 .recommend > h1,.sell > h1 {
-    margin: 20px 0 80px;
+    margin: 20px 0 100px;
 }
 .recommend.active {
     left: -100%;

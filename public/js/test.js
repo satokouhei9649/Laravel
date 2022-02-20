@@ -3259,14 +3259,10 @@ var GotoCart = function GotoCart(e) {
 };
 var Reflesh = function Reflesh() {
   var InsertTarget = document.getElementById('Search');
-  var list_Length = InsertTarget.childNodes.length;
-
-  if (!(list_Length == 0)) {
-    var Lists = InsertTarget.childNodes;
-    Lists.forEach(function (el) {
-      el.remove();
-    });
-  }
+  var Lists = InsertTarget.childNodes;
+  Lists.forEach(function (el) {
+    el.remove();
+  });
 };
 
 function FoodSection() {
@@ -3293,7 +3289,6 @@ function FoodSection() {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              Reflesh();
               RequestData.name = word;
               data = Object.assign({}, RequestData);
               setData(data); //入力値を投げる
@@ -3306,7 +3301,7 @@ function FoodSection() {
                 console.log(error);
               });
 
-            case 5:
+            case 4:
             case "end":
               return _context.stop();
           }
@@ -3782,7 +3777,6 @@ function SearchForm(props) {
               axios__WEBPACK_IMPORTED_MODULE_2___default().post('/api/food/category', {
                 name: KeyWord.keyword
               }).then(function (res) {
-                console.log(res.data);
                 SetResData(res.data);
                 setKeyWord({
                   keyword: ''
@@ -3812,7 +3806,7 @@ function SearchForm(props) {
     }
 
     (0,_React__WEBPACK_IMPORTED_MODULE_3__.Reflesh)();
-    var CategoryResults = document.querySelectorAll('.CategorySearchResults');
+    var CategoryResults = document.querySelectorAll('.SearchResults');
     console.log(CategoryResults);
     CategoryResults.forEach(function (el) {
       el.remove();
