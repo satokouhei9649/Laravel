@@ -69,17 +69,44 @@ import axios from 'axios';
     );
 }
 
-export function LoginForm () {
+export function LoginForm (props) {
+    const [LoginData,setLoginData] = useState({userEmail: '',userPassword:'',isLogin: props.isLogin})
+    console.log(LoginData);
+    const LoginCheak = async() => {
+        await axios
+            .post('/api/users/login', {
+                userEmail: LoginData.userEmail,
+                userPassword: LoginData.userPassword,
+                isLogin: LoginData.isLogin,
+            })
+            .then((res) => {
+                console.log(res.data);
+                console.log("good!");
+                setLoginData({userEmail:'',userPassword:'',isLogin: "ture"});
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }
+    const inputChange = (e) => {
+        const key = e.target.name;
+        const word = e.target.value;
+        LoginData[key] = word
+        let keyword = Object.assign({},LoginData);
+        setLoginData(keyword);
+        console.log(keyword);
+    }
+    console.log(LoginData);
         return(
             <div className="LoginForm">
                 <a href="#" className="Back">✖️</a>
                 <h2>ログイン</h2>
-                <form route="/user/login" method="post" id="LoginForm">
+                <form id="LoginForm">
                     <p>メールアドレス</p>
-                    <input type="text" className="email"/>
+                    <input type="text" className="email"  name="userEmail"placeholder='eメールアドレス' onChange={inputChange}/>
                     <p>パスワード</p>
-                    <input type="text" className="password"/>
-                    <input type="submit" value="ログイン" className="loginBtn"/>
+                    <input type="password" className="password" placeholder='パスワード' name='userPassword' onChange={inputChange}/>
+                    <input type="submit" value="ログイン" className="loginBtn" onClick={LoginCheak}/>
                 </form>
             </div>
         );

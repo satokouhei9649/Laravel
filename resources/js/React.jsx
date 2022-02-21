@@ -8,7 +8,11 @@ import {BacKGround,ShoppingCart,Modal,Header} from './components/Header.jsx';
      export class Index extends React.Component {
       constructor(props) {
         super(props);
+        this.state = {
+            isLogin: false
         }
+        console.log(this.state);
+    }
       render() {
         return (
             <div>
@@ -18,7 +22,7 @@ import {BacKGround,ShoppingCart,Modal,Header} from './components/Header.jsx';
                 <BacKGround class="background"/>
                 <BacKGround class="cartbox"/>
                 <SignUP/>
-                <LoginForm />
+                {this.state.isLogin == false ? <LoginForm isLogin={this.state.isLogin} /> : ''}
                 <Main />
                 <Footer />
             </div>
@@ -167,7 +171,6 @@ import {BacKGround,ShoppingCart,Modal,Header} from './components/Header.jsx';
     }
 
     function FoodSection() {
-
         const [RequestData, setData] = useState({name: ''});
         const [ResultsData, resData] = useState([]);
         useEffect(() => {

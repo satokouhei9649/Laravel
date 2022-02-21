@@ -20,4 +20,15 @@ class UserController extends Controller
         $result = "success!!!";
         return response()->json($result, 200);
     }
+    public function login(Request $request) {
+        $user = User::where('userEmail','=',$request->userEmail)
+                            ->where('userPassword','=',$request->userPassword)
+                            ->get();
+        if ($user) {
+            return response()->json($user, 200);
+        }else {
+            $error = "error";
+            return response()->json($error);
+        }
+    }
 }
