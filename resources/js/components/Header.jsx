@@ -3,17 +3,28 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import {Reflesh} from '../React';
 let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
- export function Header() {
+const AnimationOpen = function() {
+    for(let i=0; i < arguments.length; i++) {
+        arguments[i].classList.remove('hidden');
+        arguments[i].classList.add('open');
+    }
+}
+const AnimationClose = function() {
+    for(let i=0; i < arguments.length; i++) {
+        arguments[i].classList.remove('open');
+        arguments[i].classList.add('hidden');
+    }
+}
+ export function Header(props) {
     return(
         <header>
-            <SearchForm route="posts/test" class="search topSearch searchForm searchForm1"/>
-            <MenuList />
+            <SearchForm route="posts/test" class="search topSearch searchForm searchForm1" />
+            <MenuList isLogin={props.isLogin}/>
         </header>
     );
 }
 // 検索
  export function SearchForm (props) {
-
         const [KeyWord, setKeyWord] = useState({keyword:''});
         const [ResData, SetResData] = useState([]);
 
@@ -89,21 +100,54 @@ let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
               </form>
             );
         }
-
-
+const OpenSignUP = () => {
+    const signup = document.querySelector('.signup');
+    const backGround = document.querySelector('.background');
+    AnimationOpen(signup,backGround);
+}
+const OpenLoginForm = () => {
+    const LoginForm = document.querySelector('.LoginForm');
+    AnimationOpen(LoginForm);
+}
+const OpenModal = () => {
+    const modal = document.getElementById('modal');
+    AnimationOpen(modal);
+}
+export const CloseSignUp =() => {
+    const signup = document.querySelector('.signup');
+    const backGround = document.querySelector('.background');
+    AnimationClose(signup,backGround);
+}
+const CloseModal = () => {
+    const modal = document.getElementById('modal');
+    AnimationClose(modal);
+}
+const OpenShop = () => {
+    const cartBox = document.querySelector('.cartbox');
+    const cart = document.querySelector('.cart');
+    const backGround = document.querySelector('.background');
+    AnimationOpen(cartBox,cart,backGround);
+}
+const CloseShop = () => {
+    const cartBox = document.querySelector('.cartbox');
+    const cart = document.querySelector('.cart');
+    const backGround = document.querySelector('.background');
+    AnimationClose(cartBox,cart,backGround);
+}
 
 // メニュー
  export function MenuList(props) {
     return(
          <ul className="list">
-            <li className="icon">
+           {props.isLogin == true ?
+           <li className="icon">
                 <span id="user"><i className="fas fa-user fa-2x"></i></span>
+            </li>: ''}
+            <li className="icon">
+                 <span id="shoppingCart" onClick={OpenShop}><i className="fas fa-shopping-cart fa-2x "></i></span>
             </li>
             <li className="icon">
-                 <span id="shoppingCart"><i className="fas fa-shopping-cart fa-2x "></i></span>
-            </li>
-            <li className="icon">
-                <span id="menu" ><i className="fas fa-bars fa-2x"></i></span>
+                <span id="menu" onClick={OpenModal}><i className="fas fa-bars fa-2x"></i></span>
             </li>
         </ul>
     );
@@ -114,10 +158,10 @@ let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
 export function Modal(props) {
     return(
         <section id="modal">
-            <div id="close">✖️</div>
+            <div id="close" onClick={CloseModal}>✖️</div>
             <h3>新規登録・ログイン</h3>
-            <p><a id="signupFormBtn">新規登録</a></p>
-            <p><a id="ToLogin">ログイン</a></p>
+            <p><a id="signupFormBtn" onClick={OpenSignUP}>新規登録</a></p>
+            <p><a id="ToLogin" onClick={OpenLoginForm}>ログイン</a></p>
             <h3>お買い物</h3>
             <p><a href=".Food">ジャンルで探す</a></p>
             <p><a>値段で探す</a></p>
@@ -129,7 +173,7 @@ export function Modal(props) {
  export function ShoppingCart(props) {
      return(
      <div className="cart">
-        <h2>お買い物カゴにある商品<a href="#" id="shopBack">✖️</a></h2>
+        <h2>お買い物カゴにある商品<a href="#" id="shopBack" onClick={CloseShop}>✖️</a></h2>
         <form action='/total' method='get'>
          <ul id="ShopListUl">
              <input type="hidden"value="test" name="test"/>

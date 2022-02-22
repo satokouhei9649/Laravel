@@ -21,12 +21,12 @@
         e.preventDefault();
         AnimationOpen(backGround,cart,cartBox);
     });
-    shopBack.addEventListener('click', () => {
-        AnimationClose(backGround,cart,cartBox);
-        for (let i = 0; i < shoppingList.length; i ++) {
-            shoppingList[i].classList.remove('active');
-        }
-    });
+    // shopBack.addEventListener('click', () => {
+    //     AnimationClose(backGround,cart,cartBox);
+    //     for (let i = 0; i < shoppingList.length; i ++) {
+    //         shoppingList[i].classList.remove('active');
+    //     }
+    // });
 
     // 新規登録・ログイン
     const LoginForm = document.querySelector('.LoginForm');
@@ -60,41 +60,11 @@
         AnimationClose(LoginForm,backGround);
     });
 
-     const AnimationOpen = function() {
-        for(let i=0; i < arguments.length; i++) {
-            arguments[i].classList.remove('hidden');
-            arguments[i].classList.add('open');
-        }
-    }
-     const AnimationClose = function() {
-        for(let i=0; i < arguments.length; i++) {
-            arguments[i].classList.remove('open');
-            arguments[i].classList.add('hidden');
-        }
-    }
 
 
 
 
-    // タブメニュー
-    const menuIcons = document.querySelectorAll('.foodIcon');
-    const menuContents = document.querySelectorAll('.content');
-   const CreateTab = function(Array1,Array2) {
-    Array1.forEach(el => {
-        el.addEventListener('click', e => {
-            e.preventDefault();
-            Array1.forEach(icon => {
-                icon.classList.remove('active');
-            });
-            el.classList.add('active');
-            Array2.forEach(el => {
-                el.classList.remove('active');
-            });
-            document.getElementById(el.dataset.id).classList.add('active');
-        });
-    });
-   }
-  CreateTab(menuIcons,menuContents);
+
     // カルーセル
     const nextBtn = document.querySelector('.next');
     const prevBtn = document.querySelector('.prev');

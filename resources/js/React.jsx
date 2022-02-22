@@ -9,20 +9,56 @@ import {BacKGround,ShoppingCart,Modal,Header} from './components/Header.jsx';
       constructor(props) {
         super(props);
         this.state = {
+            userName: '',
+            userEmail: '',
+            userPassword: '',
             isLogin: false
         }
+        console.log(this.state);
+        this.isLogin = this.isLogin.bind(this);
+        this.inputChange = this.inputChange.bind(this);
+    }
+    isLogin() {
+        console.log(this.state);
+        if (this.state.userEmail == '' || this.state.userPassword == '') {
+             return;
+         }
+        axios
+        .post('/api/users/login', {
+            userEmail: this.state.userEmail,
+            userPassword: this.state.userPassword,
+        })
+        .then((res) => {
+            console.log(res.data);
+            console.log("good!");
+            this.setState(
+              { userName: res.data.userName,
+                userEmail: res.data.userEmail,
+                userPassword: res.data.userPassword,
+                isLogin: true});
+        })
+        .catch(error => {
+            console.log(error);
+        });
+    }
+    inputChange = (e) => {
+        const key = e.target.name;
+        const word = e.target.value;
+        this.setState(prevState => {
+            prevState[key] = word;
+        });
         console.log(this.state);
     }
       render() {
         return (
             <div>
-                <Header />
-                <Modal />
+                <Header isLogin={this.state.isLogin}/>
+               {this.state.isLogin == false ? <Modal /> : ''}
                 <ShoppingCart />
                 <BacKGround class="background"/>
                 <BacKGround class="cartbox"/>
-                <SignUP/>
-                {this.state.isLogin == false ? <LoginForm isLogin={this.state.isLogin} /> : ''}
+                {this.state.isLogin == false ? <SignUP/> : ''}
+                <LoginForm user={this.state} isLogin={this.isLogin} inputChange={this.inputChange}/>
                 <Main />
                 <Footer />
             </div>
@@ -169,10 +205,29 @@ import {BacKGround,ShoppingCart,Modal,Header} from './components/Header.jsx';
                 el.remove();
             });
     }
-
+    const CreateTab = function(Array1,Array2) {
+        Array1.forEach(el => {
+            el.addEventListener('click', e => {
+                e.preventDefault();
+                Array1.forEach(icon => {
+                    icon.classList.remove('active');
+                });
+                el.classList.add('active');
+                Array2.forEach(el => {
+                    el.classList.remove('active');
+                });
+                document.getElementById(el.dataset.id).classList.add('active');
+            });
+        });
+       }
     function FoodSection() {
         const [RequestData, setData] = useState({name: ''});
         const [ResultsData, resData] = useState([]);
+        useEffect(() => {
+            const menuIcons = document.querySelectorAll('.foodIcon');
+            const menuContents = document.querySelectorAll('.content');
+            CreateTab(menuIcons,menuContents);
+        })
         useEffect(() => {
             Reflesh();
         },[ResultsData])
@@ -218,6 +273,7 @@ import {BacKGround,ShoppingCart,Modal,Header} from './components/Header.jsx';
                     </section>
                 );
         });
+
         return(
             <div>
                 {foodsection}

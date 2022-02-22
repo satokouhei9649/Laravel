@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { CloseSignUp } from './Header';
 // 新規登録
  export function SignUP(props) {
     //  ステート
@@ -53,7 +54,7 @@ import axios from 'axios';
     }
     return(
     <div className="signup">
-        <a href="#" id="Back">✖️</a>
+        <a href="#" id="Back" onClick={CloseSignUp}>✖️</a>
         <h2>新規登録</h2>
         <form id="signup" >
             <p>名前</p>
@@ -70,44 +71,17 @@ import axios from 'axios';
 }
 
 export function LoginForm (props) {
-    const [LoginData,setLoginData] = useState({userEmail: '',userPassword:'',isLogin: props.isLogin})
-    console.log(LoginData);
-    const LoginCheak = async() => {
-        await axios
-            .post('/api/users/login', {
-                userEmail: LoginData.userEmail,
-                userPassword: LoginData.userPassword,
-                isLogin: LoginData.isLogin,
-            })
-            .then((res) => {
-                console.log(res.data);
-                console.log("good!");
-                setLoginData({userEmail:'',userPassword:'',isLogin: "ture"});
-            })
-            .catch(error => {
-                console.log(error);
-            });
-    }
-    const inputChange = (e) => {
-        const key = e.target.name;
-        const word = e.target.value;
-        LoginData[key] = word
-        let keyword = Object.assign({},LoginData);
-        setLoginData(keyword);
-        console.log(keyword);
-    }
-    console.log(LoginData);
-        return(
-            <div className="LoginForm">
-                <a href="#" className="Back">✖️</a>
-                <h2>ログイン</h2>
-                <form id="LoginForm">
-                    <p>メールアドレス</p>
-                    <input type="text" className="email"  name="userEmail"placeholder='eメールアドレス' onChange={inputChange}/>
-                    <p>パスワード</p>
-                    <input type="password" className="password" placeholder='パスワード' name='userPassword' onChange={inputChange}/>
-                    <input type="submit" value="ログイン" className="loginBtn" onClick={LoginCheak}/>
-                </form>
-            </div>
-        );
+    return(
+        <div className="LoginForm">
+            <a href="#" className="Back">✖️</a>
+            <h2>ログイン</h2>
+            <form id="LoginForm">
+                <p>メールアドレス</p>
+                <input type="text" className="email"  name="userEmail" placeholder='eメールアドレス' onChange={props.inputChange}/>
+                <p>パスワード</p>
+                <input type="password" className="password" placeholder='パスワード' name='userPassword' onChange={props.inputChange}/>
+                <input type="submit" value="ログイン" className="loginBtn" href="/" onClick={props.isLogin}/>
+            </form>
+        </div>
+    );
     }
