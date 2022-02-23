@@ -3036,8 +3036,10 @@ var Index = /*#__PURE__*/function (_React$Component) {
     console.log(_this.state);
     _this.isLogin = _this.isLogin.bind(_assertThisInitialized(_this));
     _this.inputChange = _this.inputChange.bind(_assertThisInitialized(_this));
+    _this.Logout = _this.Logout.bind(_assertThisInitialized(_this));
     return _this;
-  }
+  } // ログイン機能
+
 
   _createClass(Index, [{
     key: "isLogin",
@@ -3045,11 +3047,6 @@ var Index = /*#__PURE__*/function (_React$Component) {
       var _this2 = this;
 
       console.log(this.state);
-
-      if (this.state.userEmail == '' || this.state.userPassword == '') {
-        return;
-      }
-
       axios__WEBPACK_IMPORTED_MODULE_2___default().post('/api/users/login', {
         userEmail: this.state.userEmail,
         userPassword: this.state.userPassword
@@ -3058,14 +3055,29 @@ var Index = /*#__PURE__*/function (_React$Component) {
         console.log("good!");
 
         _this2.setState({
-          userName: res.data.userName,
-          userEmail: res.data.userEmail,
-          userPassword: res.data.userPassword,
+          // userName: res.data.userName,
+          // userEmail: res.data.userEmail,
+          // userPassword: res.data.userPassword,
           isLogin: true
         });
+
+        console.log(_this2.state);
+        return;
       })["catch"](function (error) {
         console.log(error);
       });
+    } // ログアウト
+
+  }, {
+    key: "Logout",
+    value: function Logout() {
+      this.setState(function (prevState) {
+        prevState.userName = '';
+        prevState.userEmail = '';
+        prevState.userPassword = '';
+        prevState.isLogin = false;
+      });
+      console.log(this.state);
     }
   }, {
     key: "render",
@@ -3073,7 +3085,10 @@ var Index = /*#__PURE__*/function (_React$Component) {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_5__.Header, {
           isLogin: this.state.isLogin
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_5__.Modal, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_5__.ShoppingCart, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_5__.BacKGround, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_5__.Modal, {
+          isLogin: this.state.isLogin,
+          Logout: this.Logout
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_5__.ShoppingCart, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_5__.BacKGround, {
           "class": "background"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_5__.BacKGround, {
           "class": "cartbox"
@@ -3170,7 +3185,6 @@ function Ad(props) {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("ul", {
       className: "sellAd",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("a", {
-        href: "/shopping",
         className: "screen",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("li", {
           children: "\u30AF\u30FC\u30DD\u30F3"
@@ -3306,7 +3320,6 @@ function FoodMenu(props) {
       className: "foodmenu",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("li", {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("a", {
-          href: "#",
           className: "foodIcon tab1",
           "data-id": "meat",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
@@ -3315,7 +3328,6 @@ function FoodMenu(props) {
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("li", {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("a", {
-          href: "#",
           className: "foodIcon tab2",
           "data-id": "fish",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("i", {
@@ -3324,7 +3336,6 @@ function FoodMenu(props) {
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("li", {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("a", {
-          href: "#",
           className: "foodIcon tab3",
           "data-id": "veg",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("i", {
@@ -3333,7 +3344,6 @@ function FoodMenu(props) {
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("li", {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("a", {
-          href: "#",
           className: "foodIcon tab4",
           "data-id": "egg",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("i", {
@@ -3342,7 +3352,6 @@ function FoodMenu(props) {
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("li", {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("a", {
-          href: "#",
           className: "foodIcon tab5",
           "data-id": "milk",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("i", {
@@ -3351,7 +3360,6 @@ function FoodMenu(props) {
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("li", {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("a", {
-          href: "#",
           className: "foodIcon tab6",
           "data-id": "drink",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("i", {
@@ -3360,7 +3368,6 @@ function FoodMenu(props) {
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("li", {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("a", {
-          href: "#",
           className: "foodIcon tab7",
           "data-id": "others",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("i", {
@@ -3397,7 +3404,7 @@ var Reflesh = function Reflesh() {
   Lists.forEach(function (el) {
     el.remove();
   });
-};
+}; // タブメニュー
 
 var CreateTab = function CreateTab(Array1, Array2) {
   Array1.forEach(function (el) {
@@ -4114,25 +4121,29 @@ function Modal(props) {
       id: "close",
       onClick: CloseModal,
       children: "\u2716\uFE0F"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
+    }), props.isLogin == false ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
       children: "\u65B0\u898F\u767B\u9332\u30FB\u30ED\u30B0\u30A4\u30F3"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+    }) : '', props.isLogin == false ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
         id: "signupFormBtn",
         onClick: OpenSignUP,
         children: "\u65B0\u898F\u767B\u9332"
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+    }) : '', props.isLogin == false ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
         id: "ToLogin",
         onClick: OpenLogin,
         children: "\u30ED\u30B0\u30A4\u30F3"
       })
+    }) : '', props.isLogin == false ? '' : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
+        onClick: props.Logout,
+        children: "\u30ED\u30B0\u30A2\u30A6\u30C8"
+      })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
       children: "\u304A\u8CB7\u3044\u7269"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
-        href: ".Food",
         children: "\u30B8\u30E3\u30F3\u30EB\u3067\u63A2\u3059"
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
@@ -4374,7 +4385,7 @@ function LoginForm(props) {
       children: "\u2716\uFE0F"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
       children: "\u30ED\u30B0\u30A4\u30F3"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("form", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       id: "LoginForm",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
         children: "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9"
@@ -4387,7 +4398,7 @@ function LoginForm(props) {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
         children: "\u30D1\u30B9\u30EF\u30FC\u30C9"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
-        type: "password",
+        type: "current-password",
         className: "password",
         placeholder: "\u30D1\u30B9\u30EF\u30FC\u30C9",
         name: "userPassword",
@@ -4396,7 +4407,6 @@ function LoginForm(props) {
         type: "submit",
         value: "\u30ED\u30B0\u30A4\u30F3",
         className: "loginBtn",
-        href: "/",
         onClick: props.isLogin
       })]
     })]

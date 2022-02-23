@@ -17,12 +17,11 @@ import {BacKGround,ShoppingCart,Modal,Header} from './components/Header.jsx';
         console.log(this.state);
         this.isLogin = this.isLogin.bind(this);
         this.inputChange = this.inputChange.bind(this);
+        this.Logout = this.Logout.bind(this);
     }
+    // ログイン機能
     isLogin() {
         console.log(this.state);
-        if (this.state.userEmail == '' || this.state.userPassword == '') {
-             return;
-         }
         axios
         .post('/api/users/login', {
             userEmail: this.state.userEmail,
@@ -31,15 +30,27 @@ import {BacKGround,ShoppingCart,Modal,Header} from './components/Header.jsx';
         .then((res) => {
             console.log(res.data);
             console.log("good!");
-            this.setState(
-              { userName: res.data.userName,
-                userEmail: res.data.userEmail,
-                userPassword: res.data.userPassword,
+            this.setState( {
+                // userName: res.data.userName,
+                // userEmail: res.data.userEmail,
+                // userPassword: res.data.userPassword,
                 isLogin: true});
+                console.log(this.state);
+                return;
         })
         .catch(error => {
             console.log(error);
         });
+    }
+    // ログアウト
+    Logout() {
+        this.setState(prevState => {
+            prevState.userName = '';
+            prevState.userEmail = '';
+            prevState.userPassword = '';
+            prevState.isLogin = false;
+        })
+        console.log(this.state);
     }
     inputChange = (e) => {
         const key = e.target.name;
@@ -53,7 +64,7 @@ import {BacKGround,ShoppingCart,Modal,Header} from './components/Header.jsx';
         return (
             <div>
                 <Header isLogin={this.state.isLogin}/>
-                <Modal />
+                <Modal isLogin={this.state.isLogin} Logout={this.Logout}/>
                 <ShoppingCart />
                 <BacKGround class="background"/>
                 <BacKGround class="cartbox"/>
@@ -266,6 +277,7 @@ const Slide = () => {
                 el.remove();
             });
     }
+    // タブメニュー
     const CreateTab = function(Array1,Array2) {
         Array1.forEach(el => {
             el.addEventListener('click', e => {

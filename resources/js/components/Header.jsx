@@ -166,11 +166,12 @@ export function Modal(props) {
     return(
         <section id="modal">
             <div id="close" onClick={CloseModal}>✖️</div>
-            <h3>新規登録・ログイン</h3>
-            <p><a id="signupFormBtn" onClick={OpenSignUP}>新規登録</a></p>
-            <p><a id="ToLogin" onClick={OpenLogin}>ログイン</a></p>
+            {props.isLogin == false ? <h3>新規登録・ログイン</h3> :''}
+            {props.isLogin == false ? <p><a id="signupFormBtn" onClick={OpenSignUP}>新規登録</a></p>: ''}
+            {props.isLogin == false ? <p><a id="ToLogin" onClick={OpenLogin}>ログイン</a></p>: ''}
+            {props.isLogin == false ?  '' : <p><a onClick={props.Logout}>ログアウト</a></p>}
             <h3>お買い物</h3>
-            <p><a href=".Food">ジャンルで探す</a></p>
+            <p><a>ジャンルで探す</a></p>
             <p><a>値段で探す</a></p>
         </section>
     );

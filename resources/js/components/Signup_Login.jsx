@@ -74,14 +74,14 @@ export function LoginForm (props) {
     return(
         <div className="LoginForm">
             <a href="#" className="Back" onClick={CloseLogin}>✖️</a>
-            <h2>ログイン</h2>
-            <form id="LoginForm">
+                <h2>ログイン</h2>
+            <div id='LoginForm'>
                 <p>メールアドレス</p>
                 <input type="text" className="email"  name="userEmail" placeholder='eメールアドレス' onChange={props.inputChange}/>
                 <p>パスワード</p>
-                <input type="password" className="password" placeholder='パスワード' name='userPassword' onChange={props.inputChange}/>
-                <input type="submit" value="ログイン" className="loginBtn" href="/" onClick={props.isLogin}/>
-            </form>
+                <input type="current-password" className="password" placeholder='パスワード' name='userPassword' onChange={props.inputChange}/>
+                <input type="submit" value="ログイン" className="loginBtn" onClick={props.isLogin}/>
+            </div>
         </div>
     );
     }
