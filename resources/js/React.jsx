@@ -407,16 +407,16 @@ const Slide = () => {
     // }
 
     // Top画面
-    function Main() {
+    function Main(props) {
         return(
-    <div>
-        <BacKGround  text="topページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページですtopページです" />
-        <Ad />
-        <Recommend h2="オススメ商品 ・ 売れ筋" class="recommend"/>
-        <Recommend h2="セール" class="sell"/>
-        <FoodMenu />
-        <FoodSection />
-    </div>
+        <div>
+            <BacKGround class="Main" />
+            <Ad />
+            <Recommend h2="オススメ商品 ・ 売れ筋" class="recommend"/>
+            <Recommend h2="セール" class="sell"/>
+            <FoodMenu />
+            <FoodSection />
+        </div>
         );
     }
 

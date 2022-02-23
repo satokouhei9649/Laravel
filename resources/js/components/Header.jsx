@@ -200,7 +200,10 @@ export function Modal(props) {
         <div className={props.class} onClick={() => {
             const backGround = document.querySelector('.background');
             AnimationClose(backGround);
-        }}>{props.text}</div>
+        }}>
+        {props.class == "Main"? <h1>Food Loss</h1>:''}
+        {props.class == "Main"? <p>少しでも　廃棄処分する量を減らそう</p>:''}
+        </div>
     );
 }
 

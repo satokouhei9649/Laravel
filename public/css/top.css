@@ -10,6 +10,20 @@ h2 {
 a:visited{
     color: black;
 }
+.Main {
+    height: 800px;
+    background-image: url(../img/4242698_m.jpg);
+    background-size: cover;
+    color: white;
+}
+.Main > h1 {
+    font-size: 1000%;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 80px;
+}
+.Main > p{
+    font-size: 300%;
+}
 .sellAd,.recommends,.sells {
     list-style: none;
     margin: 0 auto;
