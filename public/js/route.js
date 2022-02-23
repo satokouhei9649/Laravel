@@ -3052,30 +3052,29 @@ var Index = /*#__PURE__*/function (_React$Component) {
         userPassword: this.state.userPassword
       }).then(function (res) {
         console.log(res.data);
-        console.log("good!");
 
         _this2.setState({
-          // userName: res.data.userName,
-          // userEmail: res.data.userEmail,
-          // userPassword: res.data.userPassword,
+          userName: res.data[0].userName,
+          userEmail: res.data[0].userEmail,
+          userPassword: res.data[0].userPassword,
           isLogin: true
         });
-
-        console.log(_this2.state);
-        return;
       })["catch"](function (error) {
         console.log(error);
       });
+      var modal = document.getElementById('modal');
+      var backGround = document.querySelector('.background');
+      (0,_components_Header_jsx__WEBPACK_IMPORTED_MODULE_5__.AnimationClose)(modal, backGround);
     } // ログアウト
 
   }, {
     key: "Logout",
     value: function Logout() {
-      this.setState(function (prevState) {
-        prevState.userName = '';
-        prevState.userEmail = '';
-        prevState.userPassword = '';
-        prevState.isLogin = false;
+      this.setState({
+        userName: '',
+        userEmail: '',
+        userPassword: '',
+        isLogin: false
       });
       console.log(this.state);
     }
@@ -3845,6 +3844,7 @@ function Footer() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "AnimationClose": () => (/* binding */ AnimationClose),
 /* harmony export */   "Header": () => (/* binding */ Header),
 /* harmony export */   "SearchForm": () => (/* binding */ SearchForm),
 /* harmony export */   "OpenLogin": () => (/* binding */ OpenLogin),
@@ -3900,7 +3900,6 @@ var AnimationClose = function AnimationClose() {
     arguments[i].classList.add('hidden');
   }
 };
-
 function Header(props) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("header", {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(SearchForm, {

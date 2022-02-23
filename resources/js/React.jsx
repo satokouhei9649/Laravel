@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Footer from './components/Footer.jsx';
 import {SignUP,LoginForm} from './components/Signup_Login.jsx';
-import {BacKGround,ShoppingCart,Modal,Header} from './components/Header.jsx';
+import {BacKGround,ShoppingCart,Modal,Header,AnimationClose} from './components/Header.jsx';
     let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
      export class Index extends React.Component {
       constructor(props) {
@@ -29,27 +29,27 @@ import {BacKGround,ShoppingCart,Modal,Header} from './components/Header.jsx';
         })
         .then((res) => {
             console.log(res.data);
-            console.log("good!");
-            this.setState( {
-                // userName: res.data.userName,
-                // userEmail: res.data.userEmail,
-                // userPassword: res.data.userPassword,
+            this.setState({
+                userName: res.data[0].userName,
+                userEmail: res.data[0].userEmail,
+                userPassword: res.data[0].userPassword,
                 isLogin: true});
-                console.log(this.state);
-                return;
         })
         .catch(error => {
             console.log(error);
         });
+        const modal = document.getElementById('modal');
+        const backGround = document.querySelector('.background');
+        AnimationClose(modal,backGround);
     }
     // ログアウト
     Logout() {
-        this.setState(prevState => {
-            prevState.userName = '';
-            prevState.userEmail = '';
-            prevState.userPassword = '';
-            prevState.isLogin = false;
-        })
+        this.setState({
+            userName: '',
+            userEmail: '',
+            userPassword: '',
+            isLogin: false
+        });
         console.log(this.state);
     }
     inputChange = (e) => {

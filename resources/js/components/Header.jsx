@@ -9,7 +9,7 @@ const AnimationOpen = function() {
         arguments[i].classList.add('open');
     }
 }
-const AnimationClose = function() {
+ export const AnimationClose = function() {
     for(let i=0; i < arguments.length; i++) {
         arguments[i].classList.remove('open');
         arguments[i].classList.add('hidden');
