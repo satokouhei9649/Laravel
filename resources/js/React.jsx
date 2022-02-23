@@ -53,12 +53,12 @@ import {BacKGround,ShoppingCart,Modal,Header} from './components/Header.jsx';
         return (
             <div>
                 <Header isLogin={this.state.isLogin}/>
-               {this.state.isLogin == false ? <Modal /> : ''}
+                <Modal />
                 <ShoppingCart />
                 <BacKGround class="background"/>
                 <BacKGround class="cartbox"/>
                 {this.state.isLogin == false ? <SignUP/> : ''}
-                <LoginForm user={this.state} isLogin={this.isLogin} inputChange={this.inputChange}/>
+                {this.state.isLogin == false ? <LoginForm user={this.state} isLogin={this.isLogin} inputChange={this.inputChange}/>: ''}
                 <Main />
                 <Footer />
             </div>
@@ -67,13 +67,74 @@ import {BacKGround,ShoppingCart,Modal,Header} from './components/Header.jsx';
     }
     export default Index;
 
+const Slide = () => {
+    const nextBtn = document.querySelector('.next');
+    const prevBtn = document.querySelector('.prev');
+    const Ad = document.querySelector('.sellAd');
+    const screens = Ad.children;
+    const dots = [];
+    let count = 0;
+    nextBtn.addEventListener('click', () => {
+        count++;
+        dotsStatus();
+        btnStaus();
+        moveScreen(screens,Ad);
+    });
+    prevBtn.addEventListener('click', () => {
+        count--;
+        dotsStatus();
+        btnStaus();
+        moveScreen(screens,Ad);
+    });
+    // 矢印の表示
+    function btnStaus() {
+        prevBtn.classList.remove('hidden');
+        nextBtn.classList.remove('hidden');
+        if (count == 0) {
+            prevBtn.classList.add('hidden');
+        }
+        if (count == screens.length -1) {
+            nextBtn.classList.add('hidden');
+        }
+    }
+// スライド
+    function moveScreen(Array1,Array2) {
+        const Width = Array1[0].getBoundingClientRect().width;
+        Array2.style.transform = `translateX(${-1 * Width * count}px)`;
+    }
+    function setDots() {
+        for (let i = 0; i < screens.length; i++) {
+            const button = document.createElement('button');
+            button.addEventListener('click', () => {
+                count = i;
+                dotsStatus();
+                btnStaus();
+                moveScreen(screens,Ad);
+            });
+            dots.push(button);
+            document.querySelector('nav').appendChild(button).classList.add('screenBtn');
+        }
+        dots[0].classList.add('current');
+    }
 
+    function dotsStatus() {
+        dots.forEach( dot => {
+            dot.classList.remove('current');
+        });
+        dots[count].classList.add('current');
+    }
+    btnStaus();
+    setDots();
+}
     // 広告
     function Ad(props) {
+        useEffect(() => {
+            Slide();
+        },[])
         return(
         <section className="Ad">
             <ul className="sellAd">
-                <a  href="/shopping" className="screen"><li>クーポン</li></a>
+                <a className="screen"><li>クーポン</li></a>
                 <li className="screen">送料￥</li>
                 <li className="screen">オスメメ</li>
                 <li className="screen">セール</li>
@@ -167,13 +228,13 @@ import {BacKGround,ShoppingCart,Modal,Header} from './components/Header.jsx';
             <div>
                 <h2 className="Food">ジャンル・カテゴリーで検索</h2>
                 <ul className="foodmenu">
-                    <li><a href="#" className="foodIcon tab1" data-id="meat"><img src="/img/steak.png"/></a></li>
-                    <li><a href="#" className="foodIcon tab2" data-id="fish"><i className="fas fa-fish fa-4x"></i></a></li>
-                    <li><a href="#" className="foodIcon tab3" data-id="veg"><i className="fas fa-carrot fa-4x"></i></a></li>
-                    <li><a href="#" className="foodIcon tab4" data-id="egg"><i className="fas fa-egg fa-4x"></i></a></li>
-                    <li><a href="#" className="foodIcon tab5" data-id="milk"><i className="fas fa-apple-alt fa-4x"></i></a></li>
-                    <li><a href="#" className="foodIcon tab6" data-id="drink"><i className="fas fa-wine-bottle fa-4x"></i></a></li>
-                    <li><a href="#" className="foodIcon tab7" data-id="others"><i className="fas fa-bread-slice fa-4x"></i></a></li>
+                    <li><a className="foodIcon tab1" data-id="meat"><img src="/img/steak.png"/></a></li>
+                    <li><a className="foodIcon tab2" data-id="fish"><i className="fas fa-fish fa-4x"></i></a></li>
+                    <li><a className="foodIcon tab3" data-id="veg"><i className="fas fa-carrot fa-4x"></i></a></li>
+                    <li><a className="foodIcon tab4" data-id="egg"><i className="fas fa-egg fa-4x"></i></a></li>
+                    <li><a className="foodIcon tab5" data-id="milk"><i className="fas fa-apple-alt fa-4x"></i></a></li>
+                    <li><a className="foodIcon tab6" data-id="drink"><i className="fas fa-wine-bottle fa-4x"></i></a></li>
+                    <li><a className="foodIcon tab7" data-id="others"><i className="fas fa-bread-slice fa-4x"></i></a></li>
                 </ul>
             </div>
 

@@ -3073,24 +3073,98 @@ var Index = /*#__PURE__*/function (_React$Component) {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_5__.Header, {
           isLogin: this.state.isLogin
-        }), this.state.isLogin == false ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_5__.Modal, {}) : '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_5__.ShoppingCart, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_5__.BacKGround, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_5__.Modal, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_5__.ShoppingCart, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_5__.BacKGround, {
           "class": "background"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_5__.BacKGround, {
           "class": "cartbox"
-        }), this.state.isLogin == false ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_Signup_Login_jsx__WEBPACK_IMPORTED_MODULE_4__.SignUP, {}) : '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_Signup_Login_jsx__WEBPACK_IMPORTED_MODULE_4__.LoginForm, {
+        }), this.state.isLogin == false ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_Signup_Login_jsx__WEBPACK_IMPORTED_MODULE_4__.SignUP, {}) : '', this.state.isLogin == false ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_Signup_Login_jsx__WEBPACK_IMPORTED_MODULE_4__.LoginForm, {
           user: this.state,
           isLogin: this.isLogin,
           inputChange: this.inputChange
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(Main, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_Footer_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {})]
+        }) : '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(Main, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_Footer_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {})]
       });
     }
   }]);
 
   return Index;
 }(react__WEBPACK_IMPORTED_MODULE_1__.Component);
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Index); // 広告
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Index);
+
+var Slide = function Slide() {
+  var nextBtn = document.querySelector('.next');
+  var prevBtn = document.querySelector('.prev');
+  var Ad = document.querySelector('.sellAd');
+  var screens = Ad.children;
+  var dots = [];
+  var count = 0;
+  nextBtn.addEventListener('click', function () {
+    count++;
+    dotsStatus();
+    btnStaus();
+    moveScreen(screens, Ad);
+  });
+  prevBtn.addEventListener('click', function () {
+    count--;
+    dotsStatus();
+    btnStaus();
+    moveScreen(screens, Ad);
+  }); // 矢印の表示
+
+  function btnStaus() {
+    prevBtn.classList.remove('hidden');
+    nextBtn.classList.remove('hidden');
+
+    if (count == 0) {
+      prevBtn.classList.add('hidden');
+    }
+
+    if (count == screens.length - 1) {
+      nextBtn.classList.add('hidden');
+    }
+  } // スライド
+
+
+  function moveScreen(Array1, Array2) {
+    var Width = Array1[0].getBoundingClientRect().width;
+    Array2.style.transform = "translateX(".concat(-1 * Width * count, "px)");
+  }
+
+  function setDots() {
+    var _loop = function _loop(i) {
+      var button = document.createElement('button');
+      button.addEventListener('click', function () {
+        count = i;
+        dotsStatus();
+        btnStaus();
+        moveScreen(screens, Ad);
+      });
+      dots.push(button);
+      document.querySelector('nav').appendChild(button).classList.add('screenBtn');
+    };
+
+    for (var i = 0; i < screens.length; i++) {
+      _loop(i);
+    }
+
+    dots[0].classList.add('current');
+  }
+
+  function dotsStatus() {
+    dots.forEach(function (dot) {
+      dot.classList.remove('current');
+    });
+    dots[count].classList.add('current');
+  }
+
+  btnStaus();
+  setDots();
+}; // 広告
+
 
 function Ad(props) {
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+    Slide();
+  }, []);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("section", {
     className: "Ad",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("ul", {
@@ -3131,7 +3205,7 @@ var Observer = function Observer() {
     rootMargin: '0px 0px -10%'
   };
 
-  var _loop = function _loop(i) {
+  var _loop2 = function _loop2(i) {
     var observer = new IntersectionObserver(check, option);
 
     _arguments[i].forEach(function (argument) {
@@ -3151,7 +3225,7 @@ var Observer = function Observer() {
   };
 
   for (var i = 0; i < arguments.length; i++) {
-    _loop(i);
+    _loop2(i);
   }
 };
 
@@ -3766,7 +3840,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Header": () => (/* binding */ Header),
 /* harmony export */   "SearchForm": () => (/* binding */ SearchForm),
+/* harmony export */   "OpenLogin": () => (/* binding */ OpenLogin),
 /* harmony export */   "CloseSignUp": () => (/* binding */ CloseSignUp),
+/* harmony export */   "CloseLogin": () => (/* binding */ CloseLogin),
 /* harmony export */   "MenuList": () => (/* binding */ MenuList),
 /* harmony export */   "Modal": () => (/* binding */ Modal),
 /* harmony export */   "ShoppingCart": () => (/* binding */ ShoppingCart),
@@ -3955,13 +4031,15 @@ var OpenSignUP = function OpenSignUP() {
   AnimationOpen(signup, backGround);
 };
 
-var OpenLoginForm = function OpenLoginForm() {
+var OpenLogin = function OpenLogin() {
+  var backGround = document.querySelector('.background');
   var LoginForm = document.querySelector('.LoginForm');
-  AnimationOpen(LoginForm);
+  AnimationOpen(LoginForm, backGround);
 };
 
 var OpenModal = function OpenModal() {
   var modal = document.getElementById('modal');
+  modal.classList.remove('open');
   AnimationOpen(modal);
 };
 
@@ -3969,6 +4047,11 @@ var CloseSignUp = function CloseSignUp() {
   var signup = document.querySelector('.signup');
   var backGround = document.querySelector('.background');
   AnimationClose(signup, backGround);
+};
+var CloseLogin = function CloseLogin() {
+  var LoginForm = document.querySelector('.LoginForm');
+  var backGround = document.querySelector('.background');
+  AnimationClose(LoginForm, backGround);
 };
 
 var CloseModal = function CloseModal() {
@@ -4042,7 +4125,7 @@ function Modal(props) {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
         id: "ToLogin",
-        onClick: OpenLoginForm,
+        onClick: OpenLogin,
         children: "\u30ED\u30B0\u30A4\u30F3"
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
@@ -4098,6 +4181,10 @@ function ShoppingCart(props) {
 function BacKGround(props) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
     className: props["class"],
+    onClick: function onClick() {
+      var backGround = document.querySelector('.background');
+      AnimationClose(backGround);
+    },
     children: props.text
   });
 }
@@ -4272,6 +4359,7 @@ function SignUP(props) {
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
       className: "loginBtn",
+      onClick: _Header__WEBPACK_IMPORTED_MODULE_3__.OpenLogin,
       children: "\u30ED\u30B0\u30A4\u30F3\u753B\u9762"
     })]
   });
@@ -4282,6 +4370,7 @@ function LoginForm(props) {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
       href: "#",
       className: "Back",
+      onClick: _Header__WEBPACK_IMPORTED_MODULE_3__.CloseLogin,
       children: "\u2716\uFE0F"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
       children: "\u30ED\u30B0\u30A4\u30F3"
@@ -37307,34 +37396,7 @@ function _extends() {
 ;
 'use strict';
 {
-    const modal = document.getElementById('modal');
-    const menu = document.getElementById('menu');
-    const close = document.getElementById('close');
-    // モーダル
-    menu.addEventListener('click',() =>{
-        AnimationOpen(modal);
-    })
-    close.addEventListener('click', () => {
-       AnimationClose(modal);
-    });
     // ショッピングカート
-    const cartLogo = document.getElementById('shoppingCart');
-    const cartBox = document.querySelector('.cartbox');
-    const cart = document.querySelector('.cart');
-    const backGround = document.querySelector('.background');
-    const shopBack = document.getElementById('shopBack');
-    const shoppingList = Array.from(document.querySelectorAll('.shoppingList'));
-    cartLogo.addEventListener('click', e => {
-        e.preventDefault();
-        AnimationOpen(backGround,cart,cartBox);
-    });
-    // shopBack.addEventListener('click', () => {
-    //     AnimationClose(backGround,cart,cartBox);
-    //     for (let i = 0; i < shoppingList.length; i ++) {
-    //         shoppingList[i].classList.remove('active');
-    //     }
-    // });
-
     // 新規登録・ログイン
     const LoginForm = document.querySelector('.LoginForm');
     const ToLogin1 = document.getElementById('ToLogin');
@@ -37372,83 +37434,9 @@ function _extends() {
 
 
 
-    // タブメニュー
-    const menuIcons = document.querySelectorAll('.foodIcon');
-    const menuContents = document.querySelectorAll('.content');
-   const CreateTab = function(Array1,Array2) {
-    Array1.forEach(el => {
-        el.addEventListener('click', e => {
-            e.preventDefault();
-            Array1.forEach(icon => {
-                icon.classList.remove('active');
-            });
-            el.classList.add('active');
-            Array2.forEach(el => {
-                el.classList.remove('active');
-            });
-            document.getElementById(el.dataset.id).classList.add('active');
-        });
-    });
-   }
-  CreateTab(menuIcons,menuContents);
     // カルーセル
-    const nextBtn = document.querySelector('.next');
-    const prevBtn = document.querySelector('.prev');
-    const Ad = document.querySelector('.sellAd');
-    const screens = Ad.children;
-    const dots = [];
-    let count = 0;
-    nextBtn.addEventListener('click', () => {
-        count++;
-        dotsStatus();
-        btnStaus();
-        moveScreen(screens,Ad);
-    });
-    prevBtn.addEventListener('click', () => {
-        count--;
-        dotsStatus();
-        btnStaus();
-        moveScreen(screens,Ad);
-    });
-    // 矢印の表示
-    function btnStaus() {
-        prevBtn.classList.remove('hidden');
-        nextBtn.classList.remove('hidden');
-        if (count == 0) {
-            prevBtn.classList.add('hidden');
-        }
-        if (count == screens.length -1) {
-            nextBtn.classList.add('hidden');
-        }
-    }
-// スライド
-    function moveScreen(Array1,Array2) {
-        const Width = Array1[0].getBoundingClientRect().width;
-        Array2.style.transform = `translateX(${-1 * Width * count}px)`;
-    }
-    function setDots() {
-        for (let i = 0; i < screens.length; i++) {
-            const button = document.createElement('button');
-            button.addEventListener('click', () => {
-                count = i;
-                dotsStatus();
-                btnStaus();
-                moveScreen(screens,Ad);
-            });
-            dots.push(button);
-            document.querySelector('nav').appendChild(button).classList.add('screenBtn');
-        }
-        dots[0].classList.add('current');
-    }
 
-    function dotsStatus() {
-        dots.forEach( dot => {
-            dot.classList.remove('current');
-        });
-        dots[count].classList.add('current');
-    }
-    btnStaus();
-    setDots();
+    
     window.addEventListener('resize', () => {
     moveScreen(screens,Ad);
     });

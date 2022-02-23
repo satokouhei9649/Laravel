@@ -1,8 +1,9 @@
 body {
     margin: 0;
 }
-a {
+a:link,a:visited {
     text-decoration: none;
+    color: black;
 }
 
 header {

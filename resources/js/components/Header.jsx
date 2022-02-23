@@ -105,18 +105,25 @@ const OpenSignUP = () => {
     const backGround = document.querySelector('.background');
     AnimationOpen(signup,backGround);
 }
-const OpenLoginForm = () => {
+export const OpenLogin = () => {
+    const backGround = document.querySelector('.background');
     const LoginForm = document.querySelector('.LoginForm');
-    AnimationOpen(LoginForm);
+    AnimationOpen(LoginForm,backGround);
 }
 const OpenModal = () => {
     const modal = document.getElementById('modal');
+    modal.classList.remove('open');
     AnimationOpen(modal);
 }
 export const CloseSignUp =() => {
     const signup = document.querySelector('.signup');
     const backGround = document.querySelector('.background');
     AnimationClose(signup,backGround);
+}
+export const CloseLogin =() => {
+    const LoginForm = document.querySelector('.LoginForm');
+    const backGround = document.querySelector('.background');
+    AnimationClose(LoginForm,backGround);
 }
 const CloseModal = () => {
     const modal = document.getElementById('modal');
@@ -161,7 +168,7 @@ export function Modal(props) {
             <div id="close" onClick={CloseModal}>✖️</div>
             <h3>新規登録・ログイン</h3>
             <p><a id="signupFormBtn" onClick={OpenSignUP}>新規登録</a></p>
-            <p><a id="ToLogin" onClick={OpenLoginForm}>ログイン</a></p>
+            <p><a id="ToLogin" onClick={OpenLogin}>ログイン</a></p>
             <h3>お買い物</h3>
             <p><a href=".Food">ジャンルで探す</a></p>
             <p><a>値段で探す</a></p>
@@ -189,7 +196,10 @@ export function Modal(props) {
 // 背景
  export function BacKGround(props) {
     return(
-        <div className={props.class}>{props.text}</div>
+        <div className={props.class} onClick={() => {
+            const backGround = document.querySelector('.background');
+            AnimationClose(backGround);
+        }}>{props.text}</div>
     );
 }
 
