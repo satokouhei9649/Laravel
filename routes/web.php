@@ -13,10 +13,9 @@ use App\Http\Controllers\PostController;
 |
 */
 // root
-Route::get('/', function () {
+Route::get('{any}', function () {
     return view('app');
-});
-// ->where('any','.*');
+})->where('any','.*');
 // Route::get('/', [PostController::class, 'top'])
 //     ->name('posts.top');
 

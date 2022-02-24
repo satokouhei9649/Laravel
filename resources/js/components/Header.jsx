@@ -182,7 +182,7 @@ export function Modal(props) {
      return(
      <div className="cart">
         <h2>お買い物カゴにある商品<a href="#" id="shopBack" onClick={CloseShop}>✖️</a></h2>
-        <form action='/total' method='get'>
+        <form action='/total'>
          <ul id="ShopListUl">
              <input type="hidden"value="test" name="test"/>
          </ul>

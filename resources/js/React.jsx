@@ -50,6 +50,8 @@ import {BacKGround,ShoppingCart,Modal,Header,AnimationClose} from './components/
             userPassword: '',
             isLogin: false
         });
+        const modal = document.getElementById('modal');
+        modal.classList.remove('open');
         console.log(this.state);
     }
     inputChange = (e) => {

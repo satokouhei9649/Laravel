@@ -2,7 +2,6 @@ import {BacKGround,ShoppingCart,Modal, SearchForm,Header,MenuList} from './compo
 import {SignUP, LoginForm} from './components/Signup_Login.jsx';
 import Footer from './components/Footer.jsx';
 import React from 'react';
-
 export class Shopping extends React.Component{
     constructor(props) {
         super(props);
@@ -12,9 +11,10 @@ export class Shopping extends React.Component{
             <div>
                 <header className='ShoppingHeader'>
                     <MenuList />
+                </header>
+                    <Modal />
                     <SignUP/>
                     <LoginForm />
-                </header>
                 <ShoppingTotal />
                 <Footer />
             </div>
