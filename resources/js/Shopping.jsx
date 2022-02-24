@@ -22,15 +22,21 @@ export class Shopping extends React.Component{
     }
 }
 function ShoppingTotal() {
+    const currentUrl = new URL(location.href);
+    //URLSearchParamsオブジェクトを取得
+    const queryString = currentUrl.searchParams;
+    const receivedParams = {};
+    queryString.forEach(function(v,k){
+    receivedParams[k] = v;
+    });
+    console.log(receivedParams);
     return(
         <div>
-            <h2>成功</h2>
-            <h2>成功</h2>
-            <h2>成功</h2>
-            <h2>成功</h2>
-            <h2>成功</h2>
-            <h2>成功</h2>
-            <h2>成功</h2>
+            <p>{receivedParams.test}</p>
+            <p>{receivedParams.go}</p>
+            <p>{receivedParams.token}</p>
+
+
         </div>
     );
 }

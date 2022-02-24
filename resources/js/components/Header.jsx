@@ -182,12 +182,14 @@ export function Modal(props) {
      return(
      <div className="cart">
         <h2>お買い物カゴにある商品<a href="#" id="shopBack" onClick={CloseShop}>✖️</a></h2>
-        <form action='/total'>
+        <form action='/total' method='get'>
          <ul id="ShopListUl">
              <input type="hidden"value="test" name="test"/>
+             <input type="hidden"value="go" name="go"/>
+             <input type="hidden"value="python" name="python"/>
          </ul>
-         <input type="submit" value="お支払いへ" className="buyBtn"/>
-         <input type="hidden" name="token" value={csrf_token}/>
+            <input type="submit" value="お支払いへ" className="buyBtn"/>
+            <input type="hidden" name="token" value={csrf_token}/>
         </form>
         <button>戻る</button>
      </div>
