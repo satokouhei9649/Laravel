@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import {Reflesh} from '../React';
@@ -150,9 +149,10 @@ const CloseShop = () => {
            <li className="icon">
                 <span id="user"><i className="fas fa-user fa-2x"></i></span>
             </li>: ''}
+            { props.data == 'shopping'? '' :
             <li className="icon">
-                 <span id="shoppingCart" onClick={OpenShop}><i className="fas fa-shopping-cart fa-2x "></i></span>
-            </li>
+                <span id="shoppingCart" onClick={OpenShop}><i className="fas fa-shopping-cart fa-2x "></i></span>
+            </li> }
             <li className="icon">
                 <span id="menu" onClick={OpenModal}><i className="fas fa-bars fa-2x"></i></span>
             </li>
@@ -184,9 +184,9 @@ export function Modal(props) {
         <h2>お買い物カゴにある商品<a href="#" id="shopBack" onClick={CloseShop}>✖️</a></h2>
         <form action='/total' method='get'>
          <ul id="ShopListUl">
-             <input type="hidden"value="test" name="test"/>
-             <input type="hidden"value="go" name="go"/>
-             <input type="hidden"value="python" name="python"/>
+             <input type="hidden"value="1000" name="豚肉A"/>
+             <input type="hidden"value="going" name="gone"/>
+             <input type="hidden"value="path" name="python"/>
          </ul>
             <input type="submit" value="お支払いへ" className="buyBtn"/>
             <input type="hidden" name="token" value={csrf_token}/>

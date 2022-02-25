@@ -3296,6 +3296,7 @@ function Recommend(props) {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
         className: "ToCart",
         name: el.name,
+        value: el.praice,
         onClick: GotoCart,
         children: "\u30AB\u30FC\u30C8\u306B\u5165\u308C\u308B"
       })]
@@ -3385,11 +3386,16 @@ var GotoCart = function GotoCart(e) {
   var ShopListUl = document.getElementById('ShopListUl');
   var list = document.createElement('li');
   var DeleteBtn = document.createElement('button');
+  var input = document.createElement('input');
+  input.setAttribute('type', 'hidden');
+  input.setAttribute('name', e.target.name);
+  input.setAttribute('value', e.target.value);
   DeleteBtn.textContent = "[X]";
   DeleteBtn.classList.add('DeleteBtn');
   list.textContent = e.target.name;
   list.classList.add('shoppingList');
   ShopListUl.appendChild(list);
+  list.appendChild(input);
   list.appendChild(DeleteBtn); // カゴから商品を削除
 
   DeleteBtn.onclick = function (event) {
@@ -3397,6 +3403,7 @@ var GotoCart = function GotoCart(e) {
     var TargetLi = deleBtn.parentNode;
     deleBtn.remove();
     TargetLi.remove();
+    return;
   };
 };
 var Reflesh = function Reflesh() {
@@ -3560,6 +3567,7 @@ function FoodSection() {
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
             className: "ResToCart",
             name: result.name,
+            value: result.praice,
             onClick: GotoCart,
             children: "\u30AB\u30FC\u30C8\u306B\u5165\u308C\u308B"
           })]
@@ -3680,7 +3688,9 @@ var Shopping = /*#__PURE__*/function (_React$Component) {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("header", {
           className: "ShoppingHeader",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_0__.MenuList, {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_0__.MenuList, {
+            data: "shopping"
+          })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_0__.Modal, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Signup_Login_jsx__WEBPACK_IMPORTED_MODULE_1__.SignUP, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Signup_Login_jsx__WEBPACK_IMPORTED_MODULE_1__.LoginForm, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(ShoppingTotal, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Footer_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {})]
       });
     }
@@ -3693,19 +3703,21 @@ function ShoppingTotal() {
   var currentUrl = new URL(location.href); //URLSearchParamsオブジェクトを取得
 
   var queryString = currentUrl.searchParams;
-  var receivedParams = {};
-  queryString.forEach(function (v, k) {
-    receivedParams[k] = v;
+  var receivedParams = [];
+  queryString.forEach(function (value, name) {
+    receivedParams.push({
+      name: name,
+      price: value
+    });
+  });
+  var Total = receivedParams.map(function (el, index) {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {
+      children: [el.name, "  \xA5", el.price]
+    }, index);
   });
   console.log(receivedParams);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
-      children: receivedParams.test
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
-      children: receivedParams.go
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
-      children: receivedParams.token
-    })]
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+    children: Total
   });
 }
 
@@ -4093,7 +4105,7 @@ function MenuList(props) {
           className: "fas fa-user fa-2x"
         })
       })
-    }) : '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
+    }) : '', props.data == 'shopping' ? '' : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
       className: "icon",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
         id: "shoppingCart",
@@ -4172,15 +4184,15 @@ function ShoppingCart(props) {
         id: "ShopListUl",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
           type: "hidden",
-          value: "test",
-          name: "test"
+          value: "1000",
+          name: "\u8C5A\u8089A"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
           type: "hidden",
-          value: "go",
-          name: "go"
+          value: "going",
+          name: "gone"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
           type: "hidden",
-          value: "python",
+          value: "path",
           name: "python"
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {

@@ -221,7 +221,7 @@ const Slide = () => {
                     <li className={props.class} key={el.name}>
                     <h1> {props.class == 'recommend' ? <span className='rank'>{index}</span> : ''}{el.name}</h1>
                     {props.class == 'sell' ? <p>{ "¥" + el.praice * 0.7}</p> : <p>{ "¥" + el.praice}</p>}
-                    <button className='ToCart' name={el.name} onClick={GotoCart}>カートに入れる</button>
+                    <button className='ToCart' name={el.name} value={el.praice} onClick={GotoCart}>カートに入れる</button>
                     </li>
                 );
             });
@@ -258,11 +258,16 @@ const Slide = () => {
         const ShopListUl = document.getElementById('ShopListUl');
         const list = document.createElement('li');
         const DeleteBtn = document.createElement('button');
+        const input = document.createElement('input');
+        input.setAttribute('type','hidden');
+        input.setAttribute('name',e.target.name);
+        input.setAttribute('value',e.target.value);
         DeleteBtn.textContent ="[X]";
         DeleteBtn.classList.add('DeleteBtn');
         list.textContent = e.target.name;
         list.classList.add('shoppingList');
         ShopListUl.appendChild(list);
+        list.appendChild(input);
         list.appendChild(DeleteBtn);
         // カゴから商品を削除
         DeleteBtn.onclick = (event) =>{
@@ -270,6 +275,7 @@ const Slide = () => {
             const TargetLi = deleBtn.parentNode;
             deleBtn.remove();
             TargetLi.remove();
+            return;
         };
     }
    export const Reflesh = () => {
@@ -363,7 +369,7 @@ const Slide = () => {
                                     <h1>{result.name}</h1>
                                     <p>{result.explain}</p>
                                     <p>¥ {result.praice}円</p>
-                                    <button className='ResToCart' name={result.name} onClick={GotoCart}>カートに入れる</button>
+                                    <button className='ResToCart' name={result.name} value={result.praice} onClick={GotoCart}>カートに入れる</button>
                                 </div>
                             );
                         })
