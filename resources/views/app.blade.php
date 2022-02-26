@@ -20,6 +20,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ url('css/components.css')}}">
     <link rel="stylesheet" href="{{ url('css/top.css')}}">
+    <link rel="stylesheet" href="{{ url('css/total.css')}}">
 </head>
 <body>
     <div id="app"></div>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import {Link} from 'react-router-dom';
 import axios from 'axios';
 import {Reflesh} from '../React';
 let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
@@ -94,7 +95,6 @@ const AnimationOpen = function() {
                 return(
                     <form className={props.class}>
                   <input type="text" name="keyword" value={KeyWord.keyword} onChange={inputChange} placeholder="ここに入力" className="searchWord"/>
-                  {/* <input type="hidden" name="token" value={ csrf_token }/> */}
                   <a className="submit" onClick={() => {Keysearch()}}>検索</a>
               </form>
             );
@@ -184,14 +184,11 @@ export function Modal(props) {
         <h2>お買い物カゴにある商品<a href="#" id="shopBack" onClick={CloseShop}>✖️</a></h2>
         <form action='/total' method='get'>
          <ul id="ShopListUl">
-             <input type="hidden"value="1000" name="豚肉A"/>
-             <input type="hidden"value="going" name="gone"/>
-             <input type="hidden"value="path" name="python"/>
          </ul>
             <input type="submit" value="お支払いへ" className="buyBtn"/>
             <input type="hidden" name="token" value={csrf_token}/>
         </form>
-        <button>戻る</button>
+        <button className='BackBtn' onClick={CloseShop}>戻る</button>
      </div>
      );
     }
@@ -204,7 +201,7 @@ export function Modal(props) {
             AnimationClose(backGround);
         }}>
         {props.class == "Main"? <h1>Food Loss</h1>:''}
-        {props.class == "Main"? <p>少しでも　廃棄処分する量を減らそう</p>:''}
+        {props.class == "Main"? <p>少しでも    廃棄処分する量を減らそう</p>:''}
         </div>
     );
 }

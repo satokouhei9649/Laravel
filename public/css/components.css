@@ -165,7 +165,7 @@ header {
     display: inline-block;
     margin-left: 10%;
 }
-.cart > button,.buyBtn {
+.buyBtn {
     display: block;
     width: 60%;
     margin: 20px auto;
@@ -175,7 +175,12 @@ header {
     box-shadow: 4px 4px rgb(13, 13, 93);
     color: white;
 }
-.cart > button {
+.BackBtn{
+    border-radius: 10px;
+    display: inline-block;
+    height: 30px;
+    width: 60%;
+    color: white;
     background-color: orange;
     border: 1px solid orange;
     box-shadow: 4px 4px rgb(144, 94, 0);
@@ -222,7 +227,10 @@ header {
     align-content: center;
 }
 #ShopListUl {
-    margin: 0;
+    border-radius: 10px;
+    width: 90%;
+    border: 1px solid gray;
+    margin: 0 auto;
     padding: 0;
     overflow-y: scroll;
     height: 400px;

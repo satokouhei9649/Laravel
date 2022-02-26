@@ -2931,6 +2931,168 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./resources/js/Info.jsx":
+/*!*******************************!*\
+  !*** ./resources/js/Info.jsx ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Infomation": () => (/* binding */ Infomation)
+/* harmony export */ });
+/* harmony import */ var _components_Header_jsx__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/Header.jsx */ "./resources/js/components/Header.jsx");
+/* harmony import */ var _components_Footer_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Footer.jsx */ "./resources/js/components/Footer.jsx");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+function Infomation() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("section", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("header", {
+      className: "ShoppingHeader",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
+        children: "Food Loss"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_0__.MenuList, {
+        data: "shopping"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_0__.Modal, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Info, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_components_Footer_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {})]
+  });
+}
+
+function Info() {
+  var currentUrl = new URL(location.href);
+  var queryString = currentUrl.searchParams;
+  var receivedParams = [];
+  queryString.forEach(function (value, name) {
+    receivedParams.push({
+      name: name,
+      price: value
+    });
+  });
+  var Input = receivedParams.map(function (el, index) {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+      type: "hidden",
+      name: el.name,
+      value: el.price
+    }, index);
+  });
+  console.log(receivedParams);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("section", {
+    className: "InputInfo",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("h1", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+        className: "fas fa-truck-moving fa-fw"
+      }), "\u914D\u9001\u60C5\u5831\u5165\u529B"]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("form", {
+      action: "/total/order",
+      method: "get",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+        children: "\u540D\u524D"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+        type: "text",
+        name: "name"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+        children: "\u90FD\u9053\u5E9C\u770C"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+        type: "text",
+        name: "prefec"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+        children: "\u5E02\u753A\u6751"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+        type: "text",
+        name: "munici"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+        children: "\u4F4F\u6240 \u203B\u5168\u89D2\u3067\u5165\u529B\u3057\u3066\u304F\u3060\u3055\u3044"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+        type: "text",
+        name: "address"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+        children: "\u96FB\u8A71\u756A\u53F7"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+        type: "text",
+        name: "phoneNumber"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+        children: "\u652F\u6255\u3044\u65B9\u6CD5"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("select", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+          children: "\u30B3\u30F3\u30D3\u30CB\u524D\u6255\u3044"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+          children: "\u30AF\u30EC\u30B8\u30C3\u30C8\u30AB\u30FC\u30C9"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+          children: "\u5F8C\u6255\u3044"
+        })]
+      }), Input, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+        type: "submit",
+        value: "\u78BA\u8A8D\u753B\u9762\u3078"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
+      to: "/" // onClick={(e) => {
+      //    e.preventDefault();
+      //    if(!confirm('入力が無効になりますがよろしいですか？')) {
+      //     return;
+      //    }
+      // } }
+      ,
+      className: "BackBtn",
+      children: "\u623B\u308B"
+    })]
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/Order.jsx":
+/*!********************************!*\
+  !*** ./resources/js/Order.jsx ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Order": () => (/* binding */ Order)
+/* harmony export */ });
+/* harmony import */ var _components_Header_jsx__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/Header.jsx */ "./resources/js/components/Header.jsx");
+/* harmony import */ var _components_Footer_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Footer.jsx */ "./resources/js/components/Footer.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+function Order() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("section", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("header", {
+      className: "ShoppingHeader",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
+        children: "Food Loss"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_0__.MenuList, {
+        data: "shopping"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Confirm, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_0__.Modal, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_components_Footer_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {})]
+  });
+}
+
+function Confirm() {
+  var currentUrl = new URL(location.href);
+  var queryString = currentUrl.searchParams;
+  var receivedParams = {};
+  queryString.forEach(function (value, name) {
+    receivedParams[name] = value;
+  });
+  console.log(receivedParams);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
+    children: receivedParams.name
+  });
+}
+
+/***/ }),
+
 /***/ "./resources/js/React.jsx":
 /*!********************************!*\
   !*** ./resources/js/React.jsx ***!
@@ -2943,6 +3105,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "Index": () => (/* binding */ Index),
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
 /* harmony export */   "GotoCart": () => (/* binding */ GotoCart),
+/* harmony export */   "Remove": () => (/* binding */ Remove),
 /* harmony export */   "Reflesh": () => (/* binding */ Reflesh)
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
@@ -3398,13 +3561,11 @@ var GotoCart = function GotoCart(e) {
   list.appendChild(input);
   list.appendChild(DeleteBtn); // カゴから商品を削除
 
-  DeleteBtn.onclick = function (event) {
-    var deleBtn = event.target;
-    var TargetLi = deleBtn.parentNode;
-    deleBtn.remove();
-    TargetLi.remove();
-    return;
-  };
+  DeleteBtn.onclick = Remove;
+};
+var Remove = function Remove(e) {
+  var TargetLi = e.target.parentNode;
+  TargetLi.remove();
 };
 var Reflesh = function Reflesh() {
   var InsertTarget = document.getElementById('Search');
@@ -3639,10 +3800,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "Shopping": () => (/* binding */ Shopping)
 /* harmony export */ });
 /* harmony import */ var _components_Header_jsx__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/Header.jsx */ "./resources/js/components/Header.jsx");
-/* harmony import */ var _components_Signup_Login_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Signup_Login.jsx */ "./resources/js/components/Signup_Login.jsx");
-/* harmony import */ var _components_Footer_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Footer.jsx */ "./resources/js/components/Footer.jsx");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _components_Footer_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Footer.jsx */ "./resources/js/components/Footer.jsx");
+/* harmony import */ var _components_Signup_Login_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Signup_Login.jsx */ "./resources/js/components/Signup_Login.jsx");
+/* harmony import */ var _React_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./React.jsx */ "./resources/js/React.jsx");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -3671,6 +3834,8 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
+
 var Shopping = /*#__PURE__*/function (_React$Component) {
   _inherits(Shopping, _React$Component);
 
@@ -3685,23 +3850,24 @@ var Shopping = /*#__PURE__*/function (_React$Component) {
   _createClass(Shopping, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("header", {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("header", {
           className: "ShoppingHeader",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_0__.MenuList, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h2", {
+            children: "Food Loss"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_0__.MenuList, {
             data: "shopping"
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_0__.Modal, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Signup_Login_jsx__WEBPACK_IMPORTED_MODULE_1__.SignUP, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Signup_Login_jsx__WEBPACK_IMPORTED_MODULE_1__.LoginForm, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(ShoppingTotal, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Footer_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {})]
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_0__.Modal, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Signup_Login_jsx__WEBPACK_IMPORTED_MODULE_2__.SignUP, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Signup_Login_jsx__WEBPACK_IMPORTED_MODULE_2__.LoginForm, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(ShoppingTotal, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Footer_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {})]
       });
     }
   }]);
 
   return Shopping;
-}(react__WEBPACK_IMPORTED_MODULE_3__.Component);
+}(react__WEBPACK_IMPORTED_MODULE_4__.Component);
 
 function ShoppingTotal() {
-  var currentUrl = new URL(location.href); //URLSearchParamsオブジェクトを取得
-
+  var currentUrl = new URL(location.href);
   var queryString = currentUrl.searchParams;
   var receivedParams = [];
   queryString.forEach(function (value, name) {
@@ -3710,14 +3876,52 @@ function ShoppingTotal() {
       price: value
     });
   });
+  var total = 0;
   var Total = receivedParams.map(function (el, index) {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {
-      children: [el.name, "  \xA5", el.price]
+    if (el.name == 'token') {
+      return;
+    } // 合計金額算出
+
+
+    total = total + Number(el.price);
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("li", {
+      className: "shoppingList total",
+      children: [el.name, " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("br", {}), " \xA5 ", el.price, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
+        type: "hidden",
+        name: el.name,
+        value: el.price
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
+        className: "DeleteBtn",
+        onClick: _React_jsx__WEBPACK_IMPORTED_MODULE_3__.Remove,
+        children: "[X]"
+      })]
     }, index);
   });
   console.log(receivedParams);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-    children: Total
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+    className: "ShoppingOrder",
+    children: [Total.length >= 2 ? '' : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+      className: "message",
+      children: "\u4F55\u3082\u5165\u3063\u3066\u3044\u307E\u305B\u3093"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("form", {
+      action: "/total/info",
+      method: "get",
+      className: "ShoppingForm",
+      children: [Total, total == 0 ? '' : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("h2", {
+        children: ["\u5408\u8A08\u91D1\u984D \xA5", total, "\u5186", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
+          type: "hidden",
+          name: "price",
+          value: total
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
+        type: "submit",
+        value: "\u4F4F\u6240\u8A18\u5165\u3078"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
+      to: "/",
+      className: "BackBtn",
+      children: "\u623B\u308B"
+    })]
   });
 }
 
@@ -3893,6 +4097,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
@@ -4180,21 +4385,8 @@ function ShoppingCart(props) {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("form", {
       action: "/total",
       method: "get",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("ul", {
-        id: "ShopListUl",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
-          type: "hidden",
-          value: "1000",
-          name: "\u8C5A\u8089A"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
-          type: "hidden",
-          value: "going",
-          name: "gone"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
-          type: "hidden",
-          value: "path",
-          name: "python"
-        })]
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("ul", {
+        id: "ShopListUl"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
         type: "submit",
         value: "\u304A\u652F\u6255\u3044\u3078",
@@ -4205,6 +4397,8 @@ function ShoppingCart(props) {
         value: csrf_token
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+      className: "BackBtn",
+      onClick: CloseShop,
       children: "\u623B\u308B"
     })]
   });
@@ -4220,7 +4414,7 @@ function BacKGround(props) {
     children: [props["class"] == "Main" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h1", {
       children: "Food Loss"
     }) : '', props["class"] == "Main" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
-      children: "\u5C11\u3057\u3067\u3082\u3000\u5EC3\u68C4\u51E6\u5206\u3059\u308B\u91CF\u3092\u6E1B\u3089\u305D\u3046"
+      children: "\u5C11\u3057\u3067\u3082    \u5EC3\u68C4\u51E6\u5206\u3059\u308B\u91CF\u3092\u6E1B\u3089\u305D\u3046"
     }) : '']
   });
 }
@@ -4450,12 +4644,16 @@ function LoginForm(props) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
 /* harmony import */ var _components_Example__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Example */ "./resources/js/components/Example.jsx");
 /* harmony import */ var _React_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./React.jsx */ "./resources/js/React.jsx");
 /* harmony import */ var _Shopping_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Shopping.jsx */ "./resources/js/Shopping.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _Info__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Info */ "./resources/js/Info.jsx");
+/* harmony import */ var _Order__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Order */ "./resources/js/Order.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
 
 
 
@@ -4466,24 +4664,30 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function App() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Routes, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Routes, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
         path: "/example",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Example__WEBPACK_IMPORTED_MODULE_2__["default"], {})
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_Example__WEBPACK_IMPORTED_MODULE_2__["default"], {})
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
         path: "/",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_React_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {})
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_React_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {})
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
         path: "/total",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Shopping_jsx__WEBPACK_IMPORTED_MODULE_4__.Shopping, {})
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Shopping_jsx__WEBPACK_IMPORTED_MODULE_4__.Shopping, {})
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
+        path: "/total/info",
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Info__WEBPACK_IMPORTED_MODULE_5__.Infomation, {})
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
+        path: "/total/order",
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Order__WEBPACK_IMPORTED_MODULE_6__.Order, {})
       })]
     })
   });
 }
 
-react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.BrowserRouter, {
-  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(App, {})
+react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.BrowserRouter, {
+  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(App, {})
 }), document.getElementById('app'));
 
 /***/ }),

@@ -1,0 +1,11 @@
+.ShoppingOrder {
+    background-color: white;
+    height: 80%;
+}
+.total {
+    font-size: 24px;
+}
+.message {
+    color: tomato;
+    font-size: 48px;
+}

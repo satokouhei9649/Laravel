@@ -270,14 +270,12 @@ const Slide = () => {
         list.appendChild(input);
         list.appendChild(DeleteBtn);
         // カゴから商品を削除
-        DeleteBtn.onclick = (event) =>{
-            const deleBtn = event.target;
-            const TargetLi = deleBtn.parentNode;
-            deleBtn.remove();
-            TargetLi.remove();
-            return;
-        };
+        DeleteBtn.onclick = Remove;
     }
+  export const Remove = (e) =>{
+        const TargetLi = e.target.parentNode;
+        TargetLi.remove();
+    };
    export const Reflesh = () => {
         const InsertTarget = document.getElementById('Search');
             const Lists = InsertTarget.childNodes;
