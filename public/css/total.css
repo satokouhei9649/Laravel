@@ -1,11 +1,102 @@
+.ShoppingHeader {
+    justify-content: right;
+    align-items: center;
+}
+.ShoppingHeader > h2{
+    margin: 0 auto;
+    font-size: 40px;
+}
+
 .ShoppingOrder {
+    border: 1px solid rgba(128, 128, 128, 0.308);
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    width: 60%;
     background-color: white;
+    margin: 0 auto 40px;
     height: 80%;
+    padding: 48px 12px;
+}
+.BuyState {
+    display: flex;
+    width: 60%;
+    justify-content: center;
+    margin: 80px auto 0;
+    list-style: none;
+    padding: 0;
+}
+.Flow {
+    border: 1px solid rgba(128, 128, 128, 0.308);
+    border-bottom: none;
+    width: 100%;
+    height: 70px;
+    padding: 24px 0;
+    background-color: rgb(82, 82, 82);
+    color: white;
+    border-radius: 10px 10px 0 0;
+}
+.Flow.active {
+    background-color: white;
+    color: rgb(82, 82, 82);
 }
 .total {
-    font-size: 24px;
+    width: 40%;
+}
+.Submit_To_Info,.ToOrderBtn {
+    width: 40%;
+    color: white;
+    margin: 20px auto;
+    background-color: rgb(0, 255, 170);
+    border: 1px solid rgb(0, 255, 170);
+    box-shadow: 2px 2px rgb(39, 136, 103);
+    border-radius: 10px;
+
+}
+.InfoForm > input,.InfoForm > select {
+    width: 50%;
+    text-align: center;
+    border: 1px solid rgba(128, 128, 128, 0.486);
+}
+.InfoForm > input[type="submit"] {
+    width: 40%;
+    border: 1px solid rgb(0, 255, 170);
+}
+.InfoForm > h2 {
+    margin-bottom: 30px;
+}
+.ToOrderBtn {
+    display: block;
 }
 .message {
-    color: tomato;
-    font-size: 48px;
+    color: #ff6347;
+}
+.orderList {
+    width: 60%;
+}
+.Orders {
+    border-radius: 10px;
+    padding: 10px;
+    width: 80%;
+    background-color: white;
+    border: 1px solid rgb(165, 165, 165);
+    box-shadow: 2px 2px rgb(165, 165, 165);
+    margin: 20px auto;
+}
+.OrderInfo {
+    border-radius: 10px;
+    width: 80%;
+    margin: 20px auto;
+    background-color: white;
+    border: 1px solid rgba(128, 128, 128, 0.575);
+}
+.OrderInfo > p {
+    font-size: 24px;
+}
+.Information {
+    display: block;
+    margin: 0 auto;
+    width: 60%;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid rgba(128, 128, 128, 0.575);
 }

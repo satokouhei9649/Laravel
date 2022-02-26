@@ -18,7 +18,8 @@ const AnimationOpen = function() {
  export function Header(props) {
     return(
         <header>
-            <SearchForm route="posts/test" class="search topSearch searchForm searchForm1" />
+            <h2 className='title'>Food loss</h2>
+            <SearchForm route="posts/test" class="searchForm" />
             <MenuList isLogin={props.isLogin}/>
         </header>
     );

@@ -3,13 +3,13 @@ body {
 }
 a:link,a:visited {
     text-decoration: none;
-    color: black;
+    color: white;
 }
-
+/* header css */
 header {
     z-index: 8;
     display: flex;
-    justify-content: space-around;
+    justify-content:flex-start;
     height: 100px;
     background-color: rgb(0, 140, 255);
     color: white;
@@ -18,28 +18,22 @@ header {
     left: 0;
     right: 0;
  }
- .ShoppingHeader {
-    justify-content: right;
+ .title {
+    font-family: 'Courier New', Courier, monospace;
+    align-self: center;
  }
+
  .searchForm {
      display: flex;
      align-items: center;
-     width: 40%;
      margin: 0 auto;
+     width: 30%;
  }
- .search {
-     width: 40%;
-     display: flex;
-     align-content: center;
-     margin: 0 auto;
- }
- .searchForm1{
-     width: 40%;
-    margin-left: 30%;
- }
+
  .searchWord{
      width: 100%;
      border-radius: 10px;
+     margin-right: 5%;
  }
  .submit {
      background-color: white;
@@ -55,16 +49,16 @@ header {
 .list{
     display: flex;
     justify-content: right;
-    width: 15%;
     list-style: none;
- }
+    padding: 0;
+    margin: 0;
+    /* margin-right: 30px; */
+}
  .icon {
-     margin: auto;
-     margin-left: 5%;
-     margin-right: 15%;
+     margin: auto 20px;
  }
 
-/* menulistmodalのcss */
+/* modalのcss */
  #modal {
      display: none;
      background-color: rgba(255, 255, 255, 0.986);
@@ -167,7 +161,7 @@ header {
 }
 .buyBtn {
     display: block;
-    width: 60%;
+    width: 40%;
     margin: 20px auto;
     border-radius: 10px;
     background-color: rgb(22, 22, 175);
@@ -179,11 +173,11 @@ header {
     border-radius: 10px;
     display: inline-block;
     height: 30px;
-    width: 60%;
+    width: 40%;
     color: white;
     background-color: orange;
     border: 1px solid orange;
-    box-shadow: 4px 4px rgb(144, 94, 0);
+    box-shadow: 2px 2px rgb(144, 94, 0);
 }
 .cart.open{
     display: block;
@@ -237,7 +231,15 @@ header {
 }
 .DeleteBtn {
     position: relative;
-    right: -60%;
+    right: -50%;
+    font-size: 2px;
+    width: 30px;
+    height: 30px;
+    align-self: center;
+    background-color: #ff6347;
+    border: 1px #ff6347;
+    color: white;
+    border-radius: 10px;
 }
 
 

@@ -2,7 +2,7 @@ import {BacKGround,ShoppingCart,Modal, SearchForm,Header,MenuList} from './compo
 import Footer from './components/Footer.jsx';
 import {SignUP, LoginForm} from './components/Signup_Login.jsx';
 import {Remove} from './React.jsx';
-import React from 'react';
+import React, { useEffect } from 'react';
 import {Link} from 'react-router-dom';
 export class Shopping extends React.Component{
     constructor(props) {
@@ -11,18 +11,23 @@ export class Shopping extends React.Component{
     render(){
         return(
             <div>
-                <header className='ShoppingHeader'>
-                    <h2>Food Loss</h2>
-                    <MenuList data="shopping" />
-                </header>
-                    <Modal />
-                    <SignUP/>
-                    <LoginForm />
+                <ShoppignHeader />
+                <Modal />
+                <SignUP/>
+                <LoginForm />
                 <ShoppingTotal />
                 <Footer />
             </div>
         );
     }
+}
+ export function ShoppignHeader() {
+    return(
+                <header className='ShoppingHeader'>
+                    <h2 className='title'>Food Loss</h2>
+                    <MenuList data="shopping" />
+                </header>
+        );
 }
 function ShoppingTotal() {
     const currentUrl = new URL(location.href);
@@ -44,19 +49,48 @@ function ShoppingTotal() {
         return(
             <li className="shoppingList total"key={index}>{el.name} <br/> ¥ {el.price}
             <input type='hidden' name={el.name} value={el.price}/>
-            <button className='DeleteBtn' onClick={Remove}>[X]</button></li>
+            <button className='DeleteBtn Delete_Shop' onClick={Remove}>[X]</button></li>
         );
     })
     console.log(receivedParams);
     return(
+        <section>
+            <BuyFLowState state='0'/>
         <div className='ShoppingOrder'>
+            <h1>購入商品確認</h1>
             {Total.length >= 2 ? '': <p className='message'>何も入っていません</p>}
             <form action='/total/info' method='get' className='ShoppingForm'>
+            {/* カゴの中の一覧表示 */}
             {Total}
-            {total == 0 ? '':  <h2>合計金額 ¥{total}円<input type="hidden" name='price' value={total}/></h2>}
-            <input type="submit" value="住所記入へ" />
+            {total == 0 ? '':  <h2>合計金額 ¥{total}円</h2>}
+            {Total.length >= 2 ? <input type="submit" value="住所記入へ"  className='Submit_To_Info'/> : ''}
             </form>
             <Link to="/"className='BackBtn'>戻る</Link>
         </div>
+        </section>
     );
+}
+ export function BuyFLowState (props) {
+     useEffect(() => {
+         const li = document.querySelectorAll('.Flow');
+         switch(props.state) {
+            case '0':
+                li[0].classList.add('active');
+            break;
+            case '1':
+                li[1].classList.add('active');
+            break;
+            case '2':
+                li[2].classList.add('active');
+            break;
+         }
+     },[])
+    return(
+        <ul className='BuyState'>
+            <li className='Flow'>❶ 商品確認</li>
+            <li className='Flow'>❷ 支払い・配送情報入力</li>
+            <li className='Flow'>❸ 購入確認</li>
+        </ul>
+    );
+
 }

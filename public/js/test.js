@@ -2944,8 +2944,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _components_Header_jsx__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/Header.jsx */ "./resources/js/components/Header.jsx");
 /* harmony import */ var _components_Footer_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Footer.jsx */ "./resources/js/components/Footer.jsx");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+/* harmony import */ var _Shopping__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Shopping */ "./resources/js/Shopping.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
@@ -2953,15 +2954,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function Infomation() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("section", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("header", {
-      className: "ShoppingHeader",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
-        children: "Food Loss"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_0__.MenuList, {
-        data: "shopping"
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_0__.Modal, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Info, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_components_Footer_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {})]
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("section", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Shopping__WEBPACK_IMPORTED_MODULE_2__.ShoppignHeader, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_0__.Modal, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Info, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_Footer_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {})]
   });
 }
 
@@ -2976,71 +2970,85 @@ function Info() {
     });
   });
   var Input = receivedParams.map(function (el, index) {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
       type: "hidden",
       name: el.name,
       value: el.price
     }, index);
   });
   console.log(receivedParams);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("section", {
+  var Total = receivedParams;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("section", {
     className: "InputInfo",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("h1", {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
-        className: "fas fa-truck-moving fa-fw"
-      }), "\u914D\u9001\u60C5\u5831\u5165\u529B"]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("form", {
-      action: "/total/order",
-      method: "get",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-        children: "\u540D\u524D"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-        type: "text",
-        name: "name"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-        children: "\u90FD\u9053\u5E9C\u770C"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-        type: "text",
-        name: "prefec"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-        children: "\u5E02\u753A\u6751"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-        type: "text",
-        name: "munici"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-        children: "\u4F4F\u6240 \u203B\u5168\u89D2\u3067\u5165\u529B\u3057\u3066\u304F\u3060\u3055\u3044"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-        type: "text",
-        name: "address"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-        children: "\u96FB\u8A71\u756A\u53F7"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-        type: "text",
-        name: "phoneNumber"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-        children: "\u652F\u6255\u3044\u65B9\u6CD5"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("select", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-          children: "\u30B3\u30F3\u30D3\u30CB\u524D\u6255\u3044"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-          children: "\u30AF\u30EC\u30B8\u30C3\u30C8\u30AB\u30FC\u30C9"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-          children: "\u5F8C\u6255\u3044"
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Shopping__WEBPACK_IMPORTED_MODULE_2__.BuyFLowState, {
+      state: "1"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "ShoppingOrder",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("h1", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
+          className: "fas fa-truck-moving fa-fw"
+        }), "\u914D\u9001\u60C5\u5831\u5165\u529B"]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
+        action: "/total/order",
+        method: "get",
+        className: "InfoForm",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+          children: "\u304A\u540D\u524D"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+          type: "text",
+          name: "\u304A\u540D\u524D"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h2", {
+          children: "\u4F4F\u6240\u5165\u529B"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+          children: "\u90FD\u9053\u5E9C\u770C"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+          type: "text",
+          name: "\u90FD\u9053\u5E9C\u770C"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+          children: "\u5E02\u753A\u6751"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+          type: "text",
+          name: "\u5E02\u753A\u6751"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+          children: "\u4F4F\u6240 \u203B\u5168\u89D2\u3067\u5165\u529B\u3057\u3066\u304F\u3060\u3055\u3044"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+          type: "text",
+          name: "\u4F4F\u6240"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+          children: "\u96FB\u8A71\u756A\u53F7"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+          type: "text",
+          name: "\u96FB\u8A71\u756A\u53F7"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+          children: "\u652F\u6255\u3044\u65B9\u6CD5"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("select", {
+          name: "\u652F\u6255\u3044\u65B9\u6CD5",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+            value: "\u30B3\u30F3\u30D3\u30CB\u524D\u6255\u3044",
+            children: "\u30B3\u30F3\u30D3\u30CB\u524D\u6255\u3044"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+            value: "\u30AF\u30EC\u30B8\u30C3\u30C8\u30AB\u30FC\u30C9",
+            children: "\u30AF\u30EC\u30B8\u30C3\u30C8\u30AB\u30FC\u30C9"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+            value: "\u5F8C\u6255\u3044",
+            children: "\u5F8C\u6255\u3044"
+          })]
+        }), Input, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+          type: "submit",
+          value: "\u78BA\u8A8D\u753B\u9762\u3078",
+          className: "ToOrderBtn"
         })]
-      }), Input, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-        type: "submit",
-        value: "\u78BA\u8A8D\u753B\u9762\u3078"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
+        to: "/" // onClick={(e) => {
+        //    e.preventDefault();
+        //    if(!confirm('入力が無効になりますがよろしいですか？')) {
+        //     return;
+        //    }
+        // } }
+        ,
+        className: "BackBtn",
+        children: "\u623B\u308B"
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
-      to: "/" // onClick={(e) => {
-      //    e.preventDefault();
-      //    if(!confirm('入力が無効になりますがよろしいですか？')) {
-      //     return;
-      //    }
-      // } }
-      ,
-      className: "BackBtn",
-      children: "\u623B\u308B"
     })]
   });
 }
@@ -3060,34 +3068,87 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _components_Header_jsx__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/Header.jsx */ "./resources/js/components/Header.jsx");
 /* harmony import */ var _components_Footer_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Footer.jsx */ "./resources/js/components/Footer.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+/* harmony import */ var _Shopping__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Shopping */ "./resources/js/Shopping.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
 
 
 
 
 function Order() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("section", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("header", {
-      className: "ShoppingHeader",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
-        children: "Food Loss"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_0__.MenuList, {
-        data: "shopping"
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(Confirm, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_0__.Modal, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_components_Footer_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {})]
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("section", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Shopping__WEBPACK_IMPORTED_MODULE_2__.ShoppignHeader, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(Confirm, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_0__.Modal, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_Footer_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {})]
   });
 }
 
 function Confirm() {
   var currentUrl = new URL(location.href);
   var queryString = currentUrl.searchParams;
-  var receivedParams = {};
+  var receivedParams = [];
   queryString.forEach(function (value, name) {
-    receivedParams[name] = value;
+    receivedParams.push({
+      key: name,
+      value: value
+    });
   });
   console.log(receivedParams);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
-    children: receivedParams.name
+  var Infos = receivedParams.slice(0, 6); // 住所の情報
+
+  var Info = Infos.map(function (el, index) {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
+      children: [el.key, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), el.value == '' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+        className: "message Information",
+        children: "\u203B\u672A\u5165\u529B\u3067\u3059"
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+        className: "Information",
+        children: el.value
+      })]
+    }, index);
+  });
+  var total = 0;
+  var Orders = receivedParams.slice(6); // 注文の情報
+
+  var Order = Orders.map(function (el, index) {
+    // 合計金額算出
+    total = total + Number(el.value);
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("li", {
+      className: "shoppingList orderList",
+      children: [el.key, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), "\xA5", el.value, "\u5186"]
+    }, index);
+  });
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("section", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "Order-wrapper",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Shopping__WEBPACK_IMPORTED_MODULE_2__.BuyFLowState, {
+        state: "2"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        className: "ShoppingOrder",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
+          children: "\u78BA\u8A8D\u753B\u9762"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          className: "OrderInfo",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h2", {
+            children: "\u914D\u9001\u60C5\u5831"
+          }), Info]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          className: "Orders",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h2", {
+            children: "\u6CE8\u6587\u3057\u305F\u3082\u306E"
+          }), Order]
+        }), total == 0 ? '' : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("h2", {
+          children: ["\u5408\u8A08\u91D1\u984D \xA5", total, "\u5186"]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+          className: "buyBtn",
+          children: "\u8CFC\u5165\u3059\u308B"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
+          to: "/",
+          className: "BackBtn",
+          children: "\u30AD\u30E3\u30F3\u30BB\u30EB\u3059\u308B"
+        })]
+      })]
+    })
   });
 }
 
@@ -3797,7 +3858,9 @@ function Main(props) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Shopping": () => (/* binding */ Shopping)
+/* harmony export */   "Shopping": () => (/* binding */ Shopping),
+/* harmony export */   "ShoppignHeader": () => (/* binding */ ShoppignHeader),
+/* harmony export */   "BuyFLowState": () => (/* binding */ BuyFLowState)
 /* harmony export */ });
 /* harmony import */ var _components_Header_jsx__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/Header.jsx */ "./resources/js/components/Header.jsx");
 /* harmony import */ var _components_Footer_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Footer.jsx */ "./resources/js/components/Footer.jsx");
@@ -3851,20 +3914,24 @@ var Shopping = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("header", {
-          className: "ShoppingHeader",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h2", {
-            children: "Food Loss"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_0__.MenuList, {
-            data: "shopping"
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_0__.Modal, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Signup_Login_jsx__WEBPACK_IMPORTED_MODULE_2__.SignUP, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Signup_Login_jsx__WEBPACK_IMPORTED_MODULE_2__.LoginForm, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(ShoppingTotal, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Footer_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {})]
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(ShoppignHeader, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_0__.Modal, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Signup_Login_jsx__WEBPACK_IMPORTED_MODULE_2__.SignUP, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Signup_Login_jsx__WEBPACK_IMPORTED_MODULE_2__.LoginForm, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(ShoppingTotal, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Footer_jsx__WEBPACK_IMPORTED_MODULE_1__["default"], {})]
       });
     }
   }]);
 
   return Shopping;
 }(react__WEBPACK_IMPORTED_MODULE_4__.Component);
+function ShoppignHeader() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("header", {
+    className: "ShoppingHeader",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h2", {
+      className: "title",
+      children: "Food Loss"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_0__.MenuList, {
+      data: "shopping"
+    })]
+  });
+}
 
 function ShoppingTotal() {
   var currentUrl = new URL(location.href);
@@ -3891,36 +3958,72 @@ function ShoppingTotal() {
         name: el.name,
         value: el.price
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
-        className: "DeleteBtn",
+        className: "DeleteBtn Delete_Shop",
         onClick: _React_jsx__WEBPACK_IMPORTED_MODULE_3__.Remove,
         children: "[X]"
       })]
     }, index);
   });
   console.log(receivedParams);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-    className: "ShoppingOrder",
-    children: [Total.length >= 2 ? '' : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
-      className: "message",
-      children: "\u4F55\u3082\u5165\u3063\u3066\u3044\u307E\u305B\u3093"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("form", {
-      action: "/total/info",
-      method: "get",
-      className: "ShoppingForm",
-      children: [Total, total == 0 ? '' : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("h2", {
-        children: ["\u5408\u8A08\u91D1\u984D \xA5", total, "\u5186", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
-          type: "hidden",
-          name: "price",
-          value: total
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
-        type: "submit",
-        value: "\u4F4F\u6240\u8A18\u5165\u3078"
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("section", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(BuyFLowState, {
+      state: "0"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+      className: "ShoppingOrder",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h1", {
+        children: "\u8CFC\u5165\u5546\u54C1\u78BA\u8A8D"
+      }), Total.length >= 2 ? '' : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+        className: "message",
+        children: "\u4F55\u3082\u5165\u3063\u3066\u3044\u307E\u305B\u3093"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("form", {
+        action: "/total/info",
+        method: "get",
+        className: "ShoppingForm",
+        children: [Total, total == 0 ? '' : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("h2", {
+          children: ["\u5408\u8A08\u91D1\u984D \xA5", total, "\u5186"]
+        }), Total.length >= 2 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
+          type: "submit",
+          value: "\u4F4F\u6240\u8A18\u5165\u3078",
+          className: "Submit_To_Info"
+        }) : '']
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
+        to: "/",
+        className: "BackBtn",
+        children: "\u623B\u308B"
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
-      to: "/",
-      className: "BackBtn",
-      children: "\u623B\u308B"
+    })]
+  });
+}
+
+function BuyFLowState(props) {
+  (0,react__WEBPACK_IMPORTED_MODULE_4__.useEffect)(function () {
+    var li = document.querySelectorAll('.Flow');
+
+    switch (props.state) {
+      case '0':
+        li[0].classList.add('active');
+        break;
+
+      case '1':
+        li[1].classList.add('active');
+        break;
+
+      case '2':
+        li[2].classList.add('active');
+        break;
+    }
+  }, []);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("ul", {
+    className: "BuyState",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
+      className: "Flow",
+      children: "\u2776 \u5546\u54C1\u78BA\u8A8D"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
+      className: "Flow",
+      children: "\u2777 \u652F\u6255\u3044\u30FB\u914D\u9001\u60C5\u5831\u5165\u529B"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
+      className: "Flow",
+      children: "\u2778 \u8CFC\u5165\u78BA\u8A8D"
     })]
   });
 }
@@ -4121,9 +4224,12 @@ var AnimationClose = function AnimationClose() {
 };
 function Header(props) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("header", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(SearchForm, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
+      className: "title",
+      children: "Food loss"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(SearchForm, {
       route: "posts/test",
-      "class": "search topSearch searchForm searchForm1"
+      "class": "searchForm"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(MenuList, {
       isLogin: props.isLogin
     })]
