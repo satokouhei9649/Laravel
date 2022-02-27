@@ -100,3 +100,10 @@
     border-radius: 10px;
     border: 1px solid rgba(128, 128, 128, 0.575);
 }
+.InfoNumber {
+    font-size: 48px;
+}
+.OrderBack {
+    width: 25%;
+    margin: 0 auto 30px;
+}

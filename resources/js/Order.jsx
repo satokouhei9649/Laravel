@@ -17,11 +17,6 @@ export function Order() {
 
 
 function Confirm () {
-    const [OrderData,setOrderData] = useState({goods: []});
-    useEffect(() => {
-        const li = document.querySelectorAll('.pText');
-
-    },[Info])
     const currentUrl = new URL(location.href);
     const queryString = currentUrl.searchParams;
     const receivedParams = [];
@@ -30,12 +25,29 @@ function Confirm () {
             key: name,
             value: value
         }
-       )
+        )
     });
+    const ShowInfoNumber = (a) => {
+        const target = document.querySelector('.OrderInfo');
+        const targetParent = target.parentNode;
+        targetParent.remove();
+        const div = document.createElement('div');
+        div.classList.add('ShoppingOrder');
+        const h1 = document.createElement('h1');
+        const p1 = document.createElement('p');
+        const p2 = document.createElement('p');
+        h1.textContent = "お問い合わせ番号";
+        p1.textContent = a;
+        p2.textContent = "この番号を大切に控えておいてください";
+        p1.classList.add('InfoNumber');
+        div.appendChild(h1);
+        div.appendChild(p1);
+        div.appendChild(p2);
+        const Wrapper = document.querySelector('.Order-wrapper');
+        Wrapper.append(div);
+    }
+    const [OrderData, setOrderData] = useState({goods: []});
     const RequestOrder = async() => {
-        // let data = Object.assign({}, OrderData);
-        // setOrderData(data);
-        console.log(OrderData);
         //入力値を投げる
         axios.post('/api/total/order',{
             name: OrderData.name,
@@ -46,9 +58,11 @@ function Confirm () {
             method: OrderData.method,
             goods: OrderData.goods,
         })
-        .then(response => {
-            console.log(response.data);
+        .then(res => {
+            console.log(res.data);
             setOrderData({goods: []});
+            console.log(OrderData);
+            ShowInfoNumber(res.data);
         })
         .catch(error => {
             console.log(error);
@@ -78,9 +92,6 @@ function Confirm () {
                 OrderData.method = el.value;
             break;
          }
-        // const pros = el.key;
-        // OrderData[pros] = el.value;
-        console.log(OrderData);
         return(
           <p key={index}>{el.key}<br/>
           {el.value == '' ? <span className='message Information'>※未入力です</span>: <span className="Information">{el.value}</span>}
@@ -116,10 +127,10 @@ function Confirm () {
                         {Order}
                     </div>
                     {total == 0 ? '':  <h2>合計金額 ¥{total}円</h2>}
-                    <button className='buyBtn' onClick={RequestOrder}>購入する</button>
-                    <Link to='/' className='BackBtn'>キャンセルする</Link>
+                <button className='buyBtn' onClick={RequestOrder}>購入する</button>
                 </div>
             </div>
+                <Link to='/' className='BackBtn OrderBack'>戻る</Link>
         </section>
     );
 }

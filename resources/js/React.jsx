@@ -276,13 +276,17 @@ const Slide = () => {
         const TargetLi = e.target.parentNode;
         TargetLi.remove();
     };
-   export const Reflesh = () => {
-        const InsertTarget = document.getElementById('Search');
-            const Lists = InsertTarget.childNodes;
-            Lists.forEach(el => {
-                el.remove();
-            });
-    }
+//    export const Reflesh = () => {
+//         const Target = document.querySelector('.Results-wrapper');
+//             Target.remove();
+//     }
+//    export const Reflesh = () => {
+//         const InsertTarget = document.getElementById('Search');
+//             const Lists = InsertTarget.childNodes;
+//             Lists.forEach(el => {
+//                 el.remove();
+//             });
+//     }
     // タブメニュー
     const CreateTab = function(Array1,Array2) {
         Array1.forEach(el => {
@@ -300,7 +304,7 @@ const Slide = () => {
         });
        }
 
-    
+
     function FoodSection() {
         const [RequestData, setData] = useState({name: ''});
         const [ResultsData, resData] = useState([]);
@@ -310,7 +314,7 @@ const Slide = () => {
             CreateTab(menuIcons,menuContents);
         })
         useEffect(() => {
-            Reflesh();
+            // Reflesh();
         },[ResultsData])
         // 検索
         const search = async(word) => {
@@ -342,7 +346,7 @@ const Slide = () => {
         const foodsection = titles.map((props,index) =>{
             const Lists = props.lists.map(list => {
                     return (
-                            <li key={list}><a href='#Search' onClick={() => {search(list)}}>{list}</a></li>
+                            <li key={list}><a href='#SearchList' onClick={() => {search(list)}}>{list}</a></li>
                     );
                 })
                 return(
@@ -356,25 +360,27 @@ const Slide = () => {
         });
 
         return(
-            <div>
-                {foodsection}
-                <div id="Search"></div>
-                    {(() => {
-                        if (RequestData == []) {
-                            return;
-                        }
-                        const result = ResultsData.map(result => {
-                            return(
-                                <div className='SearchResults' key={result.name}>
-                                    <h1>{result.name}</h1>
-                                    <p>{result.explain}</p>
-                                    <p>¥ {result.praice}円</p>
-                                    <button className='ResToCart' name={result.name} value={result.praice} onClick={GotoCart}>カートに入れる</button>
-                                </div>
-                            );
-                        })
-                        return result;
-                    })()}
+            <div id='Search'>
+            {foodsection}
+                <div id="SearchList"></div>
+                    <div className='Results-wrapper'>
+                        {(() => {
+                            if (RequestData == []) {
+                                return;
+                            }
+                            const result = ResultsData.map(result => {
+                                return(
+                                    <div className='SearchResults' key={result.name}>
+                                        <h1>{result.name}</h1>
+                                        <p>{result.explain}</p>
+                                        <p>¥ {result.praice}円</p>
+                                        <button className='ResToCart' name={result.name} value={result.praice} onClick={GotoCart}>カートに入れる</button>
+                                    </div>
+                                );
+                            })
+                            return result;
+                        })()}
+                    </div>
             </div>
         );
     }

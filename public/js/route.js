@@ -3109,16 +3109,6 @@ function Order() {
 }
 
 function Confirm() {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_4__.useState)({
-    goods: []
-  }),
-      _useState2 = _slicedToArray(_useState, 2),
-      OrderData = _useState2[0],
-      setOrderData = _useState2[1];
-
-  (0,react__WEBPACK_IMPORTED_MODULE_4__.useEffect)(function () {
-    var li = document.querySelectorAll('.pText');
-  }, [Info]);
   var currentUrl = new URL(location.href);
   var queryString = currentUrl.searchParams;
   var receivedParams = [];
@@ -3129,16 +3119,40 @@ function Confirm() {
     });
   });
 
+  var ShowInfoNumber = function ShowInfoNumber(a) {
+    var target = document.querySelector('.OrderInfo');
+    var targetParent = target.parentNode;
+    targetParent.remove();
+    var div = document.createElement('div');
+    div.classList.add('ShoppingOrder');
+    var h1 = document.createElement('h1');
+    var p1 = document.createElement('p');
+    var p2 = document.createElement('p');
+    h1.textContent = "お問い合わせ番号";
+    p1.textContent = a;
+    p2.textContent = "この番号を大切に控えておいてください";
+    p1.classList.add('InfoNumber');
+    div.appendChild(h1);
+    div.appendChild(p1);
+    div.appendChild(p2);
+    var Wrapper = document.querySelector('.Order-wrapper');
+    Wrapper.append(div);
+  };
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_4__.useState)({
+    goods: []
+  }),
+      _useState2 = _slicedToArray(_useState, 2),
+      OrderData = _useState2[0],
+      setOrderData = _useState2[1];
+
   var RequestOrder = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              // let data = Object.assign({}, OrderData);
-              // setOrderData(data);
-              console.log(OrderData); //入力値を投げる
-
+              //入力値を投げる
               axios__WEBPACK_IMPORTED_MODULE_5___default().post('/api/total/order', {
                 name: OrderData.name,
                 prefectures: OrderData.prefectures,
@@ -3147,16 +3161,18 @@ function Confirm() {
                 phoneNumber: OrderData.phoneNumber,
                 method: OrderData.method,
                 goods: OrderData.goods
-              }).then(function (response) {
-                console.log(response.data);
+              }).then(function (res) {
+                console.log(res.data);
                 setOrderData({
                   goods: []
                 });
+                console.log(OrderData);
+                ShowInfoNumber(res.data);
               })["catch"](function (error) {
                 console.log(error);
               });
 
-            case 2:
+            case 1:
             case "end":
               return _context.stop();
           }
@@ -3196,11 +3212,8 @@ function Confirm() {
       case '支払い方法':
         OrderData.method = el.value;
         break;
-    } // const pros = el.key;
-    // OrderData[pros] = el.value;
+    }
 
-
-    console.log(OrderData);
     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
       children: [el.key, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), el.value == '' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
         className: "message Information",
@@ -3224,8 +3237,8 @@ function Confirm() {
       children: [el.key, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("br", {}), "\xA5", el.value, "\u5186"]
     }, index);
   });
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("section", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("section", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
       className: "Order-wrapper",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Shopping__WEBPACK_IMPORTED_MODULE_3__.BuyFLowState, {
         state: "2"
@@ -3249,13 +3262,13 @@ function Confirm() {
           className: "buyBtn",
           onClick: RequestOrder,
           children: "\u8CFC\u5165\u3059\u308B"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
-          to: "/",
-          className: "BackBtn",
-          children: "\u30AD\u30E3\u30F3\u30BB\u30EB\u3059\u308B"
         })]
       })]
-    })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
+      to: "/",
+      className: "BackBtn OrderBack",
+      children: "\u623B\u308B"
+    })]
   });
 }
 
@@ -3273,8 +3286,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "Index": () => (/* binding */ Index),
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
 /* harmony export */   "GotoCart": () => (/* binding */ GotoCart),
-/* harmony export */   "Remove": () => (/* binding */ Remove),
-/* harmony export */   "Reflesh": () => (/* binding */ Reflesh)
+/* harmony export */   "Remove": () => (/* binding */ Remove)
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
@@ -3734,14 +3746,18 @@ var GotoCart = function GotoCart(e) {
 var Remove = function Remove(e) {
   var TargetLi = e.target.parentNode;
   TargetLi.remove();
-};
-var Reflesh = function Reflesh() {
-  var InsertTarget = document.getElementById('Search');
-  var Lists = InsertTarget.childNodes;
-  Lists.forEach(function (el) {
-    el.remove();
-  });
-}; // タブメニュー
+}; //    export const Reflesh = () => {
+//         const Target = document.querySelector('.Results-wrapper');
+//             Target.remove();
+//     }
+//    export const Reflesh = () => {
+//         const InsertTarget = document.getElementById('Search');
+//             const Lists = InsertTarget.childNodes;
+//             Lists.forEach(el => {
+//                 el.remove();
+//             });
+//     }
+// タブメニュー
 
 var CreateTab = function CreateTab(Array1, Array2) {
   Array1.forEach(function (el) {
@@ -3777,8 +3793,7 @@ function FoodSection() {
     var menuContents = document.querySelectorAll('.content');
     CreateTab(menuIcons, menuContents);
   });
-  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
-    Reflesh();
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {// Reflesh();
   }, [ResultsData]); // 検索
 
   var search = /*#__PURE__*/function () {
@@ -3854,7 +3869,7 @@ function FoodSection() {
     var Lists = props.lists.map(function (list) {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("li", {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("a", {
-          href: "#Search",
+          href: "#SearchList",
           onClick: function onClick() {
             search(list);
           },
@@ -3877,33 +3892,37 @@ function FoodSection() {
     }, index);
   });
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+    id: "Search",
     children: [foodsection, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-      id: "Search"
-    }), function () {
-      if (RequestData == []) {
-        return;
-      }
+      id: "SearchList"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+      className: "Results-wrapper",
+      children: function () {
+        if (RequestData == []) {
+          return;
+        }
 
-      var result = ResultsData.map(function (result) {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-          className: "SearchResults",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h1", {
-            children: result.name
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
-            children: result.explain
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
-            children: ["\xA5 ", result.praice, "\u5186"]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
-            className: "ResToCart",
-            name: result.name,
-            value: result.praice,
-            onClick: GotoCart,
-            children: "\u30AB\u30FC\u30C8\u306B\u5165\u308C\u308B"
-          })]
-        }, result.name);
-      });
-      return result;
-    }()]
+        var result = ResultsData.map(function (result) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+            className: "SearchResults",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h1", {
+              children: result.name
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
+              children: result.explain
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
+              children: ["\xA5 ", result.praice, "\u5186"]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
+              className: "ResToCart",
+              name: result.name,
+              value: result.praice,
+              onClick: GotoCart,
+              children: "\u30AB\u30FC\u30C8\u306B\u5165\u308C\u308B"
+            })]
+          }, result.name);
+        });
+        return result;
+      }()
+    })]
   });
 } // function Test() {
 //     const [TestData, setTestData] = useState([]);
@@ -4288,8 +4307,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _React__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../React */ "./resources/js/React.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -4310,7 +4328,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-
+ // import {Reflesh} from '../React';
 
 
 
@@ -4330,14 +4348,14 @@ var AnimationClose = function AnimationClose() {
   }
 };
 function Header(props) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("header", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("header", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h2", {
       className: "title",
       children: "Food loss"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(SearchForm, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(SearchForm, {
       route: "posts/test",
       "class": "searchForm"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(MenuList, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(MenuList, {
       isLogin: props.isLogin
     })]
   });
@@ -4416,15 +4434,23 @@ function SearchForm(props) {
       return;
     }
 
-    (0,_React__WEBPACK_IMPORTED_MODULE_3__.Reflesh)();
-    var CategoryResults = document.querySelectorAll('.SearchResults');
-    console.log(CategoryResults);
-    CategoryResults.forEach(function (el) {
-      el.remove();
-    }); // 結果表示
+    var InsertTarget = document.getElementById('SearchList'); // Reflesh();
+    // const CategoryResults = document.querySelectorAll('.SearchResults');
+    // console.log(CategoryResults);
+    // CategoryResults.forEach(el => {
+    //     el.remove();
+    // });
+
+    var targets = InsertTarget.childNodes;
+
+    if (!targets.length == 0) {
+      targets.forEach(function (el) {
+        el.remove();
+      });
+    } // 結果表示
+
 
     ResData.forEach(function (el) {
-      var InsertTarget = document.getElementById('Search');
       var div = document.createElement('div');
       var h1 = document.createElement('h1');
       var explain = document.createElement('p');
@@ -4444,16 +4470,16 @@ function SearchForm(props) {
     });
   };
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("form", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
     className: props["class"],
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
       type: "text",
       name: "keyword",
       value: KeyWord.keyword,
       onChange: inputChange,
       placeholder: "\u3053\u3053\u306B\u5165\u529B",
       className: "searchWord"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
       className: "submit",
       onClick: function onClick() {
         Keysearch();
@@ -4513,31 +4539,31 @@ var CloseShop = function CloseShop() {
 
 
 function MenuList(props) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("ul", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("ul", {
     className: "list",
-    children: [props.isLogin == true ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
+    children: [props.isLogin == true ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
       className: "icon",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
         id: "user",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
           className: "fas fa-user fa-2x"
         })
       })
-    }) : '', props.data == 'shopping' ? '' : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
+    }) : '', props.data == 'shopping' ? '' : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
       className: "icon",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
         id: "shoppingCart",
         onClick: OpenShop,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
           className: "fas fa-shopping-cart fa-2x "
         })
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
       className: "icon",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
         id: "menu",
         onClick: OpenModal,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
           className: "fas fa-bars fa-2x"
         })
       })
@@ -4546,39 +4572,39 @@ function MenuList(props) {
 } // モーダル
 
 function Modal(props) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("section", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("section", {
     id: "modal",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
       id: "close",
       onClick: CloseModal,
       children: "\u2716\uFE0F"
-    }), props.isLogin == false ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
+    }), props.isLogin == false ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h3", {
       children: "\u65B0\u898F\u767B\u9332\u30FB\u30ED\u30B0\u30A4\u30F3"
-    }) : '', props.isLogin == false ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
+    }) : '', props.isLogin == false ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
         id: "signupFormBtn",
         onClick: OpenSignUP,
         children: "\u65B0\u898F\u767B\u9332"
       })
-    }) : '', props.isLogin == false ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
+    }) : '', props.isLogin == false ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
         id: "ToLogin",
         onClick: OpenLogin,
         children: "\u30ED\u30B0\u30A4\u30F3"
       })
-    }) : '', props.isLogin == false ? '' : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
+    }) : '', props.isLogin == false ? '' : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
         onClick: props.Logout,
         children: "\u30ED\u30B0\u30A2\u30A6\u30C8"
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h3", {
       children: "\u304A\u8CB7\u3044\u7269"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
         children: "\u30B8\u30E3\u30F3\u30EB\u3067\u63A2\u3059"
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
         children: "\u5024\u6BB5\u3067\u63A2\u3059"
       })
     })]
@@ -4586,30 +4612,30 @@ function Modal(props) {
 } // 買い物カゴ
 
 function ShoppingCart(props) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
     className: "cart",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("h2", {
-      children: ["\u304A\u8CB7\u3044\u7269\u30AB\u30B4\u306B\u3042\u308B\u5546\u54C1", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("h2", {
+      children: ["\u304A\u8CB7\u3044\u7269\u30AB\u30B4\u306B\u3042\u308B\u5546\u54C1", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
         href: "#",
         id: "shopBack",
         onClick: CloseShop,
         children: "\u2716\uFE0F"
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("form", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
       action: "/total",
       method: "get",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("ul", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("ul", {
         id: "ShopListUl"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
         type: "submit",
         value: "\u304A\u652F\u6255\u3044\u3078",
         className: "buyBtn"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
         type: "hidden",
         name: "token",
         value: csrf_token
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
       className: "BackBtn",
       onClick: CloseShop,
       children: "\u623B\u308B"
@@ -4618,15 +4644,15 @@ function ShoppingCart(props) {
 } // 背景
 
 function BacKGround(props) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
     className: props["class"],
     onClick: function onClick() {
       var backGround = document.querySelector('.background');
       AnimationClose(backGround);
     },
-    children: [props["class"] == "Main" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h1", {
+    children: [props["class"] == "Main" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
       children: "Food Loss"
-    }) : '', props["class"] == "Main" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+    }) : '', props["class"] == "Main" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
       children: "\u5C11\u3057\u3067\u3082    \u5EC3\u68C4\u51E6\u5206\u3059\u308B\u91CF\u3092\u6E1B\u3089\u305D\u3046"
     }) : '']
   });

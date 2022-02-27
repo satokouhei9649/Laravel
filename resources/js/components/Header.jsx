@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
-import {Reflesh} from '../React';
+// import {Reflesh} from '../React';
 let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
 const AnimationOpen = function() {
     for(let i=0; i < arguments.length; i++) {
@@ -62,18 +62,24 @@ const AnimationOpen = function() {
             }
             // 検索結果表示
             const CreateResults = () => {
-                    if (ResData == []) {
-                        return;
+                if (ResData == []) {
+                    return;
+                }
+                const InsertTarget = document.getElementById('SearchList');
+                    // Reflesh();
+                    // const CategoryResults = document.querySelectorAll('.SearchResults');
+                    // console.log(CategoryResults);
+                    // CategoryResults.forEach(el => {
+                    //     el.remove();
+                    // });
+                    const targets = InsertTarget.childNodes;
+                    if ((!targets.length == 0)) {
+                        targets.forEach(el => {
+                            el.remove();
+                        })
                     }
-                    Reflesh();
-                    const CategoryResults = document.querySelectorAll('.SearchResults');
-                    console.log(CategoryResults);
-                    CategoryResults.forEach(el => {
-                        el.remove();
-                    });
                     // 結果表示
                 ResData.forEach(el =>{
-                    const InsertTarget = document.getElementById('Search');
                     const div = document.createElement('div');
                     const h1 = document.createElement('h1');
                     const explain = document.createElement('p');
