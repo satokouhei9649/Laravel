@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTotalTable extends Migration
+class CreateOrdersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,16 @@ class CreateTotalTable extends Migration
      */
     public function up()
     {
-        Schema::create('total', function (Blueprint $table) {
+        Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id')->nullable();
-            $table->text('name');
-            $table->integer('price');
+            $table->string('name');
+            $table->string('prefectures');
+            $table->string('municipality');
+            $table->string('address');
+            $table->string('phone number');
+            $table->string('method');
             $table->integer('InfoNumber');
-            $table->integer('Info');
             $table->timestamps();
         });
     }
@@ -31,6 +34,6 @@ class CreateTotalTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('total');
+        Schema::dropIfExists('orders');
     }
 }
