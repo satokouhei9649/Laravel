@@ -19,6 +19,7 @@ Route::group(['middleware' => 'api'], function () {
  Route::post('food/category', 'App\Http\Controllers\Api\FoodController@category');
  Route::post('users/create', 'App\Http\Controllers\Api\UserController@create');
  Route::post('users/login', 'App\Http\Controllers\Api\UserController@login');
+ Route::post('total/order', 'App\Http\Controllers\Api\OrderController@order');
 });
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     return $request->user();

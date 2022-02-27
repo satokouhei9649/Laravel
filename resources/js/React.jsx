@@ -299,6 +299,8 @@ const Slide = () => {
             });
         });
        }
+
+    
     function FoodSection() {
         const [RequestData, setData] = useState({name: ''});
         const [ResultsData, resData] = useState([]);

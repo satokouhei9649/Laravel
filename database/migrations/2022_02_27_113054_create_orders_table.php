@@ -20,7 +20,7 @@ class CreateOrdersTable extends Migration
             $table->string('prefectures');
             $table->string('municipality');
             $table->string('address');
-            $table->string('phone number');
+            $table->string('phoneNumber');
             $table->string('method');
             $table->integer('InfoNumber');
             $table->timestamps();
