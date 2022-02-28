@@ -82,9 +82,30 @@ import {AnimationClose} from './components/Header.jsx';
                     user={this.state}
                     inputChange={this.inputChange}
                     />} />
-                    <Route path='/total' element={<Shopping />} />
-                    <Route path='/total/info' element={<Infomation />} />
-                    <Route path='/total/order' element={<Order />} />
+                    <Route path='/total' element={
+                    <Shopping
+                     isLogin={this.state.isLogin}
+                     Logout={this.Logout}
+                     Login={this.isLogin}
+                     user={this.state}
+                     inputChange={this.inputChange}
+                    />} />
+                    <Route path='/total/info' element={
+                    <Infomation
+                    isLogin={this.state.isLogin}
+                    Logout={this.Logout}
+                    Login={this.isLogin}
+                    user={this.state}
+                    inputChange={this.inputChange}
+                    />} />
+                    <Route path='/total/order' element={
+                    <Order
+                    isLogin={this.state.isLogin}
+                    Logout={this.Logout}
+                    Login={this.isLogin}
+                    user={this.state}
+                    inputChange={this.inputChange}
+                    />} />
                 </Routes>
             </div>
         );

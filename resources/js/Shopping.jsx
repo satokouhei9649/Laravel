@@ -4,28 +4,23 @@ import {SignUP, LoginForm} from './components/Signup_Login.jsx';
 import {Remove} from './React.jsx';
 import React, { useEffect } from 'react';
 import {Link} from 'react-router-dom';
-export class Shopping extends React.Component{
-    constructor(props) {
-        super(props);
-    }
-    render(){
+export function Shopping(props){
         return(
             <div>
-                <ShoppignHeader />
-                <Modal />
-                <SignUP/>
-                <LoginForm />
+                <ShoppignHeader isLogin={props.isLogin}/>
+                <Modal isLogin={props.isLogin} Logout={props.Logout}/>
+                {props.isLogin == false ? <SignUP/> : ''}
+                {props.isLogin == false ? <LoginForm user={props.user} Login={props.Login} inputChange={props.inputChange} />: ''}
                 <ShoppingTotal />
                 <Footer />
             </div>
         );
-    }
 }
- export function ShoppignHeader() {
+ export function ShoppignHeader(props) {
     return(
                 <header className='ShoppingHeader'>
                     <h2 className='title'>Food Loss</h2>
-                    <MenuList data="shopping" />
+                    <MenuList data="shopping"  isLogin={props.isLogin}/>
                 </header>
         );
 }

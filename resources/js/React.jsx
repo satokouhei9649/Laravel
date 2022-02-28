@@ -6,63 +6,6 @@ import {SignUP,LoginForm} from './components/Signup_Login.jsx';
 import {BacKGround,ShoppingCart,Modal,Header,AnimationClose} from './components/Header.jsx';
     let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
      export function Index (props) {
-    //   constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         userName: '',
-    //         userEmail: '',
-    //         userPassword: '',
-    //         isLogin: false
-    //     }
-    //     console.log(this.state);
-    //     this.isLogin = this.isLogin.bind(this);
-    //     this.inputChange = this.inputChange.bind(this);
-    //     this.Logout = this.Logout.bind(this);
-    // }
-    // ログイン機能
-    // isLogin() {
-    //     console.log(this.state);
-    //     axios
-    //     .post('/api/users/login', {
-    //         userEmail: this.state.userEmail,
-    //         userPassword: this.state.userPassword,
-    //     })
-    //     .then((res) => {
-    //         console.log(res.data);
-    //         this.setState({
-    //             userName: res.data[0].userName,
-    //             userEmail: res.data[0].userEmail,
-    //             userPassword: res.data[0].userPassword,
-    //             isLogin: true});
-    //     })
-    //     .catch(error => {
-    //         console.log(error);
-    //     });
-    //     const modal = document.getElementById('modal');
-    //     const backGround = document.querySelector('.background');
-    //     AnimationClose(modal,backGround);
-    // }
-    // // ログアウト
-    // Logout() {
-    //     this.setState({
-    //         userName: '',
-    //         userEmail: '',
-    //         userPassword: '',
-    //         isLogin: false
-    //     });
-    //     const modal = document.getElementById('modal');
-    //     modal.classList.remove('open');
-    //     console.log(this.state);
-    // }
-    // inputChange = (e) => {
-    //     const key = e.target.name;
-    //     const word = e.target.value;
-    //     this.setState(prevState => {
-    //         prevState[key] = word;
-    //     });
-    //     console.log(this.state);
-    // }
-    //   render() {
         return (
             <div>
                 <Header isLogin={props.isLogin}/>

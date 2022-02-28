@@ -1,15 +1,18 @@
 import {BacKGround,ShoppingCart,Modal, SearchForm,Header,MenuList} from './components/Header.jsx';
+import {SignUP,LoginForm} from './components/Signup_Login';
 import Footer from './components/Footer.jsx';
 import {Link} from 'react-router-dom';
 import {ShoppignHeader,BuyFLowState} from './Shopping';
 import { useState,useEffect } from 'react';
 import axios from 'axios';
-export function Order() {
+export function Order(props) {
     return(
         <section>
-            <ShoppignHeader />
+           <ShoppignHeader isLogin={props.isLogin}/>
+            <Modal isLogin={props.isLogin} Logout={props.Logout}/>
+            {props.isLogin == false ? <SignUP/> : ''}
+            {props.isLogin == false ? <LoginForm user={props.user} Login={props.Login} inputChange={props.inputChange} />: ''}
             <Confirm />
-            <Modal />
             <Footer />
         </section>
     );

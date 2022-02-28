@@ -1,13 +1,16 @@
 import {BacKGround,ShoppingCart,Modal, SearchForm,Header,MenuList} from './components/Header.jsx';
+import {SignUP,LoginForm} from './components/Signup_Login';
 import Footer from './components/Footer.jsx';
 import {Link} from 'react-router-dom';
 import {ShoppignHeader,BuyFLowState} from './Shopping';
 
- export function Infomation() {
+ export function Infomation(props) {
     return(
         <section>
-            <ShoppignHeader />
-            <Modal />
+            <ShoppignHeader isLogin={props.isLogin}/>
+            <Modal isLogin={props.isLogin} Logout={props.Logout}/>
+            {props.isLogin == false ? <SignUP/> : ''}
+            {props.isLogin == false ? <LoginForm user={props.user} Login={props.Login} inputChange={props.inputChange} />: ''}
             <Info />
             <Footer />
         </section>
