@@ -57,7 +57,56 @@ header {
  .icon {
      margin: auto 20px;
  }
+/* InfoNumberのcss */
+.InfoNumberForm.open {
+    display: block;
+}
 
+.InfoNumberForm {
+    display: none;
+    height: 90%;
+    padding: 20px;
+    z-index: 15;
+    position: fixed;
+    width: 40%;
+    top: 5%;
+    right: 30%;
+    border:1px solid rgba(0, 0, 0, 0.303);
+    background-color: white;
+}
+.InfoNumberForm > h1 {
+    font-size: 48px;
+    margin: 40px auto;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.303);
+}
+.InfoNumberInput {
+    width: 70%;
+}
+.InfoNumber-wrapper > button {
+    margin-left: 5px;
+}
+.ResultsFromInfoNumber {
+    width: 80%;
+    margin: 40px auto;
+    padding: 16px 10px;
+    border-radius: 10px;
+    border:1px solid rgba(0, 0, 0, 0.303);
+}
+.ResultsFromInfoNumber > p {
+    margin: 0;
+}
+.GoodsName{
+    font-size: 28px;
+}
+.ResultsNumber {
+    font-size: 20px;
+    text-decoration: underline;
+}
+#InfoNumberResults {
+    height: 300px;
+    overflow-y: auto;
+    margin-bottom: 40px;
+}
 /* modalのcss */
  #modal {
      display: none;

@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Footer from './components/Footer.jsx';
 import {SignUP,LoginForm} from './components/Signup_Login.jsx';
-import {BacKGround,ShoppingCart,Modal,Header,AnimationClose} from './components/Header.jsx';
+import {BacKGround,ShoppingCart,Modal,Header,AnimationClos,InfoNumber} from './components/Header.jsx';
     let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
      export function Index (props) {
         return (
@@ -17,6 +17,7 @@ import {BacKGround,ShoppingCart,Modal,Header,AnimationClose} from './components/
                 {props.isLogin == false ? <LoginForm user={props.user} Login={props.Login} inputChange={props.inputChange} />: ''}
                 <Main />
                 <Footer />
+                <InfoNumber />
             </div>
         );
     //   }
@@ -303,14 +304,11 @@ const Slide = () => {
         });
 
         return(
-            <div id='Search'>
+            <div id='FoodSection'>
             {foodsection}
                 <div id="SearchList"></div>
                     <div className='Results-wrapper'>
                         {(() => {
-                            if (RequestData == []) {
-                                return;
-                            }
                             const result = ResultsData.map(result => {
                                 return(
                                     <div className='SearchResults' key={result.name}>
@@ -327,41 +325,6 @@ const Slide = () => {
             </div>
         );
     }
-
-    // function Test() {
-    //     const [TestData, setTestData] = useState([]);
-    //     // 送信
-    // const test = async() => {
-    //     //入力値を投げる
-    //     axios
-    //         .post('/api/food/category',{
-    //             name: "豚肉"
-    //         })
-    //         .then(response => {
-    //             setTestData(response.data);
-    //         })
-    //         .catch(error => {
-    //             console.log(error);
-    //         });
-    // }
-    // const Results = TestData.map(test => {
-    //     return(
-    //         <div key={test.name}>
-    //             <h1>{test.name}</h1>
-    //             <p>{test.explain}</p>
-    //             <p>¥ {test.praice}円</p>
-    //         </div>
-    //     );
-    // })
-    // return(
-    // <div>
-    //     <button onClick={test}>test</button>
-    //     {Results}
-    // </div>
-
-    // );
-
-    // }
 
     // Top画面
     function Main(props) {

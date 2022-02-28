@@ -3360,7 +3360,7 @@ function Index(props) {
       user: props.user,
       Login: props.Login,
       inputChange: props.inputChange
-    }) : '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(Main, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_Footer_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {})]
+    }) : '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(Main, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_Footer_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_5__.InfoNumber, {})]
   }); //   }
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Index);
@@ -3808,16 +3808,12 @@ function FoodSection() {
     }, index);
   });
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-    id: "Search",
+    id: "FoodSection",
     children: [foodsection, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
       id: "SearchList"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
       className: "Results-wrapper",
       children: function () {
-        if (RequestData == []) {
-          return;
-        }
-
         var result = ResultsData.map(function (result) {
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
             className: "SearchResults",
@@ -3840,39 +3836,7 @@ function FoodSection() {
       }()
     })]
   });
-} // function Test() {
-//     const [TestData, setTestData] = useState([]);
-//     // 送信
-// const test = async() => {
-//     //入力値を投げる
-//     axios
-//         .post('/api/food/category',{
-//             name: "豚肉"
-//         })
-//         .then(response => {
-//             setTestData(response.data);
-//         })
-//         .catch(error => {
-//             console.log(error);
-//         });
-// }
-// const Results = TestData.map(test => {
-//     return(
-//         <div key={test.name}>
-//             <h1>{test.name}</h1>
-//             <p>{test.explain}</p>
-//             <p>¥ {test.praice}円</p>
-//         </div>
-//     );
-// })
-// return(
-// <div>
-//     <button onClick={test}>test</button>
-//     {Results}
-// </div>
-// );
-// }
-// Top画面
+} // Top画面
 
 
 function Main(props) {
@@ -4185,6 +4149,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "CloseSignUp": () => (/* binding */ CloseSignUp),
 /* harmony export */   "CloseLogin": () => (/* binding */ CloseLogin),
 /* harmony export */   "MenuList": () => (/* binding */ MenuList),
+/* harmony export */   "InfoNumber": () => (/* binding */ InfoNumber),
 /* harmony export */   "Modal": () => (/* binding */ Modal),
 /* harmony export */   "ShoppingCart": () => (/* binding */ ShoppingCart),
 /* harmony export */   "BacKGround": () => (/* binding */ BacKGround)
@@ -4192,6 +4157,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
@@ -4422,6 +4388,18 @@ var CloseShop = function CloseShop() {
   var cart = document.querySelector('.cart');
   var backGround = document.querySelector('.background');
   AnimationClose(cartBox, cart, backGround);
+};
+
+var OpenInfoNumber = function OpenInfoNumber() {
+  var InfoNumberForm = document.querySelector('.InfoNumberForm');
+  var backGround = document.querySelector('.background');
+  AnimationOpen(InfoNumberForm, backGround);
+};
+
+var CloseInfoNumber = function CloseInfoNumber() {
+  var InfoNumberForm = document.querySelector('.InfoNumberForm');
+  var backGround = document.querySelector('.background');
+  AnimationClose(InfoNumberForm, backGround);
 }; // メニュー
 
 
@@ -4456,6 +4434,112 @@ function MenuList(props) {
       })
     })]
   });
+}
+function InfoNumber() {
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({
+    InfoNumber: ''
+  }),
+      _useState6 = _slicedToArray(_useState5, 2),
+      InfoData = _useState6[0],
+      setInfoData = _useState6[1];
+
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
+      _useState8 = _slicedToArray(_useState7, 2),
+      ResData = _useState8[0],
+      setData = _useState8[1];
+
+  var InfoNumberSearch = /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              if (!(InfoData.InfoNumber == '')) {
+                _context2.next = 2;
+                break;
+              }
+
+              return _context2.abrupt("return");
+
+            case 2:
+              axios__WEBPACK_IMPORTED_MODULE_2___default().post('/api/order/info', {
+                InfoNumber: InfoData.InfoNumber
+              }).then(function (res) {
+                setData(res.data);
+                console.log(ResData);
+              })["catch"](function (error) {
+                console.log(error);
+                return;
+              });
+
+            case 3:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }));
+
+    return function InfoNumberSearch() {
+      return _ref2.apply(this, arguments);
+    };
+  }();
+
+  var inputChange = function inputChange(e) {
+    var key = e.target.name;
+    var word = e.target.value;
+    InfoData[key] = word;
+    var data = Object.assign({}, InfoData);
+    setInfoData(data);
+    console.log(InfoData);
+  };
+
+  var count = ResData.length;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    className: "InfoNumberForm",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
+      children: "\u304A\u554F\u3044\u5408\u308F\u305B"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "InfoNumber-wrapper",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+        type: "text",
+        name: "InfoNumber",
+        placeholder: "\u304A\u554F\u3044\u5408\u308F\u305B\u756A\u53F7\u3092\u5165\u529B\u3057\u3066\u304F\u3060\u3055\u3044",
+        onChange: inputChange,
+        className: "InfoNumberInput"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+        className: "submit",
+        onClick: InfoNumberSearch,
+        children: "\u691C\u7D22"
+      }), function () {
+        var results = ResData.map(function (result) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            className: "ResultsFromInfoNumber",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
+              className: "GoodsName",
+              children: [" \u54C1\u540D: ", result.goods]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
+              children: ["\u304A\u554F\u3044\u5408\u308F\u305B No.", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                className: "ResultsNumber",
+                children: result.InfoNumber
+              })]
+            })]
+          }, result.id);
+        });
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("section", {
+          id: "InfoNumberResults",
+          children: results
+        });
+      }(), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
+        children: [count, "\u4EF6\u898B\u3064\u304B\u308A\u307E\u3057\u305F"]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
+        to: "/",
+        className: "BackBtn OrderBack",
+        onClick: CloseInfoNumber,
+        children: "\u623B\u308B"
+      })]
+    })]
+  });
 } // モーダル
 
 function Modal(props) {
@@ -4488,12 +4572,13 @@ function Modal(props) {
       children: "\u304A\u8CB7\u3044\u7269"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+        href: "#FoodSection",
+        onClick: CloseModal,
         children: "\u30B8\u30E3\u30F3\u30EB\u3067\u63A2\u3059"
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
-        children: "\u5024\u6BB5\u3067\u63A2\u3059"
-      })
+      onClick: OpenInfoNumber,
+      children: "\u304A\u554F\u3044\u5408\u308F\u305B"
     })]
   });
 } // 買い物カゴ

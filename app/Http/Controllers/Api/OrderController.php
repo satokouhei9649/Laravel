@@ -35,4 +35,10 @@ class OrderController extends Controller
         $results = $order->InfoNumber;
         return response()->json($results, 200);
     }
+    public function InfoNumberSearch(Request $request) {
+        $InfoNumber = $request->InfoNumber;
+        $query = Store::query();
+        $results = $query->where('infoNumber',$InfoNumber)->get();
+        return response()->json($results, 200);
+    }
 }
