@@ -80,7 +80,7 @@ export function LoginForm (props) {
                 <input type="text" className="email"  name="userEmail" placeholder='eメールアドレス' onChange={props.inputChange}/>
                 <p>パスワード</p>
                 <input type="current-password" className="password" placeholder='パスワード' name='userPassword' onChange={props.inputChange}/>
-                <input type="submit" value="ログイン" className="loginBtn" onClick={props.isLogin}/>
+                <input type="submit" value="ログイン" className="loginBtn" onClick={props.Login}/>
             </div>
         </div>
     );
