@@ -10,11 +10,11 @@ Food Loss
 URL   
 
 # 使用技術  
-  RHP 8.0.7 
-  Laravel 8.52.0 
-  React 17.0.2
-  MySQL 8.0.25
-  Docker 20.10.12
+  RHP 8.0.7  
+  Laravel 8.52.0  
+  React 17.0.2  
+  MySQL 8.0.25  
+  Docker 20.10.12  
 # 機能一覧  
 ・ユーザ新規登録機能  
 ・ログイン機能  
