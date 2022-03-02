@@ -34,6 +34,9 @@ function ShoppingTotal() {
             price: value
         })
     });
+    // 送料
+    const postage = 800;
+    // 合計額
     let total = 0;
     const Total = receivedParams.map((el,index) => {
         if (el.name == 'token') {
@@ -57,7 +60,8 @@ function ShoppingTotal() {
             <form action='/total/info' method='get' className='ShoppingForm'>
             {/* カゴの中の一覧表示 */}
             {Total}
-            {total == 0 ? '':  <h2>合計金額 ¥{total}円</h2>}
+            <h2>商品金額 ¥{total}  配送料  ￥800円</h2>
+            {total == 0 ? '': <h2>合計金額 ¥{total + postage}円</h2>}
             {Total.length >= 2 ? <input type="submit" value="住所記入へ"  className='Submit_To_Info'/> : ''}
             </form>
             <Link to="/"className='BackBtn'>戻る</Link>

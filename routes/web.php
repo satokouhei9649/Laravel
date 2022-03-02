@@ -13,20 +13,9 @@ use App\Http\Controllers\PostController;
 |
 */
 // root
-Route::get('/', function () {
+Route::get('{any}', function () {
     return view('app');
-});
-// Route::get('/', [PostController::class, 'top'])
-//     ->name('posts.top');
-
-// Route::get('posts/test', [PostController::class, 'test'])
-//     ->name('posts.test');
-//     // login
-// Route::get('/login', [PostController::class, 'login'])
-//     ->name('users.login');
-// // signup
-// Route::post('/signup', [PostController::class, 'signup'])
-//     ->name('posts.signup');
+})->where('any','.*');
 
 // Auth::routes();
 

@@ -3919,7 +3919,10 @@ function ShoppingTotal() {
       name: name,
       price: value
     });
-  });
+  }); // 送料
+
+  var postage = 800; // 合計額
+
   var total = 0;
   var Total = receivedParams.map(function (el, index) {
     if (el.name == 'token') {
@@ -3956,8 +3959,10 @@ function ShoppingTotal() {
         action: "/total/info",
         method: "get",
         className: "ShoppingForm",
-        children: [Total, total == 0 ? '' : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("h2", {
-          children: ["\u5408\u8A08\u91D1\u984D \xA5", total, "\u5186"]
+        children: [Total, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("h2", {
+          children: ["\u5546\u54C1\u91D1\u984D \xA5", total, "  \u914D\u9001\u6599  \uFFE5800\u5186"]
+        }), total == 0 ? '' : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("h2", {
+          children: ["\u5408\u8A08\u91D1\u984D \xA5", total + postage, "\u5186"]
         }), Total.length >= 2 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
           type: "submit",
           value: "\u4F4F\u6240\u8A18\u5165\u3078",
