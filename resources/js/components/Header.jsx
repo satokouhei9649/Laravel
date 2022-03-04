@@ -224,7 +224,6 @@ const CloseInfoNumber =() => {
                     })
                     return (
                         <section id='InfoNumberResults'>
-                            {/* {ResData.id == 1 ? '' :<h2>お問い合わせ結果</h2>} */}
                             {results}
                         </section>
                         );
