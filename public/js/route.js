@@ -4685,19 +4685,7 @@ function SignUP(props) {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
       _useState2 = _slicedToArray(_useState, 2),
       Users = _useState2[0],
-      setPosts = _useState2[1];
-
-  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
-    getPostsData();
-  }, []); // 一覧取得
-
-  var getPostsData = function getPostsData() {
-    axios__WEBPACK_IMPORTED_MODULE_2___default().get('/api/posts').then(function (response) {
-      setPosts(response.data);
-    })["catch"](function () {
-      console.log('通信に失敗しました');
-    });
-  }; //フォームの入力値ステート
+      setPosts = _useState2[1]; //フォームの入力値ステート
 
 
   var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({

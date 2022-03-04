@@ -5,20 +5,6 @@ import { CloseSignUp,CloseLogin,OpenLogin } from './Header';
  export function SignUP(props) {
     //  ステート
     const [Users, setPosts] = useState([]);
-    useEffect(() => {
-        getPostsData();
-    },[])
-    // 一覧取得
-    const getPostsData = () => {
-        axios
-        .get('/api/posts')
-        .then(response => {
-        setPosts(response.data);
-        })
-        .catch(() => {
-            console.log('通信に失敗しました');
-        });
-    }
     //フォームの入力値ステート
     const [formData, setFormData] = useState({userName:'', userEmail:'',userPassword:''});
     // 文字入力反映
