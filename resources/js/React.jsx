@@ -4,17 +4,18 @@ import axios from 'axios';
 import Footer from './components/Footer.jsx';
 import {SignUP,LoginForm} from './components/Signup_Login.jsx';
 import {BacKGround,ShoppingCart,Modal,Header,AnimationClos,InfoNumber} from './components/Header.jsx';
+import{Slide,Observer,GotoCart,CreateTab} from './Module'
     let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
      export function Index (props) {
         return (
             <div>
                 <Header isLogin={props.isLogin}/>
-                <Modal isLogin={props.isLogin} Logout={props.Logout}/>
+                {props.isLogin == false ? <SignUP/> : ''}
+                {props.isLogin == false ? <LoginForm user={props.user} Login={props.Login} inputChange={props.inputChange} />: ''}
                 <ShoppingCart />
                 <BacKGround class="background"/>
                 <BacKGround class="cartbox"/>
-                {props.isLogin == false ? <SignUP/> : ''}
-                {props.isLogin == false ? <LoginForm user={props.user} Login={props.Login} inputChange={props.inputChange} />: ''}
+                <Modal isLogin={props.isLogin} Logout={props.Logout}/>
                 <Main />
                 <Footer />
                 <InfoNumber />
@@ -24,65 +25,65 @@ import {BacKGround,ShoppingCart,Modal,Header,AnimationClos,InfoNumber} from './c
     }
     export default Index;
 
-const Slide = () => {
-    const nextBtn = document.querySelector('.next');
-    const prevBtn = document.querySelector('.prev');
-    const Ad = document.querySelector('.sellAd');
-    const screens = Ad.children;
-    const dots = [];
-    let count = 0;
-    nextBtn.addEventListener('click', () => {
-        count++;
-        dotsStatus();
-        btnStaus();
-        moveScreen(screens,Ad);
-    });
-    prevBtn.addEventListener('click', () => {
-        count--;
-        dotsStatus();
-        btnStaus();
-        moveScreen(screens,Ad);
-    });
-    // 矢印の表示
-    function btnStaus() {
-        prevBtn.classList.remove('hidden');
-        nextBtn.classList.remove('hidden');
-        if (count == 0) {
-            prevBtn.classList.add('hidden');
-        }
-        if (count == screens.length -1) {
-            nextBtn.classList.add('hidden');
-        }
-    }
-// スライド
-    function moveScreen(Array1,Array2) {
-        const Width = Array1[0].getBoundingClientRect().width;
-        Array2.style.transform = `translateX(${-1 * Width * count}px)`;
-    }
-    function setDots() {
-        for (let i = 0; i < screens.length; i++) {
-            const button = document.createElement('button');
-            button.addEventListener('click', () => {
-                count = i;
-                dotsStatus();
-                btnStaus();
-                moveScreen(screens,Ad);
-            });
-            dots.push(button);
-            document.querySelector('nav').appendChild(button).classList.add('screenBtn');
-        }
-        dots[0].classList.add('current');
-    }
+// const Slide = () => {
+//     const nextBtn = document.querySelector('.next');
+//     const prevBtn = document.querySelector('.prev');
+//     const Ad = document.querySelector('.sellAd');
+//     const screens = Ad.children;
+//     const dots = [];
+//     let count = 0;
+//     nextBtn.addEventListener('click', () => {
+//         count++;
+//         dotsStatus();
+//         btnStaus();
+//         moveScreen(screens,Ad);
+//     });
+//     prevBtn.addEventListener('click', () => {
+//         count--;
+//         dotsStatus();
+//         btnStaus();
+//         moveScreen(screens,Ad);
+//     });
+//     // 矢印の表示
+//     function btnStaus() {
+//         prevBtn.classList.remove('hidden');
+//         nextBtn.classList.remove('hidden');
+//         if (count == 0) {
+//             prevBtn.classList.add('hidden');
+//         }
+//         if (count == screens.length -1) {
+//             nextBtn.classList.add('hidden');
+//         }
+//     }
+// // スライド
+//     function moveScreen(Array1,Array2) {
+//         const Width = Array1[0].getBoundingClientRect().width;
+//         Array2.style.transform = `translateX(${-1 * Width * count}px)`;
+//     }
+//     function setDots() {
+//         for (let i = 0; i < screens.length; i++) {
+//             const button = document.createElement('button');
+//             button.addEventListener('click', () => {
+//                 count = i;
+//                 dotsStatus();
+//                 btnStaus();
+//                 moveScreen(screens,Ad);
+//             });
+//             dots.push(button);
+//             document.querySelector('nav').appendChild(button).classList.add('screenBtn');
+//         }
+//         dots[0].classList.add('current');
+//     }
 
-    function dotsStatus() {
-        dots.forEach( dot => {
-            dot.classList.remove('current');
-        });
-        dots[count].classList.add('current');
-    }
-    btnStaus();
-    setDots();
-}
+//     function dotsStatus() {
+//         dots.forEach( dot => {
+//             dot.classList.remove('current');
+//         });
+//         dots[count].classList.add('current');
+//     }
+//     btnStaus();
+//     setDots();
+// }
     // 広告
     function Ad(props) {
         useEffect(() => {
@@ -103,38 +104,7 @@ const Slide = () => {
         );
     }
 
-// Intersection Observer API
-    const Observer = function() {
-        const option = {
-            threshold: 0.6,
-            rootMargin: '0px 0px -10%'
-        };
 
-        for(let i=0; i < arguments.length; i++) {
-            const observer = new IntersectionObserver(check, option);
-            arguments[i].forEach(argument =>{
-                observer.observe(argument);
-            });
-            const array = arguments[i]
-            function check(D,obs) {
-                if (!D[0].isIntersecting) {
-                    return;
-                }
-                AnimationMove(array);
-                obs.unobserve(D[0].target);
-            }
-        }
-    }
-    const AnimationMove = function(Array){
-        Array.forEach((el,index) => {
-            // 持ち時間
-            let delay =  Array.length * .0 +.3;
-            // 間隔
-            delay -= index * .5;
-            el.style.animationDelay = `${delay}s`;
-            el.classList.add('active');
-        });
-    }
     // オススメ
     function Recommend(props) {
         const [Recommend, setRecommendData] = useState([]);
@@ -197,25 +167,8 @@ const Slide = () => {
 
         );
     }
-    // 買い物カゴに追加機能
-   export const GotoCart = (e) => {
-        const ShopListUl = document.getElementById('ShopListUl');
-        const list = document.createElement('li');
-        const DeleteBtn = document.createElement('button');
-        const input = document.createElement('input');
-        input.setAttribute('type','hidden');
-        input.setAttribute('name',e.target.name);
-        input.setAttribute('value',e.target.value);
-        DeleteBtn.textContent ="[X]";
-        DeleteBtn.classList.add('DeleteBtn');
-        list.textContent = e.target.name;
-        list.classList.add('shoppingList');
-        ShopListUl.appendChild(list);
-        list.appendChild(input);
-        list.appendChild(DeleteBtn);
-        // カゴから商品を削除
-        DeleteBtn.onclick = Remove;
-    }
+
+
   export const Remove = (e) =>{
         const TargetLi = e.target.parentNode;
         TargetLi.remove();
@@ -231,22 +184,6 @@ const Slide = () => {
 //                 el.remove();
 //             });
 //     }
-    // タブメニュー
-    const CreateTab = function(Array1,Array2) {
-        Array1.forEach(el => {
-            el.addEventListener('click', e => {
-                e.preventDefault();
-                Array1.forEach(icon => {
-                    icon.classList.remove('active');
-                });
-                el.classList.add('active');
-                Array2.forEach(el => {
-                    el.classList.remove('active');
-                });
-                document.getElementById(el.dataset.id).classList.add('active');
-            });
-        });
-       }
 
 
     function FoodSection() {

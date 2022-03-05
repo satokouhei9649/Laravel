@@ -11,7 +11,7 @@ import {Shopping} from './Shopping.jsx';
 import {Infomation} from './Info'
 import {Order} from './Order'
 import axios from 'axios';
-import {AnimationClose} from './components/Header.jsx';
+import {AnimationClose} from './Module';
   class App extends  React.Component {
     constructor(props) {
         super(props);

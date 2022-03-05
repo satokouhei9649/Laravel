@@ -1,20 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
+import {Open,Close,AnimationOpen} from '../Module';
 // import {Reflesh} from '../React';
 let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
-const AnimationOpen = function() {
-    for(let i=0; i < arguments.length; i++) {
-        arguments[i].classList.remove('hidden');
-        arguments[i].classList.add('open');
-    }
-}
- export const AnimationClose = function() {
-    for(let i=0; i < arguments.length; i++) {
-        arguments[i].classList.remove('open');
-        arguments[i].classList.add('hidden');
-    }
-}
  export function Header(props) {
     return(
         <header>
@@ -106,56 +95,19 @@ const AnimationOpen = function() {
               </form>
             );
         }
-const OpenSignUP = () => {
-    const signup = document.querySelector('.signup');
-    const backGround = document.querySelector('.background');
-    AnimationOpen(signup,backGround);
-}
-export const OpenLogin = () => {
-    const backGround = document.querySelector('.background');
-    const LoginForm = document.querySelector('.LoginForm');
-    AnimationOpen(LoginForm,backGround);
-}
+
+
 const OpenModal = () => {
     const modal = document.getElementById('modal');
     modal.classList.remove('open');
     AnimationOpen(modal);
 }
-export const CloseSignUp =() => {
-    const signup = document.querySelector('.signup');
-    const backGround = document.querySelector('.background');
-    AnimationClose(signup,backGround);
-}
-export const CloseLogin =() => {
-    const LoginForm = document.querySelector('.LoginForm');
-    const backGround = document.querySelector('.background');
-    AnimationClose(LoginForm,backGround);
-}
-const CloseModal = () => {
-    const modal = document.getElementById('modal');
-    AnimationClose(modal);
-}
+
 const OpenShop = () => {
     const cartBox = document.querySelector('.cartbox');
     const cart = document.querySelector('.cart');
     const backGround = document.querySelector('.background');
     AnimationOpen(cartBox,cart,backGround);
-}
-const CloseShop = () => {
-    const cartBox = document.querySelector('.cartbox');
-    const cart = document.querySelector('.cart');
-    const backGround = document.querySelector('.background');
-    AnimationClose(cartBox,cart,backGround);
-}
-const OpenInfoNumber = () => {
-    const InfoNumberForm = document.querySelector('.InfoNumberForm');
-    const backGround = document.querySelector('.background');
-    AnimationOpen(InfoNumberForm,backGround);
-}
-const CloseInfoNumber =() => {
-    const InfoNumberForm = document.querySelector('.InfoNumberForm');
-    const backGround = document.querySelector('.background');
-    AnimationClose(InfoNumberForm,backGround);
 }
 
 // メニュー
@@ -168,7 +120,7 @@ const CloseInfoNumber =() => {
             </li>: ''}
             { props.data == 'shopping'? '' :
             <li className="icon">
-                <span id="shoppingCart" onClick={OpenShop}><i className="fas fa-shopping-cart fa-2x "></i></span>
+               <span id="shoppingCart" onClick={OpenShop}><i className="fas fa-shopping-cart fa-2x "></i></span>
             </li> }
             <li className="icon">
                 <span id="menu" onClick={OpenModal}><i className="fas fa-bars fa-2x"></i></span>
@@ -229,7 +181,7 @@ const CloseInfoNumber =() => {
                         );
                 })()}
                 <p>{count}件見つかりました</p>
-                <Link to='/' className='BackBtn OrderBack' onClick={CloseInfoNumber}>戻る</Link>
+                <Link to='/' className='BackBtn OrderBack' name="infonumber" onClick={Close}>戻る</Link>
             </div>
         </div>
     );
@@ -239,14 +191,14 @@ const CloseInfoNumber =() => {
 export function Modal(props) {
     return(
         <section id="modal">
-            <div id="close" onClick={CloseModal}>✖️</div>
+            <div id='close'><a name="modal" onClick={Close}>✖️</a></div>
             {props.isLogin == false ? <h3>新規登録・ログイン</h3> :''}
-            {props.isLogin == false ? <p><a id="signupFormBtn" onClick={OpenSignUP}>新規登録</a></p>: ''}
-            {props.isLogin == false ? <p><a id="ToLogin" onClick={OpenLogin}>ログイン</a></p>: ''}
+            {props.isLogin == false ? <p><a id="signupFormBtn"  name="signup" onClick={Open}>新規登録</a></p>: ''}
+            {props.isLogin == false ? <p><a id="ToLogin"  name="login" onClick={Open}>ログイン</a></p>: ''}
             {props.isLogin == false ?  '' : <p><a onClick={props.Logout}>ログアウト</a></p>}
             <h3>お買い物</h3>
-            <p><a href='#FoodSection' onClick={CloseModal}>ジャンルで探す</a></p>
-            <p onClick={OpenInfoNumber}>お問い合わせ</p>
+            <p><a href='#FoodSection' name="modal" onClick={Close}>ジャンルで探す</a></p>
+            <p> <a name="infonumber" onClick={Open}>お問い合わせ</a></p>
         </section>
     );
 }
@@ -255,14 +207,14 @@ export function Modal(props) {
  export function ShoppingCart(props) {
      return(
      <div className="cart">
-        <h2>お買い物カゴにある商品<a href="#" id="shopBack" onClick={CloseShop}>✖️</a></h2>
+        <h2>お買い物カゴにある商品<a href="#" id="shopBack"name="shop" onClick={Close}>✖️</a></h2>
         <form action='/total' method='get'>
          <ul id="ShopListUl">
          </ul>
             <input type="submit" value="お支払いへ" className="buyBtn"/>
             <input type="hidden" name="token" value={csrf_token}/>
         </form>
-        <button className='BackBtn' onClick={CloseShop}>戻る</button>
+        <button className='BackBtn' name='shop' onClick={Close}>戻る</button>
      </div>
      );
     }

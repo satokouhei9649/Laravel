@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { CloseSignUp,CloseLogin,OpenLogin } from './Header';
+import { Close,Open } from '../Module';
 // 新規登録
  export function SignUP(props) {
     //  ステート
@@ -40,7 +40,7 @@ import { CloseSignUp,CloseLogin,OpenLogin } from './Header';
     }
     return(
     <div className="signup">
-        <a href="#" id="Back" onClick={CloseSignUp}>✖️</a>
+        <a href="/" id="Back" name="signup" onClick={Close}>✖️</a>
         <h2>新規登録</h2>
         <form id="signup" >
             <p>名前</p>
@@ -51,7 +51,7 @@ import { CloseSignUp,CloseLogin,OpenLogin } from './Header';
             <input type="text" name='userPassword' value={formData.userPassword} onChange={inputChange} />
             <input className="signBtn" href="#" type="submit" value="新規登録" onClick={createUser}/>
         </form>
-            <button className="loginBtn"onClick={OpenLogin}>ログイン画面</button>
+            <button className="loginBtn"name='login' onClick={Open}>ログイン画面</button>
     </div>
     );
 }
@@ -59,7 +59,7 @@ import { CloseSignUp,CloseLogin,OpenLogin } from './Header';
 export function LoginForm (props) {
     return(
         <div className="LoginForm">
-            <a href="#" className="Back" onClick={CloseLogin}>✖️</a>
+            <a href="#" className="Back" name="login" onClick={Close}>✖️</a>
                 <h2>ログイン</h2>
             <div id='LoginForm'>
                 <p>メールアドレス</p>

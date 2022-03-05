@@ -35,6 +35,7 @@ class OrderController extends Controller
         $results = $order->InfoNumber;
         return response()->json($results, 200);
     }
+    // お問い合わせ検索
     public function InfoNumberSearch(Request $request) {
         $InfoNumber = $request->InfoNumber;
         $query = Store::query();
