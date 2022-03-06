@@ -118,6 +118,7 @@ export const Close = (e) => {
 
 // Intersection Observer API
 export const Observer = function() {
+    // 範囲
     const option = {
         threshold: 0.6,
         rootMargin: '0px 0px -10%'
@@ -129,6 +130,7 @@ export const Observer = function() {
             observer.observe(argument);
         });
         const array = arguments[i]
+
         function check(D,obs) {
             if (!D[0].isIntersecting) {
                 return;
@@ -151,6 +153,10 @@ const AnimationMove = function(Array){
 
 // 買い物カゴに追加
 export const GotoCart = (e) => {
+    // メッセージ
+    const flashMessage = document.querySelector('.flashMessage');
+    flashMessage.classList.add('active');
+    // リスト
     const ShopListUl = document.getElementById('ShopListUl');
     const list = document.createElement('li');
     const DeleteBtn = document.createElement('button');
@@ -167,7 +173,16 @@ export const GotoCart = (e) => {
     list.appendChild(DeleteBtn);
     // カゴから商品を削除
     DeleteBtn.onclick = Remove;
+
+  flashMessage.addEventListener('animationend',() => {
+      flashMessage.classList.remove('active');
+  })
 }
+
+export const Remove = (e) =>{
+    const TargetLi = e.target.parentNode;
+    TargetLi.remove();
+};
  // タブメニュー
 export const CreateTab = function(Array1,Array2) {
     Array1.forEach(el => {

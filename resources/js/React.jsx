@@ -15,6 +15,7 @@ import{Slide,Observer,GotoCart,CreateTab} from './Module'
                 <ShoppingCart />
                 <BacKGround class="background"/>
                 <BacKGround class="cartbox"/>
+                <BacKGround class="flashMessage"/>
                 <Modal isLogin={props.isLogin} Logout={props.Logout}/>
                 <Main />
                 <Footer />
@@ -168,11 +169,6 @@ import{Slide,Observer,GotoCart,CreateTab} from './Module'
         );
     }
 
-
-  export const Remove = (e) =>{
-        const TargetLi = e.target.parentNode;
-        TargetLi.remove();
-    };
 //    export const Reflesh = () => {
 //         const Target = document.querySelector('.Results-wrapper');
 //             Target.remove();

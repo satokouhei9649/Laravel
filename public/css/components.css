@@ -307,6 +307,43 @@ header {
 .background.open {
     display: block;
 }
+
+.flashMessage {
+    width: 70%;
+    position: fixed;
+    top: -10%;
+    left: 15%;
+    height: auto;
+    color: lightseagreen;
+    z-index: 24;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid rgba(207, 207, 207, 0.644);
+    align-items: center;
+}
+.flashMessage > p {
+    margin: 0;
+    padding: 4px 8px;
+}
+.flashMessage.active {
+    top: -10%;
+    opacity: 0;
+    animation: cart 3s forwards;
+}
+@keyframes cart {
+    0% {
+        opacity: 0;
+        top: -10%;
+    }
+    60% {
+        opacity: 1;
+        top: 5%;
+    }
+    100% {
+    opacity: 0;
+    top: -10%;
+    }
+ }
 /* 新規登録のmodal */
  .signup {
      width: 50%;

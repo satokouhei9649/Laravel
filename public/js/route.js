@@ -3082,6 +3082,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "Slide": () => (/* binding */ Slide),
 /* harmony export */   "Observer": () => (/* binding */ Observer),
 /* harmony export */   "GotoCart": () => (/* binding */ GotoCart),
+/* harmony export */   "Remove": () => (/* binding */ Remove),
 /* harmony export */   "CreateTab": () => (/* binding */ CreateTab)
 /* harmony export */ });
 var AnimationOpen = function AnimationOpen() {
@@ -3220,6 +3221,7 @@ var Slide = function Slide() {
 
 var Observer = function Observer() {
   var _arguments = arguments;
+  // 範囲
   var option = {
     threshold: 0.6,
     rootMargin: '0px 0px -10%'
@@ -3262,6 +3264,10 @@ var AnimationMove = function AnimationMove(Array) {
 
 
 var GotoCart = function GotoCart(e) {
+  // メッセージ
+  var flashMessage = document.querySelector('.flashMessage');
+  flashMessage.classList.add('active'); // リスト
+
   var ShopListUl = document.getElementById('ShopListUl');
   var list = document.createElement('li');
   var DeleteBtn = document.createElement('button');
@@ -3278,6 +3284,13 @@ var GotoCart = function GotoCart(e) {
   list.appendChild(DeleteBtn); // カゴから商品を削除
 
   DeleteBtn.onclick = Remove;
+  flashMessage.addEventListener('animationend', function () {
+    flashMessage.classList.remove('active');
+  });
+};
+var Remove = function Remove(e) {
+  var TargetLi = e.target.parentNode;
+  TargetLi.remove();
 }; // タブメニュー
 
 var CreateTab = function CreateTab(Array1, Array2) {
@@ -3538,8 +3551,7 @@ function Confirm() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Index": () => (/* binding */ Index),
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
-/* harmony export */   "Remove": () => (/* binding */ Remove)
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
@@ -3590,6 +3602,8 @@ function Index(props) {
       "class": "background"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_5__.BacKGround, {
       "class": "cartbox"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_5__.BacKGround, {
+      "class": "flashMessage"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_5__.Modal, {
       isLogin: props.isLogin,
       Logout: props.Logout
@@ -3815,12 +3829,7 @@ function FoodMenu(props) {
       })]
     })]
   });
-}
-
-var Remove = function Remove(e) {
-  var TargetLi = e.target.parentNode;
-  TargetLi.remove();
-}; //    export const Reflesh = () => {
+} //    export const Reflesh = () => {
 //         const Target = document.querySelector('.Results-wrapper');
 //             Target.remove();
 //     }
@@ -3831,6 +3840,7 @@ var Remove = function Remove(e) {
 //                 el.remove();
 //             });
 //     }
+
 
 function FoodSection() {
   var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({
@@ -4012,7 +4022,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Header_jsx__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/Header.jsx */ "./resources/js/components/Header.jsx");
 /* harmony import */ var _components_Footer_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Footer.jsx */ "./resources/js/components/Footer.jsx");
 /* harmony import */ var _components_Signup_Login_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Signup_Login.jsx */ "./resources/js/components/Signup_Login.jsx");
-/* harmony import */ var _React_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./React.jsx */ "./resources/js/React.jsx");
+/* harmony import */ var _Module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Module */ "./resources/js/Module.jsx");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
@@ -4078,10 +4088,6 @@ function ShoppingTotal() {
         type: "hidden",
         name: el.name,
         value: el.price
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
-        className: "DeleteBtn Delete_Shop",
-        onClick: _React_jsx__WEBPACK_IMPORTED_MODULE_3__.Remove,
-        children: "[X]"
       })]
     }, index);
   });
@@ -4721,6 +4727,8 @@ function BacKGround(props) {
       children: "Food Loss"
     }) : '', props["class"] == "Main" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
       children: "\u5C11\u3057\u3067\u3082    \u5EC3\u68C4\u51E6\u5206\u3059\u308B\u91CF\u3092\u6E1B\u3089\u305D\u3046"
+    }) : '', props["class"] == "flashMessage" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+      children: "\u30AB\u30FC\u30C8\u306B\u5165\u308C\u307E\u3057\u305F\uFF01\uFF01"
     }) : '']
   });
 }

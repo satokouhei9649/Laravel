@@ -1,7 +1,7 @@
 import {BacKGround,ShoppingCart,Modal, SearchForm,Header,MenuList} from './components/Header.jsx';
 import Footer from './components/Footer.jsx';
 import {SignUP, LoginForm} from './components/Signup_Login.jsx';
-import {Remove} from './React.jsx';
+import {Remove} from './Module';
 import React, { useEffect } from 'react';
 import {Link} from 'react-router-dom';
 export function Shopping(props){
@@ -47,7 +47,7 @@ function ShoppingTotal() {
         return(
             <li className="shoppingList total"key={index}>{el.name} <br/> ¥ {el.price}
             <input type='hidden' name={el.name} value={el.price}/>
-            <button className='DeleteBtn Delete_Shop' onClick={Remove}>[X]</button></li>
+           </li>
         );
     })
     console.log(receivedParams);

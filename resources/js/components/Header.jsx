@@ -228,6 +228,7 @@ export function Modal(props) {
         }}>
         {props.class == "Main"? <h1>Food Loss</h1>:''}
         {props.class == "Main"? <p>少しでも    廃棄処分する量を減らそう</p>:''}
+        {props.class == "flashMessage"? <p>カートに入れました！！</p>:''}
         </div>
     );
 }
