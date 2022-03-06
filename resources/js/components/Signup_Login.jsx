@@ -40,7 +40,7 @@ import { Close,Open } from '../Module';
     }
     return(
     <div className="signup">
-        <a href="/" id="Back" name="signup" onClick={Close}>✖️</a>
+        <a href="#" id="Back" name="signup" onClick={Close}>✖️</a>
         <h2>新規登録</h2>
         <form id="signup" >
             <p>名前</p>

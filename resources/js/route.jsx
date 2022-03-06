@@ -1,10 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {
-    BrowserRouter,
-    Route,
-    Routes,
-  } from 'react-router-dom';
+import {BrowserRouter,Route,Routes,} from 'react-router-dom';
 import Example from './components/Example';
 import Index from './React.jsx';
 import {Shopping} from './Shopping.jsx';
@@ -73,7 +69,7 @@ import {AnimationClose} from './Module';
         return (
             <div>
                 <Routes>
-                    <Route path='/example' element={<Example />} />
+                    {/* <Route path='/example' element={<Example />} /> */}
                     <Route path='/' element={
                     <Index
                     isLogin={this.state.isLogin}
