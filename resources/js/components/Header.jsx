@@ -9,7 +9,7 @@ let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
         <header>
             <h2 className='title'>Food loss</h2>
             <SearchForm route="posts/test" class="searchForm" />
-            <MenuList isLogin={props.isLogin}/>
+            <MenuList isLogin={props.isLogin} count={props.count}/>
         </header>
     );
 }
@@ -120,6 +120,11 @@ const OpenShop = () => {
             </li>: ''}
             { props.data == 'shopping'? '' :
             <li className="icon">
+               {(() => {
+                    return(
+                        <div className='CartCount'>{props.count}</div>
+                    )
+                })()}
                <span id="shoppingCart" onClick={OpenShop}><i className="fas fa-shopping-cart fa-2x "></i></span>
             </li> }
             <li className="icon">
@@ -129,6 +134,7 @@ const OpenShop = () => {
     );
 
 }
+// お問い合わせ
  export function InfoNumber() {
     const [InfoData,setInfoData] = useState({InfoNumber:''});
     const [ResData,setData] = useState([]);

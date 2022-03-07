@@ -173,7 +173,7 @@ export const GotoCart = (e) => {
     list.appendChild(DeleteBtn);
     // カゴから商品を削除
     DeleteBtn.onclick = Remove;
-
+    // アニメーションが終わった後に処理
   flashMessage.addEventListener('animationend',() => {
       flashMessage.classList.remove('active');
   })
