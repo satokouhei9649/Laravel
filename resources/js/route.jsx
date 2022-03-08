@@ -6,7 +6,7 @@ import {Shopping} from './Shopping.jsx';
 import {Infomation} from './Info'
 import {Order} from './Order'
 import axios from 'axios';
-import {AnimationClose,Remove} from './Module';
+import {AnimationClose} from './Module';
   class App extends  React.Component {
     constructor(props) {
         super(props);
@@ -18,15 +18,24 @@ import {AnimationClose,Remove} from './Module';
             isLogin: false,
             count: 0,
         }
-        console.log(this.state);
+        // アニメーションのdom操作
+        this.flashMessageRef = React.createRef();
         this.isLogin = this.isLogin.bind(this);
         this.inputChange = this.inputChange.bind(this);
         this.Logout = this.Logout.bind(this);
         this.PushCart = this.PushCart.bind(this);
         this.RemoveCart = this.RemoveCart.bind(this);
     }
+    componentDidUpdate(){
+       const flashMessage = this.flashMessageRef.current
+        flashMessage.classList.add('active');
+         // アニメーションが終わった後に処理
+        flashMessage.addEventListener('animationend',() => {
+            flashMessage.classList.remove('active');
+        })
+    }
     isLogin() {
-        console.log(this.state);
+        (tconsole.loghis.state);
         axios
         .post('/api/users/login', {
             userEmail: this.state.userEmail,
@@ -69,14 +78,6 @@ import {AnimationClose,Remove} from './Module';
     }
 
     PushCart = (e) => {
-        this.setState(prevState =>{
-            return{
-                count: prevState.count + 1
-            }
-        })
-        console.log(this.state);
-        // const flashMessage = document.querySelector('.flashMessage');
-        // flashMessage.classList.add('active');
         // リスト
         const ShopListUl = document.getElementById('ShopListUl');
         const list = document.createElement('li');
@@ -94,10 +95,12 @@ import {AnimationClose,Remove} from './Module';
         list.appendChild(DeleteBtn);
         // カゴから商品を削除
         DeleteBtn.onclick = this.RemoveCart;
-        // アニメーションが終わった後に処理
-        // flashMessage.addEventListener('animationend',() => {
-        //     flashMessage.classList.remove('active');
-        // })
+
+        this.setState(prevState =>{
+            return{
+                count: prevState.count + 1
+            }
+        })
     }
     RemoveCart=(e) => {
         this.setState(prevState => {
@@ -124,6 +127,7 @@ import {AnimationClose,Remove} from './Module';
                     inputChange={this.inputChange}
                     count={this.state.count}
                     countpush={this.PushCart}
+                    Ref={this.flashMessageRef}
                     />} />
                     <Route path='/total' element={
                     <Shopping

@@ -3137,6 +3137,9 @@ var Close = function Close(e) {
       break;
 
     case 'shop':
+      var flashMessage = document.querySelector('.flashMessage');
+      flashMessage.classList.remove('hidden');
+      flashMessage.classList.remove('active');
       var cartBox = document.querySelector('.cartbox');
       var cart = document.querySelector('.cart');
       AnimationClose(cartBox, cart, backGround);
@@ -3282,8 +3285,7 @@ var GotoCart = function GotoCart(e) {
   ShopListUl.appendChild(list);
   list.appendChild(input);
   list.appendChild(DeleteBtn); // カゴから商品を削除
-
-  DeleteBtn.onclick = Remove; // アニメーションが終わった後に処理
+  // アニメーションが終わった後に処理
 
   flashMessage.addEventListener('animationend', function () {
     flashMessage.classList.remove('active');
@@ -3605,7 +3607,8 @@ function Index(props) {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_5__.BacKGround, {
       "class": "cartbox"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_5__.BacKGround, {
-      "class": "flashessage"
+      "class": "flashMessage",
+      Ref: props.Ref
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_5__.Modal, {
       isLogin: props.isLogin,
       Logout: props.Logout
@@ -4238,7 +4241,6 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
- // import {Reflesh} from '../React';
 
 
 
@@ -4393,6 +4395,8 @@ var OpenModal = function OpenModal() {
 };
 
 var OpenShop = function OpenShop() {
+  var flashMessage = document.querySelector('.flashMessage');
+  flashMessage.classList.add('hidden');
   var cartBox = document.querySelector('.cartbox');
   var cart = document.querySelector('.cart');
   var backGround = document.querySelector('.background');
@@ -4413,7 +4417,7 @@ function MenuList(props) {
       })
     }) : '', props.data == 'shopping' ? '' : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {
       className: "icon",
-      children: [function () {
+      children: [props.count == 0 ? '' : function () {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
           className: "CartCount",
           children: props.count
@@ -4633,6 +4637,7 @@ function ShoppingCart(props) {
 function BacKGround(props) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
     className: props["class"],
+    ref: props.Ref,
     onClick: function onClick() {
       var backGround = document.querySelector('.background');
       AnimationClose(backGround);
@@ -4933,16 +4938,7 @@ var App = /*#__PURE__*/function (_React$Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "PushCart", function (e) {
-      _this.setState(function (prevState) {
-        return {
-          count: prevState.count + 1
-        };
-      });
-
-      console.log(_this.state); // const flashMessage = document.querySelector('.flashMessage');
-      // flashMessage.classList.add('active');
       // リスト
-
       var ShopListUl = document.getElementById('ShopListUl');
       var list = document.createElement('li');
       var DeleteBtn = document.createElement('button');
@@ -4958,10 +4954,13 @@ var App = /*#__PURE__*/function (_React$Component) {
       list.appendChild(input);
       list.appendChild(DeleteBtn); // カゴから商品を削除
 
-      DeleteBtn.onclick = _this.RemoveCart; // アニメーションが終わった後に処理
-      // flashMessage.addEventListener('animationend',() => {
-      //     flashMessage.classList.remove('active');
-      // })
+      DeleteBtn.onclick = _this.RemoveCart;
+
+      _this.setState(function (prevState) {
+        return {
+          count: prevState.count + 1
+        };
+      });
     });
 
     _defineProperty(_assertThisInitialized(_this), "RemoveCart", function (e) {
@@ -4981,8 +4980,9 @@ var App = /*#__PURE__*/function (_React$Component) {
       userPassword: '',
       isLogin: false,
       count: 0
-    };
-    console.log(_this.state);
+    }; // アニメーションのdom操作
+
+    _this.flashMessageRef = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createRef();
     _this.isLogin = _this.isLogin.bind(_assertThisInitialized(_this));
     _this.inputChange = _this.inputChange.bind(_assertThisInitialized(_this));
     _this.Logout = _this.Logout.bind(_assertThisInitialized(_this));
@@ -4992,11 +4992,21 @@ var App = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(App, [{
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {
+      var flashMessage = this.flashMessageRef.current;
+      flashMessage.classList.add('active'); // アニメーションが終わった後に処理
+
+      flashMessage.addEventListener('animationend', function () {
+        flashMessage.classList.remove('active');
+      });
+    }
+  }, {
     key: "isLogin",
     value: function isLogin() {
       var _this2 = this;
 
-      console.log(this.state);
+      tconsole.loghis.state;
       axios__WEBPACK_IMPORTED_MODULE_6___default().post('/api/users/login', {
         userEmail: this.state.userEmail,
         userPassword: this.state.userPassword
@@ -5044,7 +5054,8 @@ var App = /*#__PURE__*/function (_React$Component) {
               user: this.state,
               inputChange: this.inputChange,
               count: this.state.count,
-              countpush: this.PushCart
+              countpush: this.PushCart,
+              Ref: this.flashMessageRef
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
             path: "/total",

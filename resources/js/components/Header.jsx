@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
 import {Open,Close,AnimationOpen} from '../Module';
-// import {Reflesh} from '../React';
 let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
  export function Header(props) {
     return(
@@ -104,6 +103,8 @@ const OpenModal = () => {
 }
 
 const OpenShop = () => {
+    const flashMessage = document.querySelector('.flashMessage');
+    flashMessage.classList.add('hidden');
     const cartBox = document.querySelector('.cartbox');
     const cart = document.querySelector('.cart');
     const backGround = document.querySelector('.background');
@@ -120,7 +121,8 @@ const OpenShop = () => {
             </li>: ''}
             { props.data == 'shopping'? '' :
             <li className="icon">
-               {(() => {
+               {props.count == 0 ? '' :
+               (() => {
                     return(
                         <div className='CartCount'>{props.count}</div>
                     )
@@ -228,7 +230,7 @@ export function Modal(props) {
 // 背景
  export function BacKGround(props) {
     return(
-        <div className={props.class} onClick={() => {
+        <div className={props.class} ref={props.Ref} onClick={() => {
             const backGround = document.querySelector('.background');
             AnimationClose(backGround);
         }}>

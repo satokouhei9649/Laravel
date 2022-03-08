@@ -15,7 +15,7 @@ import{Slide,Observer,GotoCart,CreateTab} from './Module'
                 <ShoppingCart />
                 <BacKGround class="background"/>
                 <BacKGround class="cartbox"/>
-                <BacKGround class="flashessage"/>
+                <BacKGround class="flashMessage" Ref ={props.Ref}/>
                 <Modal isLogin={props.isLogin} Logout={props.Logout}/>
                 <Main countpush={props.countpush}/>
                 <Footer />

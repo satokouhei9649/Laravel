@@ -338,7 +338,7 @@ header {
 .flashMessage.active {
     top: -10%;
     opacity: 0;
-    animation: cart 3s forwards;
+    animation: cart 2s forwards;
 }
 @keyframes cart {
     0% {

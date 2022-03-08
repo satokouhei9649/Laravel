@@ -44,6 +44,9 @@ export const Close = (e) => {
             AnimationClose(modal);
         break;
         case 'shop':
+            const flashMessage = document.querySelector('.flashMessage');
+            flashMessage.classList.remove('hidden');
+            flashMessage.classList.remove('active');
             const cartBox = document.querySelector('.cartbox');
             const cart = document.querySelector('.cart');
             AnimationClose(cartBox,cart,backGround);
@@ -172,7 +175,6 @@ export const GotoCart = (e) => {
     list.appendChild(input);
     list.appendChild(DeleteBtn);
     // カゴから商品を削除
-    DeleteBtn.onclick = Remove;
     // アニメーションが終わった後に処理
   flashMessage.addEventListener('animationend',() => {
       flashMessage.classList.remove('active');
