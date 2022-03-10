@@ -12,7 +12,7 @@ const mix = require('laravel-mix');
  */
 
 mix .js('resources/js/route.jsx','public/js/route.js').react()
-    .scripts('public/js/route.js','public/js/test.js')
+    .scripts('public/js/route.js','public/js/All.js')
     .sass('resources/sass/app.scss', 'public/css');
 mix.webpackConfig({
     resolve : {

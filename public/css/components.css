@@ -336,8 +336,8 @@ header {
     padding: 4px 8px;
 }
 .flashMessage.active {
-    top: -10%;
-    opacity: 0;
+    /* top: -10%;
+    opacity: 0; */
     animation: cart 2s forwards;
 }
 @keyframes cart {
@@ -345,13 +345,13 @@ header {
         opacity: 0;
         top: -10%;
     }
-    60% {
+    50% {
         opacity: 1;
         top: 5%;
     }
     100% {
     opacity: 0;
-    top: -10%;
+    top: 5%;
     }
  }
 /* 新規登録 */
