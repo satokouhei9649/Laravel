@@ -24,6 +24,7 @@
 </head>
 <body>
     <div id="app"></div>
-    <script src="{{ mix('js/All.js') }}" defer></script>
+    <script src="{{ mix('js/react.js') }}" defer></script>
+    {{-- <script src="{{ url('js/All.js') }}" defer></script> --}}
 </body>
 </html>
