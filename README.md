@@ -7,7 +7,7 @@ Food Loss
 このアプリを作ろうとを思いました。また　恵方巻等の廃棄量の話を聞いた覚えがあるので、廃棄量を減らす  
 目的もあり、SDGsも意識しました。
   
-URL   
+URL   <https://foodloss-myapp.com>
 
 # 使用技術  
   RHP 8.0.7  
