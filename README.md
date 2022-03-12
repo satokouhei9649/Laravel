@@ -15,6 +15,7 @@ URL   <https://foodloss-myapp.com>
   React 17.0.2  
   MySQL 8.0.25  
   Docker 20.10.12  
+  AWS EC2,ELB,Route 53,RDS
 # 機能一覧  
 ・ユーザ新規登録機能  
 ・ログイン機能  

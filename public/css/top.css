@@ -3,7 +3,9 @@ body {
     text-align: center;
     background-color: rgb(253, 253, 241);
 }
-
+p {
+    margin: 0;
+}
 h2 {
     margin: 20px;
 }
@@ -112,6 +114,16 @@ nav .current {
 }
 .recommend > h1,.sell > h1 {
     margin: 20px 0 100px;
+}
+.beforePrice {
+    text-decoration: line-through tomato 2px;
+}
+.discountText {
+    color: tomato;
+    font-size: 10px;
+    text-align: right;
+    width: 50%;
+    margin: 0 auto;
 }
 .recommend.active {
     left: -100%;

@@ -45,7 +45,6 @@ export const Close = (e) => {
         break;
         case 'shop':
             const flashMessage = document.querySelector('.flashMessage');
-            flashMessage.classList.remove('hidden');
             flashMessage.classList.remove('active');
             const cartBox = document.querySelector('.cartbox');
             const cart = document.querySelector('.cart');

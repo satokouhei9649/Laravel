@@ -230,7 +230,7 @@ export function Modal(props) {
 // 背景
  export function BacKGround(props) {
     return(
-        <div className={props.class} ref={props.Ref} onClick={() => {
+        <div className={props.class=="Main" ? props.class : props.class +" hidden"} ref={props.Ref} onClick={() => {
             const backGround = document.querySelector('.background');
             AnimationClose(backGround);
         }}>

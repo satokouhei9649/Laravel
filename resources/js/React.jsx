@@ -49,9 +49,16 @@ import{Slide,Observer,GotoCart,CreateTab} from './Module'
 
     // オススメ
     function Recommend(props) {
-        const [Recommend, setRecommendData] = useState([]);
+        const [Recommend, setData] = useState([]);
         useEffect(() =>{
-            GetData();
+            if (props.class == "recommend") {
+                GetRecoomendData();
+                return;
+            }
+            if (props.class == "sell") {
+                GetsellData();
+                return;
+            }
         },[]);
         useEffect(() =>{
             const recommends= document.querySelectorAll('.recommend');
@@ -59,24 +66,35 @@ import{Slide,Observer,GotoCart,CreateTab} from './Module'
             Observer(recommends,Sells);
         });
         // 取得
-        const GetData = () => {
+        const GetRecoomendData = () => {
             axios
             .get('/api/food/recommend')
             .then(res => {
-                setRecommendData(res.data);
+                setData(res.data);
             })
             .catch(() => {
                 console.log('通信に失敗しました');
             });
         }
-
+        const GetsellData = () => {
+            axios
+            .get('/api/food/sell')
+            .then(res => {
+                setData(res.data);
+            })
+            .catch(() => {
+                console.log('通信に失敗しました');
+            });
+        }
             // 取得したDataをmap
             const RECOMMENDS = Recommend.map((el,index) => {
                 index = index + 1;
                 return(
                     <li className={props.class} key={el.name}>
                     <h1> {props.class == 'recommend' ? <span className='rank'>{index}</span> : ''}{el.name}</h1>
-                    {props.class == 'sell' ? <p>{ "¥" + el.praice * 0.7}</p> : <p>{ "¥" + el.praice}</p>}
+                    {props.class == 'recommend' ?  <p>{ "¥" + el.praice}</p> : <p className='beforePrice'>{ "¥" + el.praice}</p>}
+                    {props.class == 'sell' ?  <p className='discountText'>30%OFF</p> :''}
+                    {props.class == 'sell' ? <p>{ "¥" + Math.ceil(el.praice * 0.7)}</p> : ''}
                     <button className='ToCart' name={el.name} value={el.praice} onClick={props.countpush}>カートに入れる</button>
                     </li>
                 );

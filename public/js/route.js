@@ -3138,7 +3138,6 @@ var Close = function Close(e) {
 
     case 'shop':
       var flashMessage = document.querySelector('.flashMessage');
-      flashMessage.classList.remove('hidden');
       flashMessage.classList.remove('active');
       var cartBox = document.querySelector('.cartbox');
       var cart = document.querySelector('.cart');
@@ -3659,10 +3658,18 @@ function Recommend(props) {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
       _useState2 = _slicedToArray(_useState, 2),
       Recommend = _useState2[0],
-      setRecommendData = _useState2[1];
+      setData = _useState2[1];
 
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
-    GetData();
+    if (props["class"] == "recommend") {
+      GetRecoomendData();
+      return;
+    }
+
+    if (props["class"] == "sell") {
+      GetsellData();
+      return;
+    }
   }, []);
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
     var recommends = document.querySelectorAll('.recommend');
@@ -3670,9 +3677,17 @@ function Recommend(props) {
     (0,_Module__WEBPACK_IMPORTED_MODULE_6__.Observer)(recommends, Sells);
   }); // 取得
 
-  var GetData = function GetData() {
+  var GetRecoomendData = function GetRecoomendData() {
     axios__WEBPACK_IMPORTED_MODULE_2___default().get('/api/food/recommend').then(function (res) {
-      setRecommendData(res.data);
+      setData(res.data);
+    })["catch"](function () {
+      console.log('通信に失敗しました');
+    });
+  };
+
+  var GetsellData = function GetsellData() {
+    axios__WEBPACK_IMPORTED_MODULE_2___default().get('/api/food/sell').then(function (res) {
+      setData(res.data);
     })["catch"](function () {
       console.log('通信に失敗しました');
     });
@@ -3688,11 +3703,17 @@ function Recommend(props) {
           className: "rank",
           children: index
         }) : '', el.name]
-      }), props["class"] == 'sell' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("p", {
-        children: "¥" + el.praice * 0.7
-      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("p", {
+      }), props["class"] == 'recommend' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("p", {
         children: "¥" + el.praice
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("p", {
+        className: "beforePrice",
+        children: "¥" + el.praice
+      }), props["class"] == 'sell' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("p", {
+        className: "discountText",
+        children: "30%OFF"
+      }) : '', props["class"] == 'sell' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("p", {
+        children: "¥" + Math.ceil(el.praice * 0.7)
+      }) : '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
         className: "ToCart",
         name: el.name,
         value: el.praice,
@@ -4644,7 +4665,7 @@ function ShoppingCart(props) {
 
 function BacKGround(props) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-    className: props["class"],
+    className: props["class"] == "Main" ? props["class"] : props["class"] + " hidden",
     ref: props.Ref,
     onClick: function onClick() {
       var backGround = document.querySelector('.background');
@@ -4946,7 +4967,9 @@ var App = /*#__PURE__*/function (_React$Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "PushCart", function (e) {
-      // リスト
+      var flashMessage = document.querySelector('.flashMessage');
+      flashMessage.classList.remove('hidden'); // リスト
+
       var ShopListUl = document.getElementById('ShopListUl');
       var list = document.createElement('li');
       var DeleteBtn = document.createElement('button');
@@ -4987,6 +5010,7 @@ var App = /*#__PURE__*/function (_React$Component) {
       userEmail: '',
       userPassword: '',
       isLogin: false,
+      // 買い物カゴの個数
       count: 0
     }; // アニメーションのdom操作
 
@@ -5002,11 +5026,15 @@ var App = /*#__PURE__*/function (_React$Component) {
   _createClass(App, [{
     key: "componentDidUpdate",
     value: function componentDidUpdate() {
-      var flashMessage = this.flashMessageRef.current;
+      var flashMessage = this.flashMessageRef.current; //    if (flashMessage.classList.contains('hidden') == true) {
+      //        flashMessage.classList.remove('hidden');
+      //    }
+
       flashMessage.classList.add('active'); // アニメーションが終わった後に処理
 
       flashMessage.addEventListener('animationend', function () {
         flashMessage.classList.remove('active');
+        flashMessage.classList.add('hidden');
       });
     }
   }, {
@@ -5014,7 +5042,6 @@ var App = /*#__PURE__*/function (_React$Component) {
     value: function isLogin() {
       var _this2 = this;
 
-      tconsole.loghis.state;
       axios__WEBPACK_IMPORTED_MODULE_6___default().post('/api/users/login', {
         userEmail: this.state.userEmail,
         userPassword: this.state.userPassword

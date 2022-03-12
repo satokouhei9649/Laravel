@@ -16,6 +16,7 @@ import {AnimationClose} from './Module';
             userEmail: '',
             userPassword: '',
             isLogin: false,
+            // 買い物カゴの個数
             count: 0,
         }
         // アニメーションのdom操作
@@ -28,14 +29,17 @@ import {AnimationClose} from './Module';
     }
     componentDidUpdate(){
        const flashMessage = this.flashMessageRef.current
+    //    if (flashMessage.classList.contains('hidden') == true) {
+    //        flashMessage.classList.remove('hidden');
+    //    }
         flashMessage.classList.add('active');
          // アニメーションが終わった後に処理
         flashMessage.addEventListener('animationend',() => {
             flashMessage.classList.remove('active');
+            flashMessage.classList.add('hidden');
         })
     }
     isLogin() {
-        (tconsole.loghis.state);
         axios
         .post('/api/users/login', {
             userEmail: this.state.userEmail,
@@ -78,6 +82,8 @@ import {AnimationClose} from './Module';
     }
 
     PushCart = (e) => {
+        const flashMessage = document.querySelector('.flashMessage');
+        flashMessage.classList.remove('hidden');
         // リスト
         const ShopListUl = document.getElementById('ShopListUl');
         const list = document.createElement('li');
