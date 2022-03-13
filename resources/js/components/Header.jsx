@@ -8,7 +8,7 @@ let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
         <header>
             <h2 className='title'>Food loss</h2>
             <SearchForm route="posts/test" class="searchForm" />
-            <MenuList isLogin={props.isLogin} count={props.count}/>
+            <MenuList isLogin={props.isLogin} count={props.count} user={props.user}/>
         </header>
     );
 }
@@ -115,10 +115,11 @@ const OpenShop = () => {
  export function MenuList(props) {
     return(
          <ul className="list">
-             {props.isLogin == true ?
+             {/* {props.user.userName == 'root' ? */}
            <li className="icon">
-                <span id="user"><i className="fas fa-user fa-2x"></i></span>
-            </li>: ''}
+           <a id='root' href='/register'><span id="user"><i className="fas fa-user fa-2x"></i></span></a>
+            </li>
+            {/* : ''} */}
             { props.data == 'shopping'? '' :
             <li className="icon">
                {props.count == 0 ? '' :

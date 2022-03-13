@@ -112,11 +112,19 @@ nav .current {
     margin: 20px;
     opacity: 0;
 }
-.recommend > h1,.sell > h1 {
+.recommend > h1 {
     margin: 20px 0 100px;
+}
+.sell > h1 {
+    margin: 20px 0 60px;
+}
+.Price {
+    margin-bottom: 30px;
+    font-size: 24px;
 }
 .beforePrice {
     text-decoration: line-through tomato 2px;
+    font-size: 18px;
 }
 .discountText {
     color: tomato;
@@ -124,6 +132,7 @@ nav .current {
     text-align: right;
     width: 50%;
     margin: 0 auto;
+    font-size: 12px;
 }
 .recommend.active {
     left: -100%;

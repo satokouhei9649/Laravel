@@ -57,6 +57,9 @@ header {
  .icon {
      margin: auto 20px;
  }
+ #root:link,#root:visited {
+     color: white;
+ }
  .CartCount {
      position: fixed;
      top: 20px;

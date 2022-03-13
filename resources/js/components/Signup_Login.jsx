@@ -49,7 +49,7 @@ import { Close,Open } from '../Module';
             <input type="text" name="userEmail" value={formData.userEmail} onChange={inputChange} />
             <p>パスワード</p>
             <input type="text" name='userPassword' value={formData.userPassword} onChange={inputChange} />
-            <input className="signBtn" href="#" type="submit" value="新規登録" onClick={createUser}/>
+            <input className="signBtn" href="/" type="submit" value="新規登録" onClick={createUser}/>
         </form>
             <button className="loginBtn"name='login' onClick={Open}>ログイン画面</button>
     </div>

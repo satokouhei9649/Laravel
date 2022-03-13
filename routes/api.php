@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => 'api'], function () {
  Route::get('posts', 'App\Http\Controllers\Api\PostController@index');
  Route::get('food/recommend', 'App\Http\Controllers\Api\FoodController@recommend');
+ Route::post('food/register', 'App\Http\Controllers\Api\FoodController@register');
  Route::get('food/sell', 'App\Http\Controllers\Api\FoodController@sell');
  Route::post('food/category', 'App\Http\Controllers\Api\FoodController@category');
  Route::post('users/create', 'App\Http\Controllers\Api\UserController@create');

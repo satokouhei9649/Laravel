@@ -9,7 +9,7 @@ import{Slide,Observer,GotoCart,CreateTab} from './Module'
      export function Index (props) {
         return (
             <div>
-                <Header isLogin={props.isLogin} count={props.count}/>
+                <Header isLogin={props.isLogin} count={props.count} user={props.user}/>
                 {props.isLogin == false ? <SignUP/> : ''}
                 {props.isLogin == false ? <LoginForm user={props.user} Login={props.Login} inputChange={props.inputChange} />: ''}
                 <ShoppingCart />
@@ -92,9 +92,9 @@ import{Slide,Observer,GotoCart,CreateTab} from './Module'
                 return(
                     <li className={props.class} key={el.name}>
                     <h1> {props.class == 'recommend' ? <span className='rank'>{index}</span> : ''}{el.name}</h1>
-                    {props.class == 'recommend' ?  <p>{ "¥" + el.praice}</p> : <p className='beforePrice'>{ "¥" + el.praice}</p>}
+                    {props.class == 'recommend' ?  <p className='Price'>{ "¥" + el.praice}</p> : <p className='beforePrice'>{ "¥" + el.praice}</p>}
                     {props.class == 'sell' ?  <p className='discountText'>30%OFF</p> :''}
-                    {props.class == 'sell' ? <p>{ "¥" + Math.ceil(el.praice * 0.7)}</p> : ''}
+                    {props.class == 'sell' ? <p className='Price'>{ "¥" + Math.ceil(el.praice * 0.7)}</p> : ''}
                     <button className='ToCart' name={el.name} value={el.praice} onClick={props.countpush}>カートに入れる</button>
                     </li>
                 );

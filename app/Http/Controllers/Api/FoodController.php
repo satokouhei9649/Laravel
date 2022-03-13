@@ -21,4 +21,12 @@ class FoodController extends Controller
      $results = Food::orderby('created_at','DESC')->take(10)->get();
      return response()->json($results, 200);
  }
+ public function register(Request $request) {
+    $food = new Food;
+    $food->name = $request->name;
+    $food->explain = $request->explain;
+    $food->praice = $request->praice;
+    $food->save();
+    return response()->json($food, 200);
+ }
 }

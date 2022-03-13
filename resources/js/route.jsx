@@ -4,6 +4,7 @@ import {BrowserRouter,Route,Routes,} from 'react-router-dom';
 import Index from './React.jsx';
 import {Shopping} from './Shopping.jsx';
 import {Infomation} from './Info'
+import {Register} from './Register'
 import {Order} from './Order'
 import axios from 'axios';
 import {AnimationClose} from './Module';
@@ -126,6 +127,17 @@ import {AnimationClose} from './Module';
                     {/* <Route path='/example' element={<Example />} /> */}
                     <Route path='/' element={
                     <Index
+                    isLogin={this.state.isLogin}
+                    Logout={this.Logout}
+                    Login={this.isLogin}
+                    user={this.state}
+                    inputChange={this.inputChange}
+                    count={this.state.count}
+                    countpush={this.PushCart}
+                    Ref={this.flashMessageRef}
+                    />} />
+                    <Route path='/register' element={
+                    <Register
                     isLogin={this.state.isLogin}
                     Logout={this.Logout}
                     Login={this.isLogin}
