@@ -7,7 +7,7 @@ import {Link} from 'react-router-dom';
 export function Shopping(props){
         return(
             <div>
-                <ShoppignHeader isLogin={props.isLogin}/>
+                <ShoppignHeader isLogin={props.isLogin} user={props.user}/>
                 <Modal isLogin={props.isLogin} Logout={props.Logout}/>
                 {props.isLogin == false ? <SignUP/> : ''}
                 {props.isLogin == false ? <LoginForm user={props.user} Login={props.Login} inputChange={props.inputChange} />: ''}
@@ -20,7 +20,7 @@ export function Shopping(props){
     return(
                 <header className='ShoppingHeader'>
                     <h2 className='title'>Food Loss</h2>
-                    <MenuList data="shopping"  isLogin={props.isLogin}/>
+                    <MenuList data="shopping"  isLogin={props.isLogin} user={props.user}/>
                 </header>
         );
 }

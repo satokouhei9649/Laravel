@@ -9,7 +9,7 @@ import{Slide,Observer,GotoCart,CreateTab} from './Module'
      export function Index (props) {
         return (
             <div>
-                <Header isLogin={props.isLogin} count={props.count} user={props.user}/>
+                <Header isLogin={props.isLogin} count={props.count} user={props.user} countpush={props.countpush}/>
                 {props.isLogin == false ? <SignUP/> : ''}
                 {props.isLogin == false ? <LoginForm user={props.user} Login={props.Login} inputChange={props.inputChange} />: ''}
                 <ShoppingCart />
@@ -128,19 +128,6 @@ import{Slide,Observer,GotoCart,CreateTab} from './Module'
         );
     }
 
-//    export const Reflesh = () => {
-//         const Target = document.querySelector('.Results-wrapper');
-//             Target.remove();
-//     }
-//    export const Reflesh = () => {
-//         const InsertTarget = document.getElementById('Search');
-//             const Lists = InsertTarget.childNodes;
-//             Lists.forEach(el => {
-//                 el.remove();
-//             });
-//     }
-
-
     function FoodSection(props) {
         const [RequestData, setData] = useState({name: ''});
         const [ResultsData, resData] = useState([]);
@@ -149,15 +136,11 @@ import{Slide,Observer,GotoCart,CreateTab} from './Module'
             const menuContents = document.querySelectorAll('.content');
             CreateTab(menuIcons,menuContents);
         })
-        useEffect(() => {
-            // Reflesh();
-        },[ResultsData])
         // 検索
         const search = async(word) => {
             RequestData.name = word;
             let data = Object.assign({}, RequestData);
             setData(data);
-            //入力値を投げる
             axios.post('/api/food/category',{
                 name: RequestData.name
             })
@@ -168,8 +151,6 @@ import{Slide,Observer,GotoCart,CreateTab} from './Module'
                 console.log(error);
             });
         }
-
-
         const titles = [
             {class: "active", id: "meat", bordercolor: "20px solid rgb(255, 103, 103)", h1:"お肉",lists:["豚肉","牛肉","鶏肉",]},
             {id: "fish", bordercolor: "20px solid rgb(48, 103, 255)", h1:"魚介類",lists:["魚","貝"]},

@@ -255,18 +255,23 @@ nav .current {
     margin: 10px auto;
     background-color: white;
     width: 30%;
-    height: 200px;
     padding: 20px;
     border: 2px solid rgb(238, 241, 243);
 }
 .SearchResults > h1,.SearchResults > p {
     border-bottom: 1px solid gray;
+    margin-bottom: 10px;
+}
+.SearchResults > h1 {
+    margin-bottom: 30px;
 }
 .ResToCart,.ToCart{
     color: white;
     background-color: lightseagreen;
     border: lightseagreen;
     border-radius: 5px;
+}
+.ResToCart {
 }
 
  /* Footer */

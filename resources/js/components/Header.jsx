@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
-import {Open,Close,AnimationOpen} from '../Module';
+import {Open,Close,AnimationClose,AnimationOpen} from '../Module';
 let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
  export function Header(props) {
     return(
         <header>
             <h2 className='title'>Food loss</h2>
-            <SearchForm route="posts/test" class="searchForm" />
+            <SearchForm route="posts/test" class="searchForm" countpush={props.countpush}/>
             <MenuList isLogin={props.isLogin} count={props.count} user={props.user}/>
         </header>
     );
@@ -32,7 +32,6 @@ let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
 
             const Keysearch = async() => {
                 SetResData([]);
-                //入力値を投げる
                 if (KeyWord == '') {
                     return;
                 }
@@ -54,12 +53,6 @@ let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
                     return;
                 }
                 const InsertTarget = document.getElementById('SearchList');
-                    // Reflesh();
-                    // const CategoryResults = document.querySelectorAll('.SearchResults');
-                    // console.log(CategoryResults);
-                    // CategoryResults.forEach(el => {
-                    //     el.remove();
-                    // });
                     const targets = InsertTarget.childNodes;
                     if ((!targets.length == 0)) {
                         targets.forEach(el => {
@@ -84,7 +77,10 @@ let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
                     div.appendChild(explain);
                     div.appendChild(price);
                     div.appendChild(button);
+                    button.setAttribute('name',el.name);
+                    button.setAttribute('value',el.praice);
                     InsertTarget.appendChild(div);
+                    button.onclick = props.countpush
                 });
             }
                 return(
@@ -115,11 +111,11 @@ const OpenShop = () => {
  export function MenuList(props) {
     return(
          <ul className="list">
-             {/* {props.user.userName == 'root' ? */}
-           <li className="icon">
-           <a id='root' href='/register'><span id="user"><i className="fas fa-user fa-2x"></i></span></a>
+            {props.user.userName == 'root' ?
+            <li className="icon">
+                <a id='root' href='/register'><span id="user"><i className="fas fa-user fa-2x"></i></span></a>
             </li>
-            {/* : ''} */}
+            : ''}
             { props.data == 'shopping'? '' :
             <li className="icon">
                {props.count == 0 ? '' :
@@ -216,10 +212,9 @@ export function Modal(props) {
  export function ShoppingCart(props) {
      return(
      <div className="cart">
-        <h2>お買い物カゴにある商品<a href="#" id="shopBack"name="shop" onClick={Close}>✖️</a></h2>
+        <h2>お買い物カゴにある商品<a href='/' id="shopBack"name="shop" onClick={Close}>✖️</a></h2>
         <form action='/total' method='get'>
-         <ul id="ShopListUl">
-         </ul>
+         <ul id="ShopListUl"></ul>
             <input type="submit" value="お支払いへ" className="buyBtn"/>
             <input type="hidden" name="token" value={csrf_token}/>
         </form>

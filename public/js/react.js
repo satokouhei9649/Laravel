@@ -2958,7 +2958,8 @@ __webpack_require__.r(__webpack_exports__);
 function Infomation(props) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("section", {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Shopping__WEBPACK_IMPORTED_MODULE_3__.ShoppignHeader, {
-      isLogin: props.isLogin
+      isLogin: props.isLogin,
+      user: props.user
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_0__.Modal, {
       isLogin: props.isLogin,
       Logout: props.Logout
@@ -3365,7 +3366,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 function Order(props) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("section", {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Shopping__WEBPACK_IMPORTED_MODULE_4__.ShoppignHeader, {
-      isLogin: props.isLogin
+      isLogin: props.isLogin,
+      user: props.user
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_1__.Modal, {
       isLogin: props.isLogin,
       Logout: props.Logout
@@ -3597,7 +3599,8 @@ function Index(props) {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_5__.Header, {
       isLogin: props.isLogin,
       count: props.count,
-      user: props.user
+      user: props.user,
+      countpush: props.countpush
     }), props.isLogin == false ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_Signup_Login_jsx__WEBPACK_IMPORTED_MODULE_4__.SignUP, {}) : '', props.isLogin == false ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_Signup_Login_jsx__WEBPACK_IMPORTED_MODULE_4__.LoginForm, {
       user: props.user,
       Login: props.Login,
@@ -3802,18 +3805,7 @@ function FoodMenu(props) {
       })]
     })]
   });
-} //    export const Reflesh = () => {
-//         const Target = document.querySelector('.Results-wrapper');
-//             Target.remove();
-//     }
-//    export const Reflesh = () => {
-//         const InsertTarget = document.getElementById('Search');
-//             const Lists = InsertTarget.childNodes;
-//             Lists.forEach(el => {
-//                 el.remove();
-//             });
-//     }
-
+}
 
 function FoodSection(props) {
   var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({
@@ -3832,9 +3824,7 @@ function FoodSection(props) {
     var menuIcons = document.querySelectorAll('.foodIcon');
     var menuContents = document.querySelectorAll('.content');
     (0,_Module__WEBPACK_IMPORTED_MODULE_6__.CreateTab)(menuIcons, menuContents);
-  });
-  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {// Reflesh();
-  }, [ResultsData]); // 検索
+  }); // 検索
 
   var search = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(word) {
@@ -3845,8 +3835,7 @@ function FoodSection(props) {
             case 0:
               RequestData.name = word;
               data = Object.assign({}, RequestData);
-              setData(data); //入力値を投げる
-
+              setData(data);
               axios__WEBPACK_IMPORTED_MODULE_2___default().post('/api/food/category', {
                 name: RequestData.name
               }).then(function (response) {
@@ -4053,7 +4042,11 @@ function Register() {
     }).then(function (res) {
       console.log(res.data);
       console.log("good!");
-      setData(res.data);
+      setData({
+        name: '',
+        explain: '',
+        praice: ''
+      });
     })["catch"](function (error) {
       console.log(error);
     });
@@ -4132,7 +4125,8 @@ __webpack_require__.r(__webpack_exports__);
 function Shopping(props) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(ShoppignHeader, {
-      isLogin: props.isLogin
+      isLogin: props.isLogin,
+      user: props.user
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_0__.Modal, {
       isLogin: props.isLogin,
       Logout: props.Logout
@@ -4151,7 +4145,8 @@ function ShoppignHeader(props) {
       children: "Food Loss"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_0__.MenuList, {
       data: "shopping",
-      isLogin: props.isLogin
+      isLogin: props.isLogin,
+      user: props.user
     })]
   });
 }
@@ -4402,7 +4397,8 @@ function Header(props) {
       children: "Food loss"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(SearchForm, {
       route: "posts/test",
-      "class": "searchForm"
+      "class": "searchForm",
+      countpush: props.countpush
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(MenuList, {
       isLogin: props.isLogin,
       count: props.count,
@@ -4443,7 +4439,7 @@ function SearchForm(props) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              SetResData([]); //入力値を投げる
+              SetResData([]);
 
               if (!(KeyWord == '')) {
                 _context.next = 3;
@@ -4484,13 +4480,7 @@ function SearchForm(props) {
       return;
     }
 
-    var InsertTarget = document.getElementById('SearchList'); // Reflesh();
-    // const CategoryResults = document.querySelectorAll('.SearchResults');
-    // console.log(CategoryResults);
-    // CategoryResults.forEach(el => {
-    //     el.remove();
-    // });
-
+    var InsertTarget = document.getElementById('SearchList');
     var targets = InsertTarget.childNodes;
 
     if (!targets.length == 0) {
@@ -4516,7 +4506,10 @@ function SearchForm(props) {
       div.appendChild(explain);
       div.appendChild(price);
       div.appendChild(button);
+      button.setAttribute('name', el.name);
+      button.setAttribute('value', el.praice);
       InsertTarget.appendChild(div);
+      button.onclick = props.countpush;
     });
   };
 
@@ -4558,7 +4551,7 @@ var OpenShop = function OpenShop() {
 function MenuList(props) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("ul", {
     className: "list",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
+    children: [props.user.userName == 'root' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
       className: "icon",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
         id: "root",
@@ -4570,7 +4563,7 @@ function MenuList(props) {
           })
         })
       })
-    }), props.data == 'shopping' ? '' : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {
+    }) : '', props.data == 'shopping' ? '' : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {
       className: "icon",
       children: [props.count == 0 ? '' : function () {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
@@ -4760,7 +4753,7 @@ function ShoppingCart(props) {
     className: "cart",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("h2", {
       children: ["\u304A\u8CB7\u3044\u7269\u30AB\u30B4\u306B\u3042\u308B\u5546\u54C1", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
-        href: "#",
+        href: "/",
         id: "shopBack",
         name: "shop",
         onClick: _Module__WEBPACK_IMPORTED_MODULE_3__.Close,
@@ -4795,7 +4788,7 @@ function BacKGround(props) {
     ref: props.Ref,
     onClick: function onClick() {
       var backGround = document.querySelector('.background');
-      AnimationClose(backGround);
+      (0,_Module__WEBPACK_IMPORTED_MODULE_3__.AnimationClose)(backGround);
     },
     children: [props["class"] == "Main" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h1", {
       children: "Food Loss"
@@ -5154,10 +5147,7 @@ var App = /*#__PURE__*/function (_React$Component) {
   _createClass(App, [{
     key: "componentDidUpdate",
     value: function componentDidUpdate() {
-      var flashMessage = this.flashMessageRef.current; //    if (flashMessage.classList.contains('hidden') == true) {
-      //        flashMessage.classList.remove('hidden');
-      //    }
-
+      var flashMessage = this.flashMessageRef.current;
       flashMessage.classList.add('active'); // アニメーションが終わった後に処理
 
       flashMessage.addEventListener('animationend', function () {

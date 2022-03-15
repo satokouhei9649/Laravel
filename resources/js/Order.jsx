@@ -8,7 +8,7 @@ import axios from 'axios';
 export function Order(props) {
     return(
         <section>
-           <ShoppignHeader isLogin={props.isLogin}/>
+           <ShoppignHeader isLogin={props.isLogin} user={props.user}/>
             <Modal isLogin={props.isLogin} Logout={props.Logout}/>
             {props.isLogin == false ? <SignUP/> : ''}
             {props.isLogin == false ? <LoginForm user={props.user} Login={props.Login} inputChange={props.inputChange} />: ''}

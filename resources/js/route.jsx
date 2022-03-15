@@ -30,9 +30,6 @@ import {AnimationClose} from './Module';
     }
     componentDidUpdate(){
        const flashMessage = this.flashMessageRef.current
-    //    if (flashMessage.classList.contains('hidden') == true) {
-    //        flashMessage.classList.remove('hidden');
-    //    }
         flashMessage.classList.add('active');
          // アニメーションが終わった後に処理
         flashMessage.addEventListener('animationend',() => {
