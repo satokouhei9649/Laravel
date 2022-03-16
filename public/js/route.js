@@ -3736,7 +3736,7 @@ function Recommend(props) {
       children: RECOMMENDS
     })]
   });
-} // タブ
+} // タブメニュー
 
 
 function FoodMenu(props) {
@@ -3783,7 +3783,7 @@ function FoodMenu(props) {
           className: "foodIcon tab5",
           "data-id": "milk",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("i", {
-            className: "fas fa-apple-alt fa-4x"
+            className: "fas fa-cheese fa-4x"
           })
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("li", {
@@ -3882,7 +3882,7 @@ function FoodSection(props) {
     id: "milk",
     bordercolor: "20px solid rgb(255, 202, 103)",
     h1: "乳製品",
-    lists: ["チーズ,ヨーグルト"]
+    lists: ["チーズ", "ヨーグルト"]
   }, {
     id: "drink",
     bordercolor: "20px solid rgb(228, 103, 103)",
@@ -3907,7 +3907,7 @@ function FoodSection(props) {
       }, list);
     });
     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("section", {
-      className: "content " + props["class"],
+      className: "content foodSection " + props["class"],
       id: props.id,
       style: {
         border: props.bordercolor
@@ -4846,21 +4846,15 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function SignUP(props) {
-  //  ステート
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
-      _useState2 = _slicedToArray(_useState, 2),
-      Users = _useState2[0],
-      setPosts = _useState2[1]; //フォームの入力値ステート
-
-
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({
+  //フォームの入力値ステート
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({
     userName: '',
     userEmail: '',
     userPassword: ''
   }),
-      _useState4 = _slicedToArray(_useState3, 2),
-      formData = _useState4[0],
-      setFormData = _useState4[1]; // 文字入力反映
+      _useState2 = _slicedToArray(_useState, 2),
+      formData = _useState2[0],
+      setFormData = _useState2[1]; // 文字入力反映
 
 
   var inputChange = function inputChange(e) {
@@ -4964,7 +4958,8 @@ function SignUP(props) {
       children: "\u30ED\u30B0\u30A4\u30F3\u753B\u9762"
     })]
   });
-}
+} // ログイン画面
+
 function LoginForm(props) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
     className: "LoginForm",

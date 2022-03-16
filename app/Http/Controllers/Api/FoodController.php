@@ -18,7 +18,7 @@ class FoodController extends Controller
      return response()->json($results, 200);
  }
  public function sell() {
-     $results = Food::orderby('created_at','DESC')->take(10)->get();
+     $results = Food::orderby('created_at','ASC')->take(10)->get();
      return response()->json($results, 200);
  }
  public function register(Request $request) {

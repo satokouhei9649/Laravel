@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Close,Open } from '../Module';
+
 // 新規登録
  export function SignUP(props) {
-    //  ステート
-    const [Users, setPosts] = useState([]);
     //フォームの入力値ステート
     const [formData, setFormData] = useState({userName:'', userEmail:'',userPassword:''});
     // 文字入力反映
@@ -56,6 +55,7 @@ import { Close,Open } from '../Module';
     );
 }
 
+// ログイン画面
 export function LoginForm (props) {
     return(
         <div className="LoginForm">

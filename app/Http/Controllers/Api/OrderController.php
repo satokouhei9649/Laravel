@@ -6,12 +6,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\Store;
-
+use Illuminate\Support\Facades\DB;
 class OrderController extends Controller
 {
     //
     public function order(Request $request) {
-
         $order = new Order;
         DB::beginTransaction();
         try {

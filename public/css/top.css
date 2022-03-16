@@ -167,6 +167,7 @@ nav .current {
         top: 0;
     }
 }
+
 /* Foodsection */
 #Food {
  font-family: cursive;
@@ -184,6 +185,8 @@ nav .current {
 }
 .foodmenu li a {
     color: white;
+    border: 1px solid rgba(122, 122, 122, 0.555);
+    border-bottom: none;
     display: inline-block;
     width: 100%;
     border-radius: 10px 10px 0 0;
@@ -205,13 +208,17 @@ nav .current {
 .content {
     display: none;
 }
+.content > h1 {
+    margin: 30px auto;
+}
 .foodUl> li {
     width: 50%;
     height: 50%;
-    border: 1px solid gray;
+    border: 1px solid rgba(122, 122, 122, 0.555);
     margin: 20px auto;
     padding: 3%;
     border-radius: 10px;
+    background-color: white;
 }
 .foodUl {
     white-space: normal;
@@ -270,8 +277,6 @@ nav .current {
     background-color: lightseagreen;
     border: lightseagreen;
     border-radius: 5px;
-}
-.ResToCart {
 }
 
  /* Footer */

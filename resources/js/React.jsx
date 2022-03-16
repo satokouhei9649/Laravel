@@ -109,7 +109,7 @@ import{Slide,Observer,GotoCart,CreateTab} from './Module'
             </span>
         );
     }
-    // タブ
+    // タブメニュー
     function FoodMenu(props) {
         return(
             <div>
@@ -119,7 +119,7 @@ import{Slide,Observer,GotoCart,CreateTab} from './Module'
                     <li><a className="foodIcon tab2" data-id="fish"><i className="fas fa-fish fa-4x"></i></a></li>
                     <li><a className="foodIcon tab3" data-id="veg"><i className="fas fa-carrot fa-4x"></i></a></li>
                     <li><a className="foodIcon tab4" data-id="egg"><i className="fas fa-egg fa-4x"></i></a></li>
-                    <li><a className="foodIcon tab5" data-id="milk"><i className="fas fa-apple-alt fa-4x"></i></a></li>
+                    <li><a className="foodIcon tab5" data-id="milk"><i className="fas fa-cheese fa-4x"></i></a></li>
                     <li><a className="foodIcon tab6" data-id="drink"><i className="fas fa-wine-bottle fa-4x"></i></a></li>
                     <li><a className="foodIcon tab7" data-id="others"><i className="fas fa-bread-slice fa-4x"></i></a></li>
                 </ul>
@@ -156,7 +156,7 @@ import{Slide,Observer,GotoCart,CreateTab} from './Module'
             {id: "fish", bordercolor: "20px solid rgb(48, 103, 255)", h1:"魚介類",lists:["魚","貝"]},
             {id: "veg", bordercolor: "20px solid rgb(95, 200, 95)", h1:"野菜",lists:["根野菜","葉物","大豆食品"]},
             {id: "egg", bordercolor: "20px solid rgb(255, 245, 103)", h1:"卵",lists:["鶏卵","魚卵"]},
-            {id: "milk", bordercolor: "20px solid rgb(255, 202, 103)", h1:"乳製品",lists:["チーズ,ヨーグルト"]},
+            {id: "milk", bordercolor: "20px solid rgb(255, 202, 103)", h1:"乳製品",lists:["チーズ","ヨーグルト"]},
             {id: "drink", bordercolor: "20px solid rgb(228, 103, 103)", h1:"飲み物",lists:["酒","ジュース","お茶"]},
             {id: "others", bordercolor: "20px solid rgb(255, 98, 255)", h1:"その他",lists:["お菓子","調味料"]},
         ];
@@ -167,7 +167,7 @@ import{Slide,Observer,GotoCart,CreateTab} from './Module'
                     );
                 })
                 return(
-                    <section className={"content "+ props.class} id={props.id} style={{border:props.bordercolor}} key={index}>
+                    <section className={"content foodSection "+ props.class} id={props.id} style={{border:props.bordercolor}} key={index}>
                         <h1>{props.h1}</h1>
                         <ul className="foodUl">
                             {Lists}
