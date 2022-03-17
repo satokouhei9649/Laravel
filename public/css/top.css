@@ -101,6 +101,7 @@ nav .current {
     color: white;
     background-color: gold;
     font-size: 18px;
+    border-radius: 50%;
 }
 .recommend,.sell {
     background-color: white;

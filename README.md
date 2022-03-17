@@ -18,12 +18,12 @@ URL   <https://foodloss-myapp.com>
   AWS EC2,ELB,Route 53,RDS
 # 機能一覧  
 ・ユーザ新規登録機能  
-・ログイン機能  (テストアカウント  .eメール test@gmail.com, パスワード test)
-・食品登録機能 (eメール root@gmail.com, パスワード root でログインしてから) 
+・ログイン機能  
+・食品登録機能 (eメール root@gmail.com, パスワード root でログインしてから右上のuserアイコンをクリック) 
 ・食品キーワード検索機能  
 ・食品カテゴリー検索機能  
 ・販売機能(商品をカゴに入れて->配送情報を入力して->お問い合わせ番号を返信する)  
-・お問い合わせ機能(お問い合わせ番号を入力して買った商品を確認できる)  
+・お問い合わせ機能(お問い合わせ番号を入力して買った商品を確認できる) (テスト番号 43487570) 
 # 頑張ったこと、工夫した所、苦労した所  
 ・カテゴリー検索の検索結果をすぐに表示させる  
 ・初めてAPI機能を作ってみた  
@@ -35,7 +35,7 @@ URL   <https://foodloss-myapp.com>
 ・管理者用のページの作成  
 ・ログイン情報保持できるようにする  
 ・session Cookieの設定  
-・セキュリティ対策(XXS,CSRF,Cookie　Secure属性の設定等)
+・セキュリティ対策(XXS,CSRF,Cookie  Secure属性の設定等)
 ・CircleCIの導入  
 ・PCI DSS準拠のネットワークを構成したい  
 ・Docker/Kuberunetesを深く知りたい(Dockerfile,docker-compose.yml等）  

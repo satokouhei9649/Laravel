@@ -3719,7 +3719,13 @@ function Recommend(props) {
       }) : '', props["class"] == 'sell' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("p", {
         className: "Price",
         children: "¥" + Math.ceil(el.praice * 0.7)
-      }) : '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
+      }) : '', props["class"] == 'sell' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
+        className: "ToCart",
+        name: el.name,
+        value: Math.ceil(el.praice * 0.7),
+        onClick: props.countpush,
+        children: "\u30AB\u30FC\u30C8\u306B\u5165\u308C\u308B"
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
         className: "ToCart",
         name: el.name,
         value: el.praice,
