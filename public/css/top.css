@@ -44,6 +44,8 @@ a:visited{
     height: 100%;
     box-sizing: border-box;
     padding: 10%;
+    background-color: white;
+    box-shadow: 4px 4px rgba(128, 128, 128, 0.212);
 }
 .prev,.next {
     position: absolute;
@@ -97,9 +99,10 @@ nav .current {
     position: absolute;
     top:0%;
     left: 0%;
-    min-width: 20%;
+    min-width: 10%;
     color: white;
     background-color: gold;
+    box-shadow: 2px 2px rgb(163, 139, 2); 
     font-size: 18px;
     border-radius: 50%;
 }
@@ -112,6 +115,8 @@ nav .current {
     height: 90%;
     margin: 20px;
     opacity: 0;
+    border-radius: 10px;
+    box-shadow: 10px 10px rgba(128, 128, 128, 0.212);
 }
 .recommend > h1 {
     margin: 20px 0 100px;

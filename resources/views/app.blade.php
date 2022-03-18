@@ -17,7 +17,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url('css/components.css')}}">
+    <link rel="stylesheet" href="{{ url('css/header.css')}}">
     <link rel="stylesheet" href="{{ url('css/top.css')}}">
     <link rel="stylesheet" href="{{ url('css/total.css')}}">
     <link rel="stylesheet" href="{{ url('css/register.css')}}">
