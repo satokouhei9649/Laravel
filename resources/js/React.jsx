@@ -95,6 +95,13 @@ import{Slide,Observer,GotoCart,CreateTab} from './Module'
                     {props.class == 'recommend' ?  <p className='Price'>{ "¥" + el.praice}</p> : <p className='beforePrice'>{ "¥" + el.praice}</p>}
                     {props.class == 'sell' ?  <p className='discountText'>30%OFF</p> :''}
                     {props.class == 'sell' ? <p className='Price'>{ "¥" + Math.ceil(el.praice * 0.7)}</p> : ''}
+                    <form action='/detail' method='get'>
+                        <input type="hidden" name='name' value={el.name}/>
+                        <input type="hidden" name='explain' value={el.explain}/>
+                        <input type="hidden" name='praice' value={el.praice}/>
+                        <button type='submit'>詳細</button>
+                    </form>
+                    {/* ボタン */}
                     {props.class == 'sell' ?
                     <button className='ToCart' name={el.name} value={ Math.ceil(el.praice * 0.7)} onClick={props.countpush}>カートに入れる</button> :
                     <button className='ToCart' name={el.name} value={el.praice} onClick={props.countpush}>カートに入れる</button>}

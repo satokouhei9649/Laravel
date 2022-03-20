@@ -6,6 +6,7 @@ import {Shopping} from './Shopping.jsx';
 import {Infomation} from './Info'
 import {Register} from './Register'
 import {Order} from './Order'
+import { Detail } from './Detail.jsx';
 import axios from 'axios';
 import {AnimationClose} from './Module';
   class App extends  React.Component {
@@ -122,6 +123,7 @@ import {AnimationClose} from './Module';
             <div>
                 <Routes>
                     {/* <Route path='/example' element={<Example />} /> */}
+                    <Route path='/detail' element={<Detail />} />
                     <Route path='/' element={
                     <Index
                     isLogin={this.state.isLogin}
