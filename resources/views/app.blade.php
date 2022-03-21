@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="{{ url('css/top.css')}}">
     <link rel="stylesheet" href="{{ url('css/total.css')}}">
     <link rel="stylesheet" href="{{ url('css/register.css')}}">
+    <link rel="stylesheet" href="{{ url('css/detail.css')}}">
 </head>
 <body>
     <div id="app"></div>

@@ -1,0 +1,6 @@
+.DetailContainer {
+    width: 50%;
+    border: 1px solid rgba(175, 175, 175, 0.609);
+    margin: 0 auto;
+    background-color: white;
+}
