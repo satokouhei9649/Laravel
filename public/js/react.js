@@ -2960,7 +2960,8 @@ function Detail(props) {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_Shopping__WEBPACK_IMPORTED_MODULE_0__.ShoppignHeader, {
       isLogin: props.isLogin,
       user: props.user,
-      countpush: props.countpush
+      countpush: props.countpush,
+      "class": "Detail"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
       className: "DetailContainer",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("h1", {
@@ -4204,7 +4205,8 @@ function Shopping(props) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(ShoppignHeader, {
       isLogin: props.isLogin,
-      user: props.user
+      user: props.user,
+      "class": "shopping"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_0__.Modal, {
       isLogin: props.isLogin,
       Logout: props.Logout
@@ -4222,7 +4224,7 @@ function ShoppignHeader(props) {
       className: "title",
       children: "Food Loss"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Header_jsx__WEBPACK_IMPORTED_MODULE_0__.MenuList, {
-      data: "shopping",
+      "class": props["class"],
       isLogin: props.isLogin,
       user: props.user,
       countpush: props.countpush
@@ -4641,7 +4643,7 @@ function MenuList(props) {
           })
         })
       })
-    }) : '', props.data == 'shopping' ? '' : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {
+    }) : '', props["class"] == 'shopping' ? '' : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {
       className: "icon",
       children: [props.count == 0 ? '' : function () {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {

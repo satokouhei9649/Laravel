@@ -12,7 +12,7 @@ import { ShoppignHeader } from "./Shopping";
     console.log(props.user);
     return (
         <section>
-            <ShoppignHeader isLogin={props.isLogin} user={props.user} countpush={props.countpush}/>
+            <ShoppignHeader isLogin={props.isLogin} user={props.user} countpush={props.countpush} class="Detail"/>
             <div className="DetailContainer">
             <h1>品名{receivedParams.name}</h1>
                 <p>説明文</p>

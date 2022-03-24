@@ -20,7 +20,7 @@ export function Shopping(props){
     return(
                 <header className='ShoppingHeader'>
                     <h2 className='title'>Food Loss</h2>
-                    <MenuList class={props.class}  isLogin={props.isLogin} user={props.user} countpush={props.countpush}/>
+                    <MenuList class={props.class}  isLogin={props.isLogin} user={props.user} count={props.user.count} countpush={props.countpush}/>
                 </header>
         );
 }
