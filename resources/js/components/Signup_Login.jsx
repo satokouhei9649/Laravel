@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Close,Open } from '../Module';
+import { Close,Open } from '../Module/Module';
 
 // 新規登録
  export function SignUP(props) {

@@ -1,4 +1,18 @@
 
+export const OpenModal = () => {
+    const modal = document.getElementById('modal');
+    modal.classList.remove('open');
+    AnimationOpen(modal);
+}
+
+export const OpenShop = () => {
+    const flashMessage = document.querySelector('.flashMessage');
+    flashMessage.classList.add('hidden');
+    const cartBox = document.querySelector('.cartbox');
+    const cart = document.querySelector('.cart');
+    const backGround = document.querySelector('.background');
+    AnimationOpen(cartBox,cart,backGround);
+}
 export const AnimationOpen = function() {
     for(let i=0; i < arguments.length; i++) {
         arguments[i].classList.remove('hidden');

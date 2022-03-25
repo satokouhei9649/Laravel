@@ -1,4 +1,4 @@
-import{Open} from'../Module'
+import{Open} from'../Module/Module'
 
 // footer
  export default function Footer() {

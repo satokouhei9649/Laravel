@@ -1,13 +1,13 @@
 import {BacKGround,ShoppingCart,Modal, SearchForm,Header,MenuList} from './components/Header.jsx';
 import Footer from './components/Footer.jsx';
 import {SignUP, LoginForm} from './components/Signup_Login.jsx';
-import {Remove} from './Module';
+import {Remove} from './Module/Module';
 import React, { useEffect } from 'react';
 import {Link} from 'react-router-dom';
 export function Shopping(props){
         return(
             <div>
-                <ShoppignHeader isLogin={props.isLogin} user={props.user} class="shopping"/>
+                <ShoppignHeader isLogin={props.isLogin} user={props.user} class="shopping" count={props.user.count}/>
                 <Modal isLogin={props.isLogin} Logout={props.Logout}/>
                 {props.isLogin == false ? <SignUP/> : ''}
                 {props.isLogin == false ? <LoginForm user={props.user} Login={props.Login} inputChange={props.inputChange} />: ''}

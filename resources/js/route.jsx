@@ -8,7 +8,7 @@ import {Register} from './Register'
 import {Order} from './Order'
 import { Detail } from './Detail.jsx';
 import axios from 'axios';
-import {AnimationClose} from './Module';
+import {AnimationClose} from './Module/Module';
   class App extends  React.Component {
     constructor(props) {
         super(props);
@@ -127,6 +127,8 @@ import {AnimationClose} from './Module';
                     <Detail
                     user={this.state}
                     countpush={this.PushCart}
+                    Ref={this.flashMessageRef}
+                    Logout={this.Logout}
                     />} />
                     <Route path='/' element={
                     <Index

@@ -4,7 +4,7 @@ import axios from 'axios';
 import Footer from './components/Footer.jsx';
 import {SignUP,LoginForm} from './components/Signup_Login.jsx';
 import {BacKGround,ShoppingCart,Modal,Header,AnimationClos,InfoNumber} from './components/Header.jsx';
-import{Slide,Observer,GotoCart,CreateTab} from './Module'
+import{Slide,Observer,GotoCart,CreateTab} from './Module/Module'
     let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
      export function Index (props) {
         return (

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
-import {Open,Close,AnimationClose,AnimationOpen} from '../Module';
+import {Open,Close,AnimationClose,AnimationOpen,OpenShop,OpenModal} from '../Module/Module';
 let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
  export function Header(props) {
     return(
@@ -91,21 +91,6 @@ let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
             );
         }
 
-
-const OpenModal = () => {
-    const modal = document.getElementById('modal');
-    modal.classList.remove('open');
-    AnimationOpen(modal);
-}
-
-const OpenShop = () => {
-    const flashMessage = document.querySelector('.flashMessage');
-    flashMessage.classList.add('hidden');
-    const cartBox = document.querySelector('.cartbox');
-    const cart = document.querySelector('.cart');
-    const backGround = document.querySelector('.background');
-    AnimationOpen(cartBox,cart,backGround);
-}
 
 // メニュー
  export function MenuList(props) {
