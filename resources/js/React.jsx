@@ -99,7 +99,7 @@ import{Slide,Observer,GotoCart,CreateTab} from './Module/Module'
                         <input type="hidden" name='name' value={el.name}/>
                         <input type="hidden" name='explain' value={el.explain}/>
                         <input type="hidden" name='praice' value={el.praice}/>
-                        <button type='submit'>詳細</button>
+                        <button type='submit' className='ToDetail'>詳細</button>
                     </form>
                     {/* ボタン */}
                     {props.class == 'sell' ?

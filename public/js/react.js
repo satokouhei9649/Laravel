@@ -3827,6 +3827,7 @@ function Recommend(props) {
           value: el.praice
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
           type: "submit",
+          className: "ToDetail",
           children: "\u8A73\u7D30"
         })]
       }), props["class"] == 'sell' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
