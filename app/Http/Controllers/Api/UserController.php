@@ -12,6 +12,15 @@ class UserController extends Controller
         return response()->json($users, 200);
     }
     public function create(Request $request) {
+        $request->validate([
+            'userName' => 'required',
+            'userEmail' => 'required',
+            'userPassword' => 'required|min:3',
+        ],[
+            'userName.required' => '名前が入力されていません',
+            'userEmail.required' => 'メールアドレスが必須です',
+            'userPassword.min' => ':min 以上の英数字が必須です',
+        ],);
         $user = new User;
         $user->userName = $request->userName;
         $user->userEmail = $request->userEmail;
