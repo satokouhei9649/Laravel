@@ -20,7 +20,7 @@ class UserController extends Controller
             'userName.required' => '名前が入力されていません',
             'userEmail.required' => 'メールアドレスが必須です',
             'userPassword.min' => ':min 以上の英数字が必須です',
-        ],);
+        ]);
         $user = new User;
         $user->userName = $request->userName;
         $user->userEmail = $request->userEmail;
