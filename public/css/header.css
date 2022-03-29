@@ -394,6 +394,10 @@ header {
      margin: 4% auto;
      z-index: 15;
  }
+ .error {
+     color: tomato;
+     text-decoration: underline;
+ }
 form > h2 {
     border-bottom: 1px solid rgba(128, 128, 128, 0.671);
     margin-bottom: 0;

@@ -6,6 +6,7 @@ import { Close,Open } from '../Module/Module';
  export function SignUP(props) {
     //フォームの入力値ステート
     const [formData, setFormData] = useState({userName:'', userEmail:'',userPassword:''});
+    const [ErrorData, setError] = useState([]);
     // 文字入力反映
     const inputChange = (e) => {
         const key = e.target.name;
@@ -34,22 +35,26 @@ import { Close,Open } from '../Module/Module';
                 setFormData({userName:'', userEmail:'',userPassword:''});
             })
             .catch(error => {
-                console.log(error);
+                console.log(error.response.data.errors);
+                setError(error.response.data.errors);
             });
     }
     return(
     <div className="signup">
-        <a href="#" id="Back" name="signup" onClick={Close}>✖️</a>
+        <a href="/" id="Back" name="signup" onClick={Close}>✖️</a>
         <h2>新規登録</h2>
-        <form id="signup" >
+        <div id="signup" >
             <p>名前</p>
+            {ErrorData == [] ? '':<p className='error'>{ErrorData.userName}</p>}
             <input type="text" name="userName" value={formData.userName} onChange={inputChange}/>
             <p>メールアドレス</p>
+            {ErrorData == [] ? '':<p className='error'>{ErrorData.userEmail}</p>}
             <input type="text" name="userEmail" value={formData.userEmail} onChange={inputChange} />
             <p>パスワード</p>
+            {ErrorData == [] ? '':<p className='error'>{ErrorData.userPassword}</p>}
             <input type="text" name='userPassword' value={formData.userPassword} onChange={inputChange} />
             <input className="signBtn" href="/" type="submit" value="新規登録" onClick={createUser}/>
-        </form>
+        </div>
             <button className="loginBtn"name='login' onClick={Open}>ログイン画面</button>
     </div>
     );

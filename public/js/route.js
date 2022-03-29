@@ -4964,7 +4964,12 @@ function SignUP(props) {
   }),
       _useState2 = _slicedToArray(_useState, 2),
       formData = _useState2[0],
-      setFormData = _useState2[1]; // 文字入力反映
+      setFormData = _useState2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
+      _useState4 = _slicedToArray(_useState3, 2),
+      ErrorData = _useState4[0],
+      setError = _useState4[1]; // 文字入力反映
 
 
   var inputChange = function inputChange(e) {
@@ -5005,7 +5010,8 @@ function SignUP(props) {
                   userPassword: ''
                 });
               })["catch"](function (error) {
-                console.log(error);
+                console.log(error.response.data.errors);
+                setError(error.response.data.errors);
               });
 
             case 4:
@@ -5031,10 +5037,13 @@ function SignUP(props) {
       children: "\u2716\uFE0F"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
       children: "\u65B0\u898F\u767B\u9332"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("form", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       id: "signup",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
         children: "\u540D\u524D"
+      }), ErrorData == [] ? '' : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+        className: "error",
+        children: ErrorData.userName
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
         type: "text",
         name: "userName",
@@ -5042,6 +5051,9 @@ function SignUP(props) {
         onChange: inputChange
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
         children: "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9"
+      }), ErrorData == [] ? '' : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+        className: "error",
+        children: ErrorData.userEmail
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
         type: "text",
         name: "userEmail",
@@ -5049,6 +5061,9 @@ function SignUP(props) {
         onChange: inputChange
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
         children: "\u30D1\u30B9\u30EF\u30FC\u30C9"
+      }), ErrorData == [] ? '' : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+        className: "error",
+        children: ErrorData.userPassword
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
         type: "text",
         name: "userPassword",
