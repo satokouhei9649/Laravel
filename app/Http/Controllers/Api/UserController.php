@@ -18,8 +18,7 @@ class UserController extends Controller
         $user->userEmail = $request->userEmail;
         $user->userPassword = $request->userPassword;
         $user->save();
-        $result = "success!!!";
-        return response()->json($result, 200);
+        // return response()->json($resul00);
     }
     public function login(Request $request) {
         $user = User::where('userEmail','=',$request->userEmail)
