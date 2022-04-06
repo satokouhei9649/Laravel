@@ -18,7 +18,7 @@ class UserController extends Controller
         $user->userEmail = $request->userEmail;
         $user->userPassword = $request->userPassword;
         $user->save();
-        // return response()->json($resul00);
+        return response()->json('suceese!!!!',200);
     }
     public function login(Request $request) {
         $user = User::where('userEmail','=',$request->userEmail)
@@ -27,7 +27,7 @@ class UserController extends Controller
         if ($user) {
             return response()->json($user, 200);
         }else {
-            $error = "error";
+            $error = "ログインに失敗しました";
             return response()->json($error);
         }
     }
