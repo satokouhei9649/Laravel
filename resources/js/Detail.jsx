@@ -23,11 +23,11 @@ import { ShoppingCart ,Modal,BacKGround} from "./components/Header";
             </div>
             <div className="DetailContainer">
                 <p>品名</p>
-            <h1>{receivedParams.name}</h1>
-                <p className="Explain">説明文</p>
-                <p>{receivedParams.explain}</p>
-                <p className="Price">価格</p>
-                <p>{receivedParams.praice}</p>
+                <h1>{receivedParams.name}</h1>
+                <p>説明文</p>
+                <p className="Explain">{receivedParams.explain}</p>
+                <p >価格</p>
+                <p className="Price">¥ {receivedParams.praice}円</p>
                 <button className='ToCart' name={receivedParams.name} value={receivedParams.praice} onClick={props.countpush}>カートに入れる</button>
             </div>
         </section>
