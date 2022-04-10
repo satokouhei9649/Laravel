@@ -4904,6 +4904,8 @@ function BacKGround(props) {
       children: "Food Loss"
     }) : '', props["class"] == "Main" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
       children: "\u5C11\u3057\u3067\u3082    \u5EC3\u68C4\u51E6\u5206\u3059\u308B\u91CF\u3092\u6E1B\u3089\u305D\u3046"
+    }) : '', props["class"] == "Main" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+      children: "\u203B\u203B\u203B\u203B\u203B\u203B\u958B\u767A\u4E2D\u3067\u3059\uFF01\uFF01"
     }) : '', props["class"] == "flashMessage" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
       children: "\u30AB\u30FC\u30C8\u306B\u5165\u308C\u307E\u3057\u305F\uFF01\uFF01"
     }) : '']
