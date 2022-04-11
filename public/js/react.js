@@ -3727,11 +3727,18 @@ function Ad(props) {
     className: "Ad",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("ul", {
       className: "sellAd",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("a", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("li", {
         className: "screen",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("li", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+          className: "screenCotents",
           children: "\u30AF\u30FC\u30DD\u30F3"
-        })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+          className: "screenCotents",
+          children: "\u30AF\u30FC\u30DD\u30F3\uFF12"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+          className: "screenCotents",
+          children: "\u30AF\u30FC\u30DD\u30F33"
+        })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("li", {
         className: "screen",
         children: "\u9001\u6599\uFFE5"
@@ -4133,7 +4140,8 @@ function Register() {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
     name: '',
     explain: '',
-    praice: ''
+    praice: '',
+    photo: ''
   }),
       _useState2 = _slicedToArray(_useState, 2),
       Data = _useState2[0],
@@ -4148,6 +4156,21 @@ function Register() {
     var data = Object.assign({}, Data);
     setData(data);
     console.log(Data);
+  };
+
+  var upload = function upload() {
+    var params = new FormData();
+    var files = document.querySelector < HTMLInputElement > '#photo'.files;
+    console.log(files);
+    var fileObject = files[0];
+    console.log(fileObject); // エラー表示
+    // if (typeof fileObject === "undefined") {
+    //     console.error("none, fileObject");
+    //     return;
+    //   }
+
+    params.append('file1', fileObject);
+    console.log(params);
   }; // 送信
 
 
@@ -4203,6 +4226,12 @@ function Register() {
       name: "praice",
       value: Data.praice,
       onChange: inputChange
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+      className: "registerPraice",
+      type: "file",
+      name: "photo",
+      id: "\"photo",
+      onChange: upload
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
       className: "registerBtn",
       type: "submit",
@@ -4661,7 +4690,7 @@ function SearchForm(props) {
 function MenuList(props) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("ul", {
     className: "list",
-    children: [props.user.userName == 'root' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
       className: "icon",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
         id: "root",
@@ -4673,7 +4702,7 @@ function MenuList(props) {
           })
         })
       })
-    }) : '', props["class"] == 'shopping' ? '' : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {
+    }), props["class"] == 'shopping' ? '' : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {
       className: "icon",
       children: [props.count == 0 ? '' : function () {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
@@ -5323,14 +5352,6 @@ var App = /*#__PURE__*/function (_React$Component) {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Routes, {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Route, {
-            path: "/detail",
-            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_Detail_jsx__WEBPACK_IMPORTED_MODULE_7__.Detail, {
-              user: this.state,
-              countpush: this.PushCart,
-              Ref: this.flashMessageRef,
-              Logout: this.Logout
-            })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Route, {
             path: "/",
             element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_React_jsx__WEBPACK_IMPORTED_MODULE_2__["default"], {
               isLogin: this.state.isLogin,
@@ -5341,6 +5362,14 @@ var App = /*#__PURE__*/function (_React$Component) {
               count: this.state.count,
               countpush: this.PushCart,
               Ref: this.flashMessageRef
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Route, {
+            path: "/detail",
+            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_Detail_jsx__WEBPACK_IMPORTED_MODULE_7__.Detail, {
+              user: this.state,
+              countpush: this.PushCart,
+              Ref: this.flashMessageRef,
+              Logout: this.Logout
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Route, {
             path: "/register",

@@ -34,7 +34,11 @@ import{Slide,Observer,GotoCart,CreateTab} from './Module/Module'
         return(
         <section className="Ad">
             <ul className="sellAd">
-                <a className="screen"><li>クーポン</li></a>
+                <li className="screen">
+                    <div className='screenCotents'>クーポン</div>
+                    <div className='screenCotents'>クーポン２</div>
+                    <div className='screenCotents'>クーポン3</div>
+                </li>
                 <li className="screen">送料￥</li>
                 <li className="screen">オスメメ</li>
                 <li className="screen">セール</li>

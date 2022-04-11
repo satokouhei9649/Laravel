@@ -96,11 +96,11 @@ let csrf_token = document.head.querySelector('meta[name="csrf-token"]').content;
  export function MenuList(props) {
     return(
          <ul className="list">
-            {props.user.userName == 'root' ?
+            {/* {props.user.userName == 'root' ? */}
             <li className="icon">
                 <a id='root' href='/register'><span id="user"><i className="fas fa-user fa-2x"></i></span></a>
             </li>
-            : ''}
+            {/* : ''} */}
             { props.class == 'shopping' ? '' :
             <li className="icon">
                {props.count == 0 ? '' :

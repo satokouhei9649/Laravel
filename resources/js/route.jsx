@@ -123,24 +123,24 @@ import {AnimationClose} from './Module/Module';
             <div>
                 <Routes>
                     {/* <Route path='/example' element={<Example />} /> */}
-                    <Route path='/detail' element={
-                    <Detail
-                    user={this.state}
-                    countpush={this.PushCart}
-                    Ref={this.flashMessageRef}
-                    Logout={this.Logout}
-                    />} />
                     <Route path='/' element={
-                    <Index
-                    isLogin={this.state.isLogin}
-                    Logout={this.Logout}
-                    Login={this.isLogin}
-                    user={this.state}
-                    inputChange={this.inputChange}
-                    count={this.state.count}
-                    countpush={this.PushCart}
-                    Ref={this.flashMessageRef}
-                    />} />
+                        <Index
+                        isLogin={this.state.isLogin}
+                        Logout={this.Logout}
+                        Login={this.isLogin}
+                        user={this.state}
+                        inputChange={this.inputChange}
+                        count={this.state.count}
+                        countpush={this.PushCart}
+                        Ref={this.flashMessageRef}
+                        />} />
+                        <Route path='/detail' element={
+                        <Detail
+                        user={this.state}
+                        countpush={this.PushCart}
+                        Ref={this.flashMessageRef}
+                        Logout={this.Logout}
+                        />} />
                     <Route path='/register' element={
                     <Register
                     isLogin={this.state.isLogin}
