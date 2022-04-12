@@ -16,7 +16,7 @@ import axios from 'axios';
     }
     const upload = function () {
         let params = new FormData();
-        const files = document.querySelector<HTMLInputElement>('#photo').files;
+        const files = document.querySelector('#photo').files;
         console.log(files);
         const fileObject = files[0];
         console.log(fileObject);
@@ -60,7 +60,7 @@ import axios from 'axios';
                 <textarea className='registerText' name="explain" value={Data.explain} onChange={inputChange} />
                 <p>価格</p>
                 <input className='registerPraice' type="text" name='praice' value={Data.praice} onChange={inputChange} />
-                <input className='registerPraice' type="file" name='photo' id='"photo' onChange={upload}/>
+                <input className='registerPraice' type="file" name='photo' id='photo' onChange={upload}/>
                 <input className='registerBtn' type="submit" value="登録" onClick={RegisterFood}/>
                 <Link to='/'>戻る</Link>
         </section>

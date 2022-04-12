@@ -4160,7 +4160,7 @@ function Register() {
 
   var upload = function upload() {
     var params = new FormData();
-    var files = document.querySelector < HTMLInputElement > '#photo'.files;
+    var files = document.querySelector('#photo').files;
     console.log(files);
     var fileObject = files[0];
     console.log(fileObject); // エラー表示
@@ -4230,7 +4230,7 @@ function Register() {
       className: "registerPraice",
       type: "file",
       name: "photo",
-      id: "\"photo",
+      id: "photo",
       onChange: upload
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
       className: "registerBtn",
