@@ -4158,19 +4158,33 @@ function Register() {
     console.log(Data);
   };
 
-  var upload = function upload() {
-    var params = new FormData();
-    var files = document.querySelector('#photo').files;
+  var upload = function upload(e) {
+    // 画像ファイル取得
+    var files = document.querySelector('#photo');
     console.log(files);
-    var fileObject = files[0];
-    console.log(fileObject); // エラー表示
+    var fileObject = files.files[0];
+    console.log(fileObject);
+    var reader = new FileReader();
+    reader.readAsDataURL(fileObject);
+
+    reader.onload = function (event) {
+      // base64に変換
+      var base64Text = event.currentTarget.result;
+      var base64 = event.currentTarget.result.split(',')[1];
+      console.log(base64Text);
+      console.log(base64);
+      document.querySelector('#uploadImageArea').innerHTML = "<img src=\"".concat(base64Text, "\" width=\"100%\" />");
+    }; // エラー表示
     // if (typeof fileObject === "undefined") {
     //     console.error("none, fileObject");
     //     return;
     //   }
+    //     const key = e.target.name;
+    //    Data[key] = fileObject;
+    //    let data = Object.assign({}, Data);
+    //    setData(data);
+    //    console.log(Data);
 
-    params.append('file1', fileObject);
-    console.log(params);
   }; // 送信
 
 
@@ -4184,7 +4198,8 @@ function Register() {
     axios__WEBPACK_IMPORTED_MODULE_1___default().post('/api/food/register', {
       name: Data.name,
       explain: Data.explain,
-      praice: Data.praice
+      praice: Data.praice,
+      photo: Data.photo
     }).then(function (res) {
       console.log(res.data);
       console.log("good!");
@@ -4196,7 +4211,7 @@ function Register() {
     })["catch"](function (error) {
       console.log(error);
     });
-    console.log('eror');
+    console.log('error');
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("section", {
@@ -4237,6 +4252,8 @@ function Register() {
       type: "submit",
       value: "\u767B\u9332",
       onClick: RegisterFood
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      id: "uploadImageArea"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
       to: "/",
       children: "\u623B\u308B"

@@ -14,19 +14,32 @@ import axios from 'axios';
         setData(data);
         console.log(Data);
     }
-    const upload = function () {
-        let params = new FormData();
-        const files = document.querySelector('#photo').files;
+    const upload = function (e) {
+        // 画像ファイル取得
+        const files = document.querySelector('#photo');
         console.log(files);
-        const fileObject = files[0];
+        const fileObject = files.files[0];
         console.log(fileObject);
+        const reader = new FileReader();
+        reader.readAsDataURL(fileObject);
+        reader.onload = (event) => {
+            // base64に変換
+            const base64Text = event.currentTarget.result
+            const base64 = event.currentTarget.result.split(',')[1]
+            console.log(base64Text);
+            console.log(base64);
+            document.querySelector('#uploadImageArea').innerHTML = `<img src="${base64Text}" width="100%" />`
+        }
         // エラー表示
         // if (typeof fileObject === "undefined") {
         //     console.error("none, fileObject");
         //     return;
         //   }
-        params.append('file1', fileObject);
-        console.log(params);
+    //     const key = e.target.name;
+    //    Data[key] = fileObject;
+    //    let data = Object.assign({}, Data);
+    //    setData(data);
+    //    console.log(Data);
     }
     // 送信
     const RegisterFood = () => {
@@ -39,7 +52,8 @@ import axios from 'axios';
             .post('/api/food/register', {
                 name: Data.name,
                 explain: Data.explain,
-                praice: Data.praice
+                praice: Data.praice,
+                photo: Data.photo
             })
             .then((res) => {
                 console.log(res.data);
@@ -49,7 +63,7 @@ import axios from 'axios';
             .catch(error => {
                 console.log(error);
             });
-            console.log('eror');
+            console.log('error');
     }
     return(
         <section id="register">
@@ -62,6 +76,7 @@ import axios from 'axios';
                 <input className='registerPraice' type="text" name='praice' value={Data.praice} onChange={inputChange} />
                 <input className='registerPraice' type="file" name='photo' id='photo' onChange={upload}/>
                 <input className='registerBtn' type="submit" value="登録" onClick={RegisterFood}/>
+                <div id="uploadImageArea"></div>
                 <Link to='/'>戻る</Link>
         </section>
     );

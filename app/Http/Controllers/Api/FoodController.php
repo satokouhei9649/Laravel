@@ -22,11 +22,12 @@ class FoodController extends Controller
      return response()->json($results, 200);
  }
  public function register(Request $request) {
-    $food = new Food;
-    $food->name = $request->name;
-    $food->explain = $request->explain;
-    $food->praice = $request->praice;
-    $food->save();
-    return response()->json($food, 200);
+    dd($request);
+    // $food = new Food;
+    // $food->name = $request->name;
+    // $food->explain = $request->explain;
+    // $food->praice = $request->praice;
+    // $food->save();
+    return response()->json($request->photo, 200);
  }
 }
