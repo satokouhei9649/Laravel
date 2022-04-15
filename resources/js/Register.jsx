@@ -24,22 +24,21 @@ import axios from 'axios';
         reader.readAsDataURL(fileObject);
         reader.onload = (event) => {
             // base64に変換
-            const base64Text = event.currentTarget.result
-            const base64 = event.currentTarget.result.split(',')[1]
-            console.log(base64Text);
-            console.log(base64);
-            document.querySelector('#uploadImageArea').innerHTML = `<img src="${base64Text}" width="100%" />`
+            const base64Text = event.currentTarget.result;
+            const base64 = event.currentTarget.result.split(',')[1];
+            document.querySelector('#uploadImageArea').innerHTML = `<img src="${base64Text}" width="100%" />`;
+            const key = e.target.name;
+            Data[key] = base64;
+            let data = Object.assign({}, Data);
+            setData(data);
+            console.log(Data);
         }
         // エラー表示
         // if (typeof fileObject === "undefined") {
         //     console.error("none, fileObject");
         //     return;
         //   }
-    //     const key = e.target.name;
-    //    Data[key] = fileObject;
-    //    let data = Object.assign({}, Data);
-    //    setData(data);
-    //    console.log(Data);
+
     }
     // 送信
     const RegisterFood = () => {

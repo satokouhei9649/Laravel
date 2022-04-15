@@ -4171,19 +4171,17 @@ function Register() {
       // base64に変換
       var base64Text = event.currentTarget.result;
       var base64 = event.currentTarget.result.split(',')[1];
-      console.log(base64Text);
-      console.log(base64);
       document.querySelector('#uploadImageArea').innerHTML = "<img src=\"".concat(base64Text, "\" width=\"100%\" />");
+      var key = e.target.name;
+      Data[key] = base64;
+      var data = Object.assign({}, Data);
+      setData(data);
+      console.log(Data);
     }; // エラー表示
     // if (typeof fileObject === "undefined") {
     //     console.error("none, fileObject");
     //     return;
     //   }
-    //     const key = e.target.name;
-    //    Data[key] = fileObject;
-    //    let data = Object.assign({}, Data);
-    //    setData(data);
-    //    console.log(Data);
 
   }; // 送信
 
