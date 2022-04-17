@@ -11,7 +11,7 @@ import { ShoppingCart ,Modal,BacKGround} from "./components/Header";
     console.log(receivedParams);
     console.log(props.user);
     return (
-        <section>
+        <section id="detail-section">
             <ShoppignHeader isLogin={props.isLogin} user={props.user} countpush={props.countpush} class="Detail"/>
             <ShoppingCart />
             <BacKGround class="background"/>

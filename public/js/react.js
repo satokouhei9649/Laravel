@@ -2961,6 +2961,7 @@ function Detail(props) {
   console.log(receivedParams);
   console.log(props.user);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("section", {
+    id: "detail-section",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Shopping__WEBPACK_IMPORTED_MODULE_0__.ShoppignHeader, {
       isLogin: props.isLogin,
       user: props.user,
