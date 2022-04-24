@@ -19,6 +19,7 @@ import { ShoppingCart ,Modal,BacKGround} from "./components/Header";
             <BacKGround class="flashMessage" Ref ={props.Ref}/>
             <Modal isLogin={props.user.isLogin} Logout={props.Logout}/>
             <div>
+                <p className="HistoryLink">メインページ &gt;&gt; 詳細画面</p>
                 <p className="LinkTop"><a href="/">&gt;&gt;Topへ</a></p>
             </div>
             <div className="DetailContainer">

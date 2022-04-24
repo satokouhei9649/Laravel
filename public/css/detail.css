@@ -5,7 +5,11 @@
     background-color: white;
     margin: 30px auto;
     padding: 20px;
-    border-radius: 10px;
+    border-radius:10px;
+}
+.HistoryLink {
+    text-align: left;
+    margin-left: 10px;
 }
 .LinkTop {
     text-align: left;
