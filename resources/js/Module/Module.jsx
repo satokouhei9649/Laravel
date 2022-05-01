@@ -1,4 +1,6 @@
-
+class Module {
+    
+}
 export const OpenModal = () => {
     const modal = document.getElementById('modal');
     modal.classList.remove('open');
